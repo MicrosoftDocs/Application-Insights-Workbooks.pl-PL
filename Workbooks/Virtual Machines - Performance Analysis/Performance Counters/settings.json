@@ -1,0 +1,6 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "name": "<span data-ttu-id=\"ee6ae-101\">Liczniki wydajności</span><span class=\"sxs-lookup\"><span data-stu-id=\"ee6ae-101\">Performance Counters</span></span>",
+    "author": "Microsoft",
+    "galleries": []
+}
