@@ -1,0 +1,12 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "name": "<span data-ttu-id=\"b0c3d-101\">Limity zasobów bazy danych SQL</span><span class=\"sxs-lookup\"><span data-stu-id=\"b0c3d-101\">SQL Database Resource Limits</span></span>",
+    "author": "Microsoft",
+    "galleries": [
+        {
+            "type": "failure-sqlserverdatabases",
+            "resourceType": "microsoft.resources/subscriptions/resourcegroups",
+            "order": 200
+        }
+    ]
+}

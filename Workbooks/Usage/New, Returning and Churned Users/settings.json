@@ -1,0 +1,17 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "name": "<span data-ttu-id=\"cb6a7-101\">Nowi i powracający użytkownicy oraz użytkownicy, którzy zrezygnowali</span><span class=\"sxs-lookup\"><span data-stu-id=\"cb6a7-101\">New, Returning and Churned Users</span></span>",
+    "author": "Microsoft",
+    "galleries": [
+        {
+            "type": "workbook",
+            "resourceType": "microsoft.insights/components",
+            "order": 500
+        },
+        {
+            "type": "usage",
+            "resourceType": "microsoft.insights/components",
+            "order": 500
+        }
+    ]
+}

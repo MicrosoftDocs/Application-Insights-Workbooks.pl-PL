@@ -1,0 +1,12 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "name": "<span data-ttu-id=\"b9909-101\">Błędy protokołu HTTP</span><span class=\"sxs-lookup\"><span data-stu-id=\"b9909-101\">Http Errors</span></span>",
+    "author": "Microsoft",
+    "galleries": [
+        {
+            "type": "failure-websites",
+            "resourceType": "microsoft.resources/subscriptions/resourcegroups",
+            "order": 200
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "name": "<span data-ttu-id=\"1b018-101\">Metryki błędów</span><span class=\"sxs-lookup\"><span data-stu-id=\"1b018-101\">Failure Metrics</span></span>",
+    "author": "Microsoft",
+    "galleries": [
+        {
+            "type": "failure-websites",
+            "resourceType": "microsoft.resources/subscriptions/resourcegroups",
+            "order": 200
+        }
+    ]
+}

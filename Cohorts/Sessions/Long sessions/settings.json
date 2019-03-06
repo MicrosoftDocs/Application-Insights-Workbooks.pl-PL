@@ -1,0 +1,9 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "name": "<span data-ttu-id=\"a7118-101\">Długie sesje</span><span class=\"sxs-lookup\"><span data-stu-id=\"a7118-101\">Long sessions</span></span>",
+    "description": "<span data-ttu-id=\"a7118-102\">miejsce na opis</span><span class=\"sxs-lookup\"><span data-stu-id=\"a7118-102\">description goes here</span></span>",
+    "icon": "",
+    "tags": [],
+    "author": "Microsoft",
+    "order": 100
+}

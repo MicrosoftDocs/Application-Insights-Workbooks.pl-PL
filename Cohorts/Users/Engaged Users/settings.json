@@ -1,0 +1,9 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "name": "<span data-ttu-id=\"93782-101\">Zaangażowani użytkownicy — według liczby dni użytkowania</span><span class=\"sxs-lookup\"><span data-stu-id=\"93782-101\">Engaged Users -- by Days Used</span></span>",
+    "description": "<span data-ttu-id=\"93782-102\">miejsce na opis</span><span class=\"sxs-lookup\"><span data-stu-id=\"93782-102\">description goes here</span></span>",
+    "icon": "",
+    "tags": [],
+    "author": "Microsoft",
+    "order": 100
+}

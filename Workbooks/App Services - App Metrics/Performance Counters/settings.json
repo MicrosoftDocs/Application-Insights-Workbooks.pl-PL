@@ -1,0 +1,17 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "name": "<span data-ttu-id=\"aad05-101\">Metryki zasobu</span><span class=\"sxs-lookup\"><span data-stu-id=\"aad05-101\">Resource Metrics</span></span>",
+    "author": "Microsoft",
+    "galleries": [
+        {
+            "type": "performance-websites",
+            "resourceType": "microsoft.resources/subscriptions/resourcegroups",
+            "order": 300
+        },
+        {
+            "type": "failure-websites",
+            "resourceType": "microsoft.resources/subscriptions/resourcegroups",
+            "order": 300
+        }
+    ]
+}
