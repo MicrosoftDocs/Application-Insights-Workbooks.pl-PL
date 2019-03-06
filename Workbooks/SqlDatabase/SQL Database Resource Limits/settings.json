@@ -1,0 +1,12 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "name": "Limity zasobów bazy danych SQL",
+    "author": "Microsoft",
+    "galleries": [
+        {
+            "type": "failure-sqlserverdatabases",
+            "resourceType": "microsoft.resources/subscriptions/resourcegroups",
+            "order": 200
+        }
+    ]
+}

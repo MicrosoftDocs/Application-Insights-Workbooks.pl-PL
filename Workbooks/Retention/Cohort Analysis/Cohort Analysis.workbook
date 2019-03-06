@@ -1,0 +1,245 @@
+{
+    "version": "Notebook/1.0",
+    "isLocked": true,
+    "items": [
+        {
+            "type": 1,
+            "content": {
+                "json": "# <a name=\"cohort-analysis\"></a>Analiza kohortowa\n\nAnaliza kohortowa mierzy liczbę użytkowników, którzy powracają, aby wykonać jedno z działań `RetainingActivities` w danym przedziale czasu po wykonaniu jednego z działań `CohortingActivities` w Twojej aplikacji — z podziałem według wybranego wymiaru. Na przykład możesz mierzyć liczbę użytkowników, którzy wrócili do używania Twojej aplikacji w 10 dniu od dnia, w którym po raz pierwszy ją pobrali. Trend utrzymania dla dni 1–10 będzie dla Ciebie wskazaniem atrakcyjności aplikacji. \n\nAnaliza kohortową jest podobna do analizy utrzymania dla N dnia lub dla przedziału i różni się tylko sposobem definiowania kohorty. \n\nTego typu analiza dobrze nadaje się dla gier i innych rodzajów aplikacji, w przypadku których próbujesz zachęcić użytkowników do wykształcenia codziennego nawyku. Analiza kohortowa pozwala zobaczyć różnice w utrzymania użytkowników w różnych standardowych wymiarach, takich jak kraj, wersja aplikacji itp., lub wymiarach niestandardowych, takich jak \"Klient Premium\" lub „Nazwa lotu w grupie eksperymentu”."
+            },
+            "conditionalVisibility": null
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "### <a name=\"activity-selection\"></a>Wybór działania\nPrzy użyciu tych pól możesz ustawić działania odpowiadające interesującym działaniom użytkowników. W sekcji `Understanding Cohort Analysis Parameters` na dole opisano szczegółowo te parametry."
+            },
+            "conditionalVisibility": null
+        },
+        {
+            "type": 9,
+            "content": {
+                "version": "KqlParameterItem/1.0",
+                "query": "",
+                "crossComponentResources": [],
+                "parameters": [
+                    {
+                        "id": "97ae2ae5-ec95-455b-bac2-36caf2db61db",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "CohortingActivities",
+                        "type": 2,
+                        "isRequired": true,
+                        "multiSelect": true,
+                        "quote": "'",
+                        "delimiter": ",",
+                        "query": "let events = union customEvents, pageViews\n| where timestamp >= ago(7d)\n| summarize Count = count() by name;\nlet top3 = events\n| top 3 by Count desc\n| summarize makelist(name);\nevents\n| order by Count desc\n| project Id=name, Title=name, Selected=iff(name in (top3), true, false)\n| union (\ndatatable(Id:string, Title:string, Selected:boolean)[\n'*', 'All Events and Page Views', false\n]\n)"
+                    },
+                    {
+                        "name": "CohortingFilters",
+                        "id": "94bacf68-78db-4755-8a40-c2702dea4018",
+                        "type": 1,
+                        "value": ""
+                    },
+                    {
+                        "id": "6cb4afed-7dac-4608-892b-154f4943ddb6",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "RetainingActivities",
+                        "type": 2,
+                        "isRequired": true,
+                        "multiSelect": true,
+                        "quote": "'",
+                        "delimiter": ",",
+                        "query": "union customEvents, pageViews\n| where timestamp >= ago(7d)\n| summarize count() by name\n| order by count_ desc\n| project Id=name, Title=name, Selected=false\n| union (\ndatatable(Id:string, Title:string, Selected:boolean)[\n'#', 'Same as cohorting activities', true,\n'*', 'All Events and Page Views', false\n]\n)"
+                    },
+                    {
+                        "id": "0cc5211a-557e-4648-9569-1236bf16559f",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "RetainingFilters",
+                        "type": 1,
+                        "isRequired": false,
+                        "query": "datatable(x:int)[ 1 ]\r\n| extend retainingFilter = iff('#' in ({RetainingActivities}), '{CohortingFilters}', '')\r\n| project retainingFilter",
+                        "isHiddenWhenLocked": false
+                    }
+                ],
+                "style": "pills",
+                "resourceType": "microsoft.insights/components"
+            },
+            "conditionalVisibility": null
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "## <a name=\"cohort-analysis-parameters\"></a>Parametry analizy kohortowej\nPrzy użyciu tych pól możesz dostosować ustawienia utrzymania."
+            },
+            "conditionalVisibility": null
+        },
+        {
+            "type": 9,
+            "content": {
+                "version": "KqlParameterItem/1.0",
+                "query": "",
+                "crossComponentResources": [],
+                "parameters": [
+                    {
+                        "id": "1c53914e-0c06-4944-b2b8-fd4abaeb2f9f",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "CohortType",
+                        "type": 2,
+                        "description": null,
+                        "isRequired": true,
+                        "multiSelect": null,
+                        "query": "datatable(value:string, text:string)[\n'itemType', '❌ None',\n'name', '📛 Activity',\n'cloud_RoleInstance', '🖥️ Machine',\n'client_CountryOrRegion', '📍 Country or Region',\n'client_StateOrProvince', '📍 State or Province',\n'client_City', '📍 City',\n'client_Browser', '🌐 Client Browser',\n'client_OS', '️️🖥️ Client Operating System',\n'client_Model', '📱 Client Model',\n'application_Version', '⚪ Application Version',\n'operation_Name', '⚪ Operation',\n]\n| union (union pageViews, customEvents\n| where timestamp >= ago(1d)\n| where name in ({CohortingActivities}) or '*' in ({CohortingActivities})\n| project customDimensions \n| summarize schema = buildschema(customDimensions) \n| mvexpand schema\n| extend e = extract(@'{\"(.+)\":.+}', 1, tostring(schema))\n| project text = strcat('❄️ ', e), value = strcat('customDimensions[\"', e, '\"]'))",
+                        "value": "name"
+                    },
+                    {
+                        "id": "e62098ae-ac3f-4800-8e62-3e7d9a052e56",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "RetentionPeriod",
+                        "type": 2,
+                        "description": "1d: Codziennie, 7d: Co tydzień 30/28d: Co miesiąc",
+                        "isRequired": true,
+                        "multiSelect": null,
+                        "query": "datatable(id:string, text:string)[\n'1d', 'Daily',\n'7d', 'Weekly',\n'28d', 'Monthly (28 days)', \n'30d', 'Monthly (30 days)'\n]",
+                        "value": "7d"
+                    },
+                    {
+                        "id": "fa4b29d9-bfc1-46e3-98f1-3cba05afbea3",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "PeriodsToAnalyze",
+                        "type": 1,
+                        "description": "Liczba okresów kohorty do analizy",
+                        "isRequired": true,
+                        "value": "4"
+                    },
+                    {
+                        "id": "7912aca9-1688-4886-aec1-838c68131e25",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "BasedOn",
+                        "type": 2,
+                        "description": null,
+                        "isRequired": true,
+                        "multiSelect": null,
+                        "query": "datatable(v:string, t:string)[\r\n'user_Id', 'Anonymous Users',\r\n'user_AuthenticatedId', 'Authenticated Users'\r\n]",
+                        "isHiddenWhenLocked": false,
+                        "value": "user_Id"
+                    },
+                    {
+                        "id": "f6511ffa-e2ea-4a34-ad2e-454856288bd5",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "Show",
+                        "type": 2,
+                        "isRequired": true,
+                        "isHiddenWhenLocked": false,
+                        "typeSettings": {
+                            "additionalResourceOptions": []
+                        },
+                        "jsonData": "[\r\n    { \"value\": \"RetentionRate\", \"label\": \"Retention Rate\", \"selected\": true},\r\n    { \"value\": \"RetainedCount\", \"label\": \"Retained Users\", \"selected\": false},\r\n    { \"value\": \"UserCount\", \"label\": \"Potentially Retainable Users\", \"selected\": false}\r\n]",
+                        "timeContextFromParameter": null
+                    }
+                ],
+                "style": "pills",
+                "resourceType": "microsoft.insights/components"
+            },
+            "conditionalVisibility": null
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "## <a name=\"cohort-analysis-table\"></a>Tabela analizy kohortowej"
+            },
+            "conditionalVisibility": null
+        },
+        {
+            "type": 3,
+            "content": {
+                "version": "KqlItem/1.0",
+                "query": "let periodsToAnalyze = {PeriodsToAnalyze};\nlet cohortSize = {RetentionPeriod};\nlet retainingActivities = iff(({RetainingActivities}) in ('#'), dynamic([{CohortingActivities}]), dynamic([{RetainingActivities}]));\nlet cohortUnit = case(cohortSize == 30d or cohortSize == 28d, \"month\", cohortSize == 7d, \"week\", \"day\");\nlet timeRange = startofday(now()) - case(cohortSize == 30d or cohortSize == 28d, startofmonth(now() - periodsToAnalyze * cohortSize), cohortSize == 7d, startofweek(now() - periodsToAnalyze * cohortSize), startofday(now() - periodsToAnalyze * cohortSize));\nlet data = union customEvents, pageViews\n| where user_Id != \"undefined\"\n| where timestamp > startofday(now() - timeRange);\nlet cohorts = data\n| where name in ({CohortingActivities}) or '*' in ({CohortingActivities})\n| extend Cohort = iff('{CohortType}' == 'itemType', 'Overall', iff({CohortType} == '', 'Unknown', {CohortType})) // reusing itemType to indicate no segmentation\n| summarize EarliestInCohort = min(startofday(timestamp)) by user_Id, Cohort\n| summarize NewUsers = hll(user_Id) by EarliestInCohort, Cohort;\nlet usage = data\n| where name in (retainingActivities) or '*' in (retainingActivities)\n| extend Cohort = iff('{CohortType}' == 'itemType', 'Overall', iff({CohortType} == '', 'Unknown', {CohortType})) // reusing itemType to indicate no segmentation\n| summarize UsersInCohort = hll(user_Id) by Day = startofday(timestamp), Cohort;\ncohorts\n| extend RetentionEvaluationDay = range(EarliestInCohort + 1d, now(), 1d)\n| mvexpand RetentionEvaluationDay to typeof(datetime) limit 1000\n| extend RetentionWeek = bin((RetentionEvaluationDay - EarliestInCohort) / cohortSize, 1)\n| join kind=inner\n(\n    usage\n)\non $left.RetentionEvaluationDay == $right.Day, Cohort\n| project EarliestInCohort, Cohort, RetentionWeek, EvaluationDayUsers = UsersInCohort, NewUsers\n| summarize Users = hll_merge(EvaluationDayUsers), NewUsers = hll_merge(NewUsers) by EarliestInCohort, Cohort, RetentionWeek\n| evaluate dcount_intersect(NewUsers, Users)\n| project EarliestInCohort, Cohort, RetentionWeek, CohortUserCount = s0, CohortRetainedCount = s1\n| summarize UserCount = sum(CohortUserCount), RetainedCount = sum(CohortRetainedCount) by Cohort, RetentionWeek\n| extend RetentionRate = round(100.0 * RetainedCount / UserCount, 2)\n| order by RetentionWeek asc, UserCount desc\n| project Cohort, RetentionWeek, Metric = {Show}\n| extend RetentionWeek = case(RetentionWeek == 0, strcat(\"<1 \", cohortUnit), strcat(\"+\", toint(RetentionWeek), \" \", cohortUnit))\n| serialize\n| evaluate pivot(RetentionWeek, sum(Metric))\n\n\n\n\n",
+                "showQuery": false,
+                "size": 0,
+                "aggregation": 0,
+                "showAnnotations": false,
+                "showAnalytics": false,
+                "timeContextFromParameter": null,
+                "resourceType": "microsoft.insights/components",
+                "gridSettings": {
+                    "formatters": [
+                        {
+                            "columnMatch": "week|month|day",
+                            "formatter": 8,
+                            "formatOptions": {
+                                "min": 0,
+                                "max": null,
+                                "palette": "green"
+                            }
+                        }
+                    ]
+                }
+            },
+            "conditionalVisibility": null
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "## <a name=\"interpreting-the-table\"></a>Interpretowanie tabeli\nW tej sekcji pokazano, jak odczytywać i interpretować tabelę utrzymania. Poniższa sekcja przedstawia wiersz z tygodniowego raportu utrzymania, który spróbujemy odczytać:\n"
+            },
+            "conditionalVisibility": null
+        },
+        {
+            "type": 3,
+            "content": {
+                "version": "KqlItem/1.0",
+                "query": "datatable(Cohort:string, Users:int, ['<1 week']:int, ['+1 week']:int, ['+2 week']:int, ['+3 week']:int, ['+4 week']:int)[ \r\n'Add to Cart', 1000, 50, 30, 20, 15, 10\r\n]\r\n",
+                "showQuery": false,
+                "size": 0,
+                "aggregation": 0,
+                "showAnnotations": false,
+                "showAnalytics": false,
+                "timeContextFromParameter": null,
+                "resourceType": "microsoft.insights/components",
+                "gridSettings": {
+                    "formatters": [
+                        {
+                            "columnMatch": "week",
+                            "formatter": 8,
+                            "formatOptions": {
+                                "min": 0,
+                                "max": null,
+                                "palette": "green"
+                            }
+                        }
+                    ]
+                }
+            },
+            "conditionalVisibility": null
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "| Kolumna | Wyjaśnienie | Interpretacja w przykładzie |\n| ----- | :----- | :----- |\n| Kohorta | Identyfikuje kryteria wyznaczania kohorty określone przez parametr CohortType. | Ten wiersz wyjaśnia zachowanie związane z utrzymaniem użytkowników, którzy użyli zdarzenia „Dodaj do koszyka” (Add to Cart). |\n| Łączna liczba użytkowników | Liczba unikatowych użytkowników, którzy użyli funkcji dodawania do koszyka  | 1000 unikatowych użytkowników dodało element do koszyka w Twojej aplikacji |\n| < 1 tydzień | Odsetek użytkowników w kohorcie, którzy powrócili w okresie od 1 do 6 dni po użyciu funkcji „Dodaj do koszyka” (używanie jej ponownie w tym samym dniu nie liczy się jako utrzymanie)  | 50% lub 500 użytkowników wróciło do używania aplikacji w pierwszym tygodniu po tym, jak dodali element do swojego koszyka |\n| + 1 tydzień | Odsetek użytkowników w kohorcie, którzy wrócili do używania aplikacji w okresie od 7 do 13 dnia po użyciu funkcji „Dodaj do koszyka”  | 30% lub 300 użytkowników wróciło do używania aplikacji tydzień później |\n| + N tydzień | Odsetek użytkowników kohorty, którzy wrócili w N-tym tygodniu po użyciu funkcji „Dodaj do koszyka”  | 15% lub 150 użytkowników, gdy N = 3  |\n\n\n\n\n"
+            },
+            "conditionalVisibility": null
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "## <a name=\"understanding-cohort-analysis-parameters\"></a>Interpretacja parametrów analizy kohortowej\n| Parametr | Używana do |\n| ----- | ----- |\n| Typ kohorty | Wymiar, według którego mają być dzielone liczby utrzymania |\n| Okres utrzymania | Okres do użycia w obliczeniach utrzymania. Może to być Codziennie, Co tydzień lub Co miesiąc |\n| Okresy do analizy  | Liczba okresów utrzymania do analizy.  |\n| Działania wyznaczające kohortę  | Działania, które wybierają kohortę użytkowników. Przykład: Użytkownicy, którzy użyli zdarzenia *Czytanie recenzji produktu* (działanie wyznaczające kohortę). |\n| Działania utrzymujące  | Działania, które wskazują na utrzymanie użytkownika włączonego do kohorty wybranego powyżej. Przykład: Użytkownicy, którzy użyli zdarzenia *Czytanie recenzji produktu* (działanie wyznaczające kohortę) i powrócili, aby użyć funkcji *Zakup produktu* (działanie utrzymujące). |\n| Filtry wyznaczania kohorty/utrzymania  | Fragment zapytania analizy służący do dalszego filtrowania działania wyznaczającego kohortę. Przykład: *&#124; where application_Version = '1.0'* |\n| Show  | Metryka do wizualizacji w tabeli. *Wskaźnik utrzymania* pokazuje wskaźnik powrotu użytkowników dla okresu w kolumnie. *Utrzymani użytkownicy* to surowa liczba utrzymanych użytkowników dla danego okresu. *Użytkownicy potencjalnie możliwi do utrzymania* to liczba użytkowników, którzy potencjalnie mogli być utrzymani dla tego okresu. |\n"
+            },
+            "conditionalVisibility": null
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "## <a name=\"what-is-a-week-for-a-user\"></a>Czym jest tydzień dla użytkownika?\nNajkrócej mówiąc, jest on unikatowy dla każdego użytkownika. Nasza analiza traktuje oddzielnie okno utrzymania każdego użytkownika, zapewniając dokładny widok jego rzeczywistego zachowania w aplikacji. \n\nRozważmy poniższy przykład dwóch użytkowników, X i Y: \n\n| Użytkownik | Pierwsze użycie aplikacji | Tygodnie dla użytkownika |\n| ----- | :----- | :----- |\n| X | 3 kwietnia | t1 = 10 kwietnia, t2 = 17 kwietnia, t3 = 24 kwietnia  |\n| Tak | 5 kwietnia | t1 = 12 kwietnia, t2 = 19 kwietnia, t3 = 26 kwietnia  |\n\nKażdy użytkownik otrzymuje oddzielne okno utrzymania. A więc jeśli obaj użytkownicy powrócili 18 kwietnia, jest to uznawane za użycie w tygodniu 2 dla użytkownika X, a za użycie w tygodniu 1 dla użytkownika Y. \n\nUmożliwia to normalizację ich użycia aplikacji w oknie utrzymania, dzięki czemu wygląda, jakby wszyscy użytkownicy w kohorcie używali aplikacji tego samego dnia. To pozwala na lepszą analizę i porównanie zachowania użytkowników."
+            },
+            "conditionalVisibility": null
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "## <a name=\"related-workbook-templates\"></a>Powiązane szablony skoroszytów\n* Utrzymanie — okres N\n* Utrzymanie — bez ograniczeń\n* Utrzymanie — przedział"
+            },
+            "conditionalVisibility": null
+        }
+    ],
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"
+}

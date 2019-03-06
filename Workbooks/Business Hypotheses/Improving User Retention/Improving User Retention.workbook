@@ -1,0 +1,235 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+    "version": "Notebook/1.0",
+    "items": [
+        {
+            "type": 1,
+            "content": {
+                "json": "# <a name=\"hypothesis---proposed-change-will-improve-user-retention-by-expected-improvement\"></a>Hipoteza — _[proponowana zmiana]_ poprawi poziom utrzymania użytkowników o _[oczekiwana poprawa]_\n---\nDobra hipoteza to centralna część w procesie podejmowania decyzji opartym na danych. Hipoteza ułatwia przekształcenie danych dotyczących użycia aplikacji przez klientów w propozycje z akcjami mające na celu uzyskanie poprawy. Użyj tego skoroszytu, aby sformułować hipotezę dotyczącą poprawy współczynników utrzymania użytkowników."
+            }
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "## <a name=\"problem---problem-statement\"></a>Problem — _[definicja problemu]_\nDodaj podsumowanie problemu w tej sekcji. Podsumowanie powinno być zwięzłe i nie dłuższe niż kilka zdań. Jasno przedstaw problem, unikając nieistotnych szczegółów. \n\n\n"
+            }
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "### <a name=\"whats-the-retention-problem\"></a>Co to jest problem utrzymania?\nZmodyfikuj parametry poniżej, aby wyświetlić współczynnik utrzymania dla analizowanych działań. Celem powinno być wyróżnienie problemu utrzymania w aplikacji."
+            }
+        },
+        {
+            "type": 9,
+            "content": {
+                "version": "KqlParameterItem/1.0",
+                "query": "",
+                "crossComponentResources": [],
+                "parameters": [
+                    {
+                        "id": "e552c6ce-183d-4b5d-8405-d60313b3eb8e",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "Activities",
+                        "type": 2,
+                        "description": "",
+                        "isRequired": true,
+                        "multiSelect": true,
+                        "quote": "'",
+                        "delimiter": ",",
+                        "query": "union customEvents, pageViews\r\n| where timestamp >= ago(7d)\r\n| summarize count() by name\r\n| order by count_ desc\r\n| project Id=name, Title=name, Selected=false\r\n| union (\r\ndatatable(Id:string, Title:string, Selected:boolean)[\r\n'*', 'All Events and Page Views', true\r\n]\r\n)"
+                    },
+                    {
+                        "id": "68b8c1f5-9f24-401a-bea4-9739a7438069",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "RetentionPeriod",
+                        "type": 2,
+                        "description": null,
+                        "isRequired": true,
+                        "multiSelect": null,
+                        "query": "datatable(key:string, display:string) \r\n[ \r\n\"1d\", \"Day over Day\", \r\n\"7d\", \"Week over Week\", \r\n\"28d\", \"Month over Month (28 days)\", \r\n\"30d\", \"Month over Month (30 days)\"\r\n] ",
+                        "value": "28d"
+                    },
+                    {
+                        "id": "7813b809-0b92-4531-ad05-90add0674de0",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "TimeRange",
+                        "type": 2,
+                        "description": null,
+                        "isRequired": true,
+                        "multiSelect": null,
+                        "query": "datatable(key:string, display:string) \r\n[ \r\n\"7d\", \"Last 7 days\", \r\n\"14d\", \"Last 14 days\", \r\n\"30d\", \"Last 30 days\", \r\n] ",
+                        "value": "30d"
+                    }
+                ]
+            }
+        },
+        {
+            "type": 3,
+            "content": {
+                "version": "KqlItem/1.0",
+                "query": "let timeRange = {TimeRange};\r\nlet monthDefinition = {RetentionPeriod};\r\nlet hlls = union customEvents, pageViews\r\n| where timestamp >= startofmonth(now() - timeRange - 2 * monthDefinition)\r\n| where name in ({Activities}) or '*' in ({Activities})\r\n| summarize Hlls = hll(user_Id) by bin(timestamp, 1d)\r\n| project DaysToMerge = timestamp, Hlls;\r\nlet churnSeriesWithHllsToInclude = materialize(range d from 0d to (timeRange) step 1d\r\n| extend Day = startofday(now() - d)\r\n| extend R = range(0d, monthDefinition - 1d, 1d)\r\n| mvexpand R\r\n| extend ThisMonth = Day - totimespan(R)\r\n| extend LastMonth = Day - monthDefinition - totimespan(R)\r\n| project Day, ThisMonth, LastMonth);\r\nchurnSeriesWithHllsToInclude\r\n| extend DaysToMerge = ThisMonth\r\n| join kind= inner (hlls) on DaysToMerge \r\n| project Day, ThisMonthHlls = Hlls\r\n| union (\r\nchurnSeriesWithHllsToInclude\r\n| extend DaysToMerge = LastMonth\r\n| join kind= inner (hlls) on DaysToMerge\r\n| project Day, LastMonthHlls = Hlls)\r\n| summarize ThisMonth = hll_merge(ThisMonthHlls), LastMonth = hll_merge(LastMonthHlls) by Day\r\n| evaluate dcount_intersect(ThisMonth, LastMonth)\r\n| where Day >= startofday(now() - timeRange)\r\n| extend ChurnedUsers = (dcount_hll(LastMonth) - s1) // Last Months Users - Returning Users\r\n| project Day, [\"Retention Rate\"] = iff((s1 + ChurnedUsers) == 0, 0.0, 100.0 * s1 / (s1 + ChurnedUsers))\r\n",
+                "showQuery": false,
+                "size": 0,
+                "aggregation": 5,
+                "showAnnotations": false,
+                "visualization": "timechart"
+            }
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "### <a name=\"as-a-benchmark-whats-the-retention-rate-of-a-similar-feature\"></a>Jaki jest współczynnik utrzymania dla podobnej funkcji (punkt odniesienia)?\nUżyj tej sekcji, aby porównać poziom utrzymania dla Twoich i podobnych działań. Ułatwi to określeniu kontekstu ulepszeń, które mają zostać wprowadzone."
+            }
+        },
+        {
+            "type": 9,
+            "content": {
+                "version": "KqlParameterItem/1.0",
+                "query": "",
+                "crossComponentResources": [],
+                "parameters": [
+                    {
+                        "id": "35df6f18-6009-4c8c-898a-3d47414ee7cd",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "RelatedActivities",
+                        "type": 2,
+                        "description": "",
+                        "isRequired": true,
+                        "multiSelect": true,
+                        "quote": "'",
+                        "delimiter": ",",
+                        "query": "union customEvents, pageViews\r\n| where timestamp >= ago(7d)\r\n| summarize count() by name\r\n| order by count_ desc\r\n| project Id=name, Title=name, Selected=false\r\n| union (\r\ndatatable(Id:string, Title:string, Selected:boolean)[\r\n'*', 'All Events and Page Views', true\r\n]\r\n)"
+                    }
+                ]
+            }
+        },
+        {
+            "type": 3,
+            "content": {
+                "version": "KqlItem/1.0",
+                "query": "let timeRange = {TimeRange};\r\nlet monthDefinition = {RetentionPeriod};\r\nlet hlls = union customEvents, pageViews\r\n| where timestamp >= startofmonth(now() - timeRange - 2 * monthDefinition)\r\n| where name in ({RelatedActivities}) or '*' in ({RelatedActivities})\r\n| summarize Hlls = hll(user_Id) by bin(timestamp, 1d)\r\n| project DaysToMerge = timestamp, Hlls;\r\nlet churnSeriesWithHllsToInclude = materialize(range d from 0d to (timeRange) step 1d\r\n| extend Day = startofday(now() - d)\r\n| extend R = range(0d, monthDefinition - 1d, 1d)\r\n| mvexpand R\r\n| extend ThisMonth = Day - totimespan(R)\r\n| extend LastMonth = Day - monthDefinition - totimespan(R)\r\n| project Day, ThisMonth, LastMonth);\r\nchurnSeriesWithHllsToInclude\r\n| extend DaysToMerge = ThisMonth\r\n| join kind= inner (hlls) on DaysToMerge \r\n| project Day, ThisMonthHlls = Hlls\r\n| union (\r\nchurnSeriesWithHllsToInclude\r\n| extend DaysToMerge = LastMonth\r\n| join kind= inner (hlls) on DaysToMerge\r\n| project Day, LastMonthHlls = Hlls)\r\n| summarize ThisMonth = hll_merge(ThisMonthHlls), LastMonth = hll_merge(LastMonthHlls) by Day\r\n| evaluate dcount_intersect(ThisMonth, LastMonth)\r\n| where Day >= startofday(now() - timeRange)\r\n| extend ChurnedUsers = (dcount_hll(LastMonth) - s1) // Last Months Users - Returning Users\r\n| project Day, [\"Retention Rate\"] = iff((s1 + ChurnedUsers) == 0, 0.0, 100.0 * s1 / (s1 + ChurnedUsers))\r\n",
+                "showQuery": false,
+                "size": 0,
+                "aggregation": 5,
+                "showAnnotations": false,
+                "visualization": "timechart"
+            }
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "### <a name=\"why-do-we-suspect-retention-for-this-feature-is-low\"></a>Dlaczego podejrzewamy, że poziom utrzymania dla tej funkcji jest niski?\nTa sekcja zawiera wyjaśnienia przyczyn niskiego poziomu utrzymania. Rozwiązanie, które zaproponujesz, będzie dotyczyć niektórych lub wszystkich zidentyfikowanych tutaj problemów."
+            }
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "### <a name=\"whats-the-potential-benefit-to-your-business-if-you-improve-retention-for-this-feature\"></a>Jakie są potencjalne korzyści biznesowe z podwyższenia poziomu utrzymania dla tej funkcji?\nTa sekcja ułatwia poznanie skutków zwiększenia liczby aktywnych użytkowników w miesiącu w przypadku zwiększenia poziomu utrzymania. Użyj parametru _RetentionGoal_, aby ustawić cel dla poziomu utrzymania przy zastosowaniu proponowanego rozwiązania."
+            }
+        },
+        {
+            "type": 9,
+            "content": {
+                "version": "KqlParameterItem/1.0",
+                "query": "",
+                "crossComponentResources": [],
+                "parameters": [
+                    {
+                        "id": "5d3b9f2b-ae31-41c1-a9c3-b540185fa7de",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "RetentionGoal",
+                        "type": 1,
+                        "description": "Cel procentowy dla współczynnika utrzymania (0-100)",
+                        "isRequired": true,
+                        "query": "let timeRange = {TimeRange};\r\nlet monthDefinition = {RetentionPeriod};\r\nlet hlls = union customEvents, pageViews\r\n| where timestamp >= startofmonth(now() - timeRange - 2 * monthDefinition)\r\n| where name in ({Activities}) or '*' in ({Activities})\r\n| summarize Hlls = hll(user_Id) by bin(timestamp, 1d)\r\n| project DaysToMerge = timestamp, Hlls;\r\nlet churnSeriesWithHllsToInclude = materialize(range d from 0d to 0d step 1d\r\n| extend Day = startofday(now() - d)\r\n| extend R = range(0d, monthDefinition - 1d, 1d)\r\n| mvexpand R\r\n| extend ThisMonth = Day - totimespan(R)\r\n| extend LastMonth = Day - monthDefinition - totimespan(R)\r\n| project Day, ThisMonth, LastMonth);\r\nchurnSeriesWithHllsToInclude\r\n| extend DaysToMerge = ThisMonth\r\n| join kind= inner (hlls) on DaysToMerge \r\n| project Day, ThisMonthHlls = Hlls\r\n| union (\r\nchurnSeriesWithHllsToInclude\r\n| extend DaysToMerge = LastMonth\r\n| join kind= inner (hlls) on DaysToMerge\r\n| project Day, LastMonthHlls = Hlls)\r\n| summarize ThisMonth = hll_merge(ThisMonthHlls), LastMonth = hll_merge(LastMonthHlls) by Day\r\n| evaluate dcount_intersect(ThisMonth, LastMonth)\r\n| where Day >= startofday(now() - timeRange)\r\n| extend ChurnedUsers = (dcount_hll(LastMonth) - s1) // Last Months Users - Returning Users\r\n| project Retention = round(iff((s1 + ChurnedUsers) == 0, 0.0, 100.0 * s1 / (s1 + ChurnedUsers)) * 1.1, 1)\r\n| extend Retention = iff(Retention > 100, 100.0, Retention)\r\n"
+                    }
+                ]
+            }
+        },
+        {
+            "type": 3,
+            "content": {
+                "version": "KqlItem/1.0",
+                "query": "let retentionRate = {RetentionGoal};\r\nlet timeRange = {TimeRange};\r\nlet monthDefinition = {RetentionPeriod};\r\nlet hlls = union customEvents, pageViews\r\n| where timestamp >= startofmonth(now() - timeRange - 2 * monthDefinition)\r\n| where name in ({Activities}) or '*' in ({Activities})\r\n| summarize Hlls = hll(user_Id) by bin(timestamp, 1d)\r\n| project DaysToMerge = timestamp, Hlls;\r\nlet churnSeriesWithHllsToInclude = materialize(range d from 0d to (timeRange) step 1d\r\n| extend Day = startofday(now() - d)\r\n| extend R = range(0d, monthDefinition - 1d, 1d)\r\n| mvexpand R\r\n| extend ThisMonth = Day - totimespan(R)\r\n| extend LastMonth = Day - monthDefinition - totimespan(R)\r\n| project Day, ThisMonth, LastMonth);\r\nchurnSeriesWithHllsToInclude\r\n| extend DaysToMerge = ThisMonth\r\n| join kind= inner (hlls) on DaysToMerge \r\n| project Day, ThisMonthHlls = Hlls\r\n| union (\r\nchurnSeriesWithHllsToInclude\r\n| extend DaysToMerge = LastMonth\r\n| join kind= inner (hlls) on DaysToMerge\r\n| project Day, LastMonthHlls = Hlls)\r\n| summarize ThisMonth = hll_merge(ThisMonthHlls), LastMonth = hll_merge(LastMonthHlls) by Day\r\n| evaluate dcount_intersect(ThisMonth, LastMonth)\r\n| where Day >= startofday(now() - timeRange)\r\n| extend NewUsers = s0 - s1\r\n| extend ChurnedUsers = (dcount_hll(LastMonth) - s1) // Last Months Users - Returning Users\r\n| project Day, [\"MAU at {RetentionGoal}% Retention\"] = (0.01 * retentionRate * s0) + NewUsers, [\"MAU\"] = s1 + NewUsers",
+                "showQuery": false,
+                "size": 0,
+                "aggregation": 5,
+                "showAnnotations": false,
+                "visualization": "timechart"
+            }
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "### <a name=\"what-customer-evidence-do-you-have\"></a>Jakie masz dowody pochodzące od klientów?\nDodaj opinie klientów, które potwierdzają istnienie problemu i skuteczność proponowanego rozwiązania."
+            }
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "### <a name=\"how-are-your-competitors-solving-this-problem\"></a>Jak Twoi konkurenci radzą sobie z tym problemem?\nUżyj tej sekcji, aby przedstawić, jak Twoi konkurenci rozwiązują ten problem w swoich aplikacjach.\n"
+            }
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "### <a name=\"open-questions\"></a>Pytania otwarte\nWyświetl listę wszystkich pytań bez odpowiedzi lub nierozstrzygniętych dyskusji."
+            }
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "## <a name=\"potential-solution---solution-description\"></a>Potencjalne rozwiązanie — _[opis rozwiązania]_\nUżyj tej sekcji, aby opisać proponowane rozwiązanie.\n"
+            }
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "### <a name=\"why-it-will-work\"></a>Dlaczego to będzie działać?\nOpisz teoretyczne zachowanie użytkowników, które spowoduje podwyższenie poziomu utrzymania użytkowników po zastosowaniu propozycji."
+            }
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "### <a name=\"why-might-it-not-work\"></a>Dlaczego to może nie zadziałać?\nZastanów się nad czynnikami, które mogą spowodować, że rozwiązanie nie spełni określonych celów (np. rozważ alternatywne teorie dotyczące przyczyny problemu). Wymień te czynniki."
+            }
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "### <a name=\"will-it-affect-other-scenarios\"></a>Czy wpłynie to na inne scenariusze?\nWymień inne funkcje i scenariusze, na które może mieć wpływ proponowane rozwiązanie. "
+            }
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "## <a name=\"expected-outcome---user-retention-improves-to-retentiongoal\"></a>Oczekiwany wynik — podwyższenie poziomu utrzymania użytkowników do {RetentionGoal}%\nW tej sekcji są w jasny sposób przedstawione mierzalne rezultaty zaimplementowania proponowanego rozwiązania.\n\n"
+            }
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "### <a name=\"primary-goal---retention-rate-hits-retentiongoal\"></a>Podstawowy cel — współczynnik utrzymania osiąga {RetentionGoal}%\n"
+            }
+        },
+        {
+            "type": 3,
+            "content": {
+                "version": "KqlItem/1.0",
+                "query": "let timeRange = {TimeRange};\nlet monthDefinition = {RetentionPeriod};\nlet hlls = union customEvents, pageViews\n| where timestamp >= startofmonth(now() - timeRange - 2 * monthDefinition)\n| where name in ({Activities}) or '*' in ({Activities})\n| summarize Hlls = hll(user_Id) by bin(timestamp, 1d)\n| project DaysToMerge = timestamp, Hlls;\nlet churnSeriesWithHllsToInclude = materialize(range d from 0d to (timeRange + monthDefinition) step 1d\n| extend Day = startofday(now() - d)\n| extend R = range(0d, monthDefinition - 1d, 1d)\n| mvexpand R\n| extend ThisMonth = Day - totimespan(R)\n| extend LastMonth = Day - monthDefinition - totimespan(R)\n| project Day, ThisMonth, LastMonth);\nchurnSeriesWithHllsToInclude\n| extend DaysToMerge = ThisMonth\n| join kind= inner (hlls) on DaysToMerge \n| project Day, ThisMonthHlls = Hlls\n| union (\nchurnSeriesWithHllsToInclude\n| extend DaysToMerge = LastMonth\n| join kind= inner (hlls) on DaysToMerge\n| project Day, LastMonthHlls = Hlls)\n| summarize ThisMonth = hll_merge(ThisMonthHlls), LastMonth = hll_merge(LastMonthHlls) by Day\n| evaluate dcount_intersect(ThisMonth, LastMonth)\n| where Day >= startofday(now() - timeRange)\n| extend ChurnedUsers = (dcount_hll(LastMonth) - s1) // Last Months Users - Returning Users\n| project Day, [\"Retention Rate\"] = iff((s1 + ChurnedUsers) == 0, 0.0, 100.0 * s1 / (s1 + ChurnedUsers)), Goal = {RetentionGoal}\n",
+                "showQuery": false,
+                "size": 0,
+                "aggregation": 5,
+                "showAnnotations": false,
+                "visualization": "timechart"
+            }
+        },
+        {
+            "type": 1,
+            "content": {
+                "json": "### <a name=\"other-goals\"></a>Inne cele\nLista wszelkich dodatkowych celów, które mogą być powiązane z tą pracą. "
+            }
+        }
+    ]
+}

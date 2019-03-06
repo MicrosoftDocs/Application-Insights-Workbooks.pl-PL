@@ -1,0 +1,9 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "name": "Zaangażowani uwierzytelnieni użytkownicy — według liczby dni użytkowania",
+    "description": "miejsce na opis",
+    "icon": "",
+    "tags": [],
+    "author": "Microsoft",
+    "order": 100
+}
