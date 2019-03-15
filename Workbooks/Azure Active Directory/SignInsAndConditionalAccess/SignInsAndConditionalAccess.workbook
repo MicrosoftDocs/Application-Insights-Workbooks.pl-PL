@@ -1,12 +1,12 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
     "version": "Notebook/1.0",
-    "isLocked": false,
+    "isLocked": true,
     "items": [
         {
             "type": 1,
             "content": {
-                "json": "# <a name=\"sign-ins-using-conditional-access\"></a><span data-ttu-id=\"8f925-101\">Logowania przy użyciu dostępu warunkowego</span><span class=\"sxs-lookup\"><span data-stu-id=\"8f925-101\">Sign-ins using Conditional Access</span></span>"
+                "json": "# <a name=\"sign-ins-using-conditional-access\"></a><span data-ttu-id=\"fbbd1-101\">Logowania przy użyciu dostępu warunkowego</span><span class=\"sxs-lookup\"><span data-stu-id=\"fbbd1-101\">Sign-ins using Conditional Access</span></span>"
             },
             "conditionalVisibility": null
         },
@@ -148,7 +148,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"sign-ins-by-ca-status\"></a><span data-ttu-id=\"8f925-102\">Logowania według stanu urzędu certyfikacji</span><span class=\"sxs-lookup\"><span data-stu-id=\"8f925-102\">Sign-ins by CA Status</span></span>"
+                "json": "## <a name=\"sign-ins-by-ca-status\"></a><span data-ttu-id=\"fbbd1-102\">Logowania według stanu urzędu certyfikacji</span><span class=\"sxs-lookup\"><span data-stu-id=\"fbbd1-102\">Sign-ins by CA Status</span></span>"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -156,7 +156,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"sign-ins-by-grant-controls\"></a><span data-ttu-id=\"8f925-103\">Logowania według kontrolki udzielania</span><span class=\"sxs-lookup\"><span data-stu-id=\"8f925-103\">Sign-ins by Grant Controls</span></span>"
+                "json": "## <a name=\"sign-ins-by-grant-controls\"></a><span data-ttu-id=\"fbbd1-103\">Logowania według kontrolki udzielania</span><span class=\"sxs-lookup\"><span data-stu-id=\"fbbd1-103\">Sign-ins by Grant Controls</span></span>"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -214,7 +214,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"mfa-sign-ins-through-conditional-access\"></a><span data-ttu-id=\"8f925-104\">Logowania z uwierzytelnianiem wieloskładnikowym za pomocą dostępu warunkowego</span><span class=\"sxs-lookup\"><span data-stu-id=\"8f925-104\">MFA Sign-ins through Conditional Access</span></span>"
+                "json": "### <a name=\"mfa-sign-ins-through-conditional-access\"></a><span data-ttu-id=\"fbbd1-104\">Logowania z uwierzytelnianiem wieloskładnikowym za pomocą dostępu warunkowego</span><span class=\"sxs-lookup\"><span data-stu-id=\"fbbd1-104\">MFA Sign-ins through Conditional Access</span></span>"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -282,7 +282,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"apps-sign-ins-with-no-ca-policies\"></a><span data-ttu-id=\"8f925-105\">Logowania aplikacji bez zasad urzędu certyfikacji</span><span class=\"sxs-lookup\"><span data-stu-id=\"8f925-105\">Apps Sign-ins with No CA Policies</span></span>"
+                "json": "### <a name=\"apps-sign-ins-with-no-ca-policies\"></a><span data-ttu-id=\"fbbd1-105\">Logowania aplikacji bez zasad urzędu certyfikacji</span><span class=\"sxs-lookup\"><span data-stu-id=\"fbbd1-105\">Apps Sign-ins with No CA Policies</span></span>"
             },
             "conditionalVisibility": null
         },
@@ -325,7 +325,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"apps-sign-in-count-by-ca-policy-status\"></a><span data-ttu-id=\"8f925-106\">Liczba logowań aplikacji według stanu zasad urzędu certyfikacji</span><span class=\"sxs-lookup\"><span data-stu-id=\"8f925-106\">Apps Sign-in Count by CA Policy Status</span></span>"
+                "json": "### <a name=\"apps-sign-in-count-by-ca-policy-status\"></a><span data-ttu-id=\"fbbd1-106\">Liczba logowań aplikacji według stanu zasad urzędu certyfikacji</span><span class=\"sxs-lookup\"><span data-stu-id=\"fbbd1-106\">Apps Sign-in Count by CA Policy Status</span></span>"
             },
             "conditionalVisibility": null,
             "customWidth": "50"

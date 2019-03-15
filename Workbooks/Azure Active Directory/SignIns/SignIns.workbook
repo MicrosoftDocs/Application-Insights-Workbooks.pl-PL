@@ -1,12 +1,12 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
     "version": "Notebook/1.0",
-    "isLocked": false,
+    "isLocked": true,
     "items": [
         {
             "type": 1,
             "content": {
-                "json": "# <a name=\"sign-in-analysis\"></a><span data-ttu-id=\"13175-101\">Analiza logowania</span><span class=\"sxs-lookup\"><span data-stu-id=\"13175-101\">Sign-in Analysis</span></span>"
+                "json": "# <a name=\"sign-in-analysis\"></a><span data-ttu-id=\"597eb-101\">Analiza logowania</span><span class=\"sxs-lookup\"><span data-stu-id=\"597eb-101\">Sign-in Analysis</span></span>"
             },
             "conditionalVisibility": null
         },
@@ -148,7 +148,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"trend\"></a><span data-ttu-id=\"13175-102\">Trend</span><span class=\"sxs-lookup\"><span data-stu-id=\"13175-102\">Trend</span></span>"
+                "json": "## <a name=\"trend\"></a><span data-ttu-id=\"597eb-102\">Trend</span><span class=\"sxs-lookup\"><span data-stu-id=\"597eb-102\">Trend</span></span>"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -156,7 +156,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"overview\"></a><span data-ttu-id=\"13175-103\">Omówienie</span><span class=\"sxs-lookup\"><span data-stu-id=\"13175-103\">Overview</span></span>"
+                "json": "## <a name=\"overview\"></a><span data-ttu-id=\"597eb-103\">Omówienie</span><span class=\"sxs-lookup\"><span data-stu-id=\"597eb-103\">Overview</span></span>"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -214,7 +214,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"by-location\"></a><span data-ttu-id=\"13175-104\">Według lokalizacji</span><span class=\"sxs-lookup\"><span data-stu-id=\"13175-104\">By Location</span></span>"
+                "json": "### <a name=\"by-location\"></a><span data-ttu-id=\"597eb-104\">Według lokalizacji</span><span class=\"sxs-lookup\"><span data-stu-id=\"597eb-104\">By Location</span></span>"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -222,7 +222,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"by-operating-system-and-browser\"></a><span data-ttu-id=\"13175-105\">Według systemu operacyjnego i przeglądarki</span><span class=\"sxs-lookup\"><span data-stu-id=\"13175-105\">By Operating System and Browser</span></span>"
+                "json": "### <a name=\"by-operating-system-and-browser\"></a><span data-ttu-id=\"597eb-105\">Według systemu operacyjnego i przeglądarki</span><span class=\"sxs-lookup\"><span data-stu-id=\"597eb-105\">By Operating System and Browser</span></span>"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
