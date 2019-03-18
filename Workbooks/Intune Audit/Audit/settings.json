@@ -1,11 +1,11 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "Analiza niepowodzeń logowania",
+    "name": "Działania inspekcji w usłudze Intune",
     "author": "Microsoft",
     "galleries": [
         {
             "type": "workbook",
-            "resourceType": "microsoft.aadiam/tenant",
+            "resourceType": "microsoft.intune/tenant",
             "order": 100
         }
     ]

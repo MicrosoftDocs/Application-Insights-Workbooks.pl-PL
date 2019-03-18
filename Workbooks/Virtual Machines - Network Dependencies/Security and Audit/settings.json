@@ -1,12 +1,12 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "Analiza niepowodzeń logowania",
+    "name": "Security and Audit",
     "author": "Microsoft",
     "galleries": [
         {
             "type": "workbook",
-            "resourceType": "microsoft.aadiam/tenant",
-            "order": 100
+            "resourceType": "microsoft.operationalinsights/workspaces",
+            "order": 200
         }
     ]
 }
