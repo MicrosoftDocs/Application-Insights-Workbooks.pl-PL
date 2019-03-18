@@ -1,11 +1,11 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "<span data-ttu-id=\"94093-101\">Logowania i dostęp warunkowy</span><span class=\"sxs-lookup\"><span data-stu-id=\"94093-101\">Sign-ins and Conditional Access</span></span>",
+    "name": "<span data-ttu-id=\"52ffe-101\">Działania inspekcji w usłudze Intune</span><span class=\"sxs-lookup\"><span data-stu-id=\"52ffe-101\">Intune Audit Activity</span></span>",
     "author": "Microsoft",
     "galleries": [
         {
             "type": "workbook",
-            "resourceType": "microsoft.aadiam/tenant",
+            "resourceType": "microsoft.intune/tenant",
             "order": 100
         }
     ]
