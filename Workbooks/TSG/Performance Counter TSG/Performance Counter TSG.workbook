@@ -1,15 +1,12 @@
 {
-    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
     "version": "Notebook/1.0",
-    "isLocked": true,
     "items": [
         {
             "type": 1,
             "content": {
                 "json": "# <a name=\"troubleshooting-issues-using-performance-counters\"></a>Rozwiązywanie problemów dotyczących używania liczników wydajności"
             },
-            "conditionalVisibility": null,
-            "halfWidth": false
+            "conditionalVisibility": null
         },
         {
             "type": 9,
@@ -95,26 +92,22 @@
                             "allowCustom": null
                         },
                         "value": {
-                            "durationMs": 14400000,
-                            "createdTime": "2018-05-16T21:34:47.842Z",
-                            "isInitialTime": false,
-                            "grain": 1,
-                            "useDashboardTimeRange": false
+                            "durationMs": 14400000
                         }
                     }
                 ],
+                "style": "pills",
+                "queryType": 0,
                 "resourceType": "microsoft.insights/components"
             },
-            "conditionalVisibility": null,
-            "halfWidth": false
+            "conditionalVisibility": null
         },
         {
             "type": 1,
             "content": {
                 "json": "## <a name=\"problem---high-cpu-utilization\"></a>Problem — wysokie wykorzystanie procesora\nWykorzystanie procesora stale utrzymujące się na wysokim poziomie może powodować problemy z wydajnością i dostępnością we wdrożonej aplikacji. Ta sekcja pomoże dowiedzieć się, które serwery są na tyle obciążone, że może to wpłynąć na niezawodność aplikacji. "
             },
-            "conditionalVisibility": null,
-            "halfWidth": false
+            "conditionalVisibility": null
         },
         {
             "type": 9,
@@ -168,10 +161,11 @@
                         "value": ">"
                     }
                 ],
+                "style": "pills",
+                "queryType": 0,
                 "resourceType": "microsoft.insights/components"
             },
-            "conditionalVisibility": null,
-            "halfWidth": false
+            "conditionalVisibility": null
         },
         {
             "type": 3,
@@ -183,6 +177,9 @@
                 "aggregation": 0,
                 "showAnnotations": false,
                 "showAnalytics": false,
+                "noDataMessage": "Looks like this app is not collecting the specified performance counter. More info on collecting counters can be found at: https://docs.microsoft.com/en-us/azure/azure-monitor/app/performance-counters",
+                "timeContextFromParameter": null,
+                "queryType": 0,
                 "resourceType": "microsoft.insights/components",
                 "visualization": "table",
                 "gridSettings": {
@@ -208,24 +205,22 @@
                     ]
                 }
             },
-            "conditionalVisibility": null,
-            "halfWidth": false
+            "conditionalVisibility": null
         },
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"causes\"></a>Przyczyny\nWysokie wykorzystanie procesora zwykle wskazuje, że obciążenie systemu jest większe, niż mogą obsłużyć aprowizowane zasoby obliczeniowe. Może się to zdarzyć, jeśli użycie aplikacji zwiększyło się lub wystąpiła regresja wydajności aplikacji w ramach wdrożenia.\n\nInne możliwe przyczyny to: często wykonywane zadania lub zaplanowane zadania podrzędne na maszynie, nadmiarowe moduły/wtyczki/rozszerzenia, zbyt wiele aplikacji internetowych obsługiwanych z maszyny, przeszukiwarki i boty wyszukiwarek itp. "
+                "json": "## <a name=\"causes\"></a>Przyczyny\nWysokie wykorzystanie procesora zwykle wskazuje, że obciążenie systemu jest większe, niż mogą obsłużyć aprowizowane zasoby obliczeniowe. Może się to zdarzyć, jeśli użycie aplikacji zwiększyło się lub wystąpiła regresja wydajności aplikacji w ramach wdrożenia.\n\nInne możliwe przyczyny: \n1. Często wykonywane zadania lub zadania podrzędne zaplanowane w komputerze \n2. Nadmiarowe moduły/wtyczki/rozszerzenia \n3. Zbyt wiele aplikacji internetowych uruchomionych w podstawowych zasobach obliczeniowych \n4. Przeszukiwarki i boty wyszukiwarek "
             },
-            "conditionalVisibility": null,
-            "halfWidth": false
+            "conditionalVisibility": null
         },
         {
             "type": 1,
             "content": {
                 "json": "## <a name=\"solutions\"></a>Rozwiązania\nJeśli wykorzystanie procesora jest rzeczywiście wynikiem zwiększonego obciążenia, skalowanie jest najbardziej odpowiednią reakcją:\n* Skalowanie na zewnątrz — w celu dodania większej ilości zasobów obliczeniowych. Jeśli aplikację obsługiwało 10 maszyn wirtualnych, przeskaluj tę liczbę do wartości 15, aby zmniejszyć obciążenie istniejących maszyn wirtualnych.\n* Skalowanie w górę — użyj zasobów wyższej jakości (uaktualnij z procesorów z 2 rdzeniami do procesorów z 8 rdzeniami)"
             },
-            "conditionalVisibility": null,
-            "halfWidth": false
+            "conditionalVisibility": null
         }
-    ]
+    ],
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"
 }
