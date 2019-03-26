@@ -1,0 +1,12 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "name": "<span data-ttu-id=\"c6efb-101\">Użycie obszaru roboczego</span><span class=\"sxs-lookup\"><span data-stu-id=\"c6efb-101\">Workspace Usage</span></span>",
+    "author": "Microsoft",
+    "galleries": [
+        {
+            "type": "workbook",
+            "resourceType": "Azure Monitor",
+            "order": 200
+        }
+    ]
+}
