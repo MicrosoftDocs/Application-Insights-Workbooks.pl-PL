@@ -4,7 +4,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h1><span data-ttu-id=\"2eced-101\">Omówienie połączeń</span><span class=\"sxs-lookup\"><span data-stu-id=\"2eced-101\">Connections Overview</span></span></h1>"
+                "json": "<h1><span data-ttu-id=\"14f16-101\">Omówienie połączeń</span><span class=\"sxs-lookup\"><span data-stu-id=\"14f16-101\">Connections Overview</span></span></h1>"
             },
             "conditionalVisibility": null,
             "name": "text - 0"
@@ -79,7 +79,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"2eced-102\">{DisclaimerText}</span><span class=\"sxs-lookup\"><span data-stu-id=\"2eced-102\">{DisclaimerText}</span></span>\n\n---"
+                "json": "<span data-ttu-id=\"14f16-102\">{DisclaimerText}</span><span class=\"sxs-lookup\"><span data-stu-id=\"14f16-102\">{DisclaimerText}</span></span>\n\n---"
             },
             "conditionalVisibility": null,
             "name": "text - 2"
@@ -211,7 +211,7 @@
                         "version": "KqlParameterItem/1.0",
                         "name": "Direction",
                         "type": 2,
-                        "description": "<span data-ttu-id=\"2eced-103\">Kierunek połączenia sieciowego z maszyn wirtualnych</span><span class=\"sxs-lookup\"><span data-stu-id=\"2eced-103\">Direction of the network connection from the VMs</span></span>",
+                        "description": "<span data-ttu-id=\"14f16-103\">Kierunek połączenia sieciowego z maszyn wirtualnych</span><span class=\"sxs-lookup\"><span data-stu-id=\"14f16-103\">Direction of the network connection from the VMs</span></span>",
                         "isRequired": true,
                         "value": "outbound",
                         "isHiddenWhenLocked": false,
@@ -240,7 +240,7 @@
                         "version": "KqlParameterItem/1.0",
                         "name": "Hierarchy",
                         "type": 2,
-                        "description": "<span data-ttu-id=\"2eced-104\">Wybierz poziom szczegółów do wyświetlenia w poniższej tabeli</span><span class=\"sxs-lookup\"><span data-stu-id=\"2eced-104\">Select the level of detail to be shown in the table below</span></span>",
+                        "description": "<span data-ttu-id=\"14f16-104\">Wybierz poziom szczegółów do wyświetlenia w poniższej tabeli</span><span class=\"sxs-lookup\"><span data-stu-id=\"14f16-104\">Select the level of detail to be shown in the table below</span></span>",
                         "isRequired": true,
                         "query": "let outboundTable = datatable (value:string, Display:string)\r\n    [\"0\", \"Computer -> Process -> Remote IP -> Port\",\r\n     \"1\", \"Computer -> Process -> Remote IP\",\r\n     \"2\", \"Computer -> Process\",\r\n     \"3\", \"Computer\"];\r\nlet outbound = outboundTable | extend type = 'outbound';\r\nlet inboundTable = datatable (value:string, Display:string)\r\n    [\"0\", \"Computer -> Process -> Port -> Remote IP\",\r\n     \"1\", \"Computer -> Process -> Port\",\r\n     \"2\", \"Computer -> Process\",\r\n     \"3\", \"Computer\"];\r\nlet inbound = inboundTable | extend type = 'inbound';\r\nlet table = outbound | union inbound;\r\ntable\r\n| where type == iif('{Direction}' == 'outbound', 'outbound', 'inbound')\r\n| project value, Display",
                         "crossComponentResources": [
@@ -259,7 +259,7 @@
                         "version": "KqlParameterItem/1.0",
                         "name": "TableFilter",
                         "type": 2,
-                        "description": "<span data-ttu-id=\"2eced-105\">Filtruj tabelę na podstawie obecności złośliwych połączeń lub co najmniej jednej awarii łącza</span><span class=\"sxs-lookup\"><span data-stu-id=\"2eced-105\">Filter table based on presence of malicious connections or at least one link failing</span></span>",
+                        "description": "<span data-ttu-id=\"14f16-105\">Filtruj tabelę na podstawie obecności złośliwych połączeń lub co najmniej jednej awarii łącza</span><span class=\"sxs-lookup\"><span data-stu-id=\"14f16-105\">Filter table based on presence of malicious connections or at least one link failing</span></span>",
                         "isRequired": false,
                         "multiSelect": true,
                         "quote": "",
@@ -548,7 +548,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"2eced-106\">💡 <em>Wybierz wiersz z tabeli poniżej, aby wyświetlić szczegóły połączenia dla danej pozycji.</em></span><span class=\"sxs-lookup\"><span data-stu-id=\"2eced-106\">💡 <em>Select a row from the table below to view connection details for that entry.</em></span></span>"
+                "json": "<span data-ttu-id=\"14f16-106\">💡 <em>Wybierz wiersz z tabeli poniżej, aby wyświetlić szczegóły połączenia dla danej pozycji.</em></span><span class=\"sxs-lookup\"><span data-stu-id=\"14f16-106\">💡 <em>Select a row from the table below to view connection details for that entry.</em></span></span>"
             },
             "conditionalVisibility": null,
             "name": "text - 5"
@@ -870,7 +870,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h2 style=\"font-weight:normal;\"><span data-ttu-id=\"2eced-107\">{Heading}</span><span class=\"sxs-lookup\"><span data-stu-id=\"2eced-107\">{Heading}</span></span></h2>"
+                "json": "<h2 style=\"font-weight:normal;\"><span data-ttu-id=\"14f16-107\">{Heading}</span><span class=\"sxs-lookup\"><span data-stu-id=\"14f16-107\">{Heading}</span></span></h2>"
             },
             "conditionalVisibility": {
                 "parameterName": "ShowDetail",
@@ -882,7 +882,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"responses\"></a><span data-ttu-id=\"2eced-108\">Odpowiedzi</span><span class=\"sxs-lookup\"><span data-stu-id=\"2eced-108\">Responses</span></span>"
+                "json": "### <a name=\"responses\"></a><span data-ttu-id=\"14f16-108\">Odpowiedzi</span><span class=\"sxs-lookup\"><span data-stu-id=\"14f16-108\">Responses</span></span>"
             },
             "conditionalVisibility": {
                 "parameterName": "ShowDetail",
@@ -895,7 +895,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"latency\"></a><span data-ttu-id=\"2eced-109\">Opóźnienie</span><span class=\"sxs-lookup\"><span data-stu-id=\"2eced-109\">Latency</span></span>"
+                "json": "### <a name=\"latency\"></a><span data-ttu-id=\"14f16-109\">Opóźnienie</span><span class=\"sxs-lookup\"><span data-stu-id=\"14f16-109\">Latency</span></span>"
             },
             "conditionalVisibility": {
                 "parameterName": "ShowDetail",
@@ -908,7 +908,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"network\"></a><span data-ttu-id=\"2eced-110\">Sieć</span><span class=\"sxs-lookup\"><span data-stu-id=\"2eced-110\">Network</span></span>"
+                "json": "### <a name=\"network\"></a><span data-ttu-id=\"14f16-110\">Sieć</span><span class=\"sxs-lookup\"><span data-stu-id=\"14f16-110\">Network</span></span>"
             },
             "conditionalVisibility": {
                 "parameterName": "ShowDetail",
@@ -921,7 +921,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"links\"></a><span data-ttu-id=\"2eced-111\">Linki</span><span class=\"sxs-lookup\"><span data-stu-id=\"2eced-111\">Links</span></span>"
+                "json": "### <a name=\"links\"></a><span data-ttu-id=\"14f16-111\">Linki</span><span class=\"sxs-lookup\"><span data-stu-id=\"14f16-111\">Links</span></span>"
             },
             "conditionalVisibility": {
                 "parameterName": "ShowDetail",
