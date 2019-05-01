@@ -1,0 +1,12 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "name": "<span data-ttu-id=\"04efd-101\">Transakcje</span><span class=\"sxs-lookup\"><span data-stu-id=\"04efd-101\">Transactions</span></span>",
+    "author": "Microsoft",
+    "galleries": [
+        {
+            "type": "storage-insights",
+            "resourceType": "Azure Monitor",
+            "order": 200
+        }
+    ]
+}
