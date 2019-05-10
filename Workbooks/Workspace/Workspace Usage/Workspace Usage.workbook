@@ -4,7 +4,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"workspace-usage\"></a><span data-ttu-id=\"8aa53-101\">Użycie obszaru roboczego</span><span class=\"sxs-lookup\"><span data-stu-id=\"8aa53-101\">Workspace Usage</span></span>\n<span data-ttu-id=\"8aa53-102\">Ten raport służy do analizowania rozmiarów różnych tabel w obszarze roboczym.</span><span class=\"sxs-lookup\"><span data-stu-id=\"8aa53-102\">Use this report to analyze the the sizes of the different tables in your workspace.</span></span> \n<br/>\n<br/>"
+                "json": "## <a name=\"workspace-usage\"></a><span data-ttu-id=\"95919-101\">Użycie obszaru roboczego</span><span class=\"sxs-lookup\"><span data-stu-id=\"95919-101\">Workspace Usage</span></span>\n<span data-ttu-id=\"95919-102\">Ten raport służy do analizowania rozmiarów różnych tabel w obszarze roboczym.</span><span class=\"sxs-lookup\"><span data-stu-id=\"95919-102\">Use this report to analyze the the sizes of the different tables in your workspace.</span></span> \n<br/>\n<br/>"
             },
             "conditionalVisibility": null,
             "name": "text - 0"
@@ -186,7 +186,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"8aa53-103\">💡 _Kliknij wiersz w tabeli powyżej, aby zobaczyć więcej szczegółów_</span><span class=\"sxs-lookup\"><span data-stu-id=\"8aa53-103\">💡_Click on a row in the table above to see more details_</span></span>\n<br />\n<br />"
+                "json": "<span data-ttu-id=\"95919-103\">💡 _Kliknij wiersz w tabeli powyżej, aby zobaczyć więcej szczegółów_</span><span class=\"sxs-lookup\"><span data-stu-id=\"95919-103\">💡_Click on a row in the table above to see more details_</span></span>\n<br />\n<br />"
             },
             "conditionalVisibility": null,
             "name": "text - 3"
@@ -194,7 +194,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"table-entries\"></a><span data-ttu-id=\"8aa53-104\">Wpisy w tabeli</span><span class=\"sxs-lookup\"><span data-stu-id=\"8aa53-104\">Table Entries</span></span>"
+                "json": "### <a name=\"table-entries\"></a><span data-ttu-id=\"95919-104\">Wpisy w tabeli</span><span class=\"sxs-lookup\"><span data-stu-id=\"95919-104\">Table Entries</span></span>"
             },
             "conditionalVisibility": null,
             "customWidth": "50",
@@ -203,7 +203,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"table-size\"></a><span data-ttu-id=\"8aa53-105\">Rozmiar tabeli</span><span class=\"sxs-lookup\"><span data-stu-id=\"8aa53-105\">Table Size</span></span>"
+                "json": "### <a name=\"table-size\"></a><span data-ttu-id=\"95919-105\">Rozmiar tabeli</span><span class=\"sxs-lookup\"><span data-stu-id=\"95919-105\">Table Size</span></span>"
             },
             "conditionalVisibility": null,
             "customWidth": "50",
