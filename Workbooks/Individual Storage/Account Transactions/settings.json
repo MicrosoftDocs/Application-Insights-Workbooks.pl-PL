@@ -1,12 +1,12 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "<span data-ttu-id=\"f6777-101\">Omówienie kont magazynu</span><span class=\"sxs-lookup\"><span data-stu-id=\"f6777-101\">Storage Account Overview</span></span>",
+    "name": "<span data-ttu-id=\"bb198-101\">Transakcje konta</span><span class=\"sxs-lookup\"><span data-stu-id=\"bb198-101\">Account Transactions</span></span>",
     "author": "Microsoft",
     "galleries": [
         {
             "type": "workbook",
             "resourceType": "microsoft.storage/storageaccounts",
-            "order": 100
+            "order": 1100
         }
     ]
 }
