@@ -1,6 +1,6 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "<span data-ttu-id=\"4235c-101\">Wydajność</span><span class=\"sxs-lookup\"><span data-stu-id=\"4235c-101\">Performance</span></span>",
+    "name": "<span data-ttu-id=\"6d599-101\">Wydajność</span><span class=\"sxs-lookup\"><span data-stu-id=\"6d599-101\">Performance</span></span>",
     "author": "Microsoft",
     "galleries": [
         {
@@ -13,6 +13,11 @@
             "resourceType": "Azure Monitor",
             "categoryKey": "azureMonitorVirtualMachines",
             "order": 100
+        },
+        {
+            "type": "vm-insights",
+            "resourceType": "microsoft.operationalinsights/workspaces",
+            "order": 200
         }
     ]
 }
