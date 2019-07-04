@@ -1,0 +1,6 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "name": "Mapa cieplna procesora CPU",
+    "author": "Microsoft",
+    "galleries": []
+}
