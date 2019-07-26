@@ -4,7 +4,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"d9830-101\">_Więcej informacji o metrykach w tym skoroszycie można znaleźć <a href='https://github.com/influxdata/telegraf/tree/master/plugins/inputs/diskio'>tutaj</a>_</span><span class=\"sxs-lookup\"><span data-stu-id=\"d9830-101\">_More information about the metrics in this workbook is available <a href='https://github.com/influxdata/telegraf/tree/master/plugins/inputs/diskio'>here</a>_</span></span>"
+                "json": "<span data-ttu-id=\"14099-101\">_Więcej informacji o metrykach w tym skoroszycie można znaleźć <a href='https://github.com/influxdata/telegraf/tree/master/plugins/inputs/diskio'>tutaj</a>_</span><span class=\"sxs-lookup\"><span data-stu-id=\"14099-101\">_More information about the metrics in this workbook is available <a href='https://github.com/influxdata/telegraf/tree/master/plugins/inputs/diskio'>here</a>_</span></span>"
             },
             "name": "text - 18"
         },
@@ -21,7 +21,7 @@
                         "name": "timeRange",
                         "label": "Time Range",
                         "type": 4,
-                        "description": "<span data-ttu-id=\"d9830-102\">Filtruj dane według zakresu czasu</span><span class=\"sxs-lookup\"><span data-stu-id=\"d9830-102\">Filter data by time range</span></span>",
+                        "description": "<span data-ttu-id=\"14099-102\">Filtruj dane według zakresu czasu</span><span class=\"sxs-lookup\"><span data-stu-id=\"14099-102\">Filter data by time range</span></span>",
                         "isRequired": true,
                         "typeSettings": {
                             "selectableValues": [
@@ -83,7 +83,7 @@
                         "name": "unit",
                         "label": "Unit",
                         "type": 2,
-                        "description": "<span data-ttu-id=\"d9830-103\">Jednostki używane dla danych</span><span class=\"sxs-lookup\"><span data-stu-id=\"d9830-103\">The units to use for the data</span></span>",
+                        "description": "<span data-ttu-id=\"14099-103\">Jednostki używane dla danych</span><span class=\"sxs-lookup\"><span data-stu-id=\"14099-103\">The units to use for the data</span></span>",
                         "typeSettings": {
                             "additionalResourceOptions": []
                         },
@@ -95,7 +95,7 @@
                         "name": "aggregation1",
                         "label": "Aggregation",
                         "type": 2,
-                        "description": "<span data-ttu-id=\"d9830-104\">Wybierz agregację danych, którą chcesz zwizualizować na wykresie czasowym</span><span class=\"sxs-lookup\"><span data-stu-id=\"d9830-104\">Choose which data aggregation you want to visualize on the time chart</span></span>",
+                        "description": "<span data-ttu-id=\"14099-104\">Wybierz agregację danych, którą chcesz zwizualizować na wykresie czasowym</span><span class=\"sxs-lookup\"><span data-stu-id=\"14099-104\">Choose which data aggregation you want to visualize on the time chart</span></span>",
                         "value": "Average",
                         "typeSettings": {
                             "additionalResourceOptions": []
@@ -112,7 +112,7 @@
                         "name": "selectedNodes1",
                         "label": "Node",
                         "type": 2,
-                        "description": "<span data-ttu-id=\"d9830-105\">Filtruj według węzła</span><span class=\"sxs-lookup\"><span data-stu-id=\"d9830-105\">Filter by node</span></span>",
+                        "description": "<span data-ttu-id=\"14099-105\">Filtruj według węzła</span><span class=\"sxs-lookup\"><span data-stu-id=\"14099-105\">Filter by node</span></span>",
                         "multiSelect": true,
                         "quote": "'",
                         "delimiter": ",",
@@ -139,7 +139,7 @@
                         "name": "selectedDevices1",
                         "label": "Device",
                         "type": 2,
-                        "description": "<span data-ttu-id=\"d9830-106\">Filtruj według urządzenia</span><span class=\"sxs-lookup\"><span data-stu-id=\"d9830-106\">Filter by device</span></span>",
+                        "description": "<span data-ttu-id=\"14099-106\">Filtruj według urządzenia</span><span class=\"sxs-lookup\"><span data-stu-id=\"14099-106\">Filter by device</span></span>",
                         "multiSelect": true,
                         "quote": "'",
                         "delimiter": ",",
@@ -165,9 +165,9 @@
                         "version": "KqlParameterItem/1.0",
                         "name": "clusterId",
                         "type": 1,
-                        "description": "<span data-ttu-id=\"d9830-107\">Filtrowanie wybranego obszaru roboczego według identyfikatora klastra</span><span class=\"sxs-lookup\"><span data-stu-id=\"d9830-107\">Filter the selected workspace by clusterId</span></span>",
+                        "description": "<span data-ttu-id=\"14099-107\">Filtrowanie wybranego obszaru roboczego według identyfikatora klastra</span><span class=\"sxs-lookup\"><span data-stu-id=\"14099-107\">Filter the selected workspace by clusterId</span></span>",
                         "isHiddenWhenLocked": true,
-                        "value": "aks-engine-health"
+                        "value": "aks-engine-cluster"
                     }
                 ],
                 "style": "above",
@@ -186,7 +186,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"d9830-108\">Przegląd we/wy dysku</span><span class=\"sxs-lookup\"><span data-stu-id=\"d9830-108\">Disk IO Overview</span></span></h3>"
+                "json": "<h3><span data-ttu-id=\"14099-108\">Przegląd we/wy dysku</span><span class=\"sxs-lookup\"><span data-stu-id=\"14099-108\">Disk IO Overview</span></span></h3>"
             },
             "name": "text - 24"
         },
@@ -375,7 +375,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"d9830-109\">Odczyt {unit:label}/s</span><span class=\"sxs-lookup\"><span data-stu-id=\"d9830-109\">Read {unit:label}/sec</span></span></h3>"
+                "json": "<h3><span data-ttu-id=\"14099-109\">Odczyt {unit:label}/s</span><span class=\"sxs-lookup\"><span data-stu-id=\"14099-109\">Read {unit:label}/sec</span></span></h3>"
             },
             "customWidth": "50",
             "name": "text - 5"
@@ -383,7 +383,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"d9830-110\">Zapis {unit:label}/s</span><span class=\"sxs-lookup\"><span data-stu-id=\"d9830-110\">Write {unit:label}/sec</span></span></h3>"
+                "json": "<h3><span data-ttu-id=\"14099-110\">Zapis {unit:label}/s</span><span class=\"sxs-lookup\"><span data-stu-id=\"14099-110\">Write {unit:label}/sec</span></span></h3>"
             },
             "customWidth": "50",
             "name": "text - 5 - Copy"
@@ -441,7 +441,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"d9830-111\">Odczytane łącznie: {unit:label} (interwały: {timeRange:grain})</span><span class=\"sxs-lookup\"><span data-stu-id=\"d9830-111\">Total {unit:label} Read ({timeRange:grain} intervals)</span></span></h3>"
+                "json": "<h3><span data-ttu-id=\"14099-111\">Odczytane łącznie: {unit:label} (interwały: {timeRange:grain})</span><span class=\"sxs-lookup\"><span data-stu-id=\"14099-111\">Total {unit:label} Read ({timeRange:grain} intervals)</span></span></h3>"
             },
             "customWidth": "50",
             "name": "text - 5 - Copy - Copy"
@@ -449,7 +449,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"d9830-112\">Zapisane łącznie: {unit:label} (interwały: {timeRange:grain})</span><span class=\"sxs-lookup\"><span data-stu-id=\"d9830-112\">Total {unit:label} Written ({timeRange:grain} intervals)</span></span></h3>"
+                "json": "<h3><span data-ttu-id=\"14099-112\">Zapisane łącznie: {unit:label} (interwały: {timeRange:grain})</span><span class=\"sxs-lookup\"><span data-stu-id=\"14099-112\">Total {unit:label} Written ({timeRange:grain} intervals)</span></span></h3>"
             },
             "customWidth": "50",
             "name": "text - 5 - Copy"
@@ -504,7 +504,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"d9830-113\">Liczba ms na odczyt {unit:label}</span><span class=\"sxs-lookup\"><span data-stu-id=\"d9830-113\">Millseconds Per {unit:label} Read</span></span></h3>"
+                "json": "<h3><span data-ttu-id=\"14099-113\">Liczba ms na odczyt {unit:label}</span><span class=\"sxs-lookup\"><span data-stu-id=\"14099-113\">Milliseconds Per {unit:label} Read</span></span></h3>"
             },
             "customWidth": "50",
             "name": "text - 5 - Copy - Copy - Copy"
@@ -512,7 +512,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"d9830-114\">Liczba ms na zapis {unit:label}</span><span class=\"sxs-lookup\"><span data-stu-id=\"d9830-114\">Millseconds Per {unit:label} Written</span></span></h3>"
+                "json": "<h3><span data-ttu-id=\"14099-114\">Liczba ms na zapis {unit:label}</span><span class=\"sxs-lookup\"><span data-stu-id=\"14099-114\">Milliseconds Per {unit:label} Written</span></span></h3>"
             },
             "customWidth": "50",
             "name": "text - 5 - Copy - Copy - Copy - Copy"
@@ -567,7 +567,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"d9830-115\">Liczba operacji we/wy na sekundę w toku</span><span class=\"sxs-lookup\"><span data-stu-id=\"d9830-115\">IOPS In Progress</span></span></h3>"
+                "json": "<h3><span data-ttu-id=\"14099-115\">Liczba operacji we/wy na sekundę w toku</span><span class=\"sxs-lookup\"><span data-stu-id=\"14099-115\">IOPS In Progress</span></span></h3>"
             },
             "customWidth": "50",
             "name": "text - 5 - Copy - Copy - Copy - Copy"
@@ -575,7 +575,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"d9830-116\">% zajętości dysku</span><span class=\"sxs-lookup\"><span data-stu-id=\"d9830-116\">% Disk Busy</span></span></h3>"
+                "json": "<h3><span data-ttu-id=\"14099-116\">% zajętości dysku</span><span class=\"sxs-lookup\"><span data-stu-id=\"14099-116\">% Disk Busy</span></span></h3>"
             },
             "customWidth": "50",
             "name": "text - 5 - Copy - Copy - Copy - Copy - Copy"
@@ -621,6 +621,5 @@
             "name": "disk-busy-percentage"
         }
     ],
-    "fallbackResourceIds": [],
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"
 }
