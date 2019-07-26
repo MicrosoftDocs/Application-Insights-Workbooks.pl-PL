@@ -1,12 +1,11 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "Mapa cieplna użycia procesora CPU",
+    "name": "Bazy danych SQL",
     "author": "Microsoft",
     "galleries": [
         {
             "type": "workbook",
-            "resourceType": "Azure Monitor",
-            "categoryKey": "azureMonitorVirtualMachines",
+            "resourceType": "microsoft.resources/resourcegroups",
             "order": 300
         }
     ]

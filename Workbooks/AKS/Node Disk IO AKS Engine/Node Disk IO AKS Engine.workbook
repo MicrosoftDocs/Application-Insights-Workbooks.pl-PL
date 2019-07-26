@@ -167,7 +167,7 @@
                         "type": 1,
                         "description": "Filtrowanie wybranego obszaru roboczego według identyfikatora klastra",
                         "isHiddenWhenLocked": true,
-                        "value": "aks-engine-health"
+                        "value": "aks-engine-cluster"
                     }
                 ],
                 "style": "above",
@@ -621,6 +621,5 @@
             "name": "disk-busy-percentage"
         }
     ],
-    "fallbackResourceIds": [],
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"
 }
