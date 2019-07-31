@@ -2,10 +2,11 @@
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
     "name": "Pojemność dysku węzła",
     "author": "Microsoft",
+    "isPreview": true,
     "galleries": [
         {
-            "type": "workbook",
-            "resourceType": "microsoft.operationalinsights/workspaces",
+            "type": "container-insights",
+            "resourceType": "Microsoft.ContainerService/managedClusters",
             "order": 100
         }
     ]
