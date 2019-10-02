@@ -1,16 +1,11 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "<span data-ttu-id=\"156f2-101\">Ciągła integracja pojemności dysku węzła</span><span class=\"sxs-lookup\"><span data-stu-id=\"156f2-101\">Node Disk Capacity CI</span></span>",
+    "name": "<span data-ttu-id=\"2c374-101\">Ciągła integracja pojemności dysku węzła</span><span class=\"sxs-lookup\"><span data-stu-id=\"2c374-101\">Node Disk Capacity CI</span></span>",
     "author": "Microsoft",
     "isPreview": true,
     "galleries": [
         {
             "type": "container-insights",
-            "resourceType": "Microsoft.ContainerService/managedClusters",
-            "order": 100
-        },
-        {
-            "type": "workbook",
             "resourceType": "Microsoft.ContainerService/managedClusters",
             "order": 100
         }

@@ -1,15 +1,10 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "<span data-ttu-id=\"0e7ed-101\">We/wy dysku węzła</span><span class=\"sxs-lookup\"><span data-stu-id=\"0e7ed-101\">Node Disk IO</span></span>",
+    "name": "<span data-ttu-id=\"4597f-101\">We/wy dysku węzła</span><span class=\"sxs-lookup\"><span data-stu-id=\"4597f-101\">Node Disk IO</span></span>",
     "author": "Microsoft",
     "galleries": [
         {
             "type": "container-insights",
-            "resourceType": "Microsoft.ContainerService/managedClusters",
-            "order": 200
-        },
-        {
-            "type": "workbook",
             "resourceType": "Microsoft.ContainerService/managedClusters",
             "order": 200
         }
