@@ -4,7 +4,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<a name=\"device-compliance\"></a>Zgodność urządzenia\n=="
+                "json": "### <a name=\"device-compliance\"></a>Zgodność urządzenia\n"
             },
             "name": "Device Compliance Title"
         },
