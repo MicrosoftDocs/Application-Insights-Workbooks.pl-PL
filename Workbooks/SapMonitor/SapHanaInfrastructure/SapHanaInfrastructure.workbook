@@ -16,7 +16,7 @@
                         "query": "SapHana_LoadHistory_CL\r\n| project HOST_s\r\n| take 1",
                         "isHiddenWhenLocked": true,
                         "timeContext": {
-                            "durationMs": 1800000
+                            "durationMs": 43200000
                         },
                         "queryType": 0,
                         "resourceType": "microsoft.operationalinsights/workspaces"
@@ -191,7 +191,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"bcd98-101\">⚠ Pozyskiwanie metryk jest nadal w toku. Pamiętaj, że do wyświetlenia danych może minąć nawet 30 minut.</span><span class=\"sxs-lookup\"><span data-stu-id=\"bcd98-101\">⚠ Metrics ingestion is still in progress; please note that it may take up to 30 minutes for data to appear.</span></span>\n"
+                "json": "⚠ Pozyskiwanie metryk jest nadal w toku. Pamiętaj, że do wyświetlenia danych może minąć nawet 30 minut.\n"
             },
             "conditionalVisibility": {
                 "parameterName": "testDataExist",
@@ -1318,7 +1318,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"bcd98-102\">Wykrywanie anomalii używa wbudowanych funkcji uczenia maszynowego, aby znaleźć **punkt odniesienia**, **wzorce dzienne** użycia procesora CPU/ pamięci, i wyodrębnia **nietypowe** punkty.</span><span class=\"sxs-lookup\"><span data-stu-id=\"bcd98-102\">Anomaly detection uses built in  machine learning capabilities to find  the **baseline** , **daily patterns** in CPU / Memory usage and  extracts **anomalous** points.</span></span>  <span data-ttu-id=\"bcd98-103\">Monitor SAP powinien zebrać dane z co najmniej 2 dni, aby sprawdzać wzorce dzienne.</span><span class=\"sxs-lookup\"><span data-stu-id=\"bcd98-103\">Minimum 2 days of data should be collected by SAP Monitor for cheking the daily patterns.</span></span>"
+                "json": "Wykrywanie anomalii używa wbudowanych funkcji uczenia maszynowego, aby znaleźć **punkt odniesienia**, **wzorce dzienne** użycia procesora CPU/ pamięci, i wyodrębnia **nietypowe** punkty.  Monitor SAP powinien zebrać dane z co najmniej 2 dni, aby sprawdzać wzorce dzienne."
             },
             "conditionalVisibility": {
                 "parameterName": "selectedTab",
