@@ -1,16 +1,12 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "Omówienie",
+    "name": "Trendy zgodności urządzeń",
     "author": "Microsoft",
+    "isPreview": true,
     "galleries": [
         {
             "type": "workbook",
-            "resourceType": "Azure Monitor",
-            "order": 100
-        },
-        {
-            "type": "cosmosdb-insights",
-            "resourceType": "Azure Monitor",
+            "resourceType": "microsoft.intune/reports",
             "order": 100
         }
     ]
