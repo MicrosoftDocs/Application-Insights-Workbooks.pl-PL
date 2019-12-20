@@ -1,17 +1,17 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "Kalendarz użycia",
+    "name": "Konta magazynu",
     "author": "Microsoft",
     "galleries": [
         {
             "type": "workbook",
-            "resourceType": "microsoft.insights/components",
-            "order": 600
+            "resourceType": "Monitoring Groups",
+            "order": 200
         },
         {
-            "type": "usage",
-            "resourceType": "microsoft.insights/components",
-            "order": 600
+            "type": "storage-insights",
+            "resourceType": "Monitoring Groups",
+            "order": 100
         }
     ]
 }

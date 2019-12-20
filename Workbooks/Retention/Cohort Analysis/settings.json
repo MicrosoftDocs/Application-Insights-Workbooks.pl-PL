@@ -1,6 +1,6 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "<span data-ttu-id=\"92f7b-101\">Analiza kohortowa</span><span class=\"sxs-lookup\"><span data-stu-id=\"92f7b-101\">Cohort Analysis</span></span>",
+    "name": "Analiza kohortowa",
     "author": "Microsoft",
     "galleries": [
         {

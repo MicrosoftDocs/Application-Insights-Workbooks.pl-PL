@@ -119,7 +119,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"85ec9-101\">⚠️ Wygląda na to, że nie masz żadnych maszyn wirtualnych w tej grupie zasobów.</span><span class=\"sxs-lookup\"><span data-stu-id=\"85ec9-101\">⚠️ Looks like you don't have any virtual machines in this resource group.</span></span>"
+                "json": "⚠️ Wygląda na to, że nie masz żadnych maszyn wirtualnych w tej grupie zasobów."
             },
             "conditionalVisibility": {
                 "parameterName": "VirtualMachines",
@@ -348,7 +348,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"85ec9-102\">💡 _Kliknij linki w komórce, aby zobaczyć więcej informacji o maszynie wirtualnej_</span><span class=\"sxs-lookup\"><span data-stu-id=\"85ec9-102\">💡 _Click on the links in the cell to see more details about the virtual machine_</span></span>"
+                "json": "💡 _Kliknij linki w komórce, aby zobaczyć więcej informacji o maszynie wirtualnej_"
             },
             "conditionalVisibility": {
                 "parameterName": "VirtualMachines",

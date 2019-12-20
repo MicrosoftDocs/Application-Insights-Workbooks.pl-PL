@@ -4,7 +4,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"sign-in-analysis\"></a><span data-ttu-id=\"156b5-101\">Analiza logowania</span><span class=\"sxs-lookup\"><span data-stu-id=\"156b5-101\">Sign-in Analysis</span></span>"
+                "json": "## <a name=\"sign-in-analysis\"></a>Analiza logowania"
             },
             "conditionalVisibility": null,
             "name": "text - 0"
@@ -239,7 +239,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<br />\n<span data-ttu-id=\"156b5-102\">💡 _Kliknij kafelek lub wiersz w siatce, aby przejść do szczegółów_</span><span class=\"sxs-lookup\"><span data-stu-id=\"156b5-102\">💡 _Click on a tile or a row in the grid to drill-in further_</span></span>"
+                "json": "<br />\n💡 _Kliknij kafelek lub wiersz w siatce, aby przejść do szczegółów_"
             },
             "conditionalVisibility": null,
             "name": "text - 6 - Copy"
