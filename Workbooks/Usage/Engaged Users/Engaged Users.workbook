@@ -5,7 +5,7 @@
         {
             "type": 1,
             "content": {
-                "json": "# <a name=\"engaged-users\"></a><span data-ttu-id=\"414c8-101\">Zaangażowani użytkownicy</span><span class=\"sxs-lookup\"><span data-stu-id=\"414c8-101\">Engaged Users</span></span>\n---\n<span data-ttu-id=\"414c8-102\">_Zaangażowany_ użytkownik to osoba, która używała aplikacji przez pewną liczbę dni w przedziale czasu.</span><span class=\"sxs-lookup\"><span data-stu-id=\"414c8-102\">An _engaged_ user is someone who has used your app a certain number of days within a time window.</span></span> <span data-ttu-id=\"414c8-103\">Na przykład można zdefiniować zaangażowanego użytkownika jako osobę, która używała funkcji X przez co najmniej _5_ unikatowych dni w 30-dniowym okresie.</span><span class=\"sxs-lookup\"><span data-stu-id=\"414c8-103\">For instance, you could define an engaged user as a person who used feature X on at least _5_ unique days over a 30 day range.</span></span> <span data-ttu-id=\"414c8-104\">Dzięki temu można odróżnić regularnych użytkowników aplikacji od użytkowników używających jej sporadycznie.</span><span class=\"sxs-lookup\"><span data-stu-id=\"414c8-104\">This allows you to differentiate serious users of your app from the more casual ones.</span></span> \n\n<span data-ttu-id=\"414c8-105\">Użyj parametru `Activities`, aby wybrać zdarzenia, które są uwzględniane w określaniu zaangażowania.</span><span class=\"sxs-lookup\"><span data-stu-id=\"414c8-105\">Use the `Activities` parameter to choose the events that count towards engagement.</span></span> <span data-ttu-id=\"414c8-106\">Parametry `Period`, `DaysUsed` i `CustomDaysUsed` umożliwiają wybranie definicji zaangażowania.</span><span class=\"sxs-lookup\"><span data-stu-id=\"414c8-106\">The `Period`, `DaysUsed` and `CustomDaysUsed` parameters allow you to select set the engagement definitions.</span></span> \n"
+                "json": "# <a name=\"engaged-users\"></a>Zaangażowani użytkownicy\n---\n_Zaangażowany_ użytkownik to osoba, która używała aplikacji przez pewną liczbę dni w przedziale czasu. Na przykład można zdefiniować zaangażowanego użytkownika jako osobę, która używała funkcji X przez co najmniej _5_ unikatowych dni w 30-dniowym okresie. Dzięki temu można odróżnić regularnych użytkowników aplikacji od użytkowników używających jej sporadycznie. \n\nUżyj parametru `Activities`, aby wybrać zdarzenia, które są uwzględniane w określaniu zaangażowania. Parametry `Period`, `DaysUsed` i `CustomDaysUsed` umożliwiają wybranie definicji zaangażowania. \n"
             }
         },
         {
@@ -87,7 +87,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"growth-rates\"></a><span data-ttu-id=\"414c8-107\">Współczynniki wzrostu</span><span class=\"sxs-lookup\"><span data-stu-id=\"414c8-107\">Growth Rates</span></span>\n"
+                "json": "## <a name=\"growth-rates\"></a>Współczynniki wzrostu\n"
             }
         },
         {

@@ -1,6 +1,6 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "<span data-ttu-id=\"c3080-101\">Otwarte porty</span><span class=\"sxs-lookup\"><span data-stu-id=\"c3080-101\">Open Ports</span></span>",
+    "name": "Otwarte porty",
     "author": "Microsoft",
     "galleries": [
         {

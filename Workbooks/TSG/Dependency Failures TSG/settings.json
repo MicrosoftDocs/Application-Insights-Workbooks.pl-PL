@@ -1,6 +1,6 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "<span data-ttu-id=\"b121d-101\">Błędy zależności</span><span class=\"sxs-lookup\"><span data-stu-id=\"b121d-101\">Dependency Failures</span></span>",
+    "name": "Błędy zależności",
     "author": "Microsoft",
     "galleries": [
         {

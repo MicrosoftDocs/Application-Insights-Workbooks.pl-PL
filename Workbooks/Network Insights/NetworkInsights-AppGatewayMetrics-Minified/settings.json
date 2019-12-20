@@ -1,6 +1,6 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "<span data-ttu-id=\"49099-101\">Zminimalizowane bramy aplikacji szczegółowych informacji dotyczących sieci</span><span class=\"sxs-lookup\"><span data-stu-id=\"49099-101\">Network Insights AppGateways Minified</span></span>",
+    "name": "Zminimalizowane bramy aplikacji szczegółowych informacji dotyczących sieci",
     "author": "Microsoft",
     "galleries": [
         {

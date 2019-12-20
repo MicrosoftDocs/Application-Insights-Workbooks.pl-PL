@@ -6,7 +6,7 @@
         {
             "type": 1,
             "content": {
-                "json": "# <a name=\"unbounded-retention\"></a><span data-ttu-id=\"af890-101\">Nieograniczone utrzymywanie</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-101\">Unbounded Retention</span></span>\n\n<span data-ttu-id=\"af890-102\">Nieograniczone utrzymywanie przedstawia wartość procentową użytkowników, którzy powrócili w określonym dniu **lub w dowolnym terminie po tym dniu**.</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-102\">Unbounded retention shows you the percentage of users who came back on a specific day **or anytime after that day**.</span></span> <span data-ttu-id=\"af890-103\">Jest to przydatne, gdy chcesz zobaczyć, ilu nowych użytkowników powraca do aplikacji po pierwszym tygodniu.</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-103\">It is useful in cases where you want to see how many new users returning to your app after the first week.</span></span>"
+                "json": "# <a name=\"unbounded-retention\"></a>Nieograniczone utrzymywanie\n\nNieograniczone utrzymywanie przedstawia wartość procentową użytkowników, którzy powrócili w określonym dniu **lub w dowolnym terminie po tym dniu**. Jest to przydatne, gdy chcesz zobaczyć, ilu nowych użytkowników powraca do aplikacji po pierwszym tygodniu."
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -14,7 +14,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"activity-selection\"></a><span data-ttu-id=\"af890-104\">Wybór działania</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-104\">Activity Selection</span></span>\n<span data-ttu-id=\"af890-105\">Przy użyciu tych pól możesz ustawić działania odpowiadające interesującym działaniom użytkowników.</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-105\">Use these fields to set events that that correspond to interesting user activities.</span></span> <span data-ttu-id=\"af890-106\">W sekcji `Understanding Retention Parameter` na dole opisano szczegółowo te parametry.</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-106\">The `Understanding Retention Parameter` section at the bottom describes these parameters in detail.</span></span>"
+                "json": "## <a name=\"activity-selection\"></a>Wybór działania\nPrzy użyciu tych pól możesz ustawić działania odpowiadające interesującym działaniom użytkowników. W sekcji `Understanding Retention Parameter` na dole opisano szczegółowo te parametry."
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -74,7 +74,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"retention-parameter\"></a><span data-ttu-id=\"af890-107\">Parametr utrzymywania</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-107\">Retention Parameter</span></span>\n<span data-ttu-id=\"af890-108\">Przy użyciu tych pól możesz dostosować ustawienia utrzymania.</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-108\">Use these fields to customize your retention settings.</span></span>"
+                "json": "## <a name=\"retention-parameter\"></a>Parametr utrzymywania\nPrzy użyciu tych pól możesz dostosować ustawienia utrzymania."
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -91,7 +91,7 @@
                         "version": "KqlParameterItem/1.0",
                         "name": "RetentionPeriod",
                         "type": 2,
-                        "description": "<span data-ttu-id=\"af890-109\">1d: Codziennie, 7d: Co tydzień 30/28d: Co miesiąc</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-109\">1d: Daily, 7d: Weekly, 30/28d: Monthly</span></span>",
+                        "description": "1d: Codziennie, 7d: Co tydzień 30/28d: Co miesiąc",
                         "isRequired": true,
                         "multiSelect": null,
                         "query": "datatable(id:string, text:string)[\n'1d', 'Daily',\n'7d', 'Weekly',\n'28d', 'Monthly (28 days)', \n'30d', 'Monthly (30 days)'\n]",
@@ -101,7 +101,7 @@
                         "isRequired": true,
                         "name": "CohortsToAnalyze",
                         "value": "6",
-                        "description": "<span data-ttu-id=\"af890-110\">Liczba okresów kohorty do analizy</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-110\">Number of cohort periods to analyze</span></span>",
+                        "description": "Liczba okresów kohorty do analizy",
                         "id": "fa4b29d9-bfc1-46e3-98f1-3cba05afbea3",
                         "type": 1
                     },
@@ -151,7 +151,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"understanding-retention-paramters\"></a><span data-ttu-id=\"af890-111\">Omówienie parametrów utrzymywania</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-111\">Understanding Retention Paramters</span></span>\n| <span data-ttu-id=\"af890-112\">Parametr</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-112\">Parameter</span></span> | <span data-ttu-id=\"af890-113\">Używana do</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-113\">Used for</span></span> |\n| ----- | ----- |\n| <span data-ttu-id=\"af890-114\">Okres utrzymania</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-114\">Retention Period</span></span> | <span data-ttu-id=\"af890-115\">Okres do użycia w obliczeniach utrzymania.</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-115\">The period to use in retention calculation.</span></span> <span data-ttu-id=\"af890-116\">Może to być Codziennie, Co tydzień lub Co miesiąc</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-116\">Can be Daily, Weekly or Monthly</span></span> |\n| <span data-ttu-id=\"af890-117\">Kohorty do analizy</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-117\">Cohorts To Analyze</span></span>  | <span data-ttu-id=\"af890-118\">Liczba kohort do analizy.</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-118\">The number of cohorts to analyze.</span></span> <span data-ttu-id=\"af890-119\">Odpowiada to parametrowi N w utrzymaniu dla okresu N</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-119\">This corresponds to the N in N-period retention</span></span> |\n| <span data-ttu-id=\"af890-120\">Działania wyznaczające kohortę</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-120\">Cohorting Activities</span></span>  | <span data-ttu-id=\"af890-121\">Działania, które wybierają kohortę użytkowników.</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-121\">The activities that selects a cohort of users.</span></span> <span data-ttu-id=\"af890-122\">Przykład: Użytkownicy, którzy użyli zdarzenia *Czytanie recenzji produktu* (działanie wyznaczające kohortę).</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-122\">Example: Users who used event *Read Product Review* (cohorting activity).</span></span> |\n| <span data-ttu-id=\"af890-123\">Działania utrzymujące</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-123\">Retaining Activities</span></span>  | <span data-ttu-id=\"af890-124\">Działania, które wskazują na utrzymanie użytkownika włączonego do kohorty wybranego powyżej.</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-124\">The activities that indicates retention of a cohorted user selected above.</span></span> <span data-ttu-id=\"af890-125\">Przykład: Użytkownicy, którzy użyli zdarzenia *Czytanie recenzji produktu* (działanie wyznaczające kohortę) i powrócili, aby użyć funkcji *Zakup produktu* (działanie utrzymujące).</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-125\">Example: Users who used event *Read Product Review* (cohorting activity) and returned to use *Purchase Product* (retaining activity).</span></span> |\n| <span data-ttu-id=\"af890-126\">Filtry wyznaczania kohorty/utrzymania</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-126\">Cohorting/Retaining Filters</span></span>  | <span data-ttu-id=\"af890-127\">Fragment zapytania analizy służący do dalszego filtrowania działania wyznaczającego kohortę.</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-127\">An analytics query snippet to further filter the cohorting activity.</span></span> <span data-ttu-id=\"af890-128\">Przykład: *&#124; where application_Version = '1.0'*</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-128\">Example: *&#124; where application_Version = '1.0'*</span></span> |\n"
+                "json": "## <a name=\"understanding-retention-paramters\"></a>Omówienie parametrów utrzymywania\n| Parametr | Używana do |\n| ----- | ----- |\n| Okres utrzymania | Okres do użycia w obliczeniach utrzymania. Może to być Codziennie, Co tydzień lub Co miesiąc |\n| Kohorty do analizy  | Liczba kohort do analizy. Odpowiada to parametrowi N w utrzymaniu dla okresu N |\n| Działania wyznaczające kohortę  | Działania, które wybierają kohortę użytkowników. Przykład: Użytkownicy, którzy użyli zdarzenia *Czytanie recenzji produktu* (działanie wyznaczające kohortę). |\n| Działania utrzymujące  | Działania, które wskazują na utrzymanie użytkownika włączonego do kohorty wybranego powyżej. Przykład: Użytkownicy, którzy użyli zdarzenia *Czytanie recenzji produktu* (działanie wyznaczające kohortę) i powrócili, aby użyć funkcji *Zakup produktu* (działanie utrzymujące). |\n| Filtry wyznaczania kohorty/utrzymania  | Fragment zapytania analizy służący do dalszego filtrowania działania wyznaczającego kohortę. Przykład: *&#124; where application_Version = '1.0'* |\n"
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -159,7 +159,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"related-workbook-templates\"></a><span data-ttu-id=\"af890-129\">Powiązane szablony skoroszytów</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-129\">Related Workbook Templates</span></span>\n* <span data-ttu-id=\"af890-130\">Utrzymanie — okres N</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-130\">Retention - N-Period</span></span>\n* <span data-ttu-id=\"af890-131\">Utrzymanie — przedział</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-131\">Retention - Bracket</span></span>\n* <span data-ttu-id=\"af890-132\">Analiza kohortowa</span><span class=\"sxs-lookup\"><span data-stu-id=\"af890-132\">Cohort Analysis</span></span>"
+                "json": "## <a name=\"related-workbook-templates\"></a>Powiązane szablony skoroszytów\n* Utrzymanie — okres N\n* Utrzymanie — przedział\n* Analiza kohortowa"
             },
             "conditionalVisibility": null,
             "halfWidth": false

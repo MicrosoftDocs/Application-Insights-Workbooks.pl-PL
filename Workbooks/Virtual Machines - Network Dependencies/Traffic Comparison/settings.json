@@ -1,6 +1,6 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "<span data-ttu-id=\"55536-101\">Porównanie ruchu</span><span class=\"sxs-lookup\"><span data-stu-id=\"55536-101\">Traffic Comparison</span></span>",
+    "name": "Porównanie ruchu",
     "author": "Microsoft",
     "galleries": [
         {

@@ -4,7 +4,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"application-failure-analysis\"></a><span data-ttu-id=\"d2d79-101\">Analiza niepowodzeń aplikacji</span><span class=\"sxs-lookup\"><span data-stu-id=\"d2d79-101\">Application Failure Analysis</span></span>"
+                "json": "## <a name=\"application-failure-analysis\"></a>Analiza niepowodzeń aplikacji"
             },
             "conditionalVisibility": null
         },
@@ -38,18 +38,14 @@
                         "name": "Subscription",
                         "type": 6,
                         "isRequired": true,
-                        "multiSelect": true,
-                        "quote": "'",
-                        "delimiter": ",",
+                        "multiSelect": false,
                         "query": "summarize by subscriptionId\r\n| project value = strcat(\"/subscriptions/\", subscriptionId), label = subscriptionId, selected = iff(subscriptionId =~ '{DefaultSubscription_Internal}', true, false)\r\n",
                         "crossComponentResources": [
                             "value::selected"
                         ],
                         "isHiddenWhenLocked": false,
                         "typeSettings": {
-                            "additionalResourceOptions": [
-                                "value::1"
-                            ]
+                            "additionalResourceOptions": []
                         },
                         "timeContextFromParameter": null,
                         "queryType": 1,
@@ -307,7 +303,8 @@
                             "formatter": 9,
                             "formatOptions": {
                                 "min": 0,
-                                "palette": "red",
+                                "max": 1,
+                                "palette": "greenRed",
                                 "showIcon": true
                             }
                         },
@@ -374,14 +371,14 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"d2d79-102\">💡 _Wybierz wiersz w tabeli powyżej, aby zobaczyć więcej szczegółów_</span><span class=\"sxs-lookup\"><span data-stu-id=\"d2d79-102\">💡 _Select a row in the table above to see more details_</span></span>\n<br />\n<br />\n"
+                "json": "💡 _Wybierz wiersz w tabeli powyżej, aby zobaczyć więcej szczegółów_\n<br />\n<br />\n"
             },
             "conditionalVisibility": null
         },
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"failed-requests\"></a><span data-ttu-id=\"d2d79-103\">Żądania zakończone niepowodzeniem</span><span class=\"sxs-lookup\"><span data-stu-id=\"d2d79-103\">Failed Requests</span></span>"
+                "json": "### <a name=\"failed-requests\"></a>Żądania zakończone niepowodzeniem"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -389,7 +386,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"all-requests\"></a><span data-ttu-id=\"d2d79-104\">Wszystkie żądania</span><span class=\"sxs-lookup\"><span data-stu-id=\"d2d79-104\">All Requests</span></span>"
+                "json": "### <a name=\"all-requests\"></a>Wszystkie żądania"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -404,6 +401,7 @@
                 "aggregation": 0,
                 "showAnnotations": false,
                 "showAnalytics": false,
+                "color": "red",
                 "noDataMessage": "The Application Insights resource you selected has no data.",
                 "timeContext": {
                     "durationMs": 0

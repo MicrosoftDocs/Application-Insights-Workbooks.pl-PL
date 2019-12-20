@@ -1,6 +1,6 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "<span data-ttu-id=\"dbce3-101\">Zwiększanie poziomu utrzymania użytkowników</span><span class=\"sxs-lookup\"><span data-stu-id=\"dbce3-101\">Improving User Retention</span></span>",
+    "name": "Zwiększanie poziomu utrzymania użytkowników",
     "author": "Microsoft",
     "order": 100,
     "galleries": [

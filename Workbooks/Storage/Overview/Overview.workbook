@@ -169,7 +169,7 @@
         {
             "type": 1,
             "content": {
-                "json": "{Message} _Konta magazynu_"
+                "json": "{Message}\n_Konta magazynu_"
             },
             "name": "text - 3",
             "styleSettings": {

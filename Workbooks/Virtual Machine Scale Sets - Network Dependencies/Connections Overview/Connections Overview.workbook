@@ -71,7 +71,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"2fdc3-101\">{DisclaimerText}</span><span class=\"sxs-lookup\"><span data-stu-id=\"2fdc3-101\">{DisclaimerText}</span></span>\n\n---"
+                "json": "{DisclaimerText}\n\n---"
             },
             "conditionalVisibility": null,
             "name": "text - 1"
@@ -203,7 +203,7 @@
                         "version": "KqlParameterItem/1.0",
                         "name": "Direction",
                         "type": 2,
-                        "description": "<span data-ttu-id=\"2fdc3-102\">Kierunek połączenia sieciowego z maszyn wirtualnych</span><span class=\"sxs-lookup\"><span data-stu-id=\"2fdc3-102\">Direction of the network connection from the VMs</span></span>",
+                        "description": "Kierunek połączenia sieciowego z maszyn wirtualnych",
                         "isRequired": true,
                         "value": "outbound",
                         "isHiddenWhenLocked": false,
@@ -266,7 +266,7 @@
                         "version": "KqlParameterItem/1.0",
                         "name": "Hierarchy",
                         "type": 2,
-                        "description": "<span data-ttu-id=\"2fdc3-103\">Wybierz poziom szczegółów do wyświetlenia w poniższej tabeli</span><span class=\"sxs-lookup\"><span data-stu-id=\"2fdc3-103\">Select the level of detail to be shown in the table below</span></span>",
+                        "description": "Wybierz poziom szczegółów do wyświetlenia w poniższej tabeli",
                         "isRequired": true,
                         "query": "let outboundTable = datatable (value:string, Display:string)\r\n    [\"0\", \"Computer -> Process -> Remote IP -> Port\",\r\n     \"1\", \"Computer -> Process -> Remote IP\",\r\n     \"2\", \"Computer -> Process\",\r\n     \"3\", \"Computer\"];\r\nlet outbound = outboundTable | extend type = 'outbound';\r\nlet inboundTable = datatable (value:string, Display:string)\r\n    [\"0\", \"Computer -> Process -> Port -> Remote IP\",\r\n     \"1\", \"Computer -> Process -> Port\",\r\n     \"2\", \"Computer -> Process\",\r\n     \"3\", \"Computer\"];\r\nlet inbound = inboundTable | extend type = 'inbound';\r\nlet table = outbound | union inbound;\r\ntable\r\n| where type == iif('{Direction}' == 'outbound', 'outbound', 'inbound')\r\n| project value, Display",
                         "crossComponentResources": [
@@ -285,7 +285,7 @@
                         "version": "KqlParameterItem/1.0",
                         "name": "TableFilter",
                         "type": 2,
-                        "description": "<span data-ttu-id=\"2fdc3-104\">Filtruj tabelę na podstawie obecności złośliwych połączeń lub co najmniej jednej awarii łącza</span><span class=\"sxs-lookup\"><span data-stu-id=\"2fdc3-104\">Filter table based on presence of malicious connections or at least one link failing</span></span>",
+                        "description": "Filtruj tabelę na podstawie obecności złośliwych połączeń lub co najmniej jednej awarii łącza",
                         "isRequired": false,
                         "multiSelect": true,
                         "quote": "",
@@ -543,7 +543,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"2fdc3-105\">💡 <em>Wybierz wiersz z tabeli poniżej, aby wyświetlić szczegóły połączenia dla danej pozycji.</em></span><span class=\"sxs-lookup\"><span data-stu-id=\"2fdc3-105\">💡 <em>Select a row from the table below to view connection details for that entry.</em></span></span>"
+                "json": "💡 <em>Wybierz wiersz z tabeli poniżej, aby wyświetlić szczegóły połączenia dla danej pozycji.</em>"
             },
             "conditionalVisibility": null,
             "name": "text - 4"
@@ -846,7 +846,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h2 style=\"font-weight:normal;\"><span data-ttu-id=\"2fdc3-106\">{Heading}</span><span class=\"sxs-lookup\"><span data-stu-id=\"2fdc3-106\">{Heading}</span></span></h2>"
+                "json": "<h2 style=\"font-weight:normal;\">{Heading}</h2>"
             },
             "conditionalVisibility": {
                 "parameterName": "ShowDetail",
@@ -858,7 +858,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"responses\"></a><span data-ttu-id=\"2fdc3-107\">Odpowiedzi</span><span class=\"sxs-lookup\"><span data-stu-id=\"2fdc3-107\">Responses</span></span>"
+                "json": "### <a name=\"responses\"></a>Odpowiedzi"
             },
             "conditionalVisibility": {
                 "parameterName": "ShowDetail",
@@ -871,7 +871,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"latency\"></a><span data-ttu-id=\"2fdc3-108\">Opóźnienie</span><span class=\"sxs-lookup\"><span data-stu-id=\"2fdc3-108\">Latency</span></span>"
+                "json": "### <a name=\"latency\"></a>Opóźnienie"
             },
             "conditionalVisibility": {
                 "parameterName": "ShowDetail",
@@ -884,7 +884,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"network\"></a><span data-ttu-id=\"2fdc3-109\">Sieć</span><span class=\"sxs-lookup\"><span data-stu-id=\"2fdc3-109\">Network</span></span>"
+                "json": "### <a name=\"network\"></a>Sieć"
             },
             "conditionalVisibility": {
                 "parameterName": "ShowDetail",
@@ -897,7 +897,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"links\"></a><span data-ttu-id=\"2fdc3-110\">Linki</span><span class=\"sxs-lookup\"><span data-stu-id=\"2fdc3-110\">Links</span></span>"
+                "json": "### <a name=\"links\"></a>Linki"
             },
             "conditionalVisibility": {
                 "parameterName": "ShowDetail",

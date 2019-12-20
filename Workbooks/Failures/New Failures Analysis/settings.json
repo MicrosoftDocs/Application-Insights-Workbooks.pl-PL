@@ -1,6 +1,6 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "<span data-ttu-id=\"63061-101\">Analiza nowych błędów</span><span class=\"sxs-lookup\"><span data-stu-id=\"63061-101\">New Failures Analysis</span></span>",
+    "name": "Analiza nowych błędów",
     "author": "Microsoft",
     "galleries": [
         {

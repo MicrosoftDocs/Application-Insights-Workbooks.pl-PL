@@ -1,6 +1,6 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "<span data-ttu-id=\"6f2ba-101\">Połączenia zakończone niepowodzeniem</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f2ba-101\">Failed Connections</span></span>",
+    "name": "Połączenia zakończone niepowodzeniem",
     "author": "Microsoft",
     "galleries": [
         {

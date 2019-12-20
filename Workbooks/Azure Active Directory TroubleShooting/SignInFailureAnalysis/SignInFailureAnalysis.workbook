@@ -4,7 +4,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"troubleshooting-sign-ins\"></a><span data-ttu-id=\"76e74-101\">Rozwiązywanie problemów z logowaniem</span><span class=\"sxs-lookup\"><span data-stu-id=\"76e74-101\">Troubleshooting Sign-ins</span></span>"
+                "json": "## <a name=\"troubleshooting-sign-ins\"></a>Rozwiązywanie problemów z logowaniem"
             },
             "conditionalVisibility": null,
             "name": "text - 0"
@@ -150,7 +150,7 @@
                         "version": "KqlParameterItem/1.0",
                         "name": "Users",
                         "type": 2,
-                        "description": "<span data-ttu-id=\"76e74-102\">Filtruj według nazwy użytkownika</span><span class=\"sxs-lookup\"><span data-stu-id=\"76e74-102\">Filter by User Name</span></span>",
+                        "description": "Filtruj według nazwy użytkownika",
                         "isRequired": true,
                         "multiSelect": true,
                         "quote": "'",

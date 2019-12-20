@@ -1,6 +1,6 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "<span data-ttu-id=\"3aea4-101\">Metryki wydajności</span><span class=\"sxs-lookup\"><span data-stu-id=\"3aea4-101\">Performance Metrics</span></span>",
+    "name": "Metryki wydajności",
     "author": "Microsoft",
     "galleries": [
         {

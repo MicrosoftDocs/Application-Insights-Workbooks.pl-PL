@@ -4,7 +4,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"active-users\"></a><span data-ttu-id=\"6864c-101\">Aktywni użytkownicy</span><span class=\"sxs-lookup\"><span data-stu-id=\"6864c-101\">Active Users</span></span>\n\n<span data-ttu-id=\"6864c-102\">Zlicza, ilu użytkowników użyło aplikacji przynajmniej raz w poprzednim okresie czasu.</span><span class=\"sxs-lookup\"><span data-stu-id=\"6864c-102\">Active users counts how many users have used your app at least once in a previous time period.</span></span> <span data-ttu-id=\"6864c-103\">Zwykle służy do odpowiedzi na pytanie: *Ilu użytkowników ma Twoja aplikacja lub funkcja?*</span><span class=\"sxs-lookup\"><span data-stu-id=\"6864c-103\">It is typically used to answer -- *How many users does your app or feature have?*.</span></span> <span data-ttu-id=\"6864c-104\">Edytuj parametr `Activities` poniżej, aby dostosować, które zdarzenia niestandardowe i wyświetlenia strony kwalifikują się jako aktywne użycie.</span><span class=\"sxs-lookup\"><span data-stu-id=\"6864c-104\">Edit the `Activities` parameter below to customize what custom events and page views qualify as active usage.</span></span> \n"
+                "json": "## <a name=\"active-users\"></a>Aktywni użytkownicy\n\nZlicza, ilu użytkowników użyło aplikacji przynajmniej raz w poprzednim okresie czasu. Zwykle służy do odpowiedzi na pytanie: *Ilu użytkowników ma Twoja aplikacja lub funkcja?* Edytuj parametr `Activities` poniżej, aby dostosować, które zdarzenia niestandardowe i wyświetlenia strony kwalifikują się jako aktywne użycie. \n"
             },
             "conditionalVisibility": null
         },
@@ -33,7 +33,7 @@
                         "version": "KqlParameterItem/1.0",
                         "name": "Activities",
                         "type": 2,
-                        "description": "<span data-ttu-id=\"6864c-105\">Rozdzielony przecinkami zbiór wyświetleń strony lub zdarzeń, które mają być liczone jako działania.</span><span class=\"sxs-lookup\"><span data-stu-id=\"6864c-105\">A comma separated set of Page views or Events that are to be counted as activities.</span></span> <span data-ttu-id=\"6864c-106\">Użyj znaku „\\*”, aby uwzględnić wszystkie zdarzenia.</span><span class=\"sxs-lookup\"><span data-stu-id=\"6864c-106\">Or user '\\*' to include all events.</span></span>",
+                        "description": "Rozdzielony przecinkami zbiór wyświetleń strony lub zdarzeń, które mają być liczone jako działania. Użyj znaku „*”, aby uwzględnić wszystkie zdarzenia.",
                         "isRequired": true,
                         "multiSelect": true,
                         "quote": "'",
@@ -46,7 +46,7 @@
                         "version": "KqlParameterItem/1.0",
                         "name": "OtherFilters",
                         "type": 1,
-                        "description": "<span data-ttu-id=\"6864c-107\">Fragment kodu KQL, który dokładniej filtruje działania.</span><span class=\"sxs-lookup\"><span data-stu-id=\"6864c-107\">A KQL snippet that further filters the activities.</span></span> <span data-ttu-id=\"6864c-108\">Przykład: | where application_Version == '1.0'</span><span class=\"sxs-lookup\"><span data-stu-id=\"6864c-108\">Example: | where application_Version == '1.0'</span></span>",
+                        "description": "Fragment kodu KQL, który dokładniej filtruje działania. Przykład: | where application_Version == '1.0'",
                         "isRequired": false
                     }
                 ],
@@ -216,7 +216,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"trend-of-active-users\"></a><span data-ttu-id=\"6864c-109\">Trend aktywnych użytkowników</span><span class=\"sxs-lookup\"><span data-stu-id=\"6864c-109\">Trend of Active Users</span></span>\n<span data-ttu-id=\"6864c-110\">Wybierz wiersz z tabeli powyżej, aby zobaczyć zmiany w aktywnym użyciu tego elementu.</span><span class=\"sxs-lookup\"><span data-stu-id=\"6864c-110\">Select a row from the table above to see changes in active usage for that item.</span></span>"
+                "json": "## <a name=\"trend-of-active-users\"></a>Trend aktywnych użytkowników\nWybierz wiersz z tabeli powyżej, aby zobaczyć zmiany w aktywnym użyciu tego elementu."
             },
             "conditionalVisibility": null
         },

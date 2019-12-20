@@ -5,14 +5,14 @@
         {
             "type": 1,
             "content": {
-                "json": "# <a name=\"intune-audit-activity\"></a><span data-ttu-id=\"43258-101\">Działania inspekcji w usłudze Intune</span><span class=\"sxs-lookup\"><span data-stu-id=\"43258-101\">Intune Audit Activity</span></span> "
+                "json": "# <a name=\"intune-audit-activity\"></a>Działania inspekcji w usłudze Intune "
             },
             "conditionalVisibility": null
         },
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"parameters\"></a><span data-ttu-id=\"43258-102\">Parametry</span><span class=\"sxs-lookup\"><span data-stu-id=\"43258-102\">Parameters</span></span>"
+                "json": "## <a name=\"parameters\"></a>Parametry"
             },
             "conditionalVisibility": null
         },
@@ -137,7 +137,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"audit-events-trend\"></a><span data-ttu-id=\"43258-103\">Trend zdarzeń inspekcji</span><span class=\"sxs-lookup\"><span data-stu-id=\"43258-103\">Audit Events Trend</span></span>"
+                "json": "## <a name=\"audit-events-trend\"></a>Trend zdarzeń inspekcji"
             },
             "conditionalVisibility": null
         },
@@ -168,7 +168,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"activity-types\"></a><span data-ttu-id=\"43258-104\">Typy działań</span><span class=\"sxs-lookup\"><span data-stu-id=\"43258-104\">Activity Types</span></span>"
+                "json": "## <a name=\"activity-types\"></a>Typy działań"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -176,7 +176,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"top-users-with-audited-actions\"></a><span data-ttu-id=\"43258-105\">Najczęściej występujący użytkownicy z akcjami poddanymi inspekcji</span><span class=\"sxs-lookup\"><span data-stu-id=\"43258-105\">Top users with audited actions</span></span>"
+                "json": "## <a name=\"top-users-with-audited-actions\"></a>Najczęściej występujący użytkownicy z akcjami poddanymi inspekcji"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -256,14 +256,14 @@
         {
             "type": 1,
             "content": {
-                "json": "# <a name=\"remote-actions\"></a><span data-ttu-id=\"43258-106\">Akcje zdalne</span><span class=\"sxs-lookup\"><span data-stu-id=\"43258-106\">Remote actions</span></span>"
+                "json": "# <a name=\"remote-actions\"></a>Akcje zdalne"
             },
             "conditionalVisibility": null
         },
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"remote-actions-by-action-type\"></a><span data-ttu-id=\"43258-107\">Akcje zdalne według typu akcji</span><span class=\"sxs-lookup\"><span data-stu-id=\"43258-107\">Remote actions by action type</span></span>"
+                "json": "## <a name=\"remote-actions-by-action-type\"></a>Akcje zdalne według typu akcji"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -271,7 +271,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"remote-actions-top-users\"></a><span data-ttu-id=\"43258-108\">Najczęściej występujący użytkownicy akcji zdalnych</span><span class=\"sxs-lookup\"><span data-stu-id=\"43258-108\">Remote actions top users</span></span>"
+                "json": "## <a name=\"remote-actions-top-users\"></a>Najczęściej występujący użytkownicy akcji zdalnych"
             },
             "conditionalVisibility": null,
             "customWidth": "50"

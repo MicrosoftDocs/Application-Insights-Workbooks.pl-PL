@@ -6,7 +6,7 @@
         {
             "type": 1,
             "content": {
-                "json": "# <a name=\"new-failures-analysis\"></a><span data-ttu-id=\"52986-101\">Analiza nowych błędów</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-101\">New Failures Analysis</span></span>\n<span data-ttu-id=\"52986-102\">Ten skoroszyt pomoże Ci zidentyfikować nowe błędy, które mogły rozpocząć się w aplikacji.</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-102\">This workbook will help you identify any new failures that may have begun in your app.</span></span> <span data-ttu-id=\"52986-103\">Analizuje on błędy aplikacji z trzech źródeł danych telemetrycznych:</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-103\">It looks at your app's failures from three telemetry sources:</span></span>\n* <span data-ttu-id=\"52986-104\">żądania obsłużone przez aplikację</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-104\">Requests served by app</span></span>\n* <span data-ttu-id=\"52986-105\">wyjątki w aplikacji</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-105\">Exceptions in your app</span></span>\n* <span data-ttu-id=\"52986-106\">wywołania zależności wykonane przez aplikację</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-106\">Dependency calls made by you app</span></span>\n\n<span data-ttu-id=\"52986-107\">Raport dostarcza wiele informacji, które ułatwiają klasyfikowanie i diagnozowanie tych nowych problemów.</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-107\">The report provides you with a bunch of information to help you triage and diagnose these new issues.</span></span> <span data-ttu-id=\"52986-108\">Możesz go używać w połączeniu z raportem dotyczącym błędu w usłudze App Insights, aby zrozumieć błędy w aplikacji.</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-108\">Use it in conjunction with the Failure report in App Insights to understand the failures in your app.</span></span>"
+                "json": "# <a name=\"new-failures-analysis\"></a>Analiza nowych błędów\nTen skoroszyt pomoże Ci zidentyfikować nowe błędy, które mogły rozpocząć się w aplikacji. Analizuje on błędy aplikacji z trzech źródeł danych telemetrycznych:\n* żądania obsłużone przez aplikację\n* wyjątki w aplikacji\n* wywołania zależności wykonane przez aplikację\n\nRaport dostarcza wiele informacji, które ułatwiają klasyfikowanie i diagnozowanie tych nowych problemów. Możesz go używać w połączeniu z raportem dotyczącym błędu w usłudze App Insights, aby zrozumieć błędy w aplikacji."
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -78,7 +78,7 @@
         {
             "type": 1,
             "content": {
-                "json": "---\n## <a name=\"request-failures-analysis\"></a><span data-ttu-id=\"52986-109\">Analiza niepowodzeń żądań</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-109\">Request Failures Analysis</span></span>\n"
+                "json": "---\n## <a name=\"request-failures-analysis\"></a>Analiza niepowodzeń żądań\n"
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -123,7 +123,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"failures-rates\"></a><span data-ttu-id=\"52986-110\">Wskaźniki niepowodzeń</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-110\">Failures Rates</span></span>\n<span data-ttu-id=\"52986-111\">Ta sekcja pomoże Ci zobaczyć, jak współczynniki niepowodzeń żądań zmieniają się w czasie — z podziałem na segmenty według nowych i istniejących błędów.</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-111\">This section will help you see how your request failure rates change over time -- segmented by new vs. existing failures.</span></span>"
+                "json": "### <a name=\"failures-rates\"></a>Wskaźniki niepowodzeń\nTa sekcja pomoże Ci zobaczyć, jak współczynniki niepowodzeń żądań zmieniają się w czasie — z podziałem na segmenty według nowych i istniejących błędów."
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -145,7 +145,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"requests-volume\"></a><span data-ttu-id=\"52986-112\">Wolumen żądań</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-112\">Requests Volume</span></span>\n<span data-ttu-id=\"52986-113\">Ten wykres przedstawia wolumeny żądań lub obciążenie w czasie.</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-113\">This chart shows you request volumes or load over time.</span></span> <span data-ttu-id=\"52986-114\">Zmiany wolumenu mogą mieć wpływ na błędy i wydajność.</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-114\">Changes in volume can impact failures and performance.</span></span> <span data-ttu-id=\"52986-115\">Te dane będą ustawiały kontekst, w którym wystąpiły błędy.</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-115\">This data will set the context in which any failures have occured.</span></span>"
+                "json": "### <a name=\"requests-volume\"></a>Wolumen żądań\nTen wykres przedstawia wolumeny żądań lub obciążenie w czasie. Zmiany wolumenu mogą mieć wpływ na błędy i wydajność. Te dane będą ustawiały kontekst, w którym wystąpiły błędy."
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -167,7 +167,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"request-details\"></a><span data-ttu-id=\"52986-116\">Szczegóły żądania</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-116\">Request Details</span></span>\n<span data-ttu-id=\"52986-117\">W poniższej tabeli przedstawiono wszystkie żądania kończące się niepowodzeniem w danej aplikacji i ich kody wyników — posortowane według liczby użytkowników dotkniętych problemem.</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-117\">This table shows all failing requests in your app and their result codes - sorted by users impacted.</span></span> <span data-ttu-id=\"52986-118\">Te informacje pomogą Ci uzyskać wiedzę o różnych błędach w aplikacji oraz ich ważności.</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-118\">This information will help you know the various failures in your app and their severity.</span></span> <span data-ttu-id=\"52986-119\">Raport wskazuje także, czy błąd jest nowy, czy istniejący, dzięki czemu wiesz, które błędy zaczęły właśnie występować — zwykle te są najbardziej interesujące.</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-119\">The report also indicates if a failure is new or existing - so you see failures just started happening -- usually the most interesting ones.</span></span>"
+                "json": "## <a name=\"request-details\"></a>Szczegóły żądania\nW poniższej tabeli przedstawiono wszystkie żądania kończące się niepowodzeniem w danej aplikacji i ich kody wyników — posortowane według liczby użytkowników dotkniętych problemem. Te informacje pomogą Ci uzyskać wiedzę o różnych błędach w aplikacji oraz ich ważności. Raport wskazuje także, czy błąd jest nowy, czy istniejący, dzięki czemu wiesz, które błędy zaczęły właśnie występować — zwykle te są najbardziej interesujące."
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -175,7 +175,7 @@
         {
             "type": 1,
             "content": {
-                "json": "\n<span data-ttu-id=\"52986-120\">🔸 Nowy błąd 🔹 Istniejący błąd</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-120\">🔸 New Failure 🔹 Existing Failure</span></span>"
+                "json": "\n🔸 Nowy błąd 🔹 Istniejący błąd"
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -219,7 +219,7 @@
         {
             "type": 1,
             "content": {
-                "json": "---\n## <a name=\"exceptions-analysis\"></a><span data-ttu-id=\"52986-121\">Analiza wyjątków</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-121\">Exceptions Analysis</span></span>\n"
+                "json": "---\n## <a name=\"exceptions-analysis\"></a>Analiza wyjątków\n"
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -263,7 +263,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"exception-trends\"></a><span data-ttu-id=\"52986-122\">Trendy wyjątków</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-122\">Exception Trends</span></span>"
+                "json": "### <a name=\"exception-trends\"></a>Trendy wyjątków"
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -285,7 +285,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"exception-details\"></a><span data-ttu-id=\"52986-123\">Szczegóły wyjątków</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-123\">Exception Details</span></span>\n<span data-ttu-id=\"52986-124\">W poniższej tabeli przedstawiono wszystkie wyjątki w aplikacji i powiązanej operacji — posortowane według liczby użytkowników dotkniętych problemem.</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-124\">This table shows all exceptions in your app and related operation - sorted by users impacted.</span></span> <span data-ttu-id=\"52986-125\">Te informacje pomogą Ci uzyskać wiedzę o różnych błędach w aplikacji oraz ich ważności.</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-125\">This information will help you know the various errors in your app and their severity.</span></span> <span data-ttu-id=\"52986-126\">Raport wskazuje także, czy wyjątek jest nowy, czy istniejący, dzięki czemu widzisz, które wyjątki zaczęły właśnie występować — zwykle te są najbardziej interesujące.</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-126\">The report also indicates if an exception is new or existing - so you see exceptions that just started happening -- usually the most interesting ones.</span></span>"
+                "json": "### <a name=\"exception-details\"></a>Szczegóły wyjątków\nW poniższej tabeli przedstawiono wszystkie wyjątki w aplikacji i powiązanej operacji — posortowane według liczby użytkowników dotkniętych problemem. Te informacje pomogą Ci uzyskać wiedzę o różnych błędach w aplikacji oraz ich ważności. Raport wskazuje także, czy wyjątek jest nowy, czy istniejący, dzięki czemu widzisz, które wyjątki zaczęły właśnie występować — zwykle te są najbardziej interesujące."
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -293,7 +293,7 @@
         {
             "type": 1,
             "content": {
-                "json": "\n<span data-ttu-id=\"52986-127\">🔸 Nowy wyjątek 🔹 Istniejący wyjątek</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-127\">🔸 New Exception 🔹 Existing Exception</span></span>"
+                "json": "\n🔸 Nowy wyjątek 🔹 Istniejący wyjątek"
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -336,7 +336,7 @@
         {
             "type": 1,
             "content": {
-                "json": "---\n## <a name=\"dependency-failure-analysis\"></a><span data-ttu-id=\"52986-128\">Analiza błędów zależności</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-128\">Dependency Failure Analysis</span></span>\n"
+                "json": "---\n## <a name=\"dependency-failure-analysis\"></a>Analiza błędów zależności\n"
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -381,7 +381,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"failure-rates\"></a><span data-ttu-id=\"52986-129\">Współczynniki błędów</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-129\">Failure Rates</span></span>\n<span data-ttu-id=\"52986-130\">W tej sekcji możesz zobaczyć, jak współczynniki błędów zależności zmieniają się w czasie — z podziałem na segmenty według nowych i istniejących błędów.</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-130\">This section will help you see how your dependency failure rates change over time -- segmented by new vs. existing failures.</span></span>"
+                "json": "### <a name=\"failure-rates\"></a>Współczynniki błędów\nW tej sekcji możesz zobaczyć, jak współczynniki błędów zależności zmieniają się w czasie — z podziałem na segmenty według nowych i istniejących błędów."
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -403,7 +403,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"dependency-volume\"></a><span data-ttu-id=\"52986-131\">Wolumen zależności</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-131\">Dependency Volume</span></span>\n<span data-ttu-id=\"52986-132\">Ten wykres przedstawia wolumeny żądań lub obciążenie w czasie.</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-132\">This chart shows you request volumes or load over time.</span></span> <span data-ttu-id=\"52986-133\">Zmiany wolumenu mogą mieć wpływ na błędy i wydajność.</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-133\">Changes in volume can impact failures and performance.</span></span> <span data-ttu-id=\"52986-134\">Te dane będą ustawiały kontekst, w którym wystąpiły błędy.</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-134\">This data will set the context in which any failures have occured.</span></span>"
+                "json": "### <a name=\"dependency-volume\"></a>Wolumen zależności\nTen wykres przedstawia wolumeny żądań lub obciążenie w czasie. Zmiany wolumenu mogą mieć wpływ na błędy i wydajność. Te dane będą ustawiały kontekst, w którym wystąpiły błędy."
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -425,7 +425,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"dependency-details\"></a><span data-ttu-id=\"52986-135\">Szczegóły zależności</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-135\">Dependency Details</span></span>\n<span data-ttu-id=\"52986-136\">W poniższej tabeli przedstawiono wszystkie zależności powodujące błąd w danej aplikacji i ich kody wyników — posortowane według liczby użytkowników dotkniętych problemem.</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-136\">This table shows all failing dependencies in your app and their result codes - sorted by users impacted.</span></span> <span data-ttu-id=\"52986-137\">Te informacje pomogą Ci uzyskać wiedzę o różnych błędach w aplikacji oraz ich ważności.</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-137\">This information will help you know the various failures in your app and their severity.</span></span> <span data-ttu-id=\"52986-138\">Raport wskazuje także, czy błąd jest nowy, czy istniejący, dzięki czemu wiesz, które błędy zaczęły właśnie występować — zwykle te są najbardziej interesujące.</span><span class=\"sxs-lookup\"><span data-stu-id=\"52986-138\">The report also indicates if a failure is new or existing - so you see failures just started happening -- usually the most interesting ones.</span></span>"
+                "json": "### <a name=\"dependency-details\"></a>Szczegóły zależności\nW poniższej tabeli przedstawiono wszystkie zależności powodujące błąd w danej aplikacji i ich kody wyników — posortowane według liczby użytkowników dotkniętych problemem. Te informacje pomogą Ci uzyskać wiedzę o różnych błędach w aplikacji oraz ich ważności. Raport wskazuje także, czy błąd jest nowy, czy istniejący, dzięki czemu wiesz, które błędy zaczęły właśnie występować — zwykle te są najbardziej interesujące."
             },
             "conditionalVisibility": null,
             "halfWidth": false

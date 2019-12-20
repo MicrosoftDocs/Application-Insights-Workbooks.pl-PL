@@ -5,14 +5,14 @@
         {
             "type": 1,
             "content": {
-                "json": "# <a name=\"intune-compliance-activity\"></a><span data-ttu-id=\"cdbe0-101\">Działania zgodności z usługą Intune</span><span class=\"sxs-lookup\"><span data-stu-id=\"cdbe0-101\">Intune Compliance Activity</span></span>"
+                "json": "# <a name=\"intune-compliance-activity\"></a>Działania zgodności z usługą Intune"
             },
             "conditionalVisibility": null
         },
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"parameters\"></a><span data-ttu-id=\"cdbe0-102\">Parametry</span><span class=\"sxs-lookup\"><span data-stu-id=\"cdbe0-102\">Parameters</span></span>"
+                "json": "## <a name=\"parameters\"></a>Parametry"
             },
             "conditionalVisibility": null
         },
@@ -137,7 +137,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"devices-not-in-compliance-trend\"></a><span data-ttu-id=\"cdbe0-103\">Urządzenia poza trendem zgodności</span><span class=\"sxs-lookup\"><span data-stu-id=\"cdbe0-103\">Devices not in compliance Trend</span></span>"
+                "json": "## <a name=\"devices-not-in-compliance-trend\"></a>Urządzenia poza trendem zgodności"
             },
             "conditionalVisibility": null
         },
@@ -168,7 +168,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"compliance-failures-by-failure-reason\"></a><span data-ttu-id=\"cdbe0-104\">Niepowodzenia zgodności według przyczyny niepowodzenia</span><span class=\"sxs-lookup\"><span data-stu-id=\"cdbe0-104\">Compliance Failures by Failure Reason</span></span>"
+                "json": "## <a name=\"compliance-failures-by-failure-reason\"></a>Niepowodzenia zgodności według przyczyny niepowodzenia"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -176,7 +176,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"compliance-failures-by-operating-system\"></a><span data-ttu-id=\"cdbe0-105\">Niepowodzenia zgodności według systemu operacyjnego</span><span class=\"sxs-lookup\"><span data-stu-id=\"cdbe0-105\">Compliance Failures by Operating System</span></span>"
+                "json": "## <a name=\"compliance-failures-by-operating-system\"></a>Niepowodzenia zgodności według systemu operacyjnego"
             },
             "conditionalVisibility": null,
             "customWidth": "50"

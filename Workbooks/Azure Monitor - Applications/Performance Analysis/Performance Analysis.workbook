@@ -4,7 +4,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"application-performance-analysis\"></a><span data-ttu-id=\"c4f77-101\">Analiza wydajności aplikacji</span><span class=\"sxs-lookup\"><span data-stu-id=\"c4f77-101\">Application Performance Analysis</span></span>"
+                "json": "## <a name=\"application-performance-analysis\"></a>Analiza wydajności aplikacji"
             },
             "conditionalVisibility": null
         },
@@ -372,14 +372,14 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"c4f77-102\">💡 _Wybierz wiersz w tabeli powyżej, aby zobaczyć więcej szczegółów_</span><span class=\"sxs-lookup\"><span data-stu-id=\"c4f77-102\">💡 _Select a row in the table above to see more details_</span></span>\n<br />\n<br />\n"
+                "json": "💡 _Wybierz wiersz w tabeli powyżej, aby zobaczyć więcej szczegółów_\n<br />\n<br />\n"
             },
             "conditionalVisibility": null
         },
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"request-duration-milliseconds\"></a><span data-ttu-id=\"c4f77-103\">Czas trwania żądania (w milisekundach)</span><span class=\"sxs-lookup\"><span data-stu-id=\"c4f77-103\">Request Duration (milliseconds)</span></span>"
+                "json": "### <a name=\"request-duration-milliseconds\"></a>Czas trwania żądania (w milisekundach)"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -387,7 +387,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"request-count\"></a><span data-ttu-id=\"c4f77-104\">Liczba żądań</span><span class=\"sxs-lookup\"><span data-stu-id=\"c4f77-104\">Request Count</span></span>"
+                "json": "### <a name=\"request-count\"></a>Liczba żądań"
             },
             "conditionalVisibility": null,
             "customWidth": "50"

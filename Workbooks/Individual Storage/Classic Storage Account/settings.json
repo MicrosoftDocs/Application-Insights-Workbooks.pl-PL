@@ -1,6 +1,6 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "<span data-ttu-id=\"cae6f-101\">Klasyczne konto magazynu</span><span class=\"sxs-lookup\"><span data-stu-id=\"cae6f-101\">Classic Storage Account</span></span>",
+    "name": "Klasyczne konto magazynu",
     "author": "Microsoft",
     "galleries": [
         {

@@ -1,6 +1,6 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "<span data-ttu-id=\"4362a-101\">Aktywni użytkownicy</span><span class=\"sxs-lookup\"><span data-stu-id=\"4362a-101\">Active Users</span></span>",
+    "name": "Aktywni użytkownicy",
     "author": "Microsoft",
     "galleries": [
         {

@@ -1,6 +1,6 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "<span data-ttu-id=\"03ed3-101\">We/wy dysku węzła</span><span class=\"sxs-lookup\"><span data-stu-id=\"03ed3-101\">Node Disk IO</span></span>",
+    "name": "We/wy dysku węzła",
     "author": "Microsoft",
     "galleries": [
         {

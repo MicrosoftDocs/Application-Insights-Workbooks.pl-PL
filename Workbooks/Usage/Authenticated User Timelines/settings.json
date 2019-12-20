@@ -1,6 +1,6 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "<span data-ttu-id=\"7c59b-101\">Uwierzytelniony użytkownik — osie czasu</span><span class=\"sxs-lookup\"><span data-stu-id=\"7c59b-101\">Authenticated User Timelines</span></span>",
+    "name": "Uwierzytelniony użytkownik — osie czasu",
     "author": "Microsoft",
     "galleries": [
         {

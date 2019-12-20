@@ -1,6 +1,6 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "<span data-ttu-id=\"494c2-101\">Niepowodzenia transakcji</span><span class=\"sxs-lookup\"><span data-stu-id=\"494c2-101\">Transaction Failures</span></span>",
+    "name": "Niepowodzenia transakcji",
     "author": "Microsoft",
     "galleries": [
         {

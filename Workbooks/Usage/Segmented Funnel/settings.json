@@ -1,6 +1,6 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "<span data-ttu-id=\"33c43-101\">Segmentowany lejek</span><span class=\"sxs-lookup\"><span data-stu-id=\"33c43-101\">Segmented Funnel</span></span>",
+    "name": "Segmentowany lejek",
     "author": "Microsoft",
     "galleries": [
         {

@@ -1,6 +1,6 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "<span data-ttu-id=\"ee931-101\">Sieć węzła</span><span class=\"sxs-lookup\"><span data-stu-id=\"ee931-101\">Node Network</span></span>",
+    "name": "Sieć węzła",
     "author": "Microsoft",
     "galleries": [
         {

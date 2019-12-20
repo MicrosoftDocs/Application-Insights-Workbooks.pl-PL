@@ -1,6 +1,6 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "<span data-ttu-id=\"a4bb4-101\">Logowania przy użyciu starszego uwierzytelniania</span><span class=\"sxs-lookup\"><span data-stu-id=\"a4bb4-101\">Sign-ins using Legacy Authentication</span></span>",
+    "name": "Logowania przy użyciu starszego uwierzytelniania",
     "author": "Microsoft",
     "galleries": [
         {

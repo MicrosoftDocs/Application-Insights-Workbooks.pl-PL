@@ -1,6 +1,6 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "<span data-ttu-id=\"e5412-101\">Analiza wydajności</span><span class=\"sxs-lookup\"><span data-stu-id=\"e5412-101\">Performance Analysis</span></span>",
+    "name": "Analiza wydajności",
     "author": "Microsoft",
     "galleries": [
         {

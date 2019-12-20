@@ -5,14 +5,14 @@
         {
             "type": 1,
             "content": {
-                "json": "# <a name=\"intune-enrollment-activity\"></a><span data-ttu-id=\"1e03d-101\">Działania rejestracji w usłudze Intune</span><span class=\"sxs-lookup\"><span data-stu-id=\"1e03d-101\">Intune Enrollment Activity</span></span>"
+                "json": "# <a name=\"intune-enrollment-activity\"></a>Działania rejestracji w usłudze Intune"
             },
             "conditionalVisibility": null
         },
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"parameters\"></a><span data-ttu-id=\"1e03d-102\">Parametry</span><span class=\"sxs-lookup\"><span data-stu-id=\"1e03d-102\">Parameters</span></span>"
+                "json": "## <a name=\"parameters\"></a>Parametry"
             },
             "conditionalVisibility": null
         },
@@ -137,7 +137,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"enrollment-events-trend\"></a><span data-ttu-id=\"1e03d-103\">Trend zdarzeń rejestracji</span><span class=\"sxs-lookup\"><span data-stu-id=\"1e03d-103\">Enrollment Events Trend</span></span>"
+                "json": "## <a name=\"enrollment-events-trend\"></a>Trend zdarzeń rejestracji"
             },
             "conditionalVisibility": null
         },
@@ -168,7 +168,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"enrollment-statistics\"></a><span data-ttu-id=\"1e03d-104\">Statystyki rejestracji</span><span class=\"sxs-lookup\"><span data-stu-id=\"1e03d-104\">Enrollment Statistics</span></span>"
+                "json": "## <a name=\"enrollment-statistics\"></a>Statystyki rejestracji"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -176,7 +176,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"enrollment-success-by-enrollment-type\"></a><span data-ttu-id=\"1e03d-105\">Powodzenie rejestracji według typu rejestracji</span><span class=\"sxs-lookup\"><span data-stu-id=\"1e03d-105\">Enrollment Success by Enrollment Type</span></span>"
+                "json": "## <a name=\"enrollment-success-by-enrollment-type\"></a>Powodzenie rejestracji według typu rejestracji"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -245,14 +245,14 @@
         {
             "type": 1,
             "content": {
-                "json": "# <a name=\"enrollment-failures\"></a><span data-ttu-id=\"1e03d-106\">Niepowodzenia rejestracji</span><span class=\"sxs-lookup\"><span data-stu-id=\"1e03d-106\">Enrollment Failures</span></span>"
+                "json": "# <a name=\"enrollment-failures\"></a>Niepowodzenia rejestracji"
             },
             "conditionalVisibility": null
         },
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"enrollment-failure-reasons\"></a><span data-ttu-id=\"1e03d-107\">Przyczyny niepowodzeń rejestracji</span><span class=\"sxs-lookup\"><span data-stu-id=\"1e03d-107\">Enrollment Failure reasons</span></span>"
+                "json": "## <a name=\"enrollment-failure-reasons\"></a>Przyczyny niepowodzeń rejestracji"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -260,7 +260,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"enrollment-failures-by-platform\"></a><span data-ttu-id=\"1e03d-108\">Niepowodzenia rejestracji według platformy</span><span class=\"sxs-lookup\"><span data-stu-id=\"1e03d-108\">Enrollment Failures by Platform</span></span>"
+                "json": "## <a name=\"enrollment-failures-by-platform\"></a>Niepowodzenia rejestracji według platformy"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -340,7 +340,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"enrollment-failures-by-enrollment-type\"></a><span data-ttu-id=\"1e03d-109\">Niepowodzenia rejestracji według typu rejestracji</span><span class=\"sxs-lookup\"><span data-stu-id=\"1e03d-109\">Enrollment Failures by Enrollment Type</span></span>"
+                "json": "## <a name=\"enrollment-failures-by-enrollment-type\"></a>Niepowodzenia rejestracji według typu rejestracji"
             },
             "conditionalVisibility": null
         },

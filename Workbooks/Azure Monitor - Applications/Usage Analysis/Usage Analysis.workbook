@@ -4,7 +4,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"usage-analysis\"></a><span data-ttu-id=\"a3d26-101\">Analiza użycia</span><span class=\"sxs-lookup\"><span data-stu-id=\"a3d26-101\">Usage Analysis</span></span>\n<span data-ttu-id=\"a3d26-102\">Ten raport służy do analizy użycia aplikacji.</span><span class=\"sxs-lookup\"><span data-stu-id=\"a3d26-102\">Use this report to understand usage of your applications.</span></span>\n\n<span data-ttu-id=\"a3d26-103\">Użyj parametrów `Subscription` i `Apps`, aby wybrać aplikację do przeanalizowania.</span><span class=\"sxs-lookup\"><span data-stu-id=\"a3d26-103\">Use the `Subscription` and `Apps` parameters to pick the application you want to analyze.</span></span> <span data-ttu-id=\"a3d26-104\">Parametr `Sources` pozwoli przełączać się na analizowanie wyświetleń stron, zdarzeń niestandardowych lub żądań.</span><span class=\"sxs-lookup\"><span data-stu-id=\"a3d26-104\">The `Sources` parameter will allow you to switch to analyzing page views, custom events or requests.</span></span> <span data-ttu-id=\"a3d26-105\">Parametr `Count` pozwala przełączać się między użytkownikami _anonimowymi_ i _uwierzytelnionymi_.</span><span class=\"sxs-lookup\"><span data-stu-id=\"a3d26-105\">`Count` allows you to switch between _anonymous_ and _authenticated_ users.</span></span>"
+                "json": "## <a name=\"usage-analysis\"></a>Analiza użycia\nTen raport służy do analizy użycia aplikacji.\n\nUżyj parametrów `Subscription` i `Apps`, aby wybrać aplikację do przeanalizowania. Parametr `Sources` pozwoli przełączać się na analizowanie wyświetleń stron, zdarzeń niestandardowych lub żądań. Parametr `Count` pozwala przełączać się między użytkownikami _anonimowymi_ i _uwierzytelnionymi_."
             },
             "conditionalVisibility": null
         },
@@ -362,7 +362,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"a3d26-106\">💡 _Wybierz wiersz w tabeli powyżej, aby zobaczyć więcej szczegółów_</span><span class=\"sxs-lookup\"><span data-stu-id=\"a3d26-106\">💡 _Select a row in the table above to see more details_</span></span>\n<br />\n<br />\n"
+                "json": "💡 _Wybierz wiersz w tabeli powyżej, aby zobaczyć więcej szczegółów_\n<br />\n<br />\n"
             },
             "conditionalVisibility": null
         },
@@ -450,7 +450,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"a3d26-107\">⚠️ _Agregacje unikatowych liczb dla aplikacji z innych domen mogą być niedokładne dla użytkowników anonimowych_</span><span class=\"sxs-lookup\"><span data-stu-id=\"a3d26-107\">⚠️ _Unique count aggregations across applications from different domains may not be accurate for anonymous users_</span></span>"
+                "json": "⚠️ _Agregacje unikatowych liczb dla aplikacji z innych domen mogą być niedokładne dla użytkowników anonimowych_"
             },
             "conditionalVisibility": null
         }

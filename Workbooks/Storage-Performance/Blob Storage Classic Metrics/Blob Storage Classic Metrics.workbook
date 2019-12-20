@@ -6,7 +6,7 @@
         {
             "type": 1,
             "content": {
-                "json": "# <a name=\"blob-storage-classic-metrics\"></a><span data-ttu-id=\"6f943-101\">Metryki usługi Blob Storage (wersja klasyczna)</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-101\">Blob Storage (Classic) Metrics</span></span>"
+                "json": "# <a name=\"blob-storage-classic-metrics\"></a>Metryki usługi Blob Storage (wersja klasyczna)"
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -138,7 +138,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"object-count\"></a><span data-ttu-id=\"6f943-102\">Liczba obiektów</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-102\">Object Count</span></span>"
+                "json": "## <a name=\"object-count\"></a>Liczba obiektów"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -146,7 +146,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"capacity\"></a><span data-ttu-id=\"6f943-103\">Pojemność</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-103\">Capacity</span></span>"
+                "json": "## <a name=\"capacity\"></a>Pojemność"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -214,7 +214,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"6f943-104\">*Liczba obiektów* to liczba zatwierdzonych i niezatwierdzonych obiektów blob w usłudze obiektów blob konta magazynu.</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-104\">*Object count* is the number of committed and uncommitted blobs in the storage account’s Blob service.</span></span>"
+                "json": "*Liczba obiektów* to liczba zatwierdzonych i niezatwierdzonych obiektów blob w usłudze obiektów blob konta magazynu."
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -222,7 +222,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"6f943-105\">*Pojemność* to ilość miejsca w magazynie (w bajtach) używana przez usługę obiektów blob konta magazynu.</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-105\">*Capacity* is the amount of storage used by the storage account’s Blob service, in bytes.</span></span>"
+                "json": "*Pojemność* to ilość miejsca w magazynie (w bajtach) używana przez usługę obiektów blob konta magazynu."
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -237,7 +237,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"total-requests\"></a><span data-ttu-id=\"6f943-106\">Łączna liczba żądań</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-106\">Total Requests</span></span>"
+                "json": "## <a name=\"total-requests\"></a>Łączna liczba żądań"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -245,7 +245,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"availability\"></a><span data-ttu-id=\"6f943-107\">Dostępność</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-107\">Availability</span></span>"
+                "json": "## <a name=\"availability\"></a>Dostępność"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -313,7 +313,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"6f943-108\">*Łączna liczba żądań* to liczba żądań wysłanych do usługi magazynu lub określonej operacji interfejsu API.</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-108\">*Total Requests* is the number of requests made to a storage service or the specified API operation.</span></span> <span data-ttu-id=\"6f943-109\">Liczba ta obejmuje żądania zakończone powodzeniem i zakończone niepowodzeniem, a także żądania, które wygenerowały błędy.</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-109\">This number includes successful and failed requests, as well as requests which produced errors.</span></span>"
+                "json": "*Łączna liczba żądań* to liczba żądań wysłanych do usługi magazynu lub określonej operacji interfejsu API. Liczba ta obejmuje żądania zakończone powodzeniem i zakończone niepowodzeniem, a także żądania, które wygenerowały błędy."
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -321,7 +321,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"6f943-110\">*Dostępność* to procentowa dostępność usługi magazynu lub określonej operacji interfejsu API.</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-110\">*Availability* is the percentage of availability for the storage service or the specified API operation.</span></span> <span data-ttu-id=\"6f943-111\">Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy.</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-111\">Availability is calculated by taking the TotalBillableRequests value and dividing it by the number of applicable requests, including those that produced unexpected errors.</span></span> <span data-ttu-id=\"6f943-112\">Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API.</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-112\">All unexpected errors result in reduced availability for the storage service or the specified API operation.</span></span> "
+                "json": "*Dostępność* to procentowa dostępność usługi magazynu lub określonej operacji interfejsu API. Dostępność jest obliczana przez podzielenie wartości TotalBillableRequests przez liczbę żądań mających zastosowanie, łącznie z tymi, które wygenerowały nieoczekiwane błędy. Wszystkie nieoczekiwane błędy powodują obniżenie poziomu dostępności usługi magazynu lub określonej operacji interfejsu API. "
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -336,7 +336,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"total-ingress\"></a><span data-ttu-id=\"6f943-113\">Łączny ruch przychodzący</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-113\">Total Ingress</span></span>"
+                "json": "## <a name=\"total-ingress\"></a>Łączny ruch przychodzący"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -344,7 +344,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"total-egress\"></a><span data-ttu-id=\"6f943-114\">Łączny ruch wychodzący</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-114\">Total Egress</span></span>"
+                "json": "## <a name=\"total-egress\"></a>Łączny ruch wychodzący"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -412,7 +412,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"6f943-115\">*Łączny ruch przychodzący* to ilość danych przychodzących w bajtach.</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-115\">*Total ingress* is the amount of ingress data, in bytes.</span></span> <span data-ttu-id=\"6f943-116\">Ta liczba obejmuje dane przychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane przychodzące w obrębie platformy Azure.</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-116\">This number includes ingress from an external client into Azure Storage as well as ingress within Azure.</span></span>"
+                "json": "*Łączny ruch przychodzący* to ilość danych przychodzących w bajtach. Ta liczba obejmuje dane przychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane przychodzące w obrębie platformy Azure."
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -420,7 +420,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"6f943-117\">*Łączny ruch wychodzący* to ilość danych wychodzących w bajtach.</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-117\">*Total egress* is the amount of egress data, in bytes.</span></span> <span data-ttu-id=\"6f943-118\">Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure.</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-118\">This number includes egress from an external client into Azure Storage as well as egress within Azure.</span></span> <span data-ttu-id=\"6f943-119\">W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu.</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-119\">As a result, this number does not reflect billable egress.</span></span>"
+                "json": "*Łączny ruch wychodzący* to ilość danych wychodzących w bajtach. Ta liczba obejmuje dane wychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane wychodzące w obrębie platformy Azure. W rezultacie liczba ta nie odzwierciedla danych wychodzących uwzględnianych na rozliczeniu."
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -435,7 +435,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"average-e2e-latency\"></a><span data-ttu-id=\"6f943-120\">Średnie opóźnienie E2E</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-120\">Average E2E Latency</span></span>"
+                "json": "## <a name=\"average-e2e-latency\"></a>Średnie opóźnienie E2E"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -443,7 +443,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"average-server-latency\"></a><span data-ttu-id=\"6f943-121\">Średnie opóźnienie serwera</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-121\">Average Server Latency</span></span>"
+                "json": "## <a name=\"average-server-latency\"></a>Średnie opóźnienie serwera"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -511,7 +511,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"6f943-122\">*Średnie opóźnienie E2E* to średnie całkowite opóźnienie (w milisekundach) dla żądań zakończonych powodzeniem kierowanych do usługi magazynu lub określonej operacji interfejsu API.</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-122\">*Average E2E latency* is the average end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds.</span></span> <span data-ttu-id=\"6f943-123\">Ta wartość obejmuje wymagany czas przetwarzania w usłudze Azure Storage do odczytania żądania, wysłania odpowiedzi i odebrania potwierdzenia dla odpowiedzi.</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-123\">This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.</span></span>"
+                "json": "*Średnie opóźnienie E2E* to średnie całkowite opóźnienie (w milisekundach) dla żądań zakończonych powodzeniem kierowanych do usługi magazynu lub określonej operacji interfejsu API. Ta wartość obejmuje wymagany czas przetwarzania w usłudze Azure Storage do odczytania żądania, wysłania odpowiedzi i odebrania potwierdzenia dla odpowiedzi."
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -519,7 +519,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"6f943-124\">*Średnie opóźnienie serwera* to średnie opóźnienie (w milisekundach) używane przez usługę Azure Storage do przetworzenia pomyślnego żądania.</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-124\">*Average server latency* is the average latency used by Azure Storage to process a successful request, in milliseconds.</span></span> <span data-ttu-id=\"6f943-125\">Ta wartość nie obejmuje opóźnienia sieci uwzględnionego w wartości AverageE2ELatency.</span><span class=\"sxs-lookup\"><span data-stu-id=\"6f943-125\">This value does not include the network latency specified in AverageE2ELatency.</span></span>"
+                "json": "*Średnie opóźnienie serwera* to średnie opóźnienie (w milisekundach) używane przez usługę Azure Storage do przetworzenia pomyślnego żądania. Ta wartość nie obejmuje opóźnienia sieci uwzględnionego w wartości AverageE2ELatency."
             },
             "conditionalVisibility": null,
             "customWidth": "50"

@@ -6,7 +6,7 @@
         {
             "type": 1,
             "content": {
-                "json": "# <a name=\"virtual-machines-classic-metrics\"></a><span data-ttu-id=\"fc2f0-101\">Metryki usługi Virtual Machines (wersja klasyczna)</span><span class=\"sxs-lookup\"><span data-stu-id=\"fc2f0-101\">Virtual Machines (Classic) Metrics</span></span>"
+                "json": "# <a name=\"virtual-machines-classic-metrics\"></a>Metryki usługi Virtual Machines (wersja klasyczna)"
             },
             "conditionalVisibility": null
         },
@@ -152,7 +152,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"percentage-cpu\"></a><span data-ttu-id=\"fc2f0-102\">Procentowe użycie procesora CPU</span><span class=\"sxs-lookup\"><span data-stu-id=\"fc2f0-102\">Percentage CPU</span></span>"
+                "json": "### <a name=\"percentage-cpu\"></a>Procentowe użycie procesora CPU"
             },
             "conditionalVisibility": null
         },
@@ -189,7 +189,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"fc2f0-103\">Wartość *Procentowe użycie procesora CPU* to procent przydzielonych jednostek obliczeniowych, które są obecnie używane przez maszyny wirtualne.</span><span class=\"sxs-lookup\"><span data-stu-id=\"fc2f0-103\">*Percentage CPU* is the percentage of allocated compute units that are currently in use by the Virtual Machine(s).</span></span>"
+                "json": "Wartość *Procentowe użycie procesora CPU* to procent przydzielonych jednostek obliczeniowych, które są obecnie używane przez maszyny wirtualne."
             },
             "conditionalVisibility": null
         },
@@ -203,7 +203,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"disk-reads\"></a><span data-ttu-id=\"fc2f0-104\">Odczyty dysku</span><span class=\"sxs-lookup\"><span data-stu-id=\"fc2f0-104\">Disk Reads</span></span>"
+                "json": "### <a name=\"disk-reads\"></a>Odczyty dysku"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -211,7 +211,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"disk-writes\"></a><span data-ttu-id=\"fc2f0-105\">Zapisy dysku</span><span class=\"sxs-lookup\"><span data-stu-id=\"fc2f0-105\">Disk Writes</span></span>"
+                "json": "### <a name=\"disk-writes\"></a>Zapisy dysku"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -281,7 +281,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"fc2f0-106\">Wartość *Odczyty dysku* to średnia liczba bajtów odczytanych z dysku w okresie monitorowania.</span><span class=\"sxs-lookup\"><span data-stu-id=\"fc2f0-106\">*Disk reads* is the average bytes read from disk during monitoring period.</span></span>"
+                "json": "Wartość *Odczyty dysku* to średnia liczba bajtów odczytanych z dysku w okresie monitorowania."
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -289,7 +289,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"fc2f0-107\">Wartość *Zapisy dysku* to średnia liczba bajtów zapisanych na dysku w okresie monitorowania.</span><span class=\"sxs-lookup\"><span data-stu-id=\"fc2f0-107\">*Disk writes* is the average bytes written to disk during monitoring period.</span></span>"
+                "json": "Wartość *Zapisy dysku* to średnia liczba bajtów zapisanych na dysku w okresie monitorowania."
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -304,7 +304,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"network-in\"></a><span data-ttu-id=\"fc2f0-108\">Sieć — wejście</span><span class=\"sxs-lookup\"><span data-stu-id=\"fc2f0-108\">Network In</span></span>"
+                "json": "### <a name=\"network-in\"></a>Sieć — wejście"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -312,7 +312,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"network-out\"></a><span data-ttu-id=\"fc2f0-109\">Sieć — wyjście</span><span class=\"sxs-lookup\"><span data-stu-id=\"fc2f0-109\">Network Out</span></span>"
+                "json": "### <a name=\"network-out\"></a>Sieć — wyjście"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -382,7 +382,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"fc2f0-110\">Wartość *Sieć — wejście* to liczba bajtów odebranych ze wszystkich interfejsów sieciowych przez maszyny wirtualne (ruch przychodzący).</span><span class=\"sxs-lookup\"><span data-stu-id=\"fc2f0-110\">*Network In*  is the number of bytes received on all network interfaces by the Virtual Machine(s) (Incoming Traffic).</span></span>"
+                "json": "Wartość *Sieć — wejście* to liczba bajtów odebranych ze wszystkich interfejsów sieciowych przez maszyny wirtualne (ruch przychodzący)."
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -390,7 +390,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"fc2f0-111\">Wartość *Sieć — wyjście* to liczba bajtów wysłanych ze wszystkich interfejsów sieciowych przez maszyny wirtualne (ruch wychodzący).</span><span class=\"sxs-lookup\"><span data-stu-id=\"fc2f0-111\">*Network out* is the number of bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic).</span></span>"
+                "json": "Wartość *Sieć — wyjście* to liczba bajtów wysłanych ze wszystkich interfejsów sieciowych przez maszyny wirtualne (ruch wychodzący)."
             },
             "conditionalVisibility": null,
             "customWidth": "50"
