@@ -694,7 +694,7 @@
         {
             "type": 1,
             "content": {
-                "json": "#### <a name=\"-total-bytes-networkdirection-counters-are-also-being-utilized-to-display-the-network-table-the-delta-of-total-bytes-networkdirection-over-a-time-period-is-being-calculated-to-match-up-with-the-bytes-networkdirectionsec-counter-to-display-an-accurate-representation-of-network-activity-over-all-machines\"></a>Liczniki ℹ `Total Bytes {NetworkDirection}` są także wykorzystywane do wyświetlania tabeli sieci. Delta licznika `Total Bytes {NetworkDirection}` w okresie czasu jest obliczana w celu dopasowania z licznikiem `Bytes {NetworkDirection}/sec` i wyświetlenia dokładnej reprezentacji aktywności sieci na wszystkich maszynach"
+                "json": "#### <a name=\"-total-bytes-no_loc_phnetworkdirectionno_loc_ph-counters-are-also-being-utilized-to-display-the-network-table-the-delta-of-total-bytes-no_loc_phnetworkdirectionno_loc_ph-over-a-time-period-is-being-calculated-to-match-up-with-the-bytes-no_loc_phnetworkdirectionno_loc_phsec-counter-to-display-an-accurate-representation-of-network-activity-over-all-machines\"></a>Liczniki ℹ `Total Bytes {NetworkDirection}` są także wykorzystywane do wyświetlania tabeli sieci. Delta licznika `Total Bytes {NetworkDirection}` w okresie czasu jest obliczana w celu dopasowania z licznikiem `Bytes {NetworkDirection}/sec` i wyświetlenia dokładnej reprezentacji aktywności sieci na wszystkich maszynach"
             },
             "conditionalVisibility": {
                 "parameterName": "ShowNetworkTable",
