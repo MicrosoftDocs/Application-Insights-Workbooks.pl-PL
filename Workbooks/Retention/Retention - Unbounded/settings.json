@@ -1,6 +1,6 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "<span data-ttu-id=\"3b96a-101\">Nieograniczone utrzymywanie</span><span class=\"sxs-lookup\"><span data-stu-id=\"3b96a-101\">Unbounded Retention</span></span>",
+    "name": "Nieograniczone utrzymywanie",
     "author": "Microsoft",
     "galleries": [
         {

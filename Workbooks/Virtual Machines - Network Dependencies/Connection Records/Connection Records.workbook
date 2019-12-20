@@ -4,7 +4,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"ba9f2-101\">Każdy <strong>rekord</strong> w tabeli [VMConnections](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/service-map) reprezentuje połączenie z jednego komputera do innego z 1-minutowym interwałem.</span><span class=\"sxs-lookup\"><span data-stu-id=\"ba9f2-101\">Each <strong>record</strong> from [VMConnections](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/service-map) represents a connection from one machine to another over a 1-minute interval.</span></span>\n\n<span data-ttu-id=\"ba9f2-102\">Każdy <strong>rekord</strong> agreguje następujące właściwości z 1-minutowym interwałem: całkowita liczba bajtów wysłanych i odebranych, liczba ustanowionych, aktualnie aktywnych i zakończonych łączy (połączeń z portami) oraz liczba odebranych odpowiedzi.</span><span class=\"sxs-lookup\"><span data-stu-id=\"ba9f2-102\">Each <strong>record</strong> aggregates the following properties over a 1-minute interval: the total number of bytes sent and received, the number of links (port connections) that are established, currently active, and terminated, and the number of responses received.</span></span>\n\n<hr style=\"height: 2px;\" />"
+                "json": "Każdy <strong>rekord</strong> w tabeli [VMConnections](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/service-map) reprezentuje połączenie z jednego komputera do innego z 1-minutowym interwałem.\n\nKażdy <strong>rekord</strong> agreguje następujące właściwości z 1-minutowym interwałem: całkowita liczba bajtów wysłanych i odebranych, liczba ustanowionych, aktualnie aktywnych i zakończonych łączy (połączeń z portami) oraz liczba odebranych odpowiedzi.\n\n<hr style=\"height: 2px;\" />"
             },
             "conditionalVisibility": null
         },
@@ -157,14 +157,14 @@
         {
             "type": 1,
             "content": {
-                "json": "<p><span data-ttu-id=\"ba9f2-103\">Właściwość <strong>TimeRange</strong> określa, jak daleko wstecz w czasie mają być zbierane rekordy połączeń z tabeli <em>VMConnections</em>.</span><span class=\"sxs-lookup\"><span data-stu-id=\"ba9f2-103\"><strong>TimeRange</strong> specifies how far back in time to gather connection records from <em>VMConnections</em>.</span></span> <span data-ttu-id=\"ba9f2-104\">Wybranie dużego zakresu czasu spowoduje wydłużenie czasu przetwarzania zapytania.</span><span class=\"sxs-lookup\"><span data-stu-id=\"ba9f2-104\">Selecting a large time range will result in a long query processing time.</span></span></p>\n\n<hr style=\"height: 1px;\" />"
+                "json": "<p>Właściwość <strong>TimeRange</strong> określa, jak daleko wstecz w czasie mają być zbierane rekordy połączeń z tabeli <em>VMConnections</em>. Wybranie dużego zakresu czasu spowoduje wydłużenie czasu przetwarzania zapytania.</p>\n\n<hr style=\"height: 1px;\" />"
             },
             "conditionalVisibility": null
         },
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"aggregate-connection-records\"></a><span data-ttu-id=\"ba9f2-105\">Zagregowane rekordy połączeń</span><span class=\"sxs-lookup\"><span data-stu-id=\"ba9f2-105\">Aggregate Connection Records</span></span>\n\n"
+                "json": "### <a name=\"aggregate-connection-records\"></a>Zagregowane rekordy połączeń\n\n"
             },
             "conditionalVisibility": null,
             "customWidth": "25"
@@ -172,7 +172,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"connection-records-by-country\"></a><span data-ttu-id=\"ba9f2-106\">Rekordy połączeń według kraju</span><span class=\"sxs-lookup\"><span data-stu-id=\"ba9f2-106\">Connection Records by Country</span></span>"
+                "json": "### <a name=\"connection-records-by-country\"></a>Rekordy połączeń według kraju"
             },
             "conditionalVisibility": null,
             "customWidth": "75"
