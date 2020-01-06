@@ -6,7 +6,7 @@
         {
             "type": 1,
             "content": {
-                "json": "# <a name=\"virtual-machine-performance\"></a><span data-ttu-id=\"7173c-101\">Wydajność maszyny wirtualnej</span><span class=\"sxs-lookup\"><span data-stu-id=\"7173c-101\">Virtual Machine Performance</span></span>\n<span data-ttu-id=\"7173c-102\">Analizuj liczniki wydajności (procesora, pamięci, dysku itp.) maszyn wirtualnych przy użyciu tego skoroszytu.</span><span class=\"sxs-lookup\"><span data-stu-id=\"7173c-102\">Analyze the performance counters (processor, memory, disk, etc.) of your VMs using this workbook.</span></span>  <span data-ttu-id=\"7173c-103\">Możesz również dostosować analizę przy użyciu przycisku `Edit` na pasku narzędzi.</span><span class=\"sxs-lookup\"><span data-stu-id=\"7173c-103\">You can also choose to customize the analysis by using the `Edit` button in the toolbar.</span></span>"
+                "json": "# <a name=\"virtual-machine-performance\"></a>Wydajność maszyny wirtualnej\nAnalizuj liczniki wydajności (procesora, pamięci, dysku itp.) maszyn wirtualnych przy użyciu tego skoroszytu.  Możesz również dostosować analizę przy użyciu przycisku `Edit` na pasku narzędzi."
             },
             "conditionalVisibility": null
         },
@@ -213,14 +213,14 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"7173c-104\">Użyj parametru `Counter`, aby przełączyć się do innego licznika maszyny wirtualnej.</span><span class=\"sxs-lookup\"><span data-stu-id=\"7173c-104\">Use the `Counter` parameter to switch to a different VM counter.</span></span> <span data-ttu-id=\"7173c-105\">Przy użyciu parametru `VirtualMachines` możesz uwzględnić w analizie więcej maszyn wirtualnych.</span><span class=\"sxs-lookup\"><span data-stu-id=\"7173c-105\">You can include more VMs in your analysis using the `VirtualMachines` parameter.</span></span> "
+                "json": "Użyj parametru `Counter`, aby przełączyć się do innego licznika maszyny wirtualnej. Przy użyciu parametru `VirtualMachines` możesz uwzględnić w analizie więcej maszyn wirtualnych. "
             },
             "conditionalVisibility": null
         },
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"computers\"></a><span data-ttu-id=\"7173c-106\">Komputery</span><span class=\"sxs-lookup\"><span data-stu-id=\"7173c-106\">Computers</span></span>"
+                "json": "## <a name=\"computers\"></a>Komputery"
             },
             "conditionalVisibility": null
         },
@@ -274,14 +274,14 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"7173c-107\">*Kliknij wiersz, aby wyświetlić trendy dotyczące tylko tego komputera*</span><span class=\"sxs-lookup\"><span data-stu-id=\"7173c-107\">*Click on a row to see trends for just that computer*</span></span>"
+                "json": "*Kliknij wiersz, aby wyświetlić trendy dotyczące tylko tego komputera*"
             },
             "conditionalVisibility": null
         },
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"trend-computer\"></a><span data-ttu-id=\"7173c-108\">Trend: {computer}</span><span class=\"sxs-lookup\"><span data-stu-id=\"7173c-108\">Trend: {computer}</span></span>"
+                "json": "## <a name=\"trend-no_loc_phcomputerno_loc_ph\"></a>Trend: {computer}"
             },
             "conditionalVisibility": null
         },

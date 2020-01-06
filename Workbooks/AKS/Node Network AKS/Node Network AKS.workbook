@@ -4,7 +4,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<div style=\"font-style: italic\"><span data-ttu-id=\"713e7-101\">Więcej informacji o metrykach w tym skoroszycie można znaleźć <a href='https://github.com/influxdata/telegraf/blob/master/plugins/inputs/net/NET_README.md'>tutaj</a></span><span class=\"sxs-lookup\"><span data-stu-id=\"713e7-101\">More information about the metrics in this workbook is available <a href='https://github.com/influxdata/telegraf/blob/master/plugins/inputs/net/NET_README.md'>here</a></span></span></div>"
+                "json": "<div style=\"font-style: italic\">Więcej informacji o metrykach w tym skoroszycie można znaleźć <a href='https://github.com/influxdata/telegraf/blob/master/plugins/inputs/net/NET_README.md'>tutaj</a></div>"
             },
             "name": "text - 18"
         },
@@ -21,7 +21,7 @@
                         "name": "timeRange",
                         "label": "Time Range",
                         "type": 4,
-                        "description": "<span data-ttu-id=\"713e7-102\">Filtruj dane według zakresu czasu</span><span class=\"sxs-lookup\"><span data-stu-id=\"713e7-102\">Filter data by time range</span></span>",
+                        "description": "Filtruj dane według zakresu czasu",
                         "isRequired": true,
                         "value": {
                             "durationMs": 21600000
@@ -83,7 +83,7 @@
                         "name": "unit",
                         "label": "Unit",
                         "type": 2,
-                        "description": "<span data-ttu-id=\"713e7-103\">Jednostki używane dla danych</span><span class=\"sxs-lookup\"><span data-stu-id=\"713e7-103\">The units to use for the data</span></span>",
+                        "description": "Jednostki używane dla danych",
                         "typeSettings": {
                             "additionalResourceOptions": []
                         },
@@ -95,7 +95,7 @@
                         "name": "aggregation1",
                         "label": "Aggregation",
                         "type": 2,
-                        "description": "<span data-ttu-id=\"713e7-104\">Wybierz agregację danych, którą chcesz zwizualizować na wykresie czasowym</span><span class=\"sxs-lookup\"><span data-stu-id=\"713e7-104\">Choose which data aggregation you want to visualize on the time chart</span></span>",
+                        "description": "Wybierz agregację danych, którą chcesz zwizualizować na wykresie czasowym",
                         "value": "Average",
                         "typeSettings": {
                             "additionalResourceOptions": []
@@ -112,7 +112,7 @@
                         "name": "selectedNodes1",
                         "label": "Node",
                         "type": 2,
-                        "description": "<span data-ttu-id=\"713e7-105\">Filtruj według węzła</span><span class=\"sxs-lookup\"><span data-stu-id=\"713e7-105\">Filter by node</span></span>",
+                        "description": "Filtruj według węzła",
                         "multiSelect": true,
                         "quote": "'",
                         "delimiter": ",",
@@ -139,7 +139,7 @@
                         "name": "selectedInterfaces1",
                         "label": "Interface",
                         "type": 2,
-                        "description": "<span data-ttu-id=\"713e7-106\">Filtruj według interfejsu</span><span class=\"sxs-lookup\"><span data-stu-id=\"713e7-106\">Filter by interface</span></span>",
+                        "description": "Filtruj według interfejsu",
                         "multiSelect": true,
                         "quote": "'",
                         "delimiter": ",",
@@ -177,7 +177,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"713e7-107\">Przegląd sieci</span><span class=\"sxs-lookup\"><span data-stu-id=\"713e7-107\">Network Overview</span></span></h3>"
+                "json": "<h3>Przegląd sieci</h3>"
             },
             "name": "text - 21"
         },
@@ -371,7 +371,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"713e7-108\">Wysłane {unit:label}/s</span><span class=\"sxs-lookup\"><span data-stu-id=\"713e7-108\">Sent {unit:label}/sec</span></span></h3>"
+                "json": "<h3>Wysłane {unit:label}/s</h3>"
             },
             "customWidth": "50",
             "name": "text - 5"
@@ -379,7 +379,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"713e7-109\">Odebrane {unit:label}/s</span><span class=\"sxs-lookup\"><span data-stu-id=\"713e7-109\">Received {unit:label}/sec</span></span></h3>"
+                "json": "<h3>Odebrane {unit:label}/s</h3>"
             },
             "customWidth": "50",
             "name": "text - 5 - Copy"
@@ -437,7 +437,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"713e7-110\">Wysłane łącznie: {unit:label} (interwały: {timeRange:grain})</span><span class=\"sxs-lookup\"><span data-stu-id=\"713e7-110\">Total {unit:label} Sent (by {timeRange:grain} intervals)</span></span></h3>"
+                "json": "<h3>Łączna liczba {unit:label} wysłanych (w interwałach {timeRange:grain})</h3>"
             },
             "customWidth": "50",
             "name": "text - 5 - Copy - Copy"
@@ -445,7 +445,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"713e7-111\">Odebrane łącznie: {unit:label} (interwały: {timeRange:grain})</span><span class=\"sxs-lookup\"><span data-stu-id=\"713e7-111\">Total {unit:label} Received (by {timeRange:grain} intervals)</span></span></h3>"
+                "json": "<h3>Łączna liczba {unit:label} odebranych (w interwałach {timeRange:grain})</h3>"
             },
             "customWidth": "50",
             "name": "text - 5 - Copy"
@@ -500,7 +500,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"713e7-112\">Błędy na wyjściu/s</span><span class=\"sxs-lookup\"><span data-stu-id=\"713e7-112\">Errors Out/sec</span></span></h3>"
+                "json": "<h3>Błędy na wyjściu/s</h3>"
             },
             "customWidth": "50",
             "name": "text - 5 - Copy - Copy - Copy"
@@ -508,7 +508,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"713e7-113\">Błędy na wejściu/s</span><span class=\"sxs-lookup\"><span data-stu-id=\"713e7-113\">Errors In/sec</span></span></h3>"
+                "json": "<h3>Błędy na wejściu/s</h3>"
             },
             "customWidth": "50",
             "name": "text - 5 - Copy - Copy - Copy - Copy"
@@ -563,7 +563,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"713e7-114\">Suma błędów na wyjściu (interwały: {timeRange:grain})</span><span class=\"sxs-lookup\"><span data-stu-id=\"713e7-114\">Total Errors Out (by {timeRange:grain} intervals)</span></span></h3>"
+                "json": "<h3>Łączna liczba błędów na wyjściu (w interwałach {timeRange:grain})</h3>"
             },
             "customWidth": "50",
             "name": "text - 5 - Copy - Copy - Copy - Copy"
@@ -571,7 +571,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"713e7-115\">Suma błędów na wejściu (interwały: {timeRange:grain})</span><span class=\"sxs-lookup\"><span data-stu-id=\"713e7-115\">Total Errors In (by {timeRange:grain} intervals)</span></span></h3>"
+                "json": "<h3>Łączna liczba błędów na wejściu (w interwałach {timeRange:grain})</h3>"
             },
             "customWidth": "50",
             "name": "text - 5 - Copy - Copy - Copy - Copy - Copy"

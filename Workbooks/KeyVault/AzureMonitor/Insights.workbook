@@ -128,7 +128,7 @@
         {
             "type": 1,
             "content": {
-                "json": "{Message} _magazyny kluczy_"
+                "json": "{Message}\n_Magazyny kluczy_"
             },
             "name": "text - 5",
             "styleSettings": {

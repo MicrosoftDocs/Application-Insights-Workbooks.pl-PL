@@ -14,7 +14,7 @@
                         "name": "contextPaneTimeRange",
                         "label": "Time Range",
                         "type": 4,
-                        "description": "<span data-ttu-id=\"5ec80-101\">Filtruj według zakresu czasu</span><span class=\"sxs-lookup\"><span data-stu-id=\"5ec80-101\">Filter by time range</span></span>",
+                        "description": "Filtruj według zakresu czasu",
                         "isRequired": true,
                         "value": {
                             "durationMs": 7776000000
@@ -75,7 +75,7 @@
                         "name": "contextPaneBin",
                         "label": "Chart Granularity",
                         "type": 2,
-                        "description": "<span data-ttu-id=\"5ec80-102\">Punkty danych binarnych według interwału czasu (min)</span><span class=\"sxs-lookup\"><span data-stu-id=\"5ec80-102\">Bin data points by some time interval (min)</span></span>",
+                        "description": "Punkty danych binarnych według interwału czasu (min)",
                         "isRequired": true,
                         "query": "let durationMs = datetime_diff('millisecond',{contextPaneTimeRange:end},{contextPaneTimeRange:start});\r\nlet idealNumberofDataPoints = 100;\r\nlet GranularityOptions = datatable(\r\nGranularityOptionsValue: long, \r\nGranularityOptionsLabel: string\r\n) [\r\n    5, '5 minutes', \r\n    15, '15 minutes', \r\n    30, '30 minutes', \r\n    60, '1 hour', \r\n    360, '6 hours', \r\n    720, '12 hours', \r\n    1440, '24 hours'\r\n];\r\nlet GranularityOptionsExtended = \r\nGranularityOptions\r\n| extend DataPointCount = (durationMs/(1000*60))/GranularityOptionsValue\r\n| extend Distance = abs(idealNumberofDataPoints - DataPointCount);\r\nlet idealGranularityOptionsValue = toscalar(\r\n    GranularityOptionsExtended\r\n    | summarize arg_min(Distance, *)\r\n    | project GranularityOptionsValue\r\n);\r\nGranularityOptionsExtended\r\n| project value = GranularityOptionsValue, label = GranularityOptionsLabel, selected = (GranularityOptionsValue == idealGranularityOptionsValue)\r\n\r\n\r\n\r\n",
                         "typeSettings": {
@@ -94,7 +94,7 @@
                         "name": "unit",
                         "label": "Unit",
                         "type": 2,
-                        "description": "<span data-ttu-id=\"5ec80-103\">Jednostki używane dla danych</span><span class=\"sxs-lookup\"><span data-stu-id=\"5ec80-103\">The units to use for the data</span></span>",
+                        "description": "Jednostki używane dla danych",
                         "isRequired": true,
                         "typeSettings": {
                             "additionalResourceOptions": []
@@ -159,7 +159,7 @@
                         "version": "KqlParameterItem/1.0",
                         "name": "selectedRowNode",
                         "type": 1,
-                        "description": "<span data-ttu-id=\"5ec80-104\">Węzeł opisywany przez wybrany wiersz</span><span class=\"sxs-lookup\"><span data-stu-id=\"5ec80-104\">The node described by the selected row</span></span>",
+                        "description": "Węzeł opisywany przez wybrany wiersz",
                         "isRequired": true,
                         "isHiddenWhenLocked": true
                     },
@@ -168,7 +168,7 @@
                         "version": "KqlParameterItem/1.0",
                         "name": "selectedRowDevice",
                         "type": 1,
-                        "description": "<span data-ttu-id=\"5ec80-105\">Urządzenie opisywane przez wybrany wiersz</span><span class=\"sxs-lookup\"><span data-stu-id=\"5ec80-105\">The device described by the selected row</span></span>",
+                        "description": "Urządzenie opisywane przez wybrany wiersz",
                         "isRequired": true,
                         "isHiddenWhenLocked": true
                     },
@@ -177,7 +177,7 @@
                         "version": "KqlParameterItem/1.0",
                         "name": "selectedRowId",
                         "type": 1,
-                        "description": "<span data-ttu-id=\"5ec80-106\">Identyfikator wybranego wiersza</span><span class=\"sxs-lookup\"><span data-stu-id=\"5ec80-106\">Id of the selected row</span></span>",
+                        "description": "Identyfikator wybranego wiersza",
                         "isRequired": true,
                         "isHiddenWhenLocked": true
                     },
@@ -239,14 +239,14 @@
         {
             "type": 1,
             "content": {
-                "json": "<h1><span data-ttu-id=\"5ec80-107\">selectedRowId: {selectedRowId}</span><span class=\"sxs-lookup\"><span data-stu-id=\"5ec80-107\">selectedRowId: {selectedRowId}</span></span></h1>\n<h1><span data-ttu-id=\"5ec80-108\">selectedRowNode: {selectedRowNode}</span><span class=\"sxs-lookup\"><span data-stu-id=\"5ec80-108\">selectedRowNode: {selectedRowNode}</span></span></h1>\n<h1><span data-ttu-id=\"5ec80-109\">selectedRowDevice: {selectedRowDevice}</span><span class=\"sxs-lookup\"><span data-stu-id=\"5ec80-109\">selectedRowDevice: {selectedRowDevice}</span></span></h1>\n<span data-ttu-id=\"5ec80-110\">selectedRow: {selectedRow}</span><span class=\"sxs-lookup\"><span data-stu-id=\"5ec80-110\">selectedRow: {selectedRow}</span></span>\n\n"
+                "json": "<h1>selectedRowId: {selectedRowId}</h1>\n<h1>selectedRowNode: {selectedRowNode}</h1>\n<h1>selectedRowDevice: {selectedRowDevice}</h1>\nselectedRow: {selectedRow}\n\n"
             },
             "name": "text - 11"
         },
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"5ec80-111\">Bajty odczytu/s</span><span class=\"sxs-lookup\"><span data-stu-id=\"5ec80-111\">Read Bytes/sec</span></span></h3>"
+                "json": "<h3>Bajty odczytu/s</h3>"
             },
             "name": "text - 2"
         },
@@ -281,7 +281,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"5ec80-112\">Bajty zapisu/s</span><span class=\"sxs-lookup\"><span data-stu-id=\"5ec80-112\">Write Bytes/sec</span></span></h3>"
+                "json": "<h3>Bajty zapisu/s</h3>"
             },
             "name": "text - 4"
         },
@@ -299,7 +299,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"5ec80-113\">% zajętości dysku</span><span class=\"sxs-lookup\"><span data-stu-id=\"5ec80-113\">% Disk Busy</span></span></h3>"
+                "json": "<h3>% zajętości dysku</h3>"
             },
             "name": "text - 6"
         },
@@ -317,7 +317,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"5ec80-114\">Liczba operacji we/wy na sekundę</span><span class=\"sxs-lookup\"><span data-stu-id=\"5ec80-114\">IOPS</span></span></h3>"
+                "json": "<h3>Liczba operacji we/wy na sekundę</h3>"
             },
             "name": "text - 8"
         },

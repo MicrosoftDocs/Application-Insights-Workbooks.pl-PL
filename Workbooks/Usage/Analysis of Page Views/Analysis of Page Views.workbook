@@ -6,7 +6,7 @@
         {
             "type": 1,
             "content": {
-                "json": "# <a name=\"analysis-of-page-views\"></a><span data-ttu-id=\"9681c-101\">Analiza liczby wyświetleń strony</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-101\">Analysis of Page Views</span></span>\n<span data-ttu-id=\"9681c-102\">Wyświetlenia strony odpowiadają aktywności użytkownika w aplikacji.</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-102\">Page views correspond to user activity in your app.</span></span> <span data-ttu-id=\"9681c-103\">Zrozumienie sposobu interakcji użytkowników z Twoją stroną zapewni dobry wgląd w to, co w aplikacji działa, a co wymaga ulepszenia.</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-103\">Understanding how your users interact with your pages will give you good insights into what is working in your app and what aspects need improvements.</span></span> \n\n<span data-ttu-id=\"9681c-104\">Ten raport pomoże Ci zrozumieć typowe zachowania liczby wyświetleń strony takie jak:</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-104\">This report will help you understand common page view behaviors like:</span></span>\n* <span data-ttu-id=\"9681c-105\">Sposób użycia</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-105\">Usage</span></span>\n* <span data-ttu-id=\"9681c-106\">Czas spędzony na stronie</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-106\">Time spent on page</span></span>\n* <span data-ttu-id=\"9681c-107\">Czas do pierwszej interakcji</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-107\">Time to first interaction</span></span>\n* <span data-ttu-id=\"9681c-108\">Współczynniki wyjść</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-108\">Exit rates</span></span> \n\n<span data-ttu-id=\"9681c-109\">Jeśli dane telemetryczne nie obejmują wyświetleń strony, postępuj zgodnie z tymi [instrukcjami](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-javascript), aby rozpocząć zbieranie danych — jest to stosunkowo proste.</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-109\">If your telemetry does not include page views, then follow these [instructions](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-javascript) to begin collecting -- it is relatively straightforward.</span></span>"
+                "json": "# <a name=\"analysis-of-page-views\"></a>Analiza liczby wyświetleń strony\nWyświetlenia strony odpowiadają aktywności użytkownika w aplikacji. Zrozumienie sposobu interakcji użytkowników z Twoją stroną zapewni dobry wgląd w to, co w aplikacji działa, a co wymaga ulepszenia. \n\nTen raport pomoże Ci zrozumieć typowe zachowania liczby wyświetleń strony takie jak:\n* Sposób użycia\n* Czas spędzony na stronie\n* Czas do pierwszej interakcji\n* Współczynniki wyjść \n\nJeśli dane telemetryczne nie obejmują wyświetleń strony, postępuj zgodnie z tymi [instrukcjami](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-javascript), aby rozpocząć zbieranie danych — jest to stosunkowo proste."
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -55,7 +55,7 @@
                         "version": "KqlParameterItem/1.0",
                         "name": "OptimizeCalculationsFor",
                         "type": 2,
-                        "description": "<span data-ttu-id=\"9681c-110\">Użyj tego parametru, aby ustawić liczbę sesji użytkowników, która ma być używana w obliczeniach (próbkowanie).</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-110\">Use this parameter to essentially set the number of user sessions to use in calculations (sampling).</span></span> <span data-ttu-id=\"9681c-111\">Dzięki temu możesz znaleźć równowagę między wydajnością i dokładnością analizy.</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-111\">This allows you to find the right balance between performance and accuracy for your analysis.</span></span> <span data-ttu-id=\"9681c-112\">Optymalizacja dla: wydajności = 10 000 sesji, równowagi = 100 000 próbek, dokładności = 1 000 000 sesji</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-112\">Optimize for: Performance = 10,000 sessions, Balance = 100,000 samples, Accuracy = 1,000,000 sessions</span></span>",
+                        "description": "Użyj tego parametru, aby ustawić liczbę sesji użytkowników, która ma być używana w obliczeniach (próbkowanie). Dzięki temu możesz znaleźć równowagę między wydajnością i dokładnością analizy. Optymalizacja dla: wydajności = 10 000 sesji, równowagi = 100 000 próbek, dokładności = 1 000 000 sesji",
                         "isRequired": true,
                         "multiSelect": null,
                         "query": "datatable(x:string, y:string)[\n'10000', 'Performance',\n'100000', 'Balance',\n'1000000', 'Accuracy'\n]",
@@ -69,7 +69,7 @@
         {
             "type": 1,
             "content": {
-                "json": "---\n## <a name=\"usage\"></a><span data-ttu-id=\"9681c-113\">Sposób użycia</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-113\">Usage</span></span>\n<span data-ttu-id=\"9681c-114\">Ta sekcja ułatwia zrozumienie sposobu używania stron Twojej aplikacji: liczby użytkowników, sesji i wyświetleń.</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-114\">This section helps you understand how the pages of your app are used -- in terms of # of users, sessions and views.</span></span> "
+                "json": "---\n## <a name=\"usage\"></a>Sposób użycia\nTa sekcja ułatwia zrozumienie sposobu używania stron Twojej aplikacji: liczby użytkowników, sesji i wyświetleń. "
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -121,7 +121,7 @@
         {
             "type": 1,
             "content": {
-                "json": "- <span data-ttu-id=\"9681c-115\">W kolumnach `As % of App Users/Sessions/Views` porównywane jest użycie wybranego wyświetlenia strony z użyciem całej aplikacji.</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-115\">The `As % of App Users/Sessions/Views` columns compare the usage of the selected page view with that of the whole app.</span></span>\n"
+                "json": "- W kolumnach `As % of App Users/Sessions/Views` porównywane jest użycie wybranego wyświetlenia strony z użyciem całej aplikacji.\n"
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -129,7 +129,7 @@
         {
             "type": 1,
             "content": {
-                "json": "---\n## <a name=\"time-spent-on-page\"></a><span data-ttu-id=\"9681c-116\">Czas spędzony na stronie</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-116\">Time Spent on Page</span></span>\n<span data-ttu-id=\"9681c-117\">Ten raport ułatwia poznanie ilości czasu, jaką klienci spędzają na stronach.</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-117\">This report helps you understand the time spent by customers in your pages.</span></span> <span data-ttu-id=\"9681c-118\">Dłuższy czas na stronie oznacza zazwyczaj dobre zaangażowanie i zwykle jest pożądanym zachowaniem.</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-118\">Longer time spent pages usually indicates good engagement and is generally the desired behavior.</span></span>"
+                "json": "---\n## <a name=\"time-spent-on-page\"></a>Czas spędzony na stronie\nTen raport ułatwia poznanie ilości czasu, jaką klienci spędzają na stronach. Dłuższy czas na stronie oznacza zazwyczaj dobre zaangażowanie i zwykle jest pożądanym zachowaniem."
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -146,7 +146,7 @@
                         "version": "KqlParameterItem/1.0",
                         "name": "IgnoreDurationsOver",
                         "type": 1,
-                        "description": "<span data-ttu-id=\"9681c-119\">Dzięki temu parametrowi możesz odfiltrować wyświetlenia strony, które trwały dłużej, niż to możliwe (na przykład strona otwarta i pozostawiona na nieaktywnej karcie).</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-119\">Use this parameter to filter our page views that took more time that is possible (for example left open in a non-active tab).</span></span> <span data-ttu-id=\"9681c-120\">Wartość domyślna to 1 godzina.</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-120\">The default is 1 hour.</span></span> ",
+                        "description": "Dzięki temu parametrowi możesz odfiltrować wyświetlenia strony, które trwały dłużej, niż to możliwe (na przykład strona otwarta i pozostawiona na nieaktywnej karcie). Wartość domyślna to 1 godzina. ",
                         "isRequired": true,
                         "query": "datatable(x:string)[ '3600s' ]"
                     }
@@ -203,7 +203,7 @@
         {
             "type": 1,
             "content": {
-                "json": "- <span data-ttu-id=\"9681c-121\">W obliczeniach może być wykorzystywane próbkowanie oparte na parametrze `OptimizeCalculationsFor`.</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-121\">The calculations may use sampling based on the `OptimizeCalculationsFor` parameter.</span></span> \n- <span data-ttu-id=\"9681c-122\">Czas spędzony na stronie nie uwzględnia w obliczeniach stron wyjściowych (ostatnich stron w sesji).</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-122\">Time Spent on Page does not consider exit pages (last page of the session) in this calculations.</span></span> <span data-ttu-id=\"9681c-123\">Z tego względu wartość w kolumnie `Sampled Page Views` może być mniejsza niż liczba próbkowania elementu {OptimizeCalculationsFor}.</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-123\">The `Sampled Page Views` column may be fewer than the sampling count of {OptimizeCalculationsFor} because of this.</span></span>\n"
+                "json": "- W obliczeniach może być wykorzystywane próbkowanie oparte na parametrze `OptimizeCalculationsFor`. \n- Czas spędzony na stronie nie uwzględnia w obliczeniach stron wyjściowych (ostatnich stron w sesji). Z tego względu wartość w kolumnie `Sampled Page Views` może być mniejsza niż liczba próbkowania elementu {OptimizeCalculationsFor}.\n"
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -211,7 +211,7 @@
         {
             "type": 1,
             "content": {
-                "json": "---\n## <a name=\"time-to-first-interaction\"></a><span data-ttu-id=\"9681c-124\">Czas do pierwszej interakcji</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-124\">Time to First Interaction</span></span>\n<span data-ttu-id=\"9681c-125\">Ten raport ułatwia poznanie ilości czasu do pierwszej interakcji klienta z krytycznymi funkcjami aplikacji.</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-125\">This report helps you understand the time taken by customers to first interact with critical features of your app.</span></span> <span data-ttu-id=\"9681c-126\">Może on uwidocznić problemy z możliwością odnajdywania funkcji lub brakiem intuicyjności interfejsu użytkownika / przepływu aplikacji.</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-126\">It can help you uncover issues with discoverability of your features or the intuitiveness of your app's UI/flow.</span></span>"
+                "json": "---\n## <a name=\"time-to-first-interaction\"></a>Czas do pierwszej interakcji\nTen raport ułatwia poznanie ilości czasu do pierwszej interakcji klienta z krytycznymi funkcjami aplikacji. Może on uwidocznić problemy z możliwością odnajdywania funkcji lub brakiem intuicyjności interfejsu użytkownika / przepływu aplikacji."
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -228,7 +228,7 @@
                         "version": "KqlParameterItem/1.0",
                         "name": "TimeFrom",
                         "type": 2,
-                        "description": "<span data-ttu-id=\"9681c-127\">W przypadku użytkowników pierwsze użycie jest obliczane jako pierwsze użycie w danym zakresie czasu.</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-127\">For users, the first use is calculated as the first use within the time range.</span></span> <span data-ttu-id=\"9681c-128\">Możliwe, że użytkownik zaczął używać aplikacji przed tym zakresem czasu.</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-128\">It is possible that the user started using your app before the time range.</span></span>",
+                        "description": "W przypadku użytkowników pierwsze użycie jest obliczane jako pierwsze użycie w danym zakresie czasu. Możliwe, że użytkownik zaczął używać aplikacji przed tym zakresem czasu.",
                         "isRequired": true,
                         "multiSelect": null,
                         "query": "datatable(x:string, y:string)[\n'session_Id', 'Start of the Session',\n'user_Id', 'First use by Anonymous User ⚠️',\n'user_AuthenticatedId', 'First use by Authenticated User ⚠️',\n];",
@@ -286,7 +286,7 @@
         {
             "type": 1,
             "content": {
-                "json": "- <span data-ttu-id=\"9681c-129\">W obliczeniu może być wykorzystywane próbkowanie oparte na parametrze `OptimizeCalculationsFor`.</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-129\">The calculation may use sampling based on the `OptimizeCalculationsFor` parameter.</span></span> "
+                "json": "- W obliczeniu może być wykorzystywane próbkowanie oparte na parametrze `OptimizeCalculationsFor`. "
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -294,7 +294,7 @@
         {
             "type": 1,
             "content": {
-                "json": "---\n## <a name=\"page-exit-rates\"></a><span data-ttu-id=\"9681c-130\">Współczynnik wyjść strony</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-130\">Page Exit Rates</span></span>\n<span data-ttu-id=\"9681c-131\">Uważa się, że wyświetlenie strony przyczyniło się do _wyjścia_, gdy ta strona była ostatnią stroną w sesji.</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-131\">A page view is said to have contributed to an _exit_ when it is the last page viewed in the session.</span></span> <span data-ttu-id=\"9681c-132\">Przyjmuje się, że użytkownik wyszedł z aplikacji — przechodząc do innej aplikacji lub zamykając aplikację/przeglądarkę.</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-132\">The user is presumed to have exited your app -- either by navigating to another app or closing the app/browser.</span></span> \n\n<span data-ttu-id=\"9681c-133\">_Współczynnik wyjść_ danej strony to procentowa wartość wyświetleń, które były ostatnimi wyświetleniami w sesji.</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-133\">A page's _exit rate_ is the percentages of views that were the last in the session.</span></span> "
+                "json": "---\n## <a name=\"page-exit-rates\"></a>Współczynnik wyjść strony\nUważa się, że wyświetlenie strony przyczyniło się do _wyjścia_, gdy ta strona była ostatnią stroną w sesji. Przyjmuje się, że użytkownik wyszedł z aplikacji — przechodząc do innej aplikacji lub zamykając aplikację/przeglądarkę. \n\n_Współczynnik wyjść_ danej strony to procentowa wartość wyświetleń, które były ostatnimi wyświetleniami w sesji. "
             },
             "conditionalVisibility": null,
             "halfWidth": false
@@ -337,7 +337,7 @@
         {
             "type": 1,
             "content": {
-                "json": "- <span data-ttu-id=\"9681c-134\">W obliczeniu może być wykorzystywane próbkowanie oparte na parametrze `OptimizeCalculationsFor`.</span><span class=\"sxs-lookup\"><span data-stu-id=\"9681c-134\">The calculation may use sampling based on the `OptimizeCalculationsFor` parameter.</span></span> "
+                "json": "- W obliczeniu może być wykorzystywane próbkowanie oparte na parametrze `OptimizeCalculationsFor`. "
             },
             "conditionalVisibility": null,
             "halfWidth": false

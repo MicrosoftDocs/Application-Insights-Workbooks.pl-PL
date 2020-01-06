@@ -6,7 +6,7 @@
         {
             "type": 1,
             "content": {
-                "json": "# <a name=\"application-failures-insights\"></a><span data-ttu-id=\"4128c-101\">Szczegółowe informacje dotyczące błędów aplikacji</span><span class=\"sxs-lookup\"><span data-stu-id=\"4128c-101\">Application Failures Insights</span></span>\n"
+                "json": "# <a name=\"application-failures-insights\"></a>Szczegółowe informacje dotyczące błędów aplikacji\n"
             },
             "conditionalVisibility": null
         },
@@ -205,7 +205,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"4128c-102\">💡 *Kliknij wiersze tabeli powyżej, aby wyświetlić szczegóły dla innych operacji*</span><span class=\"sxs-lookup\"><span data-stu-id=\"4128c-102\">💡 *Click on the rows of the table above to see details for other operations*</span></span>"
+                "json": "💡 *Kliknij wiersze tabeli powyżej, aby wyświetlić szczegóły dla innych operacji*"
             },
             "conditionalVisibility": null
         },
@@ -234,14 +234,14 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"details----selectedoperation\"></a><span data-ttu-id=\"4128c-103\">Szczegóły — {SelectedOperation}</span><span class=\"sxs-lookup\"><span data-stu-id=\"4128c-103\">Details -- {SelectedOperation}</span></span>\n"
+                "json": "## <a name=\"details----no_loc_phselectedoperationno_loc_ph\"></a>Szczegóły — {SelectedOperation}\n"
             },
             "conditionalVisibility": null
         },
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"failed-operations\"></a><span data-ttu-id=\"4128c-104\">Operacje zakończone niepowodzeniem</span><span class=\"sxs-lookup\"><span data-stu-id=\"4128c-104\">Failed Operations</span></span>"
+                "json": "### <a name=\"failed-operations\"></a>Operacje zakończone niepowodzeniem"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -249,7 +249,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"all-operations\"></a><span data-ttu-id=\"4128c-105\">Wszystkie operacje</span><span class=\"sxs-lookup\"><span data-stu-id=\"4128c-105\">All Operations</span></span>"
+                "json": "### <a name=\"all-operations\"></a>Wszystkie operacje"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -295,7 +295,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"top-failure-codes\"></a><span data-ttu-id=\"4128c-106\">Najczęściej występujące kody błędów</span><span class=\"sxs-lookup\"><span data-stu-id=\"4128c-106\">Top Failure Codes</span></span>"
+                "json": "### <a name=\"top-failure-codes\"></a>Najczęściej występujące kody błędów"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -303,7 +303,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"top-exceptions\"></a><span data-ttu-id=\"4128c-107\">Najczęściej występujące wyjątki</span><span class=\"sxs-lookup\"><span data-stu-id=\"4128c-107\">Top Exceptions</span></span>"
+                "json": "### <a name=\"top-exceptions\"></a>Najczęściej występujące wyjątki"
             },
             "conditionalVisibility": null,
             "customWidth": "50"
@@ -384,7 +384,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"top-failing-dependencies\"></a><span data-ttu-id=\"4128c-108\">Zależności najczęściej powodujące błąd</span><span class=\"sxs-lookup\"><span data-stu-id=\"4128c-108\">Top Failing Dependencies</span></span>"
+                "json": "### <a name=\"top-failing-dependencies\"></a>Zależności najczęściej powodujące błąd"
             },
             "conditionalVisibility": null
         },

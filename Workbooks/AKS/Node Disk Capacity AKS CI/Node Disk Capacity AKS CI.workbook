@@ -4,7 +4,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<span data-ttu-id=\"74a81-101\">_Więcej informacji o metrykach w tym skoroszycie można znaleźć <a href='https://github.com/influxdata/telegraf/tree/master/plugins/inputs/disk'>tutaj</a>_</span><span class=\"sxs-lookup\"><span data-stu-id=\"74a81-101\">_More information about the metrics in this workbook is available <a href='https://github.com/influxdata/telegraf/tree/master/plugins/inputs/disk'>here</a>_</span></span>"
+                "json": "_Więcej informacji o metrykach w tym skoroszycie można znaleźć <a href='https://github.com/influxdata/telegraf/tree/master/plugins/inputs/disk'>tutaj</a>_"
             },
             "name": "text - 15"
         },
@@ -21,7 +21,7 @@
                         "name": "timeRange",
                         "label": "Time Range",
                         "type": 4,
-                        "description": "<span data-ttu-id=\"74a81-102\">Filtruj według zakresu czasu</span><span class=\"sxs-lookup\"><span data-stu-id=\"74a81-102\">Filter by time range</span></span>",
+                        "description": "Filtruj według zakresu czasu",
                         "isRequired": true,
                         "value": {
                             "durationMs": 21600000
@@ -83,7 +83,7 @@
                         "name": "selectedNodes1",
                         "label": "Node",
                         "type": 2,
-                        "description": "<span data-ttu-id=\"74a81-103\">Filtruj według węzła</span><span class=\"sxs-lookup\"><span data-stu-id=\"74a81-103\">Filter by node</span></span>",
+                        "description": "Filtruj według węzła",
                         "multiSelect": true,
                         "quote": "'",
                         "delimiter": ",",
@@ -110,7 +110,7 @@
                         "name": "selectedDevices1",
                         "label": "Device",
                         "type": 2,
-                        "description": "<span data-ttu-id=\"74a81-104\">Filtruj według urządzenia</span><span class=\"sxs-lookup\"><span data-stu-id=\"74a81-104\">Filter by device</span></span>",
+                        "description": "Filtruj według urządzenia",
                         "multiSelect": true,
                         "quote": "'",
                         "delimiter": ",",
@@ -213,7 +213,7 @@
                         "name": "topN",
                         "label": "Show",
                         "type": 2,
-                        "description": "<span data-ttu-id=\"74a81-105\">Pokaż N dysków według % użycia dysku na wykresie poniżej</span><span class=\"sxs-lookup\"><span data-stu-id=\"74a81-105\">Show the top N disks by used disk % in the chart below</span></span>",
+                        "description": "Pokaż N dysków według % użycia dysku na wykresie poniżej",
                         "isRequired": true,
                         "typeSettings": {
                             "additionalResourceOptions": []
@@ -230,7 +230,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"74a81-106\">{topN:label} dysków według % użycia dysku</span><span class=\"sxs-lookup\"><span data-stu-id=\"74a81-106\">{topN:label} Disks by Used Disk %</span></span></h3>"
+                "json": "<h3>{topN:label} dysków według % użycia dysku</h3>"
             },
             "name": "text - 12"
         },
@@ -263,7 +263,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"74a81-107\">Przegląd pojemności dysku</span><span class=\"sxs-lookup\"><span data-stu-id=\"74a81-107\">Disk Capacity Overview</span></span></h3>"
+                "json": "<h3>Przegląd pojemności dysku</h3>"
             },
             "name": "text - 13"
         },
@@ -428,7 +428,7 @@
                         "version": "KqlParameterItem/1.0",
                         "name": "selectedRowId",
                         "type": 1,
-                        "description": "<span data-ttu-id=\"74a81-108\">Identyfikator wiersza wybranego w siatce</span><span class=\"sxs-lookup\"><span data-stu-id=\"74a81-108\">The Id of the row selected in the grid</span></span>",
+                        "description": "Identyfikator wiersza wybranego w siatce",
                         "query": "let selectedStateDisks = dynamic({DisksOfSelectedState});\r\nlet row = dynamic({selectedRow}).Id;\r\nlet usedPercent = InsightsMetrics\r\n| where Origin == 'container.azm.ms/telegraf'\r\n| where Namespace == 'disk' or Namespace =~ 'container.azm.ms/disk'\r\n| where Name == 'used_percent'\r\n| extend Tags = todynamic(Tags)\r\n| extend HostName = tostring(Tags.hostName), Device = strcat('/dev/', tostring(Tags.device))\r\n| extend NodeDisk = strcat(HostName, Device)\r\n| where \"*\" in ({selectedNodes1}) or HostName in ({selectedNodes1})\r\n| where \"*\" in ({selectedDevices1}) or Device in ({selectedDevices1})\r\n| where NodeDisk in (selectedStateDisks) or '*' in (selectedStateDisks);\r\nlet worstDiskAcrossNodes = toscalar(\r\n    usedPercent\r\n    | summarize UsedPercent = max(Val) by NodeDisk\r\n    | top 1 by UsedPercent desc\r\n    | project NodeDisk\r\n); \r\nprint(iif(isempty(row), worstDiskAcrossNodes, row))",
                         "isHiddenWhenLocked": true,
                         "timeContext": {
@@ -448,7 +448,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3><span data-ttu-id=\"74a81-109\">Szczegóły <span style=\"text-decoration: underline\">{selectedRowId}</span>:</span><span class=\"sxs-lookup\"><span data-stu-id=\"74a81-109\">Details for <span style=\"text-decoration: underline\">{selectedRowId}</span>:</span></span></h3>"
+                "json": "<h3>Szczegóły dla <span style=\"text-decoration: underline\">{selectedRowId}</span>:</h3>"
             },
             "name": "text - 13 - Copy"
         },
