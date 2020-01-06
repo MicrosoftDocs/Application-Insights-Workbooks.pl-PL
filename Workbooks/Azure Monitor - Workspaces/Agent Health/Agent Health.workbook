@@ -543,7 +543,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<br>\n### <a name=\"details-about-computername\"></a>Szczegóły dotyczące komputera {ComputerName}"
+                "json": "<br>\n### <a name=\"details-about-no_loc_phcomputernameno_loc_ph\"></a>Szczegóły dotyczące komputera {ComputerName}"
             },
             "conditionalVisibility": {
                 "parameterName": "ComputerName",

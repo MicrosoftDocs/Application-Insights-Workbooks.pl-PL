@@ -76,7 +76,7 @@
         {
             "type": 1,
             "content": {
-                "json": "Porównaj ruch między dwoma okresami dla maszyny <span title=\"{Computer:value}\">Element `{Computer}`</span> w obszarze roboczym <span title=\"{Workspace:value}\">`{Workspace:label}`</span>\n\n---"
+                "json": "Porównaj ruch między dwoma okresami dla maszyny <span title=\"{Computer:value}\">`{Computer}`</span> w obszarze roboczym <span title=\"{Workspace:value}\">`{Workspace:label}`</span>\n\n---"
             },
             "conditionalVisibility": null
         },

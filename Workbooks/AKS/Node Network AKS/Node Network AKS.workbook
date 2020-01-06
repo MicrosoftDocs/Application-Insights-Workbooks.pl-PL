@@ -437,7 +437,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3>Wysłane łącznie: {unit:label} (interwały: {timeRange:grain})</h3>"
+                "json": "<h3>Łączna liczba {unit:label} wysłanych (w interwałach {timeRange:grain})</h3>"
             },
             "customWidth": "50",
             "name": "text - 5 - Copy - Copy"
@@ -445,7 +445,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3>Odebrane łącznie: {unit:label} (interwały: {timeRange:grain})</h3>"
+                "json": "<h3>Łączna liczba {unit:label} odebranych (w interwałach {timeRange:grain})</h3>"
             },
             "customWidth": "50",
             "name": "text - 5 - Copy"
@@ -563,7 +563,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3>Suma błędów na wyjściu (interwały: {timeRange:grain})</h3>"
+                "json": "<h3>Łączna liczba błędów na wyjściu (w interwałach {timeRange:grain})</h3>"
             },
             "customWidth": "50",
             "name": "text - 5 - Copy - Copy - Copy - Copy"
@@ -571,7 +571,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3>Suma błędów na wejściu (interwały: {timeRange:grain})</h3>"
+                "json": "<h3>Łączna liczba błędów na wejściu (w interwałach {timeRange:grain})</h3>"
             },
             "customWidth": "50",
             "name": "text - 5 - Copy - Copy - Copy - Copy - Copy"

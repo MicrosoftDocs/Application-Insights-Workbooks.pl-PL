@@ -434,7 +434,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3>Odczytane łącznie: {unit:label} (interwały: {timeRange:grain})</h3>"
+                "json": "<h3>Odczytane {unit:label} łącznie (interwały: {timeRange:grain})</h3>"
             },
             "customWidth": "50",
             "name": "text - 5 - Copy - Copy"
@@ -442,7 +442,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3>Zapisane łącznie: {unit:label} (interwały: {timeRange:grain})</h3>"
+                "json": "<h3>Zapisane {unit:label} łącznie (interwały: {timeRange:grain})</h3>"
             },
             "customWidth": "50",
             "name": "text - 5 - Copy"
@@ -497,7 +497,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3>Liczba ms na odczyt {unit:label}</h3>"
+                "json": "<h3>Liczba milisekund na odczyt {unit:label}</h3>"
             },
             "customWidth": "50",
             "name": "text - 5 - Copy - Copy - Copy"
@@ -505,7 +505,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<h3>Liczba ms na zapis {unit:label}</h3>"
+                "json": "<h3>Liczba milisekund na zapis {unit:label}</h3>"
             },
             "customWidth": "50",
             "name": "text - 5 - Copy - Copy - Copy - Copy"

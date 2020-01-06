@@ -234,7 +234,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"details----selectedoperation\"></a>Szczegóły — {SelectedOperation}\n"
+                "json": "## <a name=\"details----no_loc_phselectedoperationno_loc_ph\"></a>Szczegóły — {SelectedOperation}\n"
             },
             "conditionalVisibility": null
         },
