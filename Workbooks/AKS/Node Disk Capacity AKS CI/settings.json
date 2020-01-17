@@ -1,17 +1,18 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "Sieć węzła",
+    "name": "Ciągła integracja pojemności dysku węzła",
     "author": "Microsoft",
+    "isPreview": true,
     "galleries": [
         {
             "type": "container-insights",
             "resourceType": "Microsoft.ContainerService/managedClusters",
-            "order": 400
+            "order": 100
         },
         {
             "type": "workbook",
             "resourceType": "Microsoft.ContainerService/managedClusters",
-            "order": 400
+            "order": 100
         }
     ]
 }
