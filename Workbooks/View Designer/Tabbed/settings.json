@@ -1,12 +1,12 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "Widok z kartami zawierający projektanta widoków",
+    "name": "Przegląd z kartami",
     "author": "Microsoft",
     "galleries": [
         {
             "type": "workbook",
             "resourceType": "microsoft.operationalinsights/workspaces",
-            "order": 200
+            "order": 300
         }
     ]
 }
