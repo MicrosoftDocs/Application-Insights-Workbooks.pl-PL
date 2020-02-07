@@ -1,22 +1,17 @@
 {
-    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
     "version": "Notebook/1.0",
-    "isLocked": true,
     "items": [
         {
             "type": 1,
             "content": {
                 "json": "# <a name=\"analysis-of-page-views\"></a>Analiza liczby wyświetleń strony\nWyświetlenia strony odpowiadają aktywności użytkownika w aplikacji. Zrozumienie sposobu interakcji użytkowników z Twoją stroną zapewni dobry wgląd w to, co w aplikacji działa, a co wymaga ulepszenia. \n\nTen raport pomoże Ci zrozumieć typowe zachowania liczby wyświetleń strony takie jak:\n* Sposób użycia\n* Czas spędzony na stronie\n* Czas do pierwszej interakcji\n* Współczynniki wyjść \n\nJeśli dane telemetryczne nie obejmują wyświetleń strony, postępuj zgodnie z tymi [instrukcjami](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-javascript), aby rozpocząć zbieranie danych — jest to stosunkowo proste."
             },
-            "conditionalVisibility": null,
-            "halfWidth": false
+            "name": "Description text"
         },
         {
             "type": 9,
             "content": {
                 "version": "KqlParameterItem/1.0",
-                "query": "",
-                "crossComponentResources": [],
                 "parameters": [
                     {
                         "id": "2006c356-d32b-4f16-a22c-6a76d0e84288",
@@ -36,7 +31,6 @@
                         "name": "OtherFilters",
                         "type": 1,
                         "description": null,
-                        "isRequired": false,
                         "value": ""
                     },
                     {
@@ -46,7 +40,6 @@
                         "type": 2,
                         "description": null,
                         "isRequired": true,
-                        "multiSelect": null,
                         "query": "datatable(key:string, display:string) \n[ \n\"1h\", \"Last Hour\", \n\"1d\", \"Last 24 hours\", \n\"2d\", \"Last 48 hours\", \n\"3d\", \"Last 3 days\", \n\"7d\", \"Last 7 days\", \n\"14d\", \"Last 14 days\", \n\"30d\", \"Last 30 days\", \n\"60d\", \"Last 60 days\", \n\"90d\", \"Last 90 days\"\n] ",
                         "value": "30d"
                     },
@@ -57,32 +50,33 @@
                         "type": 2,
                         "description": "Użyj tego parametru, aby ustawić liczbę sesji użytkowników, która ma być używana w obliczeniach (próbkowanie). Dzięki temu możesz znaleźć równowagę między wydajnością i dokładnością analizy. Optymalizacja dla: wydajności = 10 000 sesji, równowagi = 100 000 próbek, dokładności = 1 000 000 sesji",
                         "isRequired": true,
-                        "multiSelect": null,
                         "query": "datatable(x:string, y:string)[\n'10000', 'Performance',\n'100000', 'Balance',\n'1000000', 'Accuracy'\n]",
                         "value": "100000"
                     }
-                ]
+                ],
+                "style": "pills",
+                "queryType": 0,
+                "resourceType": "microsoft.insights/components"
             },
-            "conditionalVisibility": null,
-            "halfWidth": false
+            "name": "Common parameter block"
         },
         {
             "type": 1,
             "content": {
                 "json": "---\n## <a name=\"usage\"></a>Sposób użycia\nTa sekcja ułatwia zrozumienie sposobu używania stron Twojej aplikacji: liczby użytkowników, sesji i wyświetleń. "
             },
-            "conditionalVisibility": null,
-            "halfWidth": false
+            "name": "Usage section text"
         },
         {
             "type": 3,
             "content": {
                 "version": "KqlItem/1.0",
                 "query": "let timeRange = {TimeRange};\nlet allEvents = pageViews\n| where timestamp > ago(timeRange);\nlet interestingEvents = allEvents\n| where name in ({Pages}) or '*' in ({Pages}) \n{OtherFilters};\ninterestingEvents\n| summarize Users = dcount(user_Id), Sessions = dcount(session_Id), Instances = count() by name\n| extend rank = 2, name = strcat('🔷 ', name)\n| union (interestingEvents\n        | summarize Users = dcount(user_Id), Sessions = dcount(session_Id), Instances = count()\n        | extend name = '🔶 Overall', rank = 1)\n| extend jkey = 1\n| join kind = inner (allEvents \n                    | summarize AllUsers = dcount(user_Id), AllSessions = dcount(session_Id), AllInstances = count()\n                    | extend jkey = 1) on jkey \n| project ['Page Name'] = name, ['Unique Users'] = Users, ['As % of app Users'] = round(100.0 * Users / AllUsers, 2),\n          ['Unique Sessions'] = Sessions, ['As % of app Sessions'] = round(100.0 * Sessions / AllSessions, 2),\n          ['Total Page Views'] = Instances , ['As % of app Page Views'] = round(100.0 * Instances / AllInstances, 2), rank\n| order by rank asc, ['Unique Users'] desc\n| project-away rank",
-                "showQuery": false,
                 "size": 1,
-                "aggregation": 0,
-                "showAnnotations": false,
+                "showAnalytics": true,
+                "showExportToExcel": true,
+                "queryType": 0,
+                "resourceType": "microsoft.insights/components",
                 "gridSettings": {
                     "formatters": [
                         {
@@ -112,34 +106,31 @@
                                 "palette": "yellow"
                             }
                         }
-                    ]
+                    ],
+                    "filter": true
                 }
             },
-            "conditionalVisibility": null,
-            "halfWidth": false
+            "showPin": true,
+            "name": "Usage grid"
         },
         {
             "type": 1,
             "content": {
                 "json": "- W kolumnach `As % of App Users/Sessions/Views` porównywane jest użycie wybranego wyświetlenia strony z użyciem całej aplikacji.\n"
             },
-            "conditionalVisibility": null,
-            "halfWidth": false
+            "name": "Usage footer text"
         },
         {
             "type": 1,
             "content": {
                 "json": "---\n## <a name=\"time-spent-on-page\"></a>Czas spędzony na stronie\nTen raport ułatwia poznanie ilości czasu, jaką klienci spędzają na stronach. Dłuższy czas na stronie oznacza zazwyczaj dobre zaangażowanie i zwykle jest pożądanym zachowaniem."
             },
-            "conditionalVisibility": null,
-            "halfWidth": false
+            "name": "Time spent on page text"
         },
         {
             "type": 9,
             "content": {
                 "version": "KqlParameterItem/1.0",
-                "query": "",
-                "crossComponentResources": [],
                 "parameters": [
                     {
                         "id": "0411936a-4cb9-44dd-946d-b449ce3b284e",
@@ -150,20 +141,23 @@
                         "isRequired": true,
                         "query": "datatable(x:string)[ '3600s' ]"
                     }
-                ]
+                ],
+                "style": "pills",
+                "queryType": 0,
+                "resourceType": "microsoft.insights/components"
             },
-            "conditionalVisibility": null,
-            "halfWidth": false
+            "name": "Time spent on page parameter block"
         },
         {
             "type": 3,
             "content": {
                 "version": "KqlItem/1.0",
                 "query": "let timeRange = {TimeRange};\nlet samples = {OptimizeCalculationsFor};\nlet pageDurationThreshold = {IgnoreDurationsOver};\nlet allEvents = union pageViews\n| where timestamp > ago(timeRange);\nlet allInterestingEvents = allEvents\n| where name in ({Pages}) or '*' in ({Pages}) \n{OtherFilters};\nlet sampledSessions = materialize(allInterestingEvents\n| summarize by session_Id\n| sample samples\n| summarize makelist(session_Id, samples));\nlet data = allInterestingEvents\n| where session_Id in (sampledSessions)\n| project session_Id, timestamp, name\n| join kind= inner (allEvents\n        | where session_Id in (sampledSessions)\n        | project session_Id, timestamp\n        ) on session_Id \n| project session_Id, TimeDiff = timestamp  - timestamp1, name, timestamp\n| where TimeDiff > 0s and TimeDiff <= pageDurationThreshold\n| summarize SecondsSpentOnPage = min(TimeDiff) / 1s by session_Id, name, timestamp;\ndata\n| summarize Instances = count(), (Median, p75, p90) = percentiles(SecondsSpentOnPage, 50, 75, 90), Mean = avg(SecondsSpentOnPage) by name\n| extend rank = 2, name = strcat('🔷 ', name)\n| union (data\n        | summarize Instances = count(), (Median, p75, p90) = percentiles(SecondsSpentOnPage, 50, 75, 90), Mean = avg(SecondsSpentOnPage)\n        | extend name = '🔶 Overall', rank = 1)\n| order by rank asc, Median desc\n| project-away rank\n| project ['Page Name'] = name, ['Sampled Page Views'] = Instances, ['Median (seconds)'] = round(Median, 1), ['75th Percentile (seconds)'] = round(p75, 1), ['90th Percentile (seconds)'] = round(p90, 1), ['Mean (seconds)'] = round(Mean, 1)",
-                "showQuery": false,
                 "size": 1,
-                "aggregation": 0,
-                "showAnnotations": false,
+                "showAnalytics": true,
+                "showExportToExcel": true,
+                "queryType": 0,
+                "resourceType": "microsoft.insights/components",
                 "visualization": "table",
                 "gridSettings": {
                     "formatters": [
@@ -194,34 +188,31 @@
                                 "palette": "red"
                             }
                         }
-                    ]
+                    ],
+                    "filter": true
                 }
             },
-            "conditionalVisibility": null,
-            "halfWidth": false
+            "showPin": true,
+            "name": "Time spent on page grid"
         },
         {
             "type": 1,
             "content": {
                 "json": "- W obliczeniach może być wykorzystywane próbkowanie oparte na parametrze `OptimizeCalculationsFor`. \n- Czas spędzony na stronie nie uwzględnia w obliczeniach stron wyjściowych (ostatnich stron w sesji). Z tego względu wartość w kolumnie `Sampled Page Views` może być mniejsza niż liczba próbkowania elementu {OptimizeCalculationsFor}.\n"
             },
-            "conditionalVisibility": null,
-            "halfWidth": false
+            "name": "Time spent on page footer"
         },
         {
             "type": 1,
             "content": {
                 "json": "---\n## <a name=\"time-to-first-interaction\"></a>Czas do pierwszej interakcji\nTen raport ułatwia poznanie ilości czasu do pierwszej interakcji klienta z krytycznymi funkcjami aplikacji. Może on uwidocznić problemy z możliwością odnajdywania funkcji lub brakiem intuicyjności interfejsu użytkownika / przepływu aplikacji."
             },
-            "conditionalVisibility": null,
-            "halfWidth": false
+            "name": "Time to First Interaction text"
         },
         {
             "type": 9,
             "content": {
                 "version": "KqlParameterItem/1.0",
-                "query": "",
-                "crossComponentResources": [],
                 "parameters": [
                     {
                         "id": "65e9a492-2e89-477a-a041-e99a61481c65",
@@ -230,24 +221,24 @@
                         "type": 2,
                         "description": "W przypadku użytkowników pierwsze użycie jest obliczane jako pierwsze użycie w danym zakresie czasu. Możliwe, że użytkownik zaczął używać aplikacji przed tym zakresem czasu.",
                         "isRequired": true,
-                        "multiSelect": null,
                         "query": "datatable(x:string, y:string)[\n'session_Id', 'Start of the Session',\n'user_Id', 'First use by Anonymous User ⚠️',\n'user_AuthenticatedId', 'First use by Authenticated User ⚠️',\n];",
                         "value": "session_Id"
                     }
-                ]
+                ],
+                "style": "pills",
+                "queryType": 0,
+                "resourceType": "microsoft.insights/components"
             },
-            "conditionalVisibility": null,
-            "halfWidth": false
+            "name": "Time to First Interaction parameter block"
         },
         {
             "type": 3,
             "content": {
                 "version": "KqlItem/1.0",
                 "query": "let samples = {OptimizeCalculationsFor};\nlet allEvents = union customEvents, pageViews\n| where timestamp > ago({TimeRange});\nlet allInterestingEvents = allEvents\n| where name in ({Pages}) or '*' in ({Pages})\n{OtherFilters};\nlet sampledSessions = materialize(allInterestingEvents\n| summarize by {TimeFrom}\n| sample samples\n| summarize makelist({TimeFrom}, samples));\nlet sessionStart = allEvents\n| where {TimeFrom} in (sampledSessions)\n| summarize Start = min(timestamp) by {TimeFrom};\nlet firstInterestingEvent = allInterestingEvents\n| where {TimeFrom} in (sampledSessions)\n| summarize Interaction = min(timestamp) by {TimeFrom}, name;\nlet segmentedFirstInteraction = firstInterestingEvent\n| join kind = inner (sessionStart) on {TimeFrom}\n| project FirstInteractionTime = Interaction - Start, name\n| summarize Sessions = count(), Mean = avg(FirstInteractionTime), (Median, p75, p90) = percentiles(FirstInteractionTime, 50, 75, 90) by name;\nsegmentedFirstInteraction\n| union (firstInterestingEvent\n| summarize Interaction = min(Interaction) by {TimeFrom}\n| join kind = inner (sessionStart) on {TimeFrom}\n| project FirstInteractionTime = Interaction - Start\n| summarize Sessions = count(), Mean = avg(FirstInteractionTime), (Median, p75, p90) = percentiles(FirstInteractionTime, 50, 75, 90)\n| extend name = '🔶 Overall', o = 0m)\n| extend Mean = round(Mean / 1m, 2), Median = round(Median / 1m, 2), p75 = round(p75 / 1m, 2), p90 = round(p90 / 1m, 2)\n| order by o asc, Median asc, Sessions desc\n| project [\"Page Name\"] = name, ['Sampled Views'] = Sessions, ['Median (in minutes)'] = Median, ['75th Percentile (in minutes)'] = p75, ['90th Percentile (in minutes)'] = p90, ['Mean (in minutes)'] = Mean\n",
-                "showQuery": false,
                 "size": 1,
-                "aggregation": 0,
-                "showAnnotations": false,
+                "queryType": 0,
+                "resourceType": "microsoft.insights/components",
                 "gridSettings": {
                     "formatters": [
                         {
@@ -280,34 +271,32 @@
                     ]
                 }
             },
-            "conditionalVisibility": null,
-            "halfWidth": false
+            "name": "Time to First Interaction grid"
         },
         {
             "type": 1,
             "content": {
                 "json": "- W obliczeniu może być wykorzystywane próbkowanie oparte na parametrze `OptimizeCalculationsFor`. "
             },
-            "conditionalVisibility": null,
-            "halfWidth": false
+            "name": "Time to First Interaction footer"
         },
         {
             "type": 1,
             "content": {
                 "json": "---\n## <a name=\"page-exit-rates\"></a>Współczynnik wyjść strony\nUważa się, że wyświetlenie strony przyczyniło się do _wyjścia_, gdy ta strona była ostatnią stroną w sesji. Przyjmuje się, że użytkownik wyszedł z aplikacji — przechodząc do innej aplikacji lub zamykając aplikację/przeglądarkę. \n\n_Współczynnik wyjść_ danej strony to procentowa wartość wyświetleń, które były ostatnimi wyświetleniami w sesji. "
             },
-            "conditionalVisibility": null,
-            "halfWidth": false
+            "name": "Page Exit Rates text"
         },
         {
             "type": 3,
             "content": {
                 "version": "KqlItem/1.0",
                 "query": "let samples = {OptimizeCalculationsFor};\nlet allEvents = pageViews\n| where timestamp > ago({TimeRange});\nlet allInterestingEvents = allEvents\n| where name in ({Pages}) or '*' in ({Pages})\n{OtherFilters};\nlet sampledSessions = materialize(allInterestingEvents\n| summarize by session_Id\n| sample samples\n| summarize makelist(session_Id, samples));\nlet bounces = allEvents\n| where session_Id in (sampledSessions)\n| summarize (timestamp, name) = argmax(timestamp, name) by session_Id;\nlet sessionsWithInterestingEvents = allInterestingEvents\n| where session_Id in (sampledSessions);\nlet allSessionData = sessionsWithInterestingEvents\n| summarize Sessions = dcount(session_Id) by name\n| union (sessionsWithInterestingEvents\n        | summarize Sessions = dcount(session_Id) | extend name = 'Overall');\nlet bouncesWithInterestingEvents = bounces\n| where name in ({Pages}) or '*' in ({Pages});\nbouncesWithInterestingEvents\n| summarize BouncedSessions = dcount(session_Id) by name\n| extend rank = 2\n| union (bouncesWithInterestingEvents\n        | summarize BouncedSessions = dcount(session_Id) | extend name = 'Overall', rank = 1)\n| join kind=inner\n(\n    allSessionData\n)\non name\n| extend BounceRate = round(100.0 * BouncedSessions / Sessions, 2)\n| order by rank asc, BounceRate desc\n| project ['Page Name'] = iff(name == 'Overall', '🔶 Overall', strcat('🔷 ', name)), ['Sampled Sessions with Page View'] = Sessions, ['Sampled Sessions Ended after Page View'] = BouncedSessions, ['Exit Rate (%)'] = BounceRate",
-                "showQuery": false,
                 "size": 1,
-                "aggregation": 0,
-                "showAnnotations": false,
+                "showAnalytics": true,
+                "showExportToExcel": true,
+                "queryType": 0,
+                "resourceType": "microsoft.insights/components",
                 "gridSettings": {
                     "formatters": [
                         {
@@ -328,19 +317,20 @@
                                 "palette": "red"
                             }
                         }
-                    ]
+                    ],
+                    "filter": true
                 }
             },
-            "conditionalVisibility": null,
-            "halfWidth": false
+            "showPin": true,
+            "name": "Page Exit Rates grid"
         },
         {
             "type": 1,
             "content": {
                 "json": "- W obliczeniu może być wykorzystywane próbkowanie oparte na parametrze `OptimizeCalculationsFor`. "
             },
-            "conditionalVisibility": null,
-            "halfWidth": false
+            "name": "Page Exit Rates footer"
         }
-    ]
+    ],
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"
 }
