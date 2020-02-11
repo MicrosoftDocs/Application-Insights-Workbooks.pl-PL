@@ -1,0 +1,8 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "en-us": {
+        "name": "Śledzenie danych użycia dla użytkowników, sesji i zdarzeń",
+        "description": "",
+        "order": 100
+    }
+}

@@ -1,6 +1,7 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
     "name": "Numer i lista",
+    "description": "Kontur kafelka Numer i lista z projektanta widoków",
     "author": "Microsoft",
     "galleries": [
         {

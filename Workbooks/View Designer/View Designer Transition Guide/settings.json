@@ -1,6 +1,7 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
     "name": "Przewodnik po przejściach projektanta widoków",
+    "description": "Przewodnik Szybki start dotyczący używania skoroszytów dla użytkowników projektanta widoków",
     "author": "Microsoft",
     "galleries": [
         {

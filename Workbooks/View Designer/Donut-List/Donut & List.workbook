@@ -4,7 +4,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"donut--list-template\"></a>Szablon Wykres pierścieniowy i lista\nTen raport umożliwia modelowanie szablonu Wykres pierścieniowy i lista z poziomu projektanta widoków\n<br/>\n<br/>"
+                "json": "## <a name=\"donut--list-template\"></a>Szablon Wykres pierścieniowy i lista\nTen raport umożliwia modelowanie kafelka Wykres pierścieniowy i lista z poziomu projektanta widoków.\n\n1. Aby zastąpić poniższe widoki własnymi zapytaniami, wybierz przycisk `Edit` (Edytuj) na pasku narzędzi u góry strony w celu przejścia do trybu `Edit Mode` (Tryb edycji).\n\n2. Następnie wybierz opcję `↑ Edit` (↑ Edytuj) w prawym dolnym rogu komórek Wykres pierścieniowy i Lista i wklej zapytanie.\n\n💡 Aby uzyskać instrukcje krok po kroku dotyczące tworzenia tego skoroszytu, skorzystaj z naszego [przewodnika](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ViewDesigner/TileConversions.md#Donut-&-List) lub dowiedz się więcej na temat innych funkcji z [dokumentacji skoroszytów](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks)\n<br/>\n<br/>"
             },
             "name": "text - 3"
         },
@@ -144,30 +144,6 @@
             "styleSettings": {
                 "showBorder": true
             }
-        },
-        {
-            "type": 11,
-            "content": {
-                "version": "LinkItem/1.0",
-                "style": "paragraph",
-                "links": [
-                    {
-                        "cellValue": "https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ViewDesigner/ViewDesignerOverview.md",
-                        "linkTarget": "Url",
-                        "linkLabel": "View Designer transition guide",
-                        "preText": "For additional assistance, please check out our ",
-                        "style": "link"
-                    },
-                    {
-                        "cellValue": "https://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-workbooks",
-                        "linkTarget": "Url",
-                        "linkLabel": "Workbooks documentation",
-                        "preText": " or the ",
-                        "style": "link"
-                    }
-                ]
-            },
-            "name": "links - 4"
         }
     ],
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"
