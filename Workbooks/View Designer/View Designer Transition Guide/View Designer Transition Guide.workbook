@@ -73,7 +73,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"why-convert-view-designer-dashboards-to-workbookshttpsgithubcommicrosoftapplication-insights-workbooksblobmasterdocumentationviewdesignerviewdesigneroverviewmd\"></a>[Dlaczego warto konwertować pulpity nawigacyjne projektanta widoków na skoroszyty?](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ViewDesigner/ViewDesignerOverview.md)\n\nSkoroszyty to platforma, która uwalnia pełny potencjał danych. Skoroszyty nie tylko zachowują wszystkie możliwości projektanta widoków, ale zapewniają większą elastyczność i dodatkową funkcjonalność dzięki tekstowi, metrykom, parametrom i innych dostosowaniom wykresów.\n\n### <a name=\"advantages-of-workbooks-over-view-designer\"></a>Zalety skoroszytów w porównaniu z projektantem widoków\n* Obsługa zarówno dzienników, jak i metryk\n* Możliwość korzystania z widoków osobistych na potrzeby szczegółowej kontroli dostępu oraz udostępnionych widoków skoroszytów\n* Niestandardowe opcje układu z kartami oraz kontrolkami rozmiaru i skalowania\n* Obsługa wykonywania zapytań w wielu obszarach roboczych, aplikacjach usługi Application Insights i subskrypcjach\n* Możliwość korzystania z parametrów niestandardowych dynamicznie aktualizujących skojarzone wykresy i wizualizacje\n* Obsługa galerii szablonów z publicznej witryny GitHub"
+                "json": "### <a name=\"why-convert-view-designer-dashboards-to-workbooks\"></a>[Dlaczego warto konwertować pulpity nawigacyjne projektanta widoków na skoroszyty?](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/view-designer-conversion-overview#why-convert-view-designer-dashboards-to-workbooks)\n\nSkoroszyty to platforma, która uwalnia pełny potencjał danych. Skoroszyty nie tylko zachowują wszystkie możliwości projektanta widoków, ale zapewniają większą elastyczność i dodatkową funkcjonalność dzięki tekstowi, metrykom, parametrom i innych dostosowaniom wykresów.\n\n### <a name=\"advantages-of-workbooks-over-view-designer\"></a>Zalety skoroszytów w porównaniu z projektantem widoków\n* Obsługa zarówno dzienników, jak i metryk\n* Możliwość korzystania z widoków osobistych na potrzeby szczegółowej kontroli dostępu oraz udostępnionych widoków skoroszytów\n* Niestandardowe opcje układu z kartami oraz kontrolkami rozmiaru i skalowania\n* Obsługa wykonywania zapytań w wielu obszarach roboczych, aplikacjach usługi Application Insights i subskrypcjach\n* Możliwość korzystania z parametrów niestandardowych dynamicznie aktualizujących skojarzone wykresy i wizualizacje\n* Obsługa galerii szablonów z publicznej witryny GitHub"
             },
             "customWidth": "75",
             "name": "why workbooks",
@@ -84,7 +84,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"workbooks-quick-start-templates-httpsgithubcommicrosoftapplication-insights-workbooksblobmasterdocumentationviewdesignertileconversionsmd\"></a>[Szablony Szybki start dla skoroszytów](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ViewDesigner/TileConversions.md)\n\nSkoroszyty w obszarach roboczych usługi Log Analytics mają już niestandardowe szablony przeznaczone do replikowania istniejących kafelków projektanta widoków. Poniżej znajdują się linki do szablonów na potrzeby szybkiego dostępu. Szablony można też otwierać w galerii skoroszytów.\n\nPo wybraniu linku do szablonu wykonaj następujące kroki, aby zaktualizować widoki.\n\n1. Wybierz przycisk `Edit` (Edytuj) na pasku narzędzi w górnej części strony, aby przejść do trybu `Edit Mode` (Tryb edycji).\n\n2. Następnie wybierz opcję `↑ Edit` (↑ Edytuj) w prawym dolnym rogu komórki i wklej zapytanie."
+                "json": "### <a name=\"workbooks-quick-start-templates\"></a>[Szablony Szybki start dla skoroszytów](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/view-designer-conversion-tiles)\n\nSkoroszyty w obszarach roboczych usługi Log Analytics mają już niestandardowe szablony przeznaczone do replikowania istniejących kafelków projektanta widoków. Poniżej znajdują się linki do szablonów na potrzeby szybkiego dostępu. Szablony można też otwierać w galerii skoroszytów.\n\nPo wybraniu linku do szablonu wykonaj następujące kroki, aby zaktualizować widoki.\n\n1. Wybierz przycisk `Edit` (Edytuj) na pasku narzędzi w górnej części strony, aby przejść do trybu `Edit Mode` (Tryb edycji).\n\n2. Następnie wybierz opcję `↑ Edit` (↑ Edytuj) w prawym dolnym rogu komórki i wklej zapytanie."
             },
             "name": "quick start",
             "styleSettings": {
@@ -205,7 +205,7 @@
                 "style": "paragraph",
                 "links": [
                     {
-                        "cellValue": "https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ViewDesigner/ViewDesignerOverview.md",
+                        "cellValue": "https://docs.microsoft.com/en-us/azure/azure-monitor/platform/view-designer-conversion-overview",
                         "linkTarget": "Url",
                         "linkLabel": "View Designer transition documentation",
                         "preText": "For additional assistance, please reference the ",
@@ -226,14 +226,14 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"understanding-editing-in-workbookshttpsdocsmicrosoftcomen-usazureazure-monitorappusage-workbooksediting-rearranging-cloning-and-deleting-workbook-sections\"></a>[Informacje o edytowaniu w skoroszytach](https://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-workbooks#editing-rearranging-cloning-and-deleting-workbook-sections)\n\nW projektancie widoków użytkownicy muszą wybrać określony typ wizualizacji, a następnie edytować zapytanie w celu zaktualizowania źródła danych.\n\nKorzystając ze skoroszytów, użytkownicy mogą najpierw uruchomić zapytanie, a następnie wybrać i dostosować optymalną wizualizację dla swoich danych. Skoroszyty mają dwa tryby — tryb edycji i tryb do czytania. Zapisane skoroszyty i szablony są domyślnie otwierane w trybie do czytania. Aby zacząć edytowanie, kliknij przycisk `🖊️ Edit` (&#x1f58a;️ Edytuj) na górnym pasku narzędzi. \n\nAby edytować komórkę, wystarczy wybrać przycisk `↑ Edit` (↑ Edytuj) znajdujący się w prawym dolnym rogu każdej komórki. Skoroszyty umożliwiają użytkownikom edytowanie wielu kroków w tym samym czasie i powrót do trybu do czytania przez wybranie pozycji `Done Editing` (Zakończono edytowanie) z górnego paska narzędzi."
+                "json": "## <a name=\"understanding-editing-in-workbooks\"></a>[Informacje o edytowaniu w skoroszytach](https://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-workbooks#editing-rearranging-cloning-and-deleting-workbook-sections)\n\nW projektancie widoków użytkownicy muszą wybrać określony typ wizualizacji, a następnie edytować zapytanie w celu zaktualizowania źródła danych.\n\nKorzystając ze skoroszytów, użytkownicy mogą najpierw uruchomić zapytanie, a następnie wybrać i dostosować optymalną wizualizację dla swoich danych. Skoroszyty mają dwa tryby — tryb edycji i tryb do czytania. Zapisane skoroszyty i szablony są domyślnie otwierane w trybie do czytania. Aby zacząć edytowanie, kliknij przycisk `🖊️ Edit` (&#x1f58a;️ Edytuj) na górnym pasku narzędzi. \n\nAby edytować komórkę, wystarczy wybrać przycisk `↑ Edit` (↑ Edytuj) znajdujący się w prawym dolnym rogu każdej komórki. Skoroszyty umożliwiają użytkownikom edytowanie wielu kroków w tym samym czasie i powrót do trybu do czytania przez wybranie pozycji `Done Editing` (Zakończono edytowanie) z górnego paska narzędzi."
             },
             "name": "edit mode"
         },
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"parameters-in-workbookshttpsdocsmicrosoftcomen-usazureazure-monitorappusage-workbooksadding-parameter-sections\"></a>[Parametry w skoroszytach](https://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-workbooks#adding-parameter-sections)\n\nTeraz można utworzyć filtr zakresu czasu, wybierając opcję „Dodaj parametry” i wybierając pozycję „Selektor zakresu czasu”, jak pokazano w poniższym przykładzie:"
+                "json": "## <a name=\"parameters-in-workbooks\"></a>[Parametry w skoroszytach](https://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-workbooks#adding-parameter-sections)\n\nTeraz można utworzyć filtr zakresu czasu, wybierając opcję „Dodaj parametry” i wybierając pozycję „Selektor zakresu czasu”, jak pokazano w poniższym przykładzie:"
             },
             "name": "Parameters"
         },
@@ -381,7 +381,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"running-queries-and-making-visualizations-in-workbookshttpsdocsmicrosoftcomen-usazureazure-monitorappusage-workbooksadding-query-sections\"></a>[Uruchamianie zapytań i tworzenie wizualizacji w skoroszytach](https://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-workbooks#adding-query-sections)\n\nZapytania działają tak samo jak w projektancie widoków lub w obszarach roboczych usługi Log Analytics. W skoroszytach można nawet zmieniać zakres zapytania, zarówno w przypadku wielu obszarów roboczych, jak i zasobów.\n\nSkoroszyty umożliwiają też sterowanie wieloma opcjami wizualizacji. Można tworzyć siatki, wykresy kołowe, wykresy słupkowe, wykresy liniowe i wiele innych."
+                "json": "### <a name=\"running-queries-and-making-visualizations-in-workbooks\"></a>[Uruchamianie zapytań i tworzenie wizualizacji w skoroszytach](https://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-workbooks#adding-query-sections)\n\nZapytania działają tak samo jak w projektancie widoków lub w obszarach roboczych usługi Log Analytics. W skoroszytach można nawet zmieniać zakres zapytania, zarówno w przypadku wielu obszarów roboczych, jak i zasobów.\n\nSkoroszyty umożliwiają też sterowanie wieloma opcjami wizualizacji. Można tworzyć siatki, wykresy kołowe, wykresy słupkowe, wykresy liniowe i wiele innych."
             },
             "name": "running queries"
         },
@@ -411,7 +411,7 @@
         {
             "type": 1,
             "content": {
-                "json": "Można też ponownie użyć tego samego zapytania i utworzyć wykres słupkowy. Aby to zrobić, wybierz opcję „Wykres słupkowy” pod listą rozwijaną wizualizacji.\n\n### <a name=\"customizing-visualizationshttpsdocsmicrosoftcomen-usazureazure-monitorappusage-workbooksadvanced-analytic-query-settings\"></a>[Dostosowywanie wizualizacji](https://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-workbooks#advanced-analytic-query-settings)\n\nWizualizacje można też dostosowywać, na przykład zmieniając kolor i wyświetlanie danych, jak pokazano w poniższych przykładach.\n\nMożna również wprowadzać liczne drobne zmiany na wykresach, takie jak zmiana rozmiaru poszczególnych komórek, dodanie eksportu lub przypięcie do pulpitu nawigacyjnego. Odpowiednie opcje są dostępne w obszarze ⚙️ dla ustawień zaawansowanych."
+                "json": "Można też ponownie użyć tego samego zapytania i utworzyć wykres słupkowy. Aby to zrobić, wybierz opcję „Wykres słupkowy” pod listą rozwijaną wizualizacji.\n\n### <a name=\"customizing-visualizations\"></a>[Dostosowywanie wizualizacji](https://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-workbooks#advanced-analytic-query-settings)\n\nWizualizacje można też dostosowywać, na przykład zmieniając kolor i wyświetlanie danych, jak pokazano w poniższych przykładach.\n\nMożna również wprowadzać liczne drobne zmiany na wykresach, takie jak zmiana rozmiaru poszczególnych komórek, dodanie eksportu lub przypięcie do pulpitu nawigacyjnego. Odpowiednie opcje są dostępne w obszarze ⚙️ dla ustawień zaawansowanych."
             },
             "name": "customizing"
         },
@@ -471,7 +471,7 @@
                 "style": "paragraph",
                 "links": [
                     {
-                        "cellValue": "https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ViewDesigner/ViewDesignerOverview.md",
+                        "cellValue": "https://docs.microsoft.com/en-us/azure/azure-monitor/platform/view-designer-conversion-overview",
                         "linkTarget": "Url",
                         "linkLabel": "View Designer transition documentation",
                         "preText": "For additional assistance, please reference the ",
