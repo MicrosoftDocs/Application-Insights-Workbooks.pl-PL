@@ -4,7 +4,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"vertical-overview\"></a>Przegląd pionowy\nTen raport konsoliduje wiele widoków w skoroszytach w układzie pionowym.\n\nUżytkownicy mogą modyfikować zapytania przy użyciu przycisku `🖊️ Edit` (&#x1f58a;️ Edytuj) na górnym pasku narzędzi i zmieniać zapytania dla określonego kroku, korzystając z przycisku `↑ Edit` (↑ Edytuj) w prawym dolnym rogu.\n<br/>\n<br/>"
+                "json": "## <a name=\"vertical-overview\"></a>Przegląd pionowy\nTen raport konsoliduje wiele widoków w skoroszytach w układzie pionowym.\n\nUżytkownicy mogą modyfikować zapytania przy użyciu przycisku `🖊️ Edit` (&#x1f58a;️ Edytuj) na górnym pasku narzędzi i zmieniać zapytania dla określonego kroku, korzystając z przycisku `↑ Edit` (↑ Edytuj) w prawym dolnym rogu.\n\nDowiedz się więcej o konwertowaniu z [projektanta widoków na skoroszyty](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/view-designer-conversion-options) lub poznaj dodatkowe [funkcje skoroszytów](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/workbooks-overview).\n<br/>\n<br/>"
             },
             "name": "text - 7"
         },
@@ -161,7 +161,7 @@
             "type": 3,
             "content": {
                 "version": "KqlItem/1.0",
-                "query": "search *\r\n| summarize AggregatedValue = count() by Type, bin(TimeGenerated, 1h)\r\n| sort by TimeGenerated desc\r\n| render linechart\r\n",
+                "query": "search *\r\n| summarize AggregatedValue = count() by Type, bin(TimeGenerated, 1h)\r\n| sort by TimeGenerated desc",
                 "size": 1,
                 "showAnalytics": true,
                 "title": "Data Types Over Time",
@@ -171,7 +171,8 @@
                 "timeContextFromParameter": "TimeRange",
                 "showExportToExcel": true,
                 "queryType": 0,
-                "resourceType": "microsoft.operationalinsights/workspaces"
+                "resourceType": "microsoft.operationalinsights/workspaces",
+                "visualization": "linechart"
             },
             "customWidth": "50",
             "showPin": true,
