@@ -12,7 +12,17 @@
             "type": 9,
             "content": {
                 "version": "KqlParameterItem/1.0",
+                "crossComponentResources": [
+                    "{Subscription}"
+                ],
                 "parameters": [
+                    {
+                        "id": "3f34a4f7-9a42-46ed-ac12-7369edbd80a8",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "blank",
+                        "type": 1,
+                        "isHiddenWhenLocked": true
+                    },
                     {
                         "id": "7d3239b1-19a0-44fd-a771-df82340e0d88",
                         "version": "KqlParameterItem/1.0",
@@ -57,19 +67,15 @@
                     {
                         "id": "604f6d89-c6f9-4bdb-b4ca-483f56a8946c",
                         "version": "KqlParameterItem/1.0",
-                        "name": "Subscriptions",
+                        "name": "Subscription",
                         "type": 6,
                         "isRequired": true,
-                        "multiSelect": true,
-                        "quote": "'",
-                        "delimiter": ",",
                         "query": "where type in~('microsoft.compute/virtualmachines', 'microsoft.compute/virtualmachinescalesets')\r\n| summarize Count = count() by subscriptionId\r\n| order by Count desc\r\n| extend Rank = row_number()\r\n| project value = subscriptionId, label = subscriptionId, selected = iff(subscriptionId =~ todynamic('{Selection}').sub, true, false)",
                         "crossComponentResources": [
                             "value::all"
                         ],
                         "typeSettings": {
-                            "additionalResourceOptions": [],
-                            "showDefault": false
+                            "additionalResourceOptions": []
                         },
                         "timeContextFromParameter": "TimeRange",
                         "queryType": 1,
@@ -79,7 +85,7 @@
                         "id": "efc388e8-ac7b-4e72-8573-e97cfe370f16",
                         "version": "KqlParameterItem/1.0",
                         "name": "ResourceGroup",
-                        "label": "Resource groups",
+                        "label": "Resource group",
                         "type": 2,
                         "isRequired": true,
                         "multiSelect": true,
@@ -87,18 +93,158 @@
                         "delimiter": ",",
                         "query": "where type in~('microsoft.compute/virtualmachines', 'microsoft.compute/virtualmachinescalesets')\r\n| summarize Count = count() by resourceGroup\r\n| order by Count desc\r\n| extend Rank = row_number()\r\n| project value = resourceGroup, label = resourceGroup, selected = iff(resourceGroup =~ todynamic('{Selection}').rg, true, false)\r\n| order by value asc",
                         "crossComponentResources": [
-                            "{Subscriptions}"
+                            "{Subscription}"
                         ],
+                        "typeSettings": {
+                            "limitSelectTo": 1,
+                            "additionalResourceOptions": [
+                                "value::1",
+                                "value::all"
+                            ],
+                            "selectAllValue": "all"
+                        },
+                        "timeContextFromParameter": "TimeRange",
+                        "queryType": 1,
+                        "resourceType": "microsoft.resourcegraph/resources",
+                        "value": [
+                            "value::all"
+                        ]
+                    },
+                    {
+                        "id": "ab4d0200-d7f0-4705-a006-c9f63e4e161e",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "validResourceGroup",
+                        "type": 1,
+                        "isHiddenWhenLocked": true,
+                        "criteriaData": [
+                            {
+                                "condition": "if (ResourceGroup == 'all'), result = blank",
+                                "criteriaContext": {
+                                    "leftOperand": "ResourceGroup",
+                                    "operator": "==",
+                                    "rightValType": "static",
+                                    "rightVal": "all",
+                                    "resultValType": "param",
+                                    "resultVal": "blank"
+                                }
+                            },
+                            {
+                                "condition": "if (ResourceGroup == blank), result = blank",
+                                "criteriaContext": {
+                                    "leftOperand": "ResourceGroup",
+                                    "operator": "==",
+                                    "rightValType": "param",
+                                    "rightVal": "blank",
+                                    "resultValType": "param",
+                                    "resultVal": "blank"
+                                }
+                            },
+                            {
+                                "condition": "else result = '{ResourceGroup:unformatted}'",
+                                "criteriaContext": {
+                                    "operator": "Default",
+                                    "rightValType": "param",
+                                    "resultValType": "static",
+                                    "resultVal": "{ResourceGroup:unformatted}"
+                                }
+                            }
+                        ],
+                        "timeContextFromParameter": "TimeRange"
+                    },
+                    {
+                        "id": "f1d9afb3-4e74-4ef7-8e21-e2d0f84534ea",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "armPrefix",
+                        "type": 1,
+                        "value": "",
+                        "isHiddenWhenLocked": true,
+                        "criteriaData": [
+                            {
+                                "condition": "if (validResourceGroup != blank), result = '{Subscription}/resourcegroups/{validResourceGroup}'",
+                                "criteriaContext": {
+                                    "leftOperand": "validResourceGroup",
+                                    "operator": "!=",
+                                    "rightValType": "param",
+                                    "rightVal": "blank",
+                                    "resultValType": "static",
+                                    "resultVal": "{Subscription}/resourcegroups/{validResourceGroup}"
+                                }
+                            },
+                            {
+                                "condition": "if (Subscription != blank), result = '{Subscription}'",
+                                "criteriaContext": {
+                                    "leftOperand": "Subscription",
+                                    "operator": "!=",
+                                    "rightValType": "param",
+                                    "rightVal": "blank",
+                                    "resultValType": "static",
+                                    "resultVal": "{Subscription}"
+                                }
+                            },
+                            {
+                                "condition": "else result = blank",
+                                "criteriaContext": {
+                                    "operator": "Default",
+                                    "rightValType": "param",
+                                    "resultValType": "param",
+                                    "resultVal": "blank"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": "7e3ee42f-fa46-47fe-ae7e-1fecdecc094a",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "armUrl",
+                        "type": 1,
+                        "value": "",
+                        "isHiddenWhenLocked": true,
+                        "criteriaData": [
+                            {
+                                "condition": "if (armPrefix != blank), result = '{armPrefix}/providers/Microsoft.Insights/vmInsightsOnboardingStatuses?api-version=2018-11-27-preview'",
+                                "criteriaContext": {
+                                    "leftOperand": "armPrefix",
+                                    "operator": "!=",
+                                    "rightValType": "param",
+                                    "rightVal": "blank",
+                                    "resultValType": "static",
+                                    "resultVal": "{armPrefix}/providers/Microsoft.Insights/vmInsightsOnboardingStatuses?api-version=2018-11-27-preview"
+                                }
+                            },
+                            {
+                                "condition": "else result = blank",
+                                "criteriaContext": {
+                                    "operator": "Default",
+                                    "rightValType": "param",
+                                    "resultValType": "param",
+                                    "resultVal": "blank"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": "8cfecad8-d483-42de-abb3-9cb558a00acd",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "Resources",
+                        "label": "Virtual Machines",
+                        "type": 5,
+                        "description": "Dołączone maszyny wirtualne",
+                        "isRequired": true,
+                        "multiSelect": true,
+                        "quote": "'",
+                        "delimiter": ",",
+                        "query": "{\"version\":\"ARMEndpoint/1.0\",\"data\":null,\"headers\":[],\"method\":\"GET\",\"path\":\"{armUrl}\",\"urlParams\":[],\"batchDisabled\":false,\"transformers\":[{\"type\":\"jsonpath\",\"settings\":{\"tablePath\":\"$.value\",\"columns\":[{\"path\":\"$.properties.resourceId\",\"columnid\":\"resourceId\"}]}}]}",
                         "value": [
                             "value::all"
                         ],
                         "typeSettings": {
                             "additionalResourceOptions": [
                                 "value::all"
-                            ]
+                            ],
+                            "selectAllValue": "all"
                         },
-                        "queryType": 1,
-                        "resourceType": "microsoft.resourcegraph/resources"
+                        "queryType": 12,
+                        "resourceType": "microsoft.operationalinsights/workspaces"
                     },
                     {
                         "id": "b829835f-1161-457d-96c5-72fc444db73a",
@@ -120,26 +266,54 @@
                                 "value::3"
                             ],
                             "includeAll": true
-                        }
+                        },
+                        "timeContextFromParameter": "TimeRange"
                     },
                     {
                         "id": "0b488656-655a-4716-9438-bb3137c98055",
                         "version": "KqlParameterItem/1.0",
-                        "name": "Workspaces",
+                        "name": "allWorkspaces",
                         "type": 5,
                         "isRequired": true,
                         "multiSelect": true,
                         "quote": "'",
                         "delimiter": ",",
-                        "query": "where type =~ \"microsoft.operationalinsights/workspaces\"\r\n| where location in~ ({Location})",
-                        "crossComponentResources": [
-                            "{Subscriptions}"
+                        "query": "{\"version\":\"ARMEndpoint/1.0\",\"data\":null,\"headers\":[],\"method\":\"GET\",\"path\":\"{armUrl}\",\"urlParams\":[],\"batchDisabled\":false,\"transformers\":[{\"type\":\"jsonpath\",\"settings\":{\"tablePath\":\"$..workspace\",\"columns\":[{\"path\":\"$.id\",\"columnid\":\"workspaceId\"}]}}]}",
+                        "value": [
+                            "value::all"
                         ],
+                        "isHiddenWhenLocked": true,
                         "typeSettings": {
                             "additionalResourceOptions": [
                                 "value::all"
                             ]
                         },
+                        "timeContextFromParameter": "TimeRange",
+                        "queryType": 12,
+                        "resourceType": "microsoft.operationalinsights/workspaces"
+                    },
+                    {
+                        "id": "598a32fb-b4b3-4f0e-adcf-4357a9cd53c3",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "Workspaces",
+                        "type": 5,
+                        "multiSelect": true,
+                        "quote": "'",
+                        "delimiter": ",",
+                        "query": "where type =~ \"microsoft.operationalinsights/workspaces\"\r\n| where id in~ ({allWorkspaces})\r\n| where location in~ ({Location})",
+                        "crossComponentResources": [
+                            "value::all"
+                        ],
+                        "value": [
+                            "value::all"
+                        ],
+                        "typeSettings": {
+                            "additionalResourceOptions": [
+                                "value::all"
+                            ],
+                            "showDefault": false
+                        },
+                        "timeContextFromParameter": "TimeRange",
                         "queryType": 1,
                         "resourceType": "microsoft.resourcegraph/resources"
                     },
@@ -189,36 +363,6 @@
                         }
                     },
                     {
-                        "id": "d38751bd-cb5d-4ad7-a2b2-dac377be99f5",
-                        "version": "KqlParameterItem/1.0",
-                        "name": "Resources",
-                        "label": "Virtual Machines",
-                        "type": 5,
-                        "isRequired": true,
-                        "multiSelect": true,
-                        "quote": "'",
-                        "delimiter": ",",
-                        "query": "InsightsMetrics\r\n| distinct _ResourceId",
-                        "crossComponentResources": [
-                            "{Workspaces}"
-                        ],
-                        "value": [
-                            "value::all"
-                        ],
-                        "typeSettings": {
-                            "additionalResourceOptions": [
-                                "value::all"
-                            ],
-                            "selectAllValue": "all"
-                        },
-                        "timeContext": {
-                            "durationMs": 0
-                        },
-                        "timeContextFromParameter": "TimeRange",
-                        "queryType": 0,
-                        "resourceType": "microsoft.operationalinsights/workspaces"
-                    },
-                    {
                         "id": "e36a2c69-a3c1-4b0c-b758-b37bc16b4669",
                         "version": "KqlParameterItem/1.0",
                         "name": "Test",
@@ -265,21 +409,11 @@
                         "queryType": 8
                     },
                     {
-                        "id": "bc05c31b-9919-41da-94a8-a9f58dfbc5ed",
-                        "version": "KqlParameterItem/1.0",
-                        "name": "emptyParam",
-                        "type": 1,
-                        "isHiddenWhenLocked": true,
-                        "timeContext": {
-                            "durationMs": 0
-                        },
-                        "timeContextFromParameter": "TimeRange"
-                    },
-                    {
                         "id": "6f523dd4-292d-468c-b058-a76f628347d6",
                         "version": "KqlParameterItem/1.0",
                         "name": "vmSnippet",
                         "type": 1,
+                        "value": "",
                         "isHiddenWhenLocked": true,
                         "criteriaData": [
                             {
@@ -294,12 +428,12 @@
                                 }
                             },
                             {
-                                "condition": "else result = emptyParam",
+                                "condition": "else result = '| where _ResourceId startswith \"{armPrefix}\"'",
                                 "criteriaContext": {
                                     "operator": "Default",
                                     "rightValType": "param",
-                                    "resultValType": "param",
-                                    "resultVal": "emptyParam"
+                                    "resultValType": "static",
+                                    "resultVal": "| where _ResourceId startswith \"{armPrefix}\""
                                 }
                             }
                         ],
@@ -310,8 +444,8 @@
                     }
                 ],
                 "style": "above",
-                "queryType": 0,
-                "resourceType": "microsoft.operationalinsights/workspaces"
+                "queryType": 1,
+                "resourceType": "microsoft.resourcegraph/resources"
             },
             "name": "top-level parameters"
         },
@@ -373,8 +507,7 @@
                             "additionalResourceOptions": []
                         },
                         "queryType": 0,
-                        "resourceType": "microsoft.operationalinsights/workspaces",
-                        "value": "{\"counter\":\"UtilizationPercentage\",\"object\":\"Processor\"}"
+                        "resourceType": "microsoft.operationalinsights/workspaces"
                     },
                     {
                         "id": "9ad8858d-8ef3-4144-94b1-66a8bf9fa9c9",

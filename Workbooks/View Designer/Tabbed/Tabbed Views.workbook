@@ -4,7 +4,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"tabbed-overview\"></a>Przegląd z kartami\nW tym raporcie używanych jest wiele kart w celu skonsolidowania wielu widoków w jednym skoroszycie.\n\nUżytkownicy mogą modyfikować zapytania przy użyciu przycisku 🖊️ Edytuj na górnym pasku narzędzi i zmieniać zapytania dla określonego kroku, korzystając z przycisku ↑ Edytuj w prawym dolnym rogu.\n<br/>\n<br/>"
+                "json": "## <a name=\"tabbed-overview\"></a>Przegląd z kartami\nW tym raporcie używanych jest wiele kart w celu skonsolidowania wielu widoków w jednym skoroszycie.\n\nUżytkownicy mogą modyfikować zapytania przy użyciu przycisku 🖊️ Edytuj na górnym pasku narzędzi i zmieniać zapytania dla określonego kroku, korzystając z przycisku ↑ Edytuj w prawym dolnym rogu.\n\nDowiedz się więcej o konwertowaniu z [projektanta widoków na skoroszyty](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/view-designer-conversion-options) lub poznaj dodatkowe [funkcje skoroszytów](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/workbooks-overview).\n<br/>\n<br/>"
             },
             "name": "text - 7"
         },
