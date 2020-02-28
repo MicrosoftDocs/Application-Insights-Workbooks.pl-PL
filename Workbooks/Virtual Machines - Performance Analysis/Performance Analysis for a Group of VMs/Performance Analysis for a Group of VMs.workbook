@@ -42,7 +42,7 @@
                         "type": 1,
                         "query": "where type =~ 'microsoft.operationalinsights/workspaces'\r\n| extend match = strcat(\"'\", id, \"'\") =~ \"{DefaultWorkspace:value}\"\r\n| order by match desc, name asc\r\n| take 1\r\n| project value = tostring(pack('sub', subscriptionId, 'rg', resourceGroup, 'ws', id))",
                         "crossComponentResources": [
-                            "value::selected"
+                            "value::all"
                         ],
                         "isHiddenWhenLocked": true,
                         "queryType": 1,
@@ -91,7 +91,7 @@
                         "delimiter": ",",
                         "query": "summarize by subscriptionId\r\n| project value = strcat('/subscriptions/', subscriptionId), label = subscriptionId, selected = iff(subscriptionId =~ todynamic('{Selection}').sub, true, false)",
                         "crossComponentResources": [
-                            "value::selected"
+                            "value::all"
                         ],
                         "typeSettings": {
                             "additionalResourceOptions": []
@@ -787,7 +787,7 @@
         {
             "type": 1,
             "content": {
-                "json": "#### <a name=\"-total-bytes-no_loc_phnetworkdirectionno_loc_ph-and-bytes-no_loc_phnetworkdirectionno_loc_phsec-counters-are-both-being-utilized-to-display-the-network-table-the-delta-of-total-bytes-no_loc_phnetworkdirectionno_loc_ph-over-a-time-period-is-being-calculated-to-match-up-with-the-bytes-no_loc_phnetworkdirectionno_loc_phsec-counter-to-display-an-accurate-representation-of-network-activity-over-all-machines\"></a>Liczniki ℹ `Total Bytes {NetworkDirection}` i `Bytes {NetworkDirection}/sec` są także używane do wyświetlania tabeli sieci. Delta licznika `Total Bytes {NetworkDirection}` w okresie czasu jest obliczana w celu dopasowania z licznikiem `Bytes {NetworkDirection}/sec` i wyświetlenia dokładnej reprezentacji aktywności sieci na wszystkich maszynach"
+                "json": "#### <a name=\"-total-bytes-no_loc_phnetworkdirectionno_loc_ph-and-bytes-no_loc_phnetworkdirectionno_loc_phsec-counters-are-both-being-utilized-to-display-the-network-table-the-delta-of-total-bytes-no_loc_phnetworkdirectionno_loc_ph-over-a-time-period-is-being-calculated-to-match-up-with-the-bytes-no_loc_phnetworkdirectionno_loc_phsec-counter-to-display-an-accurate-representation-of-network-activity-over-all-machines\"></a>ℹ Liczniki `Total Bytes {NetworkDirection}` i `Bytes {NetworkDirection}/sec` są także używane do wyświetlania tabeli sieci. Delta licznika `Total Bytes {NetworkDirection}` w okresie czasu jest obliczana w celu dopasowania z licznikiem `Bytes {NetworkDirection}/sec` i wyświetlenia dokładnej reprezentacji aktywności sieci na wszystkich maszynach"
             },
             "conditionalVisibility": {
                 "parameterName": "ShowNetworkTable",
