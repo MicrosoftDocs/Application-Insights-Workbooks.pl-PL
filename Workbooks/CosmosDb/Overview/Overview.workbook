@@ -221,9 +221,9 @@
                 "json": "### <a name=\"start-editing-the-overview-section-here\"></a>Tutaj zacznij edytować sekcję Omówienie"
             },
             "conditionalVisibility": {
-                "parameterName": "dummy",
+                "parameterName": "1",
                 "comparison": "isEqualTo",
-                "value": "blah"
+                "value": "2"
             },
             "name": "OverviewSectionEditStart"
         },
@@ -582,9 +582,9 @@
                 "json": "### <a name=\"start-editing-the-failures-section-here\"></a>Tutaj zacznij edytować sekcję Błędy"
             },
             "conditionalVisibility": {
-                "parameterName": "dummy",
+                "parameterName": "1",
                 "comparison": "isEqualTo",
-                "value": "blah"
+                "value": "2"
             },
             "name": "FailureSectionEditStart"
         },
@@ -787,9 +787,9 @@
                 "json": "### <a name=\"start-editing-the-capacity-section-here\"></a>Tutaj zacznij edytować sekcję Pojemność\n"
             },
             "conditionalVisibility": {
-                "parameterName": "dummy",
+                "parameterName": "1",
                 "comparison": "isEqualTo",
-                "value": "blah"
+                "value": "2"
             },
             "name": "CapacitySectionEditStart"
         },
@@ -1058,9 +1058,9 @@
                 "json": "### <a name=\"start-editing-the-operations-section-here\"></a>Tutaj zacznij edytować sekcję Operacje\n"
             },
             "conditionalVisibility": {
-                "parameterName": "dummy",
+                "parameterName": "1",
                 "comparison": "isEqualTo",
-                "value": "blah"
+                "value": "2"
             },
             "name": "OperationSectionEditStarts"
         },
