@@ -488,7 +488,7 @@
         {
             "type": 1,
             "content": {
-                "json": "<div style=\"text-align:center;\"><span style=\"font-size:14px;font-weight:600;\"> Raport usługi Azure Backup — Zapraszamy! </span> <br> <br> <span style=\"font-size:12px;font-weight:600;\"> Wybierz obszary robocze i kliknij kartę podsumowania powyżej, aby rozpocząć pracę </span> </div>"
+                "json": "<div style=\"text-align:center;\"><span style=\"font-size:14px;font-weight:600;\"> Raporty usługi Azure Backup — Zapraszamy! </span> <br> <br> <span style=\"font-size:12px;font-weight:600;\"> Wybierz obszary robocze i kliknij kartę podsumowania powyżej, aby rozpocząć pracę </span> </div>"
             },
             "conditionalVisibility": {
                 "parameterName": "TabName",
@@ -498,44 +498,16 @@
             "name": "Overview-WelcomeText"
         },
         {
-            "type": 3,
+            "type": 1,
             "content": {
-                "version": "KqlItem/1.0",
-                "query": "{\"version\":\"1.0.0\",\"content\":\"[\\r\\n{\\\"feature\\\": \\\"Trend Analysis\\\"},\\r\\n{\\\"feature\\\": \\\"Auditing of Backups\\\"},\\r\\n{\\\"feature\\\": \\\"Usage Allocation\\\"},\\r\\n{\\\"feature\\\": \\\"Multi-Region Support\\\"},\\r\\n{\\\"feature\\\": \\\"Multi-Tenant Support\\\"}\\r\\n]\",\"transformers\":null}",
-                "size": 0,
-                "queryType": 8,
-                "visualization": "graph",
-                "graphSettings": {
-                    "type": 2,
-                    "topContent": {
-                        "formatOptions": {
-                            "showIcon": true
-                        }
-                    },
-                    "centerContent": {
-                        "columnMatch": "feature",
-                        "formatter": 1,
-                        "formatOptions": {
-                            "showIcon": true
-                        }
-                    },
-                    "nodeIdField": "feature",
-                    "nodeSize": null,
-                    "staticNodeSize": 100,
-                    "colorSettings": {
-                        "nodeColorField": "feature",
-                        "type": 1,
-                        "colorPalette": "pastel"
-                    },
-                    "hivesMargin": 5
-                }
+                "json": "<div style=\"text-align:center;\"><span style=\"font-size:12px;font-weight:500;\"> <u>Najważniejsze funkcje</u> </span>  <span style=\"font-size:12px;font-weight:400;\"> <br><br>  Wyświetlanie raportów dla różnych typów obciążeń, subskrypcji i regionów <br><br> Wyświetlanie raportów dla różnych dzierżaw przy użyciu usługi Azure Lighthouse <br><br> Śledzenie i prognozowanie użycia na poziomie zarówno magazynu, jak i elementu kopii zapasowej <br><br> Analizowanie trendów dotyczących zadań, elementów kopii zapasowych, zasad i nie tylko <br><br> Inspekcja tworzenia i przywracania kopii zapasowych wszystkich elementów kopii zapasowej </span> <br> </div>"
             },
             "conditionalVisibility": {
                 "parameterName": "TabName",
                 "comparison": "isEqualTo",
                 "value": "Overview"
             },
-            "name": "Overview-Image"
+            "name": "text - 66"
         },
         {
             "type": 3,
