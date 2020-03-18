@@ -244,7 +244,7 @@
                         "name": "Test",
                         "label": "Not Onboarded",
                         "type": 1,
-                        "query": "VMBoundPort\r\n| take 1\r\n| summarize count()",
+                        "query": "VMConnection\r\n| take 1\r\n| summarize count()",
                         "crossComponentResources": [
                             "{Workspaces}"
                         ],
@@ -263,91 +263,82 @@
         {
             "type": 1,
             "content": {
-                "json": "⚠ Tabela `VMBoundPort` nie została wykryta lub jest pusta. Spróbuj wykonać następujące kroki:\n\n* Wybierz inny zakres czasu\n* Wypróbuj różne opcje zakresu\n* Dołącz do usługi Azure Monitor dla maszyn wirtualnych ([Często zadawane pytania dotyczące ogólnie dostępnej wersji usługi Azure Monitor dla maszyn wirtualnych](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/vminsights-ga-release-faq))."
+                "json": "⚠ Tabela `VMConnection` nie została wykryta lub jest pusta. Spróbuj wykonać następujące kroki:\n\n* Wybierz inny zakres czasu\n* Wypróbuj różne opcje zakresu\n* Dołącz do usługi Azure Monitor dla maszyn wirtualnych ([Często zadawane pytania dotyczące ogólnie dostępnej wersji usługi Azure Monitor dla maszyn wirtualnych](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/vminsights-ga-release-faq))."
             },
             "conditionalVisibility": {
                 "parameterName": "Test",
                 "comparison": "isNotEqualTo",
                 "value": "1"
             },
-            "name": "text - 7"
-        },
-        {
-            "type": 1,
-            "content": {
-                "json": "💡 <em>Wybierz wiersz z tabeli poniżej, aby wyświetlić szczegóły portu dla danej pozycji.</em>"
-            },
-            "conditionalVisibility": {
-                "parameterName": "Test",
-                "comparison": "isEqualTo",
-                "value": "1"
-            },
-            "name": "text - 1"
-        },
-        {
-            "type": 1,
-            "content": {
-                "json": "<h2 style=\"font-weight:normal;\">Lista otwartych portów dla wszystkich komputerów w obszarze roboczym</h2>"
-            },
-            "conditionalVisibility": {
-                "parameterName": "Test",
-                "comparison": "isEqualTo",
-                "value": "1"
-            },
-            "customWidth": "50",
-            "name": "text - 2"
-        },
-        {
-            "type": 1,
-            "content": {
-                "json": "<h2 style=\"font-weight:normal;\">Porty używane przez procesy w wybranym komputerze</h2>"
-            },
-            "conditionalVisibility": {
-                "parameterName": "Test",
-                "comparison": "isEqualTo",
-                "value": "1"
-            },
-            "customWidth": "50",
             "name": "text - 3"
         },
         {
             "type": 3,
             "content": {
                 "version": "KqlItem/1.0",
-                "query": "VMBoundPort\n| where Ip != \"127.0.0.1\"\n| summarize by Computer, Port, Protocol\n| summarize OpenPorts=dcount(Port) by Computer\n| project Computer, [\"Number of Open Ports\"] = OpenPorts\n| order by [\"Number of Open Ports\"] desc",
-                "size": 2,
+                "query": "let overallData = VMConnection\n| summarize Established = sum(LinksEstablished), Failed = sum(LinksFailed)\n| extend PercentFailed = (todouble(Failed)/todouble(Failed+Established))*100.0\n| extend Computer = '🔵 Overall', Type = '1';\nVMConnection\n| summarize Established = sum(LinksEstablished), Failed = sum(LinksFailed) by Computer\n| extend PercentFailed = (todouble(Failed)/todouble(Failed+Established))*100.0, Type = '2'\n| union overallData\n| order by Type asc, PercentFailed desc\n| project-away Type",
+                "size": 1,
                 "timeContext": {
                     "durationMs": 0
                 },
                 "timeContextFromParameter": "TimeRange",
                 "exportFieldName": "Computer",
-                "exportParameterName": "ComputerName",
+                "exportParameterName": "Computer",
+                "exportDefaultValue": "🔵 Overall",
                 "queryType": 0,
                 "resourceType": "microsoft.operationalinsights/workspaces",
                 "crossComponentResources": [
                     "{Workspaces}"
                 ],
-                "visualization": "table",
                 "gridSettings": {
                     "formatters": [
                         {
-                            "columnMatch": "Computer",
-                            "formatter": 1,
+                            "columnMatch": "Established",
+                            "formatter": 4,
                             "formatOptions": {
+                                "palette": "blue",
                                 "showIcon": true
+                            },
+                            "numberFormat": {
+                                "unit": 17,
+                                "options": {
+                                    "style": "decimal",
+                                    "useGrouping": true
+                                }
                             }
                         },
                         {
-                            "columnMatch": "Open Ports",
+                            "columnMatch": "Failed",
                             "formatter": 4,
                             "formatOptions": {
-                                "palette": "blueDark",
+                                "palette": "purple",
                                 "showIcon": true
+                            },
+                            "numberFormat": {
+                                "unit": 17,
+                                "options": {
+                                    "style": "decimal",
+                                    "useGrouping": true
+                                }
+                            }
+                        },
+                        {
+                            "columnMatch": "PercentFailed",
+                            "formatter": 4,
+                            "formatOptions": {
+                                "palette": "lightBlue",
+                                "showIcon": true
+                            },
+                            "numberFormat": {
+                                "unit": 1,
+                                "options": {
+                                    "style": "decimal",
+                                    "minimumFractionDigits": 2,
+                                    "maximumFractionDigits": 2
+                                }
                             }
                         }
-                    ],
-                    "rowLimit": 10000,
-                    "filter": true
+                    ]
                 }
             },
             "conditionalVisibility": {
@@ -355,8 +346,7 @@
                 "comparison": "isEqualTo",
                 "value": "1"
             },
-            "customWidth": "50",
-            "name": "query - 4"
+            "name": "query - 1"
         },
         {
             "type": 9,
@@ -367,37 +357,54 @@
                 ],
                 "parameters": [
                     {
-                        "id": "c0b61dbe-ba23-4de3-8304-ef4687456f53",
+                        "id": "ac3dc2cc-de39-4fe9-ba0c-bc722f953ffa",
                         "version": "KqlParameterItem/1.0",
-                        "name": "ShowDetail",
+                        "name": "ComputerName",
                         "type": 1,
-                        "isRequired": true,
-                        "query": "print(strcat('{ComputerName}' != ''))",
-                        "crossComponentResources": [
-                            "{Workspaces}"
-                        ],
+                        "value": "*",
                         "isHiddenWhenLocked": true,
-                        "queryType": 0,
-                        "resourceType": "microsoft.operationalinsights/workspaces"
+                        "criteriaData": [
+                            {
+                                "condition": "if (Computer == '🔵 Overall'), result = '*'",
+                                "criteriaContext": {
+                                    "leftOperand": "Computer",
+                                    "operator": "==",
+                                    "rightValType": "static",
+                                    "rightVal": "🔵 Overall",
+                                    "resultValType": "static",
+                                    "resultVal": "*"
+                                }
+                            },
+                            {
+                                "condition": "else result = Computer",
+                                "criteriaContext": {
+                                    "operator": "Default",
+                                    "rightValType": "param",
+                                    "resultValType": "param",
+                                    "resultVal": "Computer"
+                                }
+                            }
+                        ],
+                        "timeContextFromParameter": "TimeRange"
                     }
                 ],
-                "style": "above",
+                "style": "pills",
                 "queryType": 0,
                 "resourceType": "microsoft.operationalinsights/workspaces"
             },
             "conditionalVisibility": {
-                "parameterName": "_",
+                "parameterName": "Test",
                 "comparison": "isEqualTo",
-                "value": "_"
+                "value": "1"
             },
-            "name": "parameters - 5"
+            "name": "parameters - 2"
         },
         {
             "type": 3,
             "content": {
                 "version": "KqlItem/1.0",
-                "query": "VMBoundPort\n| where Computer == '{ComputerName}'\n| summarize BytesSent=sum(BytesSent), BytesReceived=sum(BytesReceived), BytesTotal=sum(BytesSent + BytesReceived) by Port, ProcessName\n| project [\"Port Number\"] = Port, [\"Process Name\"] = ProcessName, [\"Bytes Sent\"] = BytesSent, [\"Bytes Received\"] = BytesReceived, [\"Bytes Total\"] = BytesTotal\n| order by [\"Bytes Total\"] desc",
-                "size": 2,
+                "query": "VMConnection\n| where Computer in (\"{ComputerName}\") or '*' in (\"{ComputerName}\") \n| summarize Established = sum(LinksEstablished), Failed = sum(LinksFailed) by bin(TimeGenerated, {TimeRange:grain})",
+                "size": 0,
                 "timeContext": {
                     "durationMs": 0
                 },
@@ -407,97 +414,38 @@
                 "crossComponentResources": [
                     "{Workspaces}"
                 ],
-                "gridSettings": {
-                    "formatters": [
-                        {
-                            "columnMatch": "Port",
-                            "formatter": 1,
-                            "formatOptions": {
-                                "showIcon": true
-                            }
-                        },
-                        {
-                            "columnMatch": "Bytes Sent",
-                            "formatter": 8,
-                            "formatOptions": {
-                                "min": 0,
-                                "palette": "orange",
-                                "showIcon": true
-                            },
-                            "numberFormat": {
-                                "unit": 2,
-                                "options": {
-                                    "style": "decimal"
-                                }
-                            }
-                        },
-                        {
-                            "columnMatch": "Bytes Received",
-                            "formatter": 8,
-                            "formatOptions": {
-                                "min": 0,
-                                "palette": "green",
-                                "showIcon": true
-                            },
-                            "numberFormat": {
-                                "unit": 2,
-                                "options": {
-                                    "style": "decimal"
-                                }
-                            }
-                        },
-                        {
-                            "columnMatch": "Bytes Total",
-                            "formatter": 8,
-                            "formatOptions": {
-                                "min": 0,
-                                "palette": "blue",
-                                "showIcon": true
-                            },
-                            "numberFormat": {
-                                "unit": 2,
-                                "options": {
-                                    "style": "decimal"
-                                }
-                            }
-                        }
-                    ],
-                    "rowLimit": 10000,
-                    "filter": true
-                }
+                "visualization": "timechart"
             },
-            "conditionalVisibilities": [
-                {
-                    "parameterName": "ShowDetail",
-                    "comparison": "isEqualTo",
-                    "value": "True"
-                },
-                {
-                    "parameterName": "Test",
-                    "comparison": "isEqualTo",
-                    "value": "1"
-                }
-            ],
             "conditionalVisibility": {
-                "parameterName": "ShowDetail",
+                "parameterName": "Test",
                 "comparison": "isEqualTo",
-                "value": "True"
+                "value": "1"
             },
             "customWidth": "50",
-            "name": "query - 6"
+            "name": "query - 3"
         },
         {
-            "type": 1,
+            "type": 3,
             "content": {
-                "json": "ℹ Wybierz komputer z poniższej tabeli"
+                "version": "KqlItem/1.0",
+                "query": "VMConnection\r\n| where Computer in (\"{ComputerName}\") or '*' in (\"{ComputerName}\") \r\n| summarize Established = sum(LinksEstablished), Failed = sum(LinksFailed) by bin(TimeGenerated, {TimeRange:grain})\r\n| project TimeGenerated, PercentFailed = (todouble(Failed)/todouble(Failed+Established))*100",
+                "size": 0,
+                "aggregation": 3,
+                "timeContextFromParameter": "TimeRange",
+                "queryType": 0,
+                "resourceType": "microsoft.operationalinsights/workspaces",
+                "crossComponentResources": [
+                    "{Workspaces}"
+                ],
+                "visualization": "timechart"
             },
             "conditionalVisibility": {
-                "parameterName": "ShowDetail",
-                "comparison": "isNotEqualTo",
-                "value": "True"
+                "parameterName": "Test",
+                "comparison": "isEqualTo",
+                "value": "1"
             },
             "customWidth": "50",
-            "name": "text - 8"
+            "name": "query - 4"
         }
     ],
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"
