@@ -175,7 +175,7 @@
         {
             "type": 1,
             "content": {
-                "json": "💡  *Wybierz wiersz użytkownika, aby wyświetlić wszystkie sesje dla tego użytkownika.*"
+                "json": "💡 *Wybierz wiersz użytkownika, aby wyświetlić wszystkie sesje dla tego użytkownika.*"
             },
             "conditionalVisibility": null
         },
@@ -224,7 +224,7 @@
         {
             "type": 1,
             "content": {
-                "json": "💡  *Kliknij pozycję Szczegóły sesji, aby wyświetlić oś czasu sesji.*"
+                "json": "💡 *Kliknij pozycję Szczegóły sesji, aby wyświetlić oś czasu sesji.*"
             },
             "conditionalVisibility": null
         }
