@@ -248,7 +248,7 @@
         {
             "type": 1,
             "content": {
-                "json": "💡 _Kliknij wiersz w tabeli powyżej, aby zobaczyć więcej szczegółów_\n<br />\n<br />"
+                "json": "💡_Kliknij wiersz w tabeli powyżej, aby zobaczyć więcej szczegółów_\n<br />\n<br />"
             },
             "conditionalVisibility": null
         },

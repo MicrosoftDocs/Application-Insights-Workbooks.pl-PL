@@ -1,0 +1,7 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "name": "noSubscriptions",
+    "description": "Szablon używany do wglądu w dane, gdy nie wybrano żadnych subskrypcji domyślnych.",
+    "author": "Microsoft",
+    "galleries": []
+}
