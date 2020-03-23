@@ -10,7 +10,7 @@
                         "id": "1f74ed9a-e3ed-498d-bd5b-f68f3836a117",
                         "version": "KqlParameterItem/1.0",
                         "name": "Subscription",
-                        "label": "Subscriptions",
+                        "label": "Subskrypcje",
                         "type": 6,
                         "description": "Wszystkie subskrypcje z kontami usługi CosmosDB",
                         "isRequired": true,
@@ -55,7 +55,7 @@
                         "id": "c4b69c01-2263-4ada-8d9c-43433b739ff3",
                         "version": "KqlParameterItem/1.0",
                         "name": "TimeRange",
-                        "label": "Time Range",
+                        "label": "Zakres czasu",
                         "isRequired": true,
                         "value": {
                             "durationMs": 14400000
@@ -236,28 +236,28 @@
                                 {
                                     "cellValue": "selectedTab",
                                     "linkTarget": "parameter",
-                                    "linkLabel": "Overview",
+                                    "linkLabel": "Omówienie",
                                     "subTarget": "Overview",
                                     "style": "link"
                                 },
                                 {
                                     "cellValue": "selectedTab",
                                     "linkTarget": "parameter",
-                                    "linkLabel": "Failures",
+                                    "linkLabel": "Błędy",
                                     "subTarget": "Failures",
                                     "style": "link"
                                 },
                                 {
                                     "cellValue": "selectedTab",
                                     "linkTarget": "parameter",
-                                    "linkLabel": "Capacity",
+                                    "linkLabel": "Pojemność",
                                     "subTarget": "Capacity",
                                     "style": "link"
                                 },
                                 {
                                     "cellValue": "selectedTab",
                                     "linkTarget": "parameter",
-                                    "linkLabel": "Operations",
+                                    "linkLabel": "Operacje",
                                     "subTarget": "Operation",
                                     "style": "link"
                                 }
@@ -572,35 +572,35 @@
                                     },
                                     {
                                         "columnId": "microsoft.documentdb/databaseaccounts-Requests-TotalRequests",
-                                        "label": "Requests"
+                                        "label": "Żądania"
                                     },
                                     {
                                         "columnId": "microsoft.documentdb/databaseaccounts-Requests-TotalRequests Timeline",
-                                        "label": "Requests Timeline"
+                                        "label": "Oś czasu żądań"
                                     },
                                     {
                                         "columnId": "microsoft.documentdb/databaseaccounts-Requests-DocumentCount",
-                                        "label": "Documents"
+                                        "label": "Dokumenty"
                                     },
                                     {
                                         "columnId": "microsoft.documentdb/databaseaccounts-Requests-DocumentCount Timeline",
-                                        "label": "Document Count (Average) Timeline"
+                                        "label": "Oś czasu liczby dokumentów (średnia)"
                                     },
                                     {
                                         "columnId": "microsoft.documentdb/databaseaccounts-Requests-DataUsage",
-                                        "label": "Data Usage"
+                                        "label": "Użycie danych"
                                     },
                                     {
                                         "columnId": "microsoft.documentdb/databaseaccounts-Requests-DataUsage Timeline",
-                                        "label": "Data Usage (Average) Timeline"
+                                        "label": "Oś czasu użycia danych (średnia)"
                                     },
                                     {
                                         "columnId": "microsoft.documentdb/databaseaccounts-Requests-ProvisionedThroughput",
-                                        "label": "Provisioned throughput (RUs/5m)"
+                                        "label": "Aprowizowana przepływność (jednostki RU/5 min)"
                                     },
                                     {
                                         "columnId": "microsoft.documentdb/databaseaccounts-Requests-ProvisionedThroughput Timeline",
-                                        "label": "Provisioned Throughput (Max) Timeline"
+                                        "label": "Oś czasu aprowizowanej przepływności (maks.)"
                                     }
                                 ]
                             },
@@ -788,11 +788,11 @@
                                 "labelSettings": [
                                     {
                                         "columnId": "microsoft.documentdb/databaseaccounts-Requests-TotalRequests",
-                                        "label": "Total Requests (Count)"
+                                        "label": "Łączna liczba żądań"
                                     },
                                     {
                                         "columnId": "microsoft.documentdb/databaseaccounts-Requests-TotalRequests Timeline",
-                                        "label": "Total Requests Timeline"
+                                        "label": "Oś czasu łącznej liczby żądań"
                                     }
                                 ]
                             },
@@ -1034,35 +1034,35 @@
                                     },
                                     {
                                         "columnId": "microsoft.documentdb/databaseaccounts-Requests-DocumentCount",
-                                        "label": "Documents"
+                                        "label": "Dokumenty"
                                     },
                                     {
                                         "columnId": "microsoft.documentdb/databaseaccounts-Requests-DocumentCount Timeline",
-                                        "label": "Documents Timeline"
+                                        "label": "Oś czasu dokumentów"
                                     },
                                     {
                                         "columnId": "microsoft.documentdb/databaseaccounts-Requests-DataUsage",
-                                        "label": "Data Usage"
+                                        "label": "Użycie danych"
                                     },
                                     {
                                         "columnId": "microsoft.documentdb/databaseaccounts-Requests-DataUsage Timeline",
-                                        "label": "Data Usage (Sum) Timeline"
+                                        "label": "Oś czasu użycia danych (suma)"
                                     },
                                     {
                                         "columnId": "microsoft.documentdb/databaseaccounts-Requests-IndexUsage",
-                                        "label": "Index Usage"
+                                        "label": "Użycie indeksu"
                                     },
                                     {
                                         "columnId": "microsoft.documentdb/databaseaccounts-Requests-IndexUsage Timeline",
-                                        "label": "Index Usage (Sum) Timeline"
+                                        "label": "Oś czasu użycia indeksu (suma)"
                                     },
                                     {
                                         "columnId": "microsoft.documentdb/databaseaccounts-Requests-AvailableStorage",
-                                        "label": "Available Storage"
+                                        "label": "Dostępny magazyn"
                                     },
                                     {
                                         "columnId": "microsoft.documentdb/databaseaccounts-Requests-AvailableStorage Timeline",
-                                        "label": "Available Storage (Sum) Timeline"
+                                        "label": "Oś czasu dostępnego magazynu (suma)"
                                     }
                                 ]
                             },
@@ -1216,11 +1216,11 @@
                                 "labelSettings": [
                                     {
                                         "columnId": "microsoft.documentdb/databaseaccounts-Requests-TotalRequests",
-                                        "label": "Requests"
+                                        "label": "Żądania"
                                     },
                                     {
                                         "columnId": "microsoft.documentdb/databaseaccounts-Requests-TotalRequests Timeline",
-                                        "label": "Requests Timeline"
+                                        "label": "Oś czasu żądań"
                                     }
                                 ]
                             },
