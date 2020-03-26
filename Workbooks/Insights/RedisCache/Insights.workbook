@@ -13,7 +13,7 @@
                         "id": "1f74ed9a-e3ed-498d-bd5b-f68f3836a117",
                         "version": "KqlParameterItem/1.0",
                         "name": "Subscription",
-                        "label": "Subscriptions",
+                        "label": "Subskrypcje",
                         "type": 6,
                         "description": "Wszystkie subskrypcje w pamięciach podręcznych Redis Cache",
                         "isRequired": true,
@@ -35,7 +35,7 @@
                         "id": "f60ea0a0-3703-44ca-a59b-df0246423f41",
                         "version": "KqlParameterItem/1.0",
                         "name": "Resources",
-                        "label": "Redis caches",
+                        "label": "Pamięci podręczne Redis Cache",
                         "type": 5,
                         "isRequired": true,
                         "multiSelect": true,
@@ -58,7 +58,7 @@
                         "id": "182d6324-854c-4cc0-802a-de4f3bee9f76",
                         "version": "KqlParameterItem/1.0",
                         "name": "TimeRange",
-                        "label": "Time range",
+                        "label": "Przedział czasu",
                         "type": 4,
                         "isRequired": true,
                         "value": {
@@ -195,21 +195,21 @@
                                 {
                                     "cellValue": "selectedTab",
                                     "linkTarget": "parameter",
-                                    "linkLabel": "Overview",
+                                    "linkLabel": "Omówienie",
                                     "subTarget": "Overview",
                                     "style": "link"
                                 },
                                 {
                                     "cellValue": "selectedTab",
                                     "linkTarget": "parameter",
-                                    "linkLabel": "Operations",
+                                    "linkLabel": "Operacje",
                                     "subTarget": "Operations",
                                     "style": "link"
                                 },
                                 {
                                     "cellValue": "selectedTab",
                                     "linkTarget": "parameter",
-                                    "linkLabel": "Usage",
+                                    "linkLabel": "Sposób użycia",
                                     "subTarget": "Usage",
                                     "style": "link",
                                     "workbookContext": {},
@@ -218,7 +218,7 @@
                                 {
                                     "cellValue": "selectedTab",
                                     "linkTarget": "parameter",
-                                    "linkLabel": "Failures",
+                                    "linkLabel": "Błędy",
                                     "subTarget": "Failures",
                                     "style": "link"
                                 }
@@ -500,59 +500,59 @@
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--usedmemory",
-                                        "label": "Used Memory"
+                                        "label": "Użyta pamięć"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--usedmemory Timeline",
-                                        "label": "Used Memory Timeline"
+                                        "label": "Oś czasu użytej pamięci"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--usedmemorypercentage",
-                                        "label": "Used Memory Percentage"
+                                        "label": "Procentowe użycie pamięci"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--usedmemorypercentage Timeline",
-                                        "label": "Used Memory Percentage Timeline"
+                                        "label": "Oś czasu procentowego użycia pamięci"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--serverLoad",
-                                        "label": "Server Load"
+                                        "label": "Obciążenie serwera"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--serverLoad Timeline",
-                                        "label": "Server Load Timeline"
+                                        "label": "Oś czasu obciążenia serwera"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--percentProcessorTime",
-                                        "label": "CPU"
+                                        "label": "Procesor CPU"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--percentProcessorTime Timeline",
-                                        "label": "CPU Timeline"
+                                        "label": "Oś czasu procesora CPU"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--connectedclients",
-                                        "label": "Connected Clients"
+                                        "label": "Połączeni klienci"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--connectedclients Timeline",
-                                        "label": "Connected Clients Timeline"
+                                        "label": "Oś czasu połączonych klientów"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--cachemisses",
-                                        "label": "Cache Misses"
+                                        "label": "Chybienia w pamięci podręcznej"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--cachemisses Timeline",
-                                        "label": "Cache Misses Timeline"
+                                        "label": "Oś czasu chybień w pamięci podręcznej"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--errors",
-                                        "label": "Errors (Max)"
+                                        "label": "Błędy (maks.)"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--errors Timeline",
-                                        "label": "Errors Timeline"
+                                        "label": "Oś czasu błędów"
                                     }
                                 ]
                             },
@@ -756,35 +756,35 @@
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--totalcommandsprocessed",
-                                        "label": "Total Operations"
+                                        "label": "Łączna liczba operacji"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--totalcommandsprocessed Timeline",
-                                        "label": "Total Operations Timeline"
+                                        "label": "Oś czasu łącznej liczby operacji"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--operationsPerSecond",
-                                        "label": "Operations Per Second"
+                                        "label": "Liczba operacji na sekundę"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--operationsPerSecond Timeline",
-                                        "label": "Operations Per Second Timeline"
+                                        "label": "Oś czasu liczby operacji na sekundę"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--getcommands",
-                                        "label": "Gets"
+                                        "label": "Pobrania"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--getcommands Timeline",
-                                        "label": "Gets Timeline"
+                                        "label": "Oś czasu pobrań"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--setcommands",
-                                        "label": "Sets"
+                                        "label": "Zestawy"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--setcommands Timeline",
-                                        "label": "Sets Timeline"
+                                        "label": "Oś czasu zestawów"
                                     }
                                 ]
                             },
@@ -990,35 +990,35 @@
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--cacheRead",
-                                        "label": "Cache Read"
+                                        "label": "Odczyt pamięci podręcznej"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--cacheRead Timeline",
-                                        "label": "Cache Read Timeline"
+                                        "label": "Oś czasu odczytu pamięci podręcznej"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--cacheWrite",
-                                        "label": "Cache Write"
+                                        "label": "Zapis w pamięci podręcznej"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--cacheWrite Timeline",
-                                        "label": "Cache Write Timeline"
+                                        "label": "Oś czasu zapisu w pamięci podręcznej"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--cachehits",
-                                        "label": "Cache Hits"
+                                        "label": "Trafienia w pamięci podręcznej"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--cachehits Timeline",
-                                        "label": "Cache Hits Timeline"
+                                        "label": "Oś czasu trafień w pamięci podręcznej"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--cachemisses",
-                                        "label": "Cache Misses"
+                                        "label": "Chybienia w pamięci podręcznej"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--cachemisses Timeline",
-                                        "label": "Cache Misses Timeline"
+                                        "label": "Oś czasu chybień w pamięci podręcznej"
                                     }
                                 ]
                             },
@@ -1155,11 +1155,11 @@
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--errors",
-                                        "label": "Total Errors"
+                                        "label": "Całkowita liczba błędów"
                                     },
                                     {
                                         "columnId": "microsoft.cache/redis--errors Timeline",
-                                        "label": "Errors Timeline"
+                                        "label": "Oś czasu błędów"
                                     }
                                 ]
                             },

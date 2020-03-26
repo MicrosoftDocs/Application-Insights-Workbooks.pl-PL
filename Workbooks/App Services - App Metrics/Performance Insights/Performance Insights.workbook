@@ -418,7 +418,7 @@
                 "aggregation": 0,
                 "showAnnotations": false,
                 "showAnalytics": false,
-                "title": "Dependency Performance Trend (ms)",
+                "title": "Trend wydajności zależności (ms)",
                 "resourceType": "microsoft.insights/components",
                 "visualization": "areachart"
             },
@@ -439,7 +439,7 @@
                 "aggregation": 0,
                 "showAnnotations": false,
                 "showAnalytics": false,
-                "title": "Dependency Performance - Summary",
+                "title": "Wydajność zależności — podsumowanie",
                 "resourceType": "microsoft.insights/components",
                 "visualization": "table",
                 "gridSettings": {

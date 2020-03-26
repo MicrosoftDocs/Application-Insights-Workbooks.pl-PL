@@ -10,7 +10,7 @@
                         "id": "1f74ed9a-e3ed-498d-bd5b-f68f3836a117",
                         "version": "KqlParameterItem/1.0",
                         "name": "Subscription",
-                        "label": "Subscriptions",
+                        "label": "Subskrypcje",
                         "type": 6,
                         "description": "Wszystkie subskrypcje z przestrzeniami nazw usługi Service Bus",
                         "isRequired": true,
@@ -32,7 +32,7 @@
                         "id": "f60ea0a0-3703-44ca-a59b-df0246423f41",
                         "version": "KqlParameterItem/1.0",
                         "name": "Resources",
-                        "label": "Service Bus namespaces",
+                        "label": "Przestrzenie nazw usługi Service Bus",
                         "type": 5,
                         "isRequired": true,
                         "multiSelect": true,
@@ -58,7 +58,7 @@
                         "id": "182d6324-854c-4cc0-802a-de4f3bee9f76",
                         "version": "KqlParameterItem/1.0",
                         "name": "TimeRange",
-                        "label": "Time range",
+                        "label": "Przedział czasu",
                         "type": 4,
                         "isRequired": true,
                         "value": {
@@ -199,21 +199,21 @@
                                 {
                                     "cellValue": "selectedTab",
                                     "linkTarget": "parameter",
-                                    "linkLabel": "Overview",
+                                    "linkLabel": "Omówienie",
                                     "subTarget": "Overview",
                                     "style": "link"
                                 },
                                 {
                                     "cellValue": "selectedTab",
                                     "linkTarget": "parameter",
-                                    "linkLabel": "Requests",
+                                    "linkLabel": "Żądania",
                                     "subTarget": "Requests",
                                     "style": "link"
                                 },
                                 {
                                     "cellValue": "selectedTab",
                                     "linkTarget": "parameter",
-                                    "linkLabel": "Messages",
+                                    "linkLabel": "Komunikaty",
                                     "subTarget": "Messages",
                                     "style": "link"
                                 }
@@ -448,43 +448,43 @@
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--ActiveConnections",
-                                        "label": "ActiveConnections"
+                                        "label": "Aktywne połączenia"
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--ActiveConnections Timeline",
-                                        "label": "ActiveConnections Timeline"
+                                        "label": "Oś czasu aktywnych połączeń"
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--ConnectionsOpened",
-                                        "label": "Connections Opened."
+                                        "label": "Otwarte połączenia."
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--ConnectionsOpened Timeline",
-                                        "label": "Connections Opened. Timeline"
+                                        "label": "Otwarte połączenia. Oś czasu"
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--ConnectionsClosed",
-                                        "label": "Connections Closed."
+                                        "label": "Zamknięte połączenia."
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--ConnectionsClosed Timeline",
-                                        "label": "Connections Closed. Timeline"
+                                        "label": "Zamknięte połączenia. Oś czasu"
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--SuccessfulRequests",
-                                        "label": "Successful Requests"
+                                        "label": "Żądania pomyślne"
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--SuccessfulRequests Timeline",
-                                        "label": "Successful Requests Timeline"
+                                        "label": "Oś czasu żądań pomyślnych"
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--ThrottledRequests",
-                                        "label": "Throttled Requests."
+                                        "label": "Żądania ograniczone."
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--ThrottledRequests Timeline",
-                                        "label": "Throttled Requests. Timeline"
+                                        "label": "Żądania ograniczone. Oś czasu"
                                     }
                                 ]
                             },
@@ -782,51 +782,51 @@
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--IncomingRequests",
-                                        "label": "Incoming Requests"
+                                        "label": "Żądania przychodzące"
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--IncomingRequests Timeline",
-                                        "label": "Incoming Requests Timeline"
+                                        "label": "Oś czasu żądań przychodzących"
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--SuccessfulRequests",
-                                        "label": "Successful Requests"
+                                        "label": "Żądania pomyślne"
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--SuccessfulRequests Timeline",
-                                        "label": "Successful Requests Timeline"
+                                        "label": "Oś czasu żądań pomyślnych"
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--ServerErrors",
-                                        "label": "Server Errors."
+                                        "label": "Błędy serwera."
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--ServerErrors Timeline",
-                                        "label": "Server Errors. Timeline"
+                                        "label": "Błędy serwera. Oś czasu"
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--UserErrors",
-                                        "label": "User Errors."
+                                        "label": "Błędy użytkownika."
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--UserErrors Timeline",
-                                        "label": "User Errors. Timeline"
+                                        "label": "Błędy użytkownika. Oś czasu"
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--ThrottledRequests",
-                                        "label": "Throttled Requests."
+                                        "label": "Żądania ograniczone."
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--ThrottledRequests Timeline",
-                                        "label": "Throttled Requests. Timeline"
+                                        "label": "Żądania ograniczone. Oś czasu"
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--ActiveConnections",
-                                        "label": "ActiveConnections (Average)"
+                                        "label": "Aktywne połączenia (średnia)"
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--ActiveConnections Timeline",
-                                        "label": "ActiveConnections (Average) Timeline"
+                                        "label": "Oś czasu aktywnych połączeń (średnia)"
                                     }
                                 ]
                             },
@@ -1228,35 +1228,35 @@
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--IncomingMessages",
-                                        "label": "Incoming Messages"
+                                        "label": "Komunikaty przychodzące"
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--IncomingMessages Timeline",
-                                        "label": "Incoming Messages Timeline"
+                                        "label": "Oś czasu komunikatów przychodzących"
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--OutgoingMessages",
-                                        "label": "Outgoing Messages"
+                                        "label": "Komunikaty wychodzące"
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--OutgoingMessages Timeline",
-                                        "label": "Outgoing Messages Timeline"
+                                        "label": "Oś czasu komunikatów wychodzących"
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--Messages",
-                                        "label": "Messages in a Queue/Topic."
+                                        "label": "Komunikaty w kolejce/temacie."
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--Messages Timeline",
-                                        "label": "Count of messages in a Queue/Topic. Timeline"
+                                        "label": "Liczba komunikatów w kolejce/temacie. Oś czasu"
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--ActiveConnections",
-                                        "label": "ActiveConnections (Sum)"
+                                        "label": "Aktywne połączenia (suma)"
                                     },
                                     {
                                         "columnId": "microsoft.servicebus/namespaces--ActiveConnections Timeline",
-                                        "label": "ActiveConnections (Sum) Timeline"
+                                        "label": "Oś czasu aktywnych połączeń (suma)"
                                     }
                                 ]
                             },

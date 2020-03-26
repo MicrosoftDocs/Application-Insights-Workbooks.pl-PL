@@ -13,7 +13,7 @@
                         "id": "1f74ed9a-e3ed-498d-bd5b-f68f3836a117",
                         "version": "KqlParameterItem/1.0",
                         "name": "InputContext",
-                        "label": "Input context",
+                        "label": "Kontekst wejściowy",
                         "type": 5,
                         "description": "Wszystkie subskrypcje z kontami magazynu",
                         "isRequired": true,
@@ -30,7 +30,7 @@
                         "id": "102e5ff4-5a4b-4186-87ea-e4ccb0392e2c",
                         "version": "KqlParameterItem/1.0",
                         "name": "ResourceGraphQuery",
-                        "label": "Resource graph query snippet",
+                        "label": "Fragment zapytania wykresu zasobów",
                         "type": 1,
                         "query": "Resources\r\n| take 1\r\n| project InputContext = tolower('{InputContext}')\r\n| extend ResourceQueryId = extract(@'(/subscriptions/.+/resourcegroups/.+/providers/microsoft.resourcegraph/queries/.+)', 1, InputContext)\r\n| project QuerySnippet = iff(ResourceQueryId == '', 'Resources | where id startswith \"{InputContext}\"', strcat('{', '{','{InputContext}', '}', '}'))",
                         "crossComponentResources": [
@@ -44,7 +44,7 @@
                         "id": "138881c1-d041-4acd-acc9-e7a7af02d2ef",
                         "version": "KqlParameterItem/1.0",
                         "name": "CosmosDB",
-                        "label": "Cosmos Databases",
+                        "label": "Bazy danych Cosmos",
                         "type": 5,
                         "isRequired": true,
                         "multiSelect": true,
@@ -67,7 +67,7 @@
                         "id": "c4b69c01-2263-4ada-8d9c-43433b739ff3",
                         "version": "KqlParameterItem/1.0",
                         "name": "TimeRange",
-                        "label": "Time Range",
+                        "label": "Zakres czasu",
                         "isRequired": true,
                         "value": {
                             "durationMs": 14400000
@@ -191,28 +191,28 @@
                     {
                         "cellValue": "selectedTab",
                         "linkTarget": "parameter",
-                        "linkLabel": "Overview",
+                        "linkLabel": "Omówienie",
                         "subTarget": "Overview",
                         "style": "link"
                     },
                     {
                         "cellValue": "selectedTab",
                         "linkTarget": "parameter",
-                        "linkLabel": "Failures",
+                        "linkLabel": "Błędy",
                         "subTarget": "Failures",
                         "style": "link"
                     },
                     {
                         "cellValue": "selectedTab",
                         "linkTarget": "parameter",
-                        "linkLabel": "Capacity",
+                        "linkLabel": "Pojemność",
                         "subTarget": "Capacity",
                         "style": "link"
                     },
                     {
                         "cellValue": "selectedTab",
                         "linkTarget": "parameter",
-                        "linkLabel": "Operations",
+                        "linkLabel": "Operacje",
                         "subTarget": "Operation",
                         "style": "link"
                     }
@@ -523,11 +523,11 @@
                     "labelSettings": [
                         {
                             "columnId": "Subscription",
-                            "label": "Subscription"
+                            "label": "Subskrypcja"
                         },
                         {
                             "columnId": "Name",
-                            "label": "Name"
+                            "label": "Nazwa"
                         },
                         {
                             "columnId": "Segment",
@@ -535,35 +535,35 @@
                         },
                         {
                             "columnId": "microsoft.documentdb/databaseaccounts-Requests-TotalRequests",
-                            "label": "Requests"
+                            "label": "Żądania"
                         },
                         {
                             "columnId": "microsoft.documentdb/databaseaccounts-Requests-TotalRequests Timeline",
-                            "label": "Requests Timeline"
+                            "label": "Oś czasu żądań"
                         },
                         {
                             "columnId": "microsoft.documentdb/databaseaccounts-Requests-DocumentCount",
-                            "label": "Documents"
+                            "label": "Dokumenty"
                         },
                         {
                             "columnId": "microsoft.documentdb/databaseaccounts-Requests-DocumentCount Timeline",
-                            "label": "Document Count (Average) Timeline"
+                            "label": "Oś czasu liczby dokumentów (średnia)"
                         },
                         {
                             "columnId": "microsoft.documentdb/databaseaccounts-Requests-DataUsage",
-                            "label": "Data Usage"
+                            "label": "Użycie danych"
                         },
                         {
                             "columnId": "microsoft.documentdb/databaseaccounts-Requests-DataUsage Timeline",
-                            "label": "Data Usage (Average) Timeline"
+                            "label": "Oś czasu użycia danych (średnia)"
                         },
                         {
                             "columnId": "microsoft.documentdb/databaseaccounts-Requests-ProvisionedThroughput",
-                            "label": "Provisioned throughput (RUs/5m)"
+                            "label": "Aprowizowana przepływność (jednostki RU/5 min)"
                         },
                         {
                             "columnId": "microsoft.documentdb/databaseaccounts-Requests-ProvisionedThroughput Timeline",
-                            "label": "Provisioned Throughput (Max) Timeline"
+                            "label": "Oś czasu aprowizowanej przepływności (maks.)"
                         }
                     ]
                 },
@@ -751,35 +751,35 @@
                     "labelSettings": [
                         {
                             "columnId": "Subscription",
-                            "label": "Subscription"
+                            "label": "Subskrypcja"
                         },
                         {
                             "columnId": "Name",
-                            "label": "Name"
+                            "label": "Nazwa"
                         },
                         {
                             "columnId": "microsoft.documentdb/databaseaccounts-Requests-TotalRequests",
-                            "label": "Total Requests (Count)"
+                            "label": "Łączna liczba żądań"
                         },
                         {
                             "columnId": "microsoft.documentdb/databaseaccounts-Requests-TotalRequests Timeline",
-                            "label": "Total Requests Timeline"
+                            "label": "Oś czasu łącznej liczby żądań"
                         },
                         {
                             "columnId": "200/response",
-                            "label": "200/response"
+                            "label": "200/odpowiedź"
                         },
                         {
                             "columnId": "304/response",
-                            "label": "304/response"
+                            "label": "304/odpowiedź"
                         },
                         {
                             "columnId": "404/response",
-                            "label": "404/response"
+                            "label": "404/odpowiedź"
                         },
                         {
                             "columnId": "201/response",
-                            "label": "201/response"
+                            "label": "201/odpowiedź"
                         }
                     ]
                 },
@@ -1021,35 +1021,35 @@
                         },
                         {
                             "columnId": "microsoft.documentdb/databaseaccounts-Requests-DocumentCount",
-                            "label": "Documents"
+                            "label": "Dokumenty"
                         },
                         {
                             "columnId": "microsoft.documentdb/databaseaccounts-Requests-DocumentCount Timeline",
-                            "label": "Documents Timeline"
+                            "label": "Oś czasu dokumentów"
                         },
                         {
                             "columnId": "microsoft.documentdb/databaseaccounts-Requests-DataUsage",
-                            "label": "Data Usage"
+                            "label": "Użycie danych"
                         },
                         {
                             "columnId": "microsoft.documentdb/databaseaccounts-Requests-DataUsage Timeline",
-                            "label": "Data Usage (Sum) Timeline"
+                            "label": "Oś czasu użycia danych (suma)"
                         },
                         {
                             "columnId": "microsoft.documentdb/databaseaccounts-Requests-IndexUsage",
-                            "label": "Index Usage"
+                            "label": "Użycie indeksu"
                         },
                         {
                             "columnId": "microsoft.documentdb/databaseaccounts-Requests-IndexUsage Timeline",
-                            "label": "Index Usage (Sum) Timeline"
+                            "label": "Oś czasu użycia indeksu (suma)"
                         },
                         {
                             "columnId": "microsoft.documentdb/databaseaccounts-Requests-AvailableStorage",
-                            "label": "Available Storage"
+                            "label": "Dostępny magazyn"
                         },
                         {
                             "columnId": "microsoft.documentdb/databaseaccounts-Requests-AvailableStorage Timeline",
-                            "label": "Available Storage (Sum) Timeline"
+                            "label": "Oś czasu dostępnego magazynu (suma)"
                         }
                     ]
                 },
@@ -1203,35 +1203,35 @@
                     "labelSettings": [
                         {
                             "columnId": "Subscription",
-                            "label": "Subscription"
+                            "label": "Subskrypcja"
                         },
                         {
                             "columnId": "Name",
-                            "label": "Name"
+                            "label": "Nazwa"
                         },
                         {
                             "columnId": "microsoft.documentdb/databaseaccounts-Requests-TotalRequests",
-                            "label": "Requests"
+                            "label": "Żądania"
                         },
                         {
                             "columnId": "microsoft.documentdb/databaseaccounts-Requests-TotalRequests Timeline",
-                            "label": "Requests Timeline"
+                            "label": "Oś czasu żądań"
                         },
                         {
                             "columnId": "read/operation",
-                            "label": "read/operation"
+                            "label": "read/operacja"
                         },
                         {
                             "columnId": "upsert/operation",
-                            "label": "upsert/operation"
+                            "label": "upsert/operacja"
                         },
                         {
                             "columnId": "ReadFeed/operation",
-                            "label": "ReadFeed/operation"
+                            "label": "ReadFeed/operacja"
                         },
                         {
                             "columnId": "Other/operation",
-                            "label": "Other/operation"
+                            "label": "Other/operacja"
                         }
                     ]
                 },

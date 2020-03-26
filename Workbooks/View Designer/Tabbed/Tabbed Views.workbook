@@ -99,28 +99,28 @@
                     {
                         "cellValue": "selectedTab",
                         "linkTarget": "parameter",
-                        "linkLabel": "Data Type Distribution",
+                        "linkLabel": "Rozkład typu danych",
                         "subTarget": "DataType",
                         "style": "link"
                     },
                     {
                         "cellValue": "selectedTab",
                         "linkTarget": "parameter",
-                        "linkLabel": "Data Types Over Time",
+                        "linkLabel": "Typy danych w czasie",
                         "subTarget": "OverTime",
                         "style": "link"
                     },
                     {
                         "cellValue": "selectedTab",
                         "linkTarget": "parameter",
-                        "linkLabel": "Data Types By Computer",
+                        "linkLabel": "Typy danych według komputera",
                         "subTarget": "Timeline",
                         "style": "link"
                     },
                     {
                         "cellValue": "selectedTab",
                         "linkTarget": "parameter",
-                        "linkLabel": "Computers Sending Data",
+                        "linkLabel": "Komputery wysyłające dane",
                         "subTarget": "Computers",
                         "style": "link"
                     }
@@ -135,7 +135,7 @@
                 "query": "search * | summarize AggregatedValue = count() by Type | order by AggregatedValue desc\r\n| render piechart ",
                 "size": 1,
                 "showAnalytics": true,
-                "title": "Data Type Distribution",
+                "title": "Rozkład typu danych",
                 "timeContext": {
                     "durationMs": 0
                 },
@@ -222,7 +222,7 @@
                 "query": "search *\r\n| summarize AggregatedValue = count() by Type, bin(TimeGenerated, 1h)\r\n| sort by TimeGenerated desc",
                 "size": 1,
                 "showAnalytics": true,
-                "title": "Data Types Over Time",
+                "title": "Typy danych w czasie",
                 "timeContext": {
                     "durationMs": 0
                 },
@@ -309,7 +309,7 @@
                 "query": "search * | summarize Count = count() by Computer, bin(TimeGenerated,{TimeRange:grain})",
                 "size": 1,
                 "showAnalytics": true,
-                "title": "Data Type Distribution",
+                "title": "Rozkład typu danych",
                 "timeContext": {
                     "durationMs": 0
                 },

@@ -94,7 +94,7 @@
                         "id": "9732eff8-fb57-4cbd-8ade-5ae746f33760",
                         "version": "KqlParameterItem/1.0",
                         "name": "Resource",
-                        "label": "Virtual Machine Scale Set",
+                        "label": "Zestaw skalowania maszyn wirtualnych",
                         "type": 5,
                         "isRequired": true,
                         "multiSelect": true,
@@ -221,7 +221,7 @@
                             ],
                             "allowCustom": true
                         },
-                        "label": "Time Range"
+                        "label": "Zakres czasu"
                     },
                     {
                         "id": "d6de19ff-cde4-41c2-9fba-b441312ea5c9",
@@ -276,14 +276,14 @@
                     {
                         "cellValue": "tab",
                         "linkTarget": "parameter",
-                        "linkLabel": "Top 100 Machines",
+                        "linkLabel": "100 najlepszych maszyn",
                         "subTarget": "top100",
                         "style": "link"
                     },
                     {
                         "cellValue": "tab",
                         "linkTarget": "parameter",
-                        "linkLabel": "Top 10 Machines",
+                        "linkLabel": "10 najlepszych maszyn",
                         "subTarget": "top10",
                         "style": "link"
                     }
@@ -303,7 +303,7 @@
                         "id": "41bb3710-5e9e-4b66-91fd-e11435899880",
                         "version": "KqlParameterItem/1.0",
                         "name": "ComputerNameContains",
-                        "label": "Computer Name Contains",
+                        "label": "Nazwa komputera zawiera",
                         "type": 1,
                         "description": "Spowoduje to odfiltrowanie komputerów, których nazwa zawiera słowo kluczowe. Spowoduje to wysłanie zapytania do wszystkich maszyn w obszarze roboczym.",
                         "value": ""
@@ -565,7 +565,7 @@
                             "formatter": 7,
                             "formatOptions": {
                                 "linkTarget": "CellDetails",
-                                "linkLabel": "ℹ️ Info"
+                                "linkLabel": "ℹ️ Informacje"
                             }
                         },
                         {
