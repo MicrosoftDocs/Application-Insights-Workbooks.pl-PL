@@ -335,7 +335,7 @@
                         "id": "41bb3710-5e9e-4b66-91fd-e11435899880",
                         "version": "KqlParameterItem/1.0",
                         "name": "ComputerNameContains",
-                        "label": "Computer Name Contains",
+                        "label": "Nazwa komputera zawiera",
                         "type": 1,
                         "description": "Spowoduje to odfiltrowanie komputerów, których nazwa zawiera słowo kluczowe. Spowoduje to wysłanie zapytania do wszystkich maszyn w obszarze roboczym.",
                         "value": ""
@@ -608,7 +608,7 @@
                             "formatter": 7,
                             "formatOptions": {
                                 "linkTarget": "CellDetails",
-                                "linkLabel": "ℹ️ Info"
+                                "linkLabel": "ℹ️ Informacje"
                             }
                         },
                         {
@@ -752,27 +752,27 @@
                         },
                         {
                             "columnId": "Type",
-                            "label": "Type"
+                            "label": "Typ"
                         },
                         {
                             "columnId": "Average",
-                            "label": "Average"
+                            "label": "Średnia"
                         },
                         {
                             "columnId": "P95th",
-                            "label": "P95th"
+                            "label": "95. percentyl"
                         },
                         {
                             "columnId": "Max",
-                            "label": "Max"
+                            "label": "Maks."
                         },
                         {
                             "columnId": "Trend (Average)",
-                            "label": "Trend (Average)"
+                            "label": "Trend (średnia)"
                         },
                         {
                             "columnId": "Properties",
-                            "label": "Properties"
+                            "label": "Właściwości"
                         }
                     ]
                 }
@@ -880,7 +880,7 @@
                             "formatter": 7,
                             "formatOptions": {
                                 "linkTarget": "CellDetails",
-                                "linkLabel": "️️️ℹ Info",
+                                "linkLabel": "ℹ Informacje",
                                 "showIcon": true
                             }
                         },

@@ -12,7 +12,7 @@
                         "id": "e4451e8e-9f93-40c2-a17f-1233c5f17c83",
                         "version": "KqlParameterItem/1.0",
                         "name": "HideVMSS",
-                        "label": "Hide VMSS",
+                        "label": "Ukryj zestaw skalowania maszyn wirtualnych",
                         "type": 1,
                         "value": "false",
                         "isHiddenWhenLocked": true,
@@ -25,7 +25,7 @@
                         "id": "b3055533-5851-4f02-99ce-37feda2db2a3",
                         "version": "KqlParameterItem/1.0",
                         "name": "HideVMs",
-                        "label": "Hide VMs",
+                        "label": "Ukryj maszyny wirtualne",
                         "type": 1,
                         "value": "false",
                         "isHiddenWhenLocked": true,
@@ -38,7 +38,7 @@
                         "id": "96e858f6-378f-4b1d-8c2a-e625929ce826",
                         "version": "KqlParameterItem/1.0",
                         "name": "HidePublicIPs",
-                        "label": "Hide PublicIPs",
+                        "label": "Ukryj publiczne adresy IP",
                         "type": 1,
                         "value": "true",
                         "isHiddenWhenLocked": true,
@@ -65,7 +65,7 @@
                         "id": "51f9f779-6b41-40ef-a8f0-aac280110a08",
                         "version": "KqlParameterItem/1.0",
                         "name": "ApplicationGateway",
-                        "label": "Application gateway",
+                        "label": "Brama aplikacji",
                         "type": 5,
                         "isRequired": true,
                         "multiSelect": true,
@@ -135,7 +135,7 @@
                             ],
                             "allowCustom": true
                         },
-                        "label": "Time range",
+                        "label": "Przedział czasu",
                         "value": {
                             "durationMs": 86400000
                         }
@@ -1262,19 +1262,19 @@
                     "labelSettings": [
                         {
                             "columnId": "Subscription",
-                            "label": "Subscription"
+                            "label": "Subskrypcja"
                         },
                         {
                             "columnId": "Name",
-                            "label": "Name"
+                            "label": "Nazwa"
                         },
                         {
                             "columnId": "microsoft.network/applicationgateways--BackendResponseStatus",
-                            "label": "Backend Response Status (Sum)"
+                            "label": "Stan odpowiedzi zaplecza (suma)"
                         },
                         {
                             "columnId": "microsoft.network/applicationgateways--BackendResponseStatus Timeline",
-                            "label": "Backend Response Status Timeline"
+                            "label": "Oś czasu stanu odpowiedzi zaplecza"
                         }
                     ]
                 }
@@ -1346,19 +1346,19 @@
                     "labelSettings": [
                         {
                             "columnId": "Subscription",
-                            "label": "Subscription"
+                            "label": "Subskrypcja"
                         },
                         {
                             "columnId": "Name",
-                            "label": "Name"
+                            "label": "Nazwa"
                         },
                         {
                             "columnId": "microsoft.network/applicationgateways--BackendResponseStatus",
-                            "label": "Backend Response Status (Sum)"
+                            "label": "Stan odpowiedzi zaplecza (suma)"
                         },
                         {
                             "columnId": "microsoft.network/applicationgateways--BackendResponseStatus Timeline",
-                            "label": "Backend Response Status Timeline"
+                            "label": "Oś czasu stanu odpowiedzi zaplecza"
                         }
                     ]
                 }
@@ -1430,19 +1430,19 @@
                     "labelSettings": [
                         {
                             "columnId": "Subscription",
-                            "label": "Subscription"
+                            "label": "Subskrypcja"
                         },
                         {
                             "columnId": "Name",
-                            "label": "Name"
+                            "label": "Nazwa"
                         },
                         {
                             "columnId": "microsoft.network/applicationgateways--BackendResponseStatus",
-                            "label": "Backend Response Status (Sum)"
+                            "label": "Stan odpowiedzi zaplecza (suma)"
                         },
                         {
                             "columnId": "microsoft.network/applicationgateways--BackendResponseStatus Timeline",
-                            "label": "Backend Response Status Timeline"
+                            "label": "Oś czasu stanu odpowiedzi zaplecza"
                         }
                     ]
                 }
@@ -1514,19 +1514,19 @@
                     "labelSettings": [
                         {
                             "columnId": "Subscription",
-                            "label": "Subscription"
+                            "label": "Subskrypcja"
                         },
                         {
                             "columnId": "Name",
-                            "label": "Name"
+                            "label": "Nazwa"
                         },
                         {
                             "columnId": "microsoft.network/applicationgateways--BackendResponseStatus",
-                            "label": "Backend Response Status (Sum)"
+                            "label": "Stan odpowiedzi zaplecza (suma)"
                         },
                         {
                             "columnId": "microsoft.network/applicationgateways--BackendResponseStatus Timeline",
-                            "label": "Backend Response Status Timeline"
+                            "label": "Oś czasu stanu odpowiedzi zaplecza"
                         }
                     ]
                 }
@@ -1550,7 +1550,7 @@
                         "id": "2e739e26-0168-4a42-a226-f400147bebbb",
                         "version": "KqlParameterItem/1.0",
                         "name": "BackendVMSS",
-                        "label": "Backend VMSS",
+                        "label": "Zestaw skalowania maszyn wirtualnych zaplecza",
                         "type": 5,
                         "multiSelect": true,
                         "quote": "'",
@@ -1623,7 +1623,7 @@
                         "splitBy": null
                     }
                 ],
-                "title": "VMSS metrics",
+                "title": "Metryki zestawu skalowania maszyn wirtualnych",
                 "resourceLimit": 10000,
                 "gridSettings": {
                     "formatters": [
@@ -1746,43 +1746,43 @@
                     "labelSettings": [
                         {
                             "columnId": "Subscription",
-                            "label": "Subscription"
+                            "label": "Subskrypcja"
                         },
                         {
                             "columnId": "Name",
-                            "label": "Name"
+                            "label": "Nazwa"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachinescalesets--Percentage CPU",
-                            "label": "Percentage CPU (Average)"
+                            "label": "Procentowe użycie procesora CPU (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachinescalesets--Percentage CPU Timeline",
-                            "label": "Percentage CPU Timeline"
+                            "label": "Oś czasu procentowego użycia procesora CPU"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachinescalesets--Network In Total",
-                            "label": "Network In Total (Sum)"
+                            "label": "Ruch przychodzący do sieci (łącznie)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachinescalesets--Network In Total Timeline",
-                            "label": "Network In Total Timeline"
+                            "label": "Oś czasu całkowitego ruchu przychodzącego do sieci"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachinescalesets--Network Out Total",
-                            "label": "Network Out Total (Sum)"
+                            "label": "Ruch wychodzący z sieci (łącznie)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachinescalesets--Network Out Total Timeline",
-                            "label": "Network Out Total Timeline"
+                            "label": "Oś czasu całkowitego ruchu wychodzącego z sieci"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachinescalesets--Disk Read Bytes",
-                            "label": "Disk Read Bytes (Sum)"
+                            "label": "Bajty odczytu dysku (suma)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachinescalesets--Disk Read Bytes Timeline",
-                            "label": "Disk Read Bytes Timeline"
+                            "label": "Oś czasu bajtów odczytu dysku"
                         }
                     ]
                 },
@@ -1805,7 +1805,7 @@
                         "id": "3230e948-6be0-4be7-b468-7aaccb128d88",
                         "version": "KqlParameterItem/1.0",
                         "name": "BackendVMs",
-                        "label": "Backend VMs",
+                        "label": "Maszyny wirtualne zaplecza",
                         "type": 5,
                         "multiSelect": true,
                         "quote": "'",
@@ -1878,7 +1878,7 @@
                         "splitBy": null
                     }
                 ],
-                "title": "VM Metrics",
+                "title": "Metryki maszyn wirtualnych",
                 "resourceLimit": 10000,
                 "gridSettings": {
                     "formatters": [
@@ -2007,43 +2007,43 @@
                     "labelSettings": [
                         {
                             "columnId": "Subscription",
-                            "label": "Subscription"
+                            "label": "Subskrypcja"
                         },
                         {
                             "columnId": "Name",
-                            "label": "Name"
+                            "label": "Nazwa"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Percentage CPU",
-                            "label": "Percentage CPU (Average)"
+                            "label": "Procentowe użycie procesora CPU (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Percentage CPU Timeline",
-                            "label": "Percentage CPU Timeline"
+                            "label": "Oś czasu procentowego użycia procesora CPU"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network In Total",
-                            "label": "Network In Total (Sum)"
+                            "label": "Ruch przychodzący do sieci (łącznie)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network In Total Timeline",
-                            "label": "Network In Total Timeline"
+                            "label": "Oś czasu całkowitego ruchu przychodzącego do sieci"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network Out Total",
-                            "label": "Network Out Total (Sum)"
+                            "label": "Ruch wychodzący z sieci (łącznie)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network Out Total Timeline",
-                            "label": "Network Out Total Timeline"
+                            "label": "Oś czasu całkowitego ruchu wychodzącego z sieci"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Disk Read Bytes",
-                            "label": "Disk Read Bytes (Sum)"
+                            "label": "Bajty odczytu dysku (suma)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Disk Read Bytes Timeline",
-                            "label": "Disk Read Bytes Timeline"
+                            "label": "Oś czasu bajtów odczytu dysku"
                         }
                     ]
                 },
@@ -2072,7 +2072,7 @@
                         "id": "0acb058c-1c01-4235-8379-71a9cef263ea",
                         "version": "KqlParameterItem/1.0",
                         "name": "BackendPublicIPs",
-                        "label": "Backend Public IPs",
+                        "label": "Publiczne adresy IP zaplecza",
                         "type": 5,
                         "multiSelect": true,
                         "quote": "'",
@@ -2146,7 +2146,7 @@
                         "splitBy": null
                     }
                 ],
-                "title": "Public IP Metrics",
+                "title": "Metryki publicznych adresów IP",
                 "resourceLimit": 10000,
                 "gridSettings": {
                     "formatters": [

@@ -13,7 +13,7 @@
                         "id": "3c1f3d6b-5d96-46d0-9d70-7fcdc731ebe8",
                         "version": "KqlParameterItem/1.0",
                         "name": "LoadBalancer",
-                        "label": "Load Balancer",
+                        "label": "Moduł równoważenia obciążenia",
                         "type": 5,
                         "isRequired": true,
                         "value": null,
@@ -31,7 +31,7 @@
                         "id": "e65b0fe6-9d77-42c6-a6b4-ddf22750ca80",
                         "version": "KqlParameterItem/1.0",
                         "name": "BackenVMs",
-                        "label": " Backend VMs",
+                        "label": " Maszyny wirtualne zaplecza",
                         "type": 5,
                         "multiSelect": true,
                         "quote": "'",
@@ -58,7 +58,7 @@
                         "id": "79e53b45-40af-4385-8905-c475b81522dc",
                         "version": "KqlParameterItem/1.0",
                         "name": "BackendVMSS",
-                        "label": "Backend VMSS",
+                        "label": "Zestaw skalowania maszyn wirtualnych zaplecza",
                         "type": 5,
                         "multiSelect": true,
                         "quote": "'",
@@ -84,7 +84,7 @@
                         "id": "00edc28a-e143-444b-b815-338a9cb136c5",
                         "version": "KqlParameterItem/1.0",
                         "name": "FrontendPublicIPs",
-                        "label": "Frontend Public IPs",
+                        "label": "Publiczne adresy IP frontonu",
                         "type": 5,
                         "multiSelect": true,
                         "quote": "'",
@@ -228,7 +228,7 @@
                                 }
                             ]
                         },
-                        "label": "Time Range"
+                        "label": "Zakres czasu"
                     }
                 ],
                 "style": "pills",
@@ -467,7 +467,7 @@
                         "aggregation": 4
                     }
                 ],
-                "title": "Load Balancer Key Metrics",
+                "title": "Kluczowe metryki modułu równoważenia obciążenia",
                 "gridFormatType": 1,
                 "tileSettings": {
                     "titleContent": {
@@ -564,7 +564,7 @@
                         "splitByLimit": 5
                     }
                 ],
-                "title": "Round-Trip Time (ms), Average - Destination Address Split",
+                "title": "Czas błądzenia (ms), średnia — podział adresu docelowego",
                 "gridFormatType": 1,
                 "gridSettings": {
                     "formatters": [
@@ -647,11 +647,11 @@
                     "labelSettings": [
                         {
                             "columnId": "Segment",
-                            "label": "FrontEnd IP"
+                            "label": "Adres IP frontonu"
                         },
                         {
                             "columnId": "Value",
-                            "label": "Availability"
+                            "label": "Dostępność"
                         }
                     ]
                 }
@@ -669,7 +669,7 @@
                 "version": "KqlItem/1.0",
                 "query": "resources\r\n| where type =~ \"microsoft.network/publicipaddresses\"\r\n| {FrontendPublicIPsConstraint}\r\n| project id, IPAddress = tostring(parse_json(properties).ipAddress)",
                 "size": 0,
-                "title": "Frontend Public IP Addresses",
+                "title": "Publiczne adresy IP frontonu",
                 "noDataMessage": "No Frontend Public IP Addresses are configured",
                 "queryType": 1,
                 "resourceType": "microsoft.resourcegraph/resources",
@@ -690,7 +690,7 @@
                 "version": "KqlItem/1.0",
                 "query": "{\"version\":\"Merge/1.0\",\"merges\":[{\"id\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\",\"mergeType\":\"inner\",\"leftTable\":\"Round-Trip Time (ms), Average - Destination Address Split\",\"rightTable\":\"Frontend Public IP Addresses\",\"leftColumn\":\"Segment\",\"rightColumn\":\"IPAddress\"}],\"projectRename\":[{\"originalName\":\"[Round-Trip Time (ms), Average - Destination Address Split].Subscription\",\"mergedName\":\"Subscription\",\"fromId\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\"},{\"originalName\":\"[Round-Trip Time (ms), Average - Destination Address Split].Name\",\"mergedName\":\"Name\",\"fromId\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\"},{\"originalName\":\"[Round-Trip Time (ms), Average - Destination Address Split].Namespace\",\"mergedName\":\"Namespace\",\"fromId\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\"},{\"originalName\":\"[Round-Trip Time (ms), Average - Destination Address Split].Metric\",\"mergedName\":\"Metric\",\"fromId\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\"},{\"originalName\":\"[Round-Trip Time (ms), Average - Destination Address Split].Metric ID\",\"mergedName\":\"Metric ID\",\"fromId\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\"},{\"originalName\":\"[Round-Trip Time (ms), Average - Destination Address Split].Aggregation\",\"mergedName\":\"Aggregation\",\"fromId\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\"},{\"originalName\":\"[Round-Trip Time (ms), Average - Destination Address Split].Segment Field\",\"mergedName\":\"Segment Field\",\"fromId\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\"},{\"originalName\":\"[Round-Trip Time (ms), Average - Destination Address Split].Segment\",\"mergedName\":\"Segment\",\"fromId\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\"},{\"originalName\":\"[Round-Trip Time (ms), Average - Destination Address Split].Value\",\"mergedName\":\"Value\",\"fromId\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\"},{\"originalName\":\"[Round-Trip Time (ms), Average - Destination Address Split].Timeline\",\"mergedName\":\"Timeline\",\"fromId\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\"},{\"originalName\":\"[Frontend Public IP Addresses].id\",\"mergedName\":\"id\",\"fromId\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\"},{\"originalName\":\"[Frontend Public IP Addresses].IPAddress\",\"mergedName\":\"IPAddress\",\"fromId\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\"},{\"originalName\":\"[Round-Trip Time (ms), Average - Destination Address Split].microsoft.network/networkwatchers/connectionmonitors--RoundTripTimeMs\",\"mergedName\":\"microsoft.network/networkwatchers/connectionmonitors--RoundTripTimeMs\",\"fromId\":\"unknown\"},{\"originalName\":\"[Round-Trip Time (ms), Average - Destination Address Split].microsoft.network/networkwatchers/connectionmonitors--RoundTripTimeMs Timeline\",\"mergedName\":\"microsoft.network/networkwatchers/connectionmonitors--RoundTripTimeMs Timeline\",\"fromId\":\"unknown\"}]}",
                 "size": 1,
-                "title": "Connection Monitor (avg latency to LB)",
+                "title": "Monitor połączeń (średnie opóźnienie do modułu równoważenia obciążenia)",
                 "noDataMessage": "No connection monitors configured",
                 "queryType": 7,
                 "visualization": "map",
@@ -815,11 +815,11 @@
                         },
                         {
                             "columnId": "id",
-                            "label": "Frontend IP"
+                            "label": "Adres IP frontonu"
                         },
                         {
                             "columnId": "IPAddress",
-                            "label": "Frontend IP Address"
+                            "label": "Adres IP frontonu"
                         }
                     ]
                 },
@@ -864,7 +864,7 @@
                 "version": "KqlItem/1.0",
                 "query": "{\"version\":\"AlertsQuery/1.0\",\"type\":\"summary\",\"timeContext\":null,\"severity\":null}",
                 "size": 1,
-                "title": "Alerts",
+                "title": "Alerty",
                 "noDataMessage": "No Alerts configured",
                 "timeContext": {
                     "durationMs": 0
@@ -888,42 +888,42 @@
                     {
                         "cellValue": "Help",
                         "linkTarget": "parameter",
-                        "linkLabel": "FrontEnd IP based metric",
+                        "linkLabel": "Metryka oparta na adresie IP frontonu",
                         "subTarget": "2",
                         "style": "link"
                     },
                     {
                         "cellValue": "Help",
                         "linkTarget": "parameter",
-                        "linkLabel": "Backend Pool Status",
+                        "linkLabel": "Stan puli zaplecza",
                         "subTarget": "5",
                         "style": "link"
                     },
                     {
                         "cellValue": "Help",
                         "linkTarget": "parameter",
-                        "linkLabel": "Backend pool metric - VM",
+                        "linkLabel": "Metryka puli zaplecza — maszyna wirtualna",
                         "subTarget": "3",
                         "style": "link"
                     },
                     {
                         "cellValue": "Help",
                         "linkTarget": "parameter",
-                        "linkLabel": "Backend pool metric - VMSS",
+                        "linkLabel": "Metryka puli zaplecza — zestaw skalowania maszyn wirtualnych",
                         "subTarget": "6",
                         "style": "link"
                     },
                     {
                         "cellValue": "Help",
                         "linkTarget": "parameter",
-                        "linkLabel": "Connection Monitors",
+                        "linkLabel": "Monitory połączeń",
                         "subTarget": "4",
                         "style": "link"
                     },
                     {
                         "cellValue": "Help",
                         "linkTarget": "parameter",
-                        "linkLabel": "Show Metric Help",
+                        "linkLabel": "Pokaż pomoc dotyczącą metryk",
                         "subTarget": "1",
                         "style": "link"
                     }
@@ -1058,7 +1058,7 @@
                         "aggregation": 3
                     }
                 ],
-                "title": "InBound Flow Creation Rate (Max)",
+                "title": "Szybkość tworzenia przepływów przychodzących (maks.)",
                 "gridFormatType": 1,
                 "tileSettings": {
                     "titleContent": {
@@ -1308,51 +1308,51 @@
                     "labelSettings": [
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network In Total",
-                            "label": "Network In Total (Sum)"
+                            "label": "Ruch przychodzący do sieci (łącznie)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network In Total Timeline",
-                            "label": "Network In Total (Sum) Timeline"
+                            "label": "Oś czasu całkowitego ruchu przychodzącego do sieci (suma)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network Out Total",
-                            "label": "Network Out Total (Sum)"
+                            "label": "Ruch wychodzący z sieci (łącznie)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network Out Total Timeline",
-                            "label": "Network Out Total (Sum) Timeline"
+                            "label": "Oś czasu całkowitego ruchu wychodzącego z sieci (suma)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows",
-                            "label": "Inbound Flows (Average)"
+                            "label": "Przepływy przychodzące (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Timeline",
-                            "label": "Inbound Flows (Average) Timeline"
+                            "label": "Oś czasu przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Maximum Creation Rate",
-                            "label": "Inbound Flows Maximum Creation Rate (Average)"
+                            "label": "Maksymalna szybkość tworzenia przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Maximum Creation Rate Timeline",
-                            "label": "Inbound Flows Maximum Creation Rate (Average) Timeline"
+                            "label": "Oś czasu maksymalnej szybkość tworzenia przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows",
-                            "label": "Outbound Flows (Average)"
+                            "label": "Przepływy wychodzące (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Timeline",
-                            "label": "Outbound Flows (Average) Timeline"
+                            "label": "Oś czasu przepływów wychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Maximum Creation Rate",
-                            "label": "Outbound Flows Maximum Creation Rate (Average)"
+                            "label": "Maksymalna szybkość tworzenia przepływów wychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Maximum Creation Rate Timeline",
-                            "label": "Outbound Flows Maximum Creation Rate (Average) Timeline"
+                            "label": "Oś czasu maksymalnej szybkość tworzenia przepływów wychodzących (średnia)"
                         }
                     ]
                 }
@@ -1403,7 +1403,7 @@
                         "aggregation": 3
                     }
                 ],
-                "title": "InBound Flow Creation Rate (Max)",
+                "title": "Szybkość tworzenia przepływów przychodzących (maks.)",
                 "gridFormatType": 1,
                 "tileSettings": {
                     "titleContent": {
@@ -1653,51 +1653,51 @@
                     "labelSettings": [
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network In Total",
-                            "label": "Network In Total (Sum)"
+                            "label": "Ruch przychodzący do sieci (łącznie)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network In Total Timeline",
-                            "label": "Network In Total (Sum) Timeline"
+                            "label": "Oś czasu całkowitego ruchu przychodzącego do sieci (suma)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network Out Total",
-                            "label": "Network Out Total (Sum)"
+                            "label": "Ruch wychodzący z sieci (łącznie)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network Out Total Timeline",
-                            "label": "Network Out Total (Sum) Timeline"
+                            "label": "Oś czasu całkowitego ruchu wychodzącego z sieci (suma)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows",
-                            "label": "Inbound Flows (Average)"
+                            "label": "Przepływy przychodzące (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Timeline",
-                            "label": "Inbound Flows (Average) Timeline"
+                            "label": "Oś czasu przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Maximum Creation Rate",
-                            "label": "Inbound Flows Maximum Creation Rate (Average)"
+                            "label": "Maksymalna szybkość tworzenia przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Maximum Creation Rate Timeline",
-                            "label": "Inbound Flows Maximum Creation Rate (Average) Timeline"
+                            "label": "Oś czasu maksymalnej szybkość tworzenia przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows",
-                            "label": "Outbound Flows (Average)"
+                            "label": "Przepływy wychodzące (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Timeline",
-                            "label": "Outbound Flows (Average) Timeline"
+                            "label": "Oś czasu przepływów wychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Maximum Creation Rate",
-                            "label": "Outbound Flows Maximum Creation Rate (Average)"
+                            "label": "Maksymalna szybkość tworzenia przepływów wychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Maximum Creation Rate Timeline",
-                            "label": "Outbound Flows Maximum Creation Rate (Average) Timeline"
+                            "label": "Oś czasu maksymalnej szybkość tworzenia przepływów wychodzących (średnia)"
                         }
                     ]
                 }
@@ -1749,7 +1749,7 @@
                         "aggregation": 3
                     }
                 ],
-                "title": "OutBound Flow Creation Rate (Max)",
+                "title": "Szybkość tworzenia przepływów wychodzących (maks.)",
                 "gridFormatType": 1,
                 "tileSettings": {
                     "titleContent": {
@@ -1984,51 +1984,51 @@
                     "labelSettings": [
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network In Total",
-                            "label": "Network In Total (Sum)"
+                            "label": "Ruch przychodzący do sieci (łącznie)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network In Total Timeline",
-                            "label": "Network In Total (Sum) Timeline"
+                            "label": "Oś czasu całkowitego ruchu przychodzącego do sieci (suma)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network Out Total",
-                            "label": "Network Out Total (Sum)"
+                            "label": "Ruch wychodzący z sieci (łącznie)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network Out Total Timeline",
-                            "label": "Network Out Total (Sum) Timeline"
+                            "label": "Oś czasu całkowitego ruchu wychodzącego z sieci (suma)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows",
-                            "label": "Inbound Flows (Average)"
+                            "label": "Przepływy przychodzące (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Timeline",
-                            "label": "Inbound Flows (Average) Timeline"
+                            "label": "Oś czasu przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Maximum Creation Rate",
-                            "label": "Inbound Flows Maximum Creation Rate (Average)"
+                            "label": "Maksymalna szybkość tworzenia przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Maximum Creation Rate Timeline",
-                            "label": "Inbound Flows Maximum Creation Rate (Average) Timeline"
+                            "label": "Oś czasu maksymalnej szybkość tworzenia przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows",
-                            "label": "Outbound Flows (Average)"
+                            "label": "Przepływy wychodzące (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Timeline",
-                            "label": "Outbound Flows (Average) Timeline"
+                            "label": "Oś czasu przepływów wychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Maximum Creation Rate",
-                            "label": "Outbound Flows Maximum Creation Rate (Average)"
+                            "label": "Maksymalna szybkość tworzenia przepływów wychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Maximum Creation Rate Timeline",
-                            "label": "Outbound Flows Maximum Creation Rate (Average) Timeline"
+                            "label": "Oś czasu maksymalnej szybkość tworzenia przepływów wychodzących (średnia)"
                         }
                     ]
                 }
@@ -2075,7 +2075,7 @@
                         "aggregation": 3
                     }
                 ],
-                "title": "OutBound Flow Creation Rate (Max)",
+                "title": "Szybkość tworzenia przepływów wychodzących (maks.)",
                 "gridFormatType": 1,
                 "tileSettings": {
                     "titleContent": {
@@ -2310,51 +2310,51 @@
                     "labelSettings": [
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network In Total",
-                            "label": "Network In Total (Sum)"
+                            "label": "Ruch przychodzący do sieci (łącznie)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network In Total Timeline",
-                            "label": "Network In Total (Sum) Timeline"
+                            "label": "Oś czasu całkowitego ruchu przychodzącego do sieci (suma)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network Out Total",
-                            "label": "Network Out Total (Sum)"
+                            "label": "Ruch wychodzący z sieci (łącznie)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network Out Total Timeline",
-                            "label": "Network Out Total (Sum) Timeline"
+                            "label": "Oś czasu całkowitego ruchu wychodzącego z sieci (suma)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows",
-                            "label": "Inbound Flows (Average)"
+                            "label": "Przepływy przychodzące (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Timeline",
-                            "label": "Inbound Flows (Average) Timeline"
+                            "label": "Oś czasu przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Maximum Creation Rate",
-                            "label": "Inbound Flows Maximum Creation Rate (Average)"
+                            "label": "Maksymalna szybkość tworzenia przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Maximum Creation Rate Timeline",
-                            "label": "Inbound Flows Maximum Creation Rate (Average) Timeline"
+                            "label": "Oś czasu maksymalnej szybkość tworzenia przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows",
-                            "label": "Outbound Flows (Average)"
+                            "label": "Przepływy wychodzące (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Timeline",
-                            "label": "Outbound Flows (Average) Timeline"
+                            "label": "Oś czasu przepływów wychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Maximum Creation Rate",
-                            "label": "Outbound Flows Maximum Creation Rate (Average)"
+                            "label": "Maksymalna szybkość tworzenia przepływów wychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Maximum Creation Rate Timeline",
-                            "label": "Outbound Flows Maximum Creation Rate (Average) Timeline"
+                            "label": "Oś czasu maksymalnej szybkość tworzenia przepływów wychodzących (średnia)"
                         }
                     ]
                 }
@@ -2407,7 +2407,7 @@
                         "aggregation": 1
                     }
                 ],
-                "title": "Network In Out",
+                "title": "Przychodzący/wychodzący ruch sieciowy",
                 "gridFormatType": 2,
                 "tileSettings": {
                     "titleContent": {
@@ -2638,51 +2638,51 @@
                     "labelSettings": [
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network In Total",
-                            "label": "Network In Total (Sum)"
+                            "label": "Ruch przychodzący do sieci (łącznie)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network In Total Timeline",
-                            "label": "Network In Total (Sum) Timeline"
+                            "label": "Oś czasu całkowitego ruchu przychodzącego do sieci (suma)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network Out Total",
-                            "label": "Network Out Total (Sum)"
+                            "label": "Ruch wychodzący z sieci (łącznie)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network Out Total Timeline",
-                            "label": "Network Out Total (Sum) Timeline"
+                            "label": "Oś czasu całkowitego ruchu wychodzącego z sieci (suma)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows",
-                            "label": "Inbound Flows (Average)"
+                            "label": "Przepływy przychodzące (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Timeline",
-                            "label": "Inbound Flows (Average) Timeline"
+                            "label": "Oś czasu przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Maximum Creation Rate",
-                            "label": "Inbound Flows Maximum Creation Rate (Average)"
+                            "label": "Maksymalna szybkość tworzenia przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Maximum Creation Rate Timeline",
-                            "label": "Inbound Flows Maximum Creation Rate (Average) Timeline"
+                            "label": "Oś czasu maksymalnej szybkość tworzenia przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows",
-                            "label": "Outbound Flows (Average)"
+                            "label": "Przepływy wychodzące (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Timeline",
-                            "label": "Outbound Flows (Average) Timeline"
+                            "label": "Oś czasu przepływów wychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Maximum Creation Rate",
-                            "label": "Outbound Flows Maximum Creation Rate (Average)"
+                            "label": "Maksymalna szybkość tworzenia przepływów wychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Maximum Creation Rate Timeline",
-                            "label": "Outbound Flows Maximum Creation Rate (Average) Timeline"
+                            "label": "Oś czasu maksymalnej szybkość tworzenia przepływów wychodzących (średnia)"
                         }
                     ]
                 }
@@ -2735,7 +2735,7 @@
                         "aggregation": 1
                     }
                 ],
-                "title": "Network In Out",
+                "title": "Przychodzący/wychodzący ruch sieciowy",
                 "gridFormatType": 2,
                 "tileSettings": {
                     "titleContent": {
@@ -2966,51 +2966,51 @@
                     "labelSettings": [
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network In Total",
-                            "label": "Network In Total (Sum)"
+                            "label": "Ruch przychodzący do sieci (łącznie)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network In Total Timeline",
-                            "label": "Network In Total (Sum) Timeline"
+                            "label": "Oś czasu całkowitego ruchu przychodzącego do sieci (suma)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network Out Total",
-                            "label": "Network Out Total (Sum)"
+                            "label": "Ruch wychodzący z sieci (łącznie)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network Out Total Timeline",
-                            "label": "Network Out Total (Sum) Timeline"
+                            "label": "Oś czasu całkowitego ruchu wychodzącego z sieci (suma)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows",
-                            "label": "Inbound Flows (Average)"
+                            "label": "Przepływy przychodzące (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Timeline",
-                            "label": "Inbound Flows (Average) Timeline"
+                            "label": "Oś czasu przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Maximum Creation Rate",
-                            "label": "Inbound Flows Maximum Creation Rate (Average)"
+                            "label": "Maksymalna szybkość tworzenia przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Maximum Creation Rate Timeline",
-                            "label": "Inbound Flows Maximum Creation Rate (Average) Timeline"
+                            "label": "Oś czasu maksymalnej szybkość tworzenia przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows",
-                            "label": "Outbound Flows (Average)"
+                            "label": "Przepływy wychodzące (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Timeline",
-                            "label": "Outbound Flows (Average) Timeline"
+                            "label": "Oś czasu przepływów wychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Maximum Creation Rate",
-                            "label": "Outbound Flows Maximum Creation Rate (Average)"
+                            "label": "Maksymalna szybkość tworzenia przepływów wychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Maximum Creation Rate Timeline",
-                            "label": "Outbound Flows Maximum Creation Rate (Average) Timeline"
+                            "label": "Oś czasu maksymalnej szybkość tworzenia przepływów wychodzących (średnia)"
                         }
                     ]
                 }
@@ -3063,7 +3063,7 @@
                         "aggregation": 4
                     }
                 ],
-                "title": "InBoundFlows",
+                "title": "Przepływy przychodzące",
                 "gridFormatType": 2,
                 "tileSettings": {
                     "titleContent": {
@@ -3294,51 +3294,51 @@
                     "labelSettings": [
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network In Total",
-                            "label": "Network In Total (Sum)"
+                            "label": "Ruch przychodzący do sieci (łącznie)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network In Total Timeline",
-                            "label": "Network In Total (Sum) Timeline"
+                            "label": "Oś czasu całkowitego ruchu przychodzącego do sieci (suma)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network Out Total",
-                            "label": "Network Out Total (Sum)"
+                            "label": "Ruch wychodzący z sieci (łącznie)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network Out Total Timeline",
-                            "label": "Network Out Total (Sum) Timeline"
+                            "label": "Oś czasu całkowitego ruchu wychodzącego z sieci (suma)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows",
-                            "label": "Inbound Flows (Average)"
+                            "label": "Przepływy przychodzące (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Timeline",
-                            "label": "Inbound Flows (Average) Timeline"
+                            "label": "Oś czasu przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Maximum Creation Rate",
-                            "label": "Inbound Flows Maximum Creation Rate (Average)"
+                            "label": "Maksymalna szybkość tworzenia przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Maximum Creation Rate Timeline",
-                            "label": "Inbound Flows Maximum Creation Rate (Average) Timeline"
+                            "label": "Oś czasu maksymalnej szybkość tworzenia przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows",
-                            "label": "Outbound Flows (Average)"
+                            "label": "Przepływy wychodzące (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Timeline",
-                            "label": "Outbound Flows (Average) Timeline"
+                            "label": "Oś czasu przepływów wychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Maximum Creation Rate",
-                            "label": "Outbound Flows Maximum Creation Rate (Average)"
+                            "label": "Maksymalna szybkość tworzenia przepływów wychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Maximum Creation Rate Timeline",
-                            "label": "Outbound Flows Maximum Creation Rate (Average) Timeline"
+                            "label": "Oś czasu maksymalnej szybkość tworzenia przepływów wychodzących (średnia)"
                         }
                     ]
                 }
@@ -3391,7 +3391,7 @@
                         "aggregation": 4
                     }
                 ],
-                "title": "InBoundFlows",
+                "title": "Przepływy przychodzące",
                 "gridFormatType": 2,
                 "tileSettings": {
                     "titleContent": {
@@ -3622,51 +3622,51 @@
                     "labelSettings": [
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network In Total",
-                            "label": "Network In Total (Sum)"
+                            "label": "Ruch przychodzący do sieci (łącznie)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network In Total Timeline",
-                            "label": "Network In Total (Sum) Timeline"
+                            "label": "Oś czasu całkowitego ruchu przychodzącego do sieci (suma)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network Out Total",
-                            "label": "Network Out Total (Sum)"
+                            "label": "Ruch wychodzący z sieci (łącznie)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network Out Total Timeline",
-                            "label": "Network Out Total (Sum) Timeline"
+                            "label": "Oś czasu całkowitego ruchu wychodzącego z sieci (suma)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows",
-                            "label": "Inbound Flows (Average)"
+                            "label": "Przepływy przychodzące (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Timeline",
-                            "label": "Inbound Flows (Average) Timeline"
+                            "label": "Oś czasu przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Maximum Creation Rate",
-                            "label": "Inbound Flows Maximum Creation Rate (Average)"
+                            "label": "Maksymalna szybkość tworzenia przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Maximum Creation Rate Timeline",
-                            "label": "Inbound Flows Maximum Creation Rate (Average) Timeline"
+                            "label": "Oś czasu maksymalnej szybkość tworzenia przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows",
-                            "label": "Outbound Flows (Average)"
+                            "label": "Przepływy wychodzące (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Timeline",
-                            "label": "Outbound Flows (Average) Timeline"
+                            "label": "Oś czasu przepływów wychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Maximum Creation Rate",
-                            "label": "Outbound Flows Maximum Creation Rate (Average)"
+                            "label": "Maksymalna szybkość tworzenia przepływów wychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Maximum Creation Rate Timeline",
-                            "label": "Outbound Flows Maximum Creation Rate (Average) Timeline"
+                            "label": "Oś czasu maksymalnej szybkość tworzenia przepływów wychodzących (średnia)"
                         }
                     ]
                 }
@@ -3719,7 +3719,7 @@
                         "aggregation": 4
                     }
                 ],
-                "title": "OutBoud Flows",
+                "title": "Przepływy wychodzące",
                 "gridFormatType": 2,
                 "tileSettings": {
                     "titleContent": {
@@ -3950,51 +3950,51 @@
                     "labelSettings": [
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network In Total",
-                            "label": "Network In Total (Sum)"
+                            "label": "Ruch przychodzący do sieci (łącznie)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network In Total Timeline",
-                            "label": "Network In Total (Sum) Timeline"
+                            "label": "Oś czasu całkowitego ruchu przychodzącego do sieci (suma)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network Out Total",
-                            "label": "Network Out Total (Sum)"
+                            "label": "Ruch wychodzący z sieci (łącznie)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network Out Total Timeline",
-                            "label": "Network Out Total (Sum) Timeline"
+                            "label": "Oś czasu całkowitego ruchu wychodzącego z sieci (suma)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows",
-                            "label": "Inbound Flows (Average)"
+                            "label": "Przepływy przychodzące (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Timeline",
-                            "label": "Inbound Flows (Average) Timeline"
+                            "label": "Oś czasu przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Maximum Creation Rate",
-                            "label": "Inbound Flows Maximum Creation Rate (Average)"
+                            "label": "Maksymalna szybkość tworzenia przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Maximum Creation Rate Timeline",
-                            "label": "Inbound Flows Maximum Creation Rate (Average) Timeline"
+                            "label": "Oś czasu maksymalnej szybkość tworzenia przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows",
-                            "label": "Outbound Flows (Average)"
+                            "label": "Przepływy wychodzące (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Timeline",
-                            "label": "Outbound Flows (Average) Timeline"
+                            "label": "Oś czasu przepływów wychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Maximum Creation Rate",
-                            "label": "Outbound Flows Maximum Creation Rate (Average)"
+                            "label": "Maksymalna szybkość tworzenia przepływów wychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Maximum Creation Rate Timeline",
-                            "label": "Outbound Flows Maximum Creation Rate (Average) Timeline"
+                            "label": "Oś czasu maksymalnej szybkość tworzenia przepływów wychodzących (średnia)"
                         }
                     ]
                 }
@@ -4047,7 +4047,7 @@
                         "aggregation": 4
                     }
                 ],
-                "title": "OutBoud Flows",
+                "title": "Przepływy wychodzące",
                 "gridFormatType": 2,
                 "tileSettings": {
                     "titleContent": {
@@ -4278,51 +4278,51 @@
                     "labelSettings": [
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network In Total",
-                            "label": "Network In Total (Sum)"
+                            "label": "Ruch przychodzący do sieci (łącznie)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network In Total Timeline",
-                            "label": "Network In Total (Sum) Timeline"
+                            "label": "Oś czasu całkowitego ruchu przychodzącego do sieci (suma)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network Out Total",
-                            "label": "Network Out Total (Sum)"
+                            "label": "Ruch wychodzący z sieci (łącznie)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Network Out Total Timeline",
-                            "label": "Network Out Total (Sum) Timeline"
+                            "label": "Oś czasu całkowitego ruchu wychodzącego z sieci (suma)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows",
-                            "label": "Inbound Flows (Average)"
+                            "label": "Przepływy przychodzące (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Timeline",
-                            "label": "Inbound Flows (Average) Timeline"
+                            "label": "Oś czasu przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Maximum Creation Rate",
-                            "label": "Inbound Flows Maximum Creation Rate (Average)"
+                            "label": "Maksymalna szybkość tworzenia przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Inbound Flows Maximum Creation Rate Timeline",
-                            "label": "Inbound Flows Maximum Creation Rate (Average) Timeline"
+                            "label": "Oś czasu maksymalnej szybkość tworzenia przepływów przychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows",
-                            "label": "Outbound Flows (Average)"
+                            "label": "Przepływy wychodzące (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Timeline",
-                            "label": "Outbound Flows (Average) Timeline"
+                            "label": "Oś czasu przepływów wychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Maximum Creation Rate",
-                            "label": "Outbound Flows Maximum Creation Rate (Average)"
+                            "label": "Maksymalna szybkość tworzenia przepływów wychodzących (średnia)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Outbound Flows Maximum Creation Rate Timeline",
-                            "label": "Outbound Flows Maximum Creation Rate (Average) Timeline"
+                            "label": "Oś czasu maksymalnej szybkość tworzenia przepływów wychodzących (średnia)"
                         }
                     ]
                 }
@@ -4351,7 +4351,7 @@
                 "version": "KqlItem/1.0",
                 "query": "{\"version\":\"Merge/1.0\",\"merges\":[{\"id\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\",\"mergeType\":\"inner\",\"leftTable\":\"Round-Trip Time (ms), Average - Destination Address Split\",\"rightTable\":\"Frontend Public IP Addresses\",\"leftColumn\":\"Segment\",\"rightColumn\":\"IPAddress\"}],\"projectRename\":[{\"originalName\":\"[Round-Trip Time (ms), Average - Destination Address Split].Subscription\",\"mergedName\":\"Subscription\",\"fromId\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\"},{\"originalName\":\"[Round-Trip Time (ms), Average - Destination Address Split].Name\",\"mergedName\":\"Name\",\"fromId\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\"},{\"originalName\":\"[Round-Trip Time (ms), Average - Destination Address Split].Namespace\",\"mergedName\":\"Namespace\",\"fromId\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\"},{\"originalName\":\"[Round-Trip Time (ms), Average - Destination Address Split].Metric\",\"mergedName\":\"Metric\",\"fromId\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\"},{\"originalName\":\"[Round-Trip Time (ms), Average - Destination Address Split].Metric ID\",\"mergedName\":\"Metric ID\",\"fromId\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\"},{\"originalName\":\"[Round-Trip Time (ms), Average - Destination Address Split].Aggregation\",\"mergedName\":\"Aggregation\",\"fromId\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\"},{\"originalName\":\"[Round-Trip Time (ms), Average - Destination Address Split].Segment Field\",\"mergedName\":\"Segment Field\",\"fromId\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\"},{\"originalName\":\"[Round-Trip Time (ms), Average - Destination Address Split].Segment\",\"mergedName\":\"Segment\",\"fromId\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\"},{\"originalName\":\"[Round-Trip Time (ms), Average - Destination Address Split].Value\",\"mergedName\":\"Value\",\"fromId\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\"},{\"originalName\":\"[Round-Trip Time (ms), Average - Destination Address Split].Timeline\",\"mergedName\":\"Timeline\",\"fromId\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\"},{\"originalName\":\"[Frontend Public IP Addresses].id\",\"mergedName\":\"id\",\"fromId\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\"},{\"originalName\":\"[Frontend Public IP Addresses].IPAddress\",\"mergedName\":\"IPAddress\",\"fromId\":\"31f23f0d-1d52-44ee-90d0-b5f452dbe0d5\"},{\"originalName\":\"[Round-Trip Time (ms), Average - Destination Address Split].microsoft.network/networkwatchers/connectionmonitors--RoundTripTimeMs\",\"mergedName\":\"microsoft.network/networkwatchers/connectionmonitors--RoundTripTimeMs\",\"fromId\":\"unknown\"},{\"originalName\":\"[Round-Trip Time (ms), Average - Destination Address Split].microsoft.network/networkwatchers/connectionmonitors--RoundTripTimeMs Timeline\",\"mergedName\":\"microsoft.network/networkwatchers/connectionmonitors--RoundTripTimeMs Timeline\",\"fromId\":\"unknown\"}]}",
                 "size": 0,
-                "title": "Round-Trip Time (ms), Average",
+                "title": "Czas błądzenia (ms), średnia",
                 "noDataMessage": "No connection monitors configured",
                 "queryType": 7,
                 "gridSettings": {
@@ -4448,18 +4448,18 @@
                         },
                         {
                             "columnId": "Name",
-                            "label": "Connection Monitor"
+                            "label": "Monitor połączeń"
                         },
                         {
                             "columnId": "Segment"
                         },
                         {
                             "columnId": "id",
-                            "label": "Destination"
+                            "label": "Element docelowy"
                         },
                         {
                             "columnId": "IPAddress",
-                            "label": "Destination address"
+                            "label": "Adres docelowy"
                         }
                     ]
                 }
@@ -4554,7 +4554,7 @@
                         "columnName": "Port"
                     }
                 ],
-                "title": "VIP Bytes",
+                "title": "Bajty wirtualnego adresu IP",
                 "gridFormatType": 1,
                 "tileSettings": {
                     "titleContent": {
@@ -4676,7 +4676,7 @@
                         "columnName": "FronEndPort"
                     }
                 ],
-                "title": "LB Bytes",
+                "title": "Bajty modułu równoważenia obciążenia",
                 "gridFormatType": 1,
                 "tileSettings": {
                     "titleContent": {
@@ -4787,7 +4787,7 @@
                         "splitByLimit": 5
                     }
                 ],
-                "title": "VIP DIP Availability",
+                "title": "Dostępność dynamicznych i wirtualnych adresów IP",
                 "gridFormatType": 1,
                 "gridSettings": {
                     "formatters": [
@@ -4911,11 +4911,11 @@
                         },
                         {
                             "columnId": "Segment",
-                            "label": "FrontEnd IP"
+                            "label": "Adres IP frontonu"
                         },
                         {
                             "columnId": "Value",
-                            "label": "Availability"
+                            "label": "Dostępność"
                         },
                         {
                             "columnId": "Timeline"
@@ -4967,7 +4967,7 @@
                         "splitBy": "BackendIPAddress"
                     }
                 ],
-                "title": "Health Probe Status by Backend IP Address",
+                "title": "Stan sondy kondycji według adresu IP zaplecza",
                 "gridSettings": {
                     "rowLimit": 10000
                 }
@@ -5017,7 +5017,7 @@
                         "splitBy": "BackendPort"
                     }
                 ],
-                "title": "Health Probe Status by Backend Port",
+                "title": "Stan sondy kondycji według portu zaplecza",
                 "gridSettings": {
                     "rowLimit": 10000
                 }
@@ -5067,7 +5067,7 @@
                         "splitBy": "FrontendIPAddress"
                     }
                 ],
-                "title": "Health Probe Status by Frontend IP Address",
+                "title": "Stan sondy kondycji według adresu IP frontonu",
                 "gridSettings": {
                     "rowLimit": 10000
                 }
@@ -5117,7 +5117,7 @@
                         "splitBy": "FrontendPort"
                     }
                 ],
-                "title": "Health Probe Status by Frontend Port",
+                "title": "Stan sondy kondycji według portu frontonu",
                 "gridSettings": {
                     "rowLimit": 10000
                 }
@@ -5167,7 +5167,7 @@
                         "splitBy": "ProtocolType"
                     }
                 ],
-                "title": "Health Probe Status by Protocol Type",
+                "title": "Stan sondy kondycji według typu protokołu",
                 "gridSettings": {
                     "rowLimit": 10000
                 }

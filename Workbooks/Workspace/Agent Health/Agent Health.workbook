@@ -68,7 +68,7 @@
                         "id": "c4d8d055-6dbe-451b-bf64-2be8d9e21fd8",
                         "version": "KqlParameterItem/1.0",
                         "name": "UnhealthyCriteria",
-                        "label": "Unhealthy Criteria",
+                        "label": "Kryteria złej kondycji",
                         "type": 2,
                         "isRequired": true,
                         "value": "1h",
@@ -254,7 +254,7 @@
                 "showAnalytics": true,
                 "showExportToExcel": true,
                 "exportToExcelOptions": "visible",
-                "title": "Agent details",
+                "title": "Szczegóły agenta",
                 "noDataMessage": "Looks like you have no agents sending heartbeat information in this time range. Pick a larger time range or a different workspace.",
                 "timeContext": {
                     "durationMs": 0
@@ -350,7 +350,7 @@
                             "formatter": 5,
                             "formatOptions": {
                                 "linkTarget": "CellDetails",
-                                "linkLabel": "🔍 View Details",
+                                "linkLabel": "🔍 Wyświetl szczegóły",
                                 "linkIsContextBlade": true,
                                 "showIcon": true
                             }
@@ -413,35 +413,35 @@
                         },
                         {
                             "columnId": "Computer",
-                            "label": "Computer"
+                            "label": "Computer (Komputer)"
                         },
                         {
                             "columnId": "State",
-                            "label": "State"
+                            "label": "Stan"
                         },
                         {
                             "columnId": "Environment",
-                            "label": "Environment"
+                            "label": "Środowisko"
                         },
                         {
                             "columnId": "OS",
-                            "label": "OS"
+                            "label": "System operacyjny"
                         },
                         {
                             "columnId": "Azure Resource",
-                            "label": "Azure Resource"
+                            "label": "Zasób platformy Azure"
                         },
                         {
                             "columnId": "Time",
-                            "label": "Last Heartbeat"
+                            "label": "Ostatni puls"
                         },
                         {
                             "columnId": "Heartbeat Trend",
-                            "label": "Heartbeat Trend"
+                            "label": "Trend pulsu"
                         },
                         {
                             "columnId": "Details",
-                            "label": "Details"
+                            "label": "Szczegóły"
                         }
                     ]
                 }
@@ -489,7 +489,7 @@
                 "size": 0,
                 "showAnalytics": true,
                 "exportToExcelOptions": "visible",
-                "title": "Heartbeat volume trend",
+                "title": "Trend głośności pulsu",
                 "timeContext": {
                     "durationMs": 0
                 },
@@ -518,7 +518,7 @@
                 "size": 0,
                 "showAnalytics": true,
                 "exportToExcelOptions": "visible",
-                "title": "Heartbeat events",
+                "title": "Zdarzenia pulsu",
                 "timeContext": {
                     "durationMs": 0
                 },

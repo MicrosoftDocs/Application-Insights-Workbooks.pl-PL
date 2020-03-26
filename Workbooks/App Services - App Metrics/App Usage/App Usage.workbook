@@ -173,7 +173,7 @@
                 "exportFieldName": "name",
                 "exportParameterName": "SelectedOperation",
                 "showAnalytics": false,
-                "title": "Usage Summary",
+                "title": "Podsumowanie użycia",
                 "resourceType": "microsoft.insights/components",
                 "crossComponentResources": [
                     "{App}"
@@ -263,7 +263,7 @@
                 "aggregation": 3,
                 "showAnnotations": false,
                 "showAnalytics": false,
-                "title": "Unique Users",
+                "title": "Unikatowi użytkownicy",
                 "resourceType": "microsoft.insights/components",
                 "crossComponentResources": [
                     "{App}"
@@ -283,7 +283,7 @@
                 "aggregation": 3,
                 "showAnnotations": false,
                 "showAnalytics": false,
-                "title": "Activities Trend",
+                "title": "Trend działań",
                 "resourceType": "microsoft.insights/components",
                 "crossComponentResources": [
                     "{App}"
@@ -326,7 +326,7 @@
                 "aggregation": 0,
                 "showAnnotations": false,
                 "showAnalytics": false,
-                "title": "Country",
+                "title": "Kraj",
                 "resourceType": "microsoft.insights/components",
                 "gridSettings": {
                     "formatters": [
@@ -355,7 +355,7 @@
                 "aggregation": 0,
                 "showAnnotations": false,
                 "showAnalytics": false,
-                "title": "Country",
+                "title": "Kraj",
                 "resourceType": "microsoft.insights/components",
                 "gridSettings": {
                     "formatters": [
@@ -384,7 +384,7 @@
                 "aggregation": 0,
                 "showAnnotations": false,
                 "showAnalytics": false,
-                "title": "Country",
+                "title": "Kraj",
                 "resourceType": "microsoft.insights/components",
                 "gridSettings": {
                     "formatters": [

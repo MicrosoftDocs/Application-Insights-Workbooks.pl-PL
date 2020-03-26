@@ -33,7 +33,7 @@
                         "id": "bb1c10ec-cc9a-436e-8abc-7536ff78a19e",
                         "version": "KqlParameterItem/1.0",
                         "name": "ResourceType",
-                        "label": "Resource Type",
+                        "label": "Typ zasobu",
                         "type": 7,
                         "isRequired": true,
                         "multiSelect": true,
@@ -74,17 +74,17 @@
                     {
                         "cellValue": "tabView",
                         "linkTarget": "parameter",
-                        "linkLabel": "Map View",
+                        "linkLabel": "Widok mapy",
                         "subTarget": "Map",
-                        "preText": "Map View",
+                        "preText": "Widok mapy",
                         "style": "link"
                     },
                     {
                         "cellValue": "tabView",
                         "linkTarget": "parameter",
-                        "linkLabel": "Resource View",
+                        "linkLabel": "Widok zasobu",
                         "subTarget": "Resource",
-                        "preText": "Resource View",
+                        "preText": "Widok zasobu",
                         "style": "link"
                     }
                 ]
@@ -244,11 +244,11 @@
                     "labelSettings": [
                         {
                             "columnId": "location",
-                            "label": "Location"
+                            "label": "Lokalizacja"
                         },
                         {
                             "columnId": "resourceGroup",
-                            "label": "Resource Group"
+                            "label": "Grupa zasobów"
                         }
                     ]
                 }

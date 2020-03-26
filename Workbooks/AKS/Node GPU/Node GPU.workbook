@@ -10,7 +10,7 @@
                         "id": "5de17819-f869-4a42-9c3d-27cf8f9085f0",
                         "version": "KqlParameterItem/1.0",
                         "name": "timeRange",
-                        "label": "Time Range",
+                        "label": "Zakres czasu",
                         "type": 4,
                         "description": "Filtruj dane według zakresu czasu",
                         "isRequired": true,
@@ -72,7 +72,7 @@
                         "id": "bb8ed6dc-807e-4566-be76-26ac6ee7f90f",
                         "version": "KqlParameterItem/1.0",
                         "name": "selectedNodes",
-                        "label": "GPU Node",
+                        "label": "Węzeł procesora GPU",
                         "type": 2,
                         "description": "Filtruj według węzła GPU",
                         "multiSelect": true,
@@ -149,7 +149,7 @@
                 "aggregation": 5,
                 "showAnnotations": true,
                 "showAnalytics": true,
-                "title": "GPU Usage",
+                "title": "Użycie procesora GPU",
                 "color": "turquoise",
                 "queryType": 0,
                 "resourceType": "microsoft.containerservice/managedclusters",
@@ -230,7 +230,7 @@
                 "aggregation": 5,
                 "showAnnotations": true,
                 "showAnalytics": true,
-                "title": "GPU Memory Usage",
+                "title": "Wysokie użycie pamięci procesora GPU",
                 "timeContext": {
                     "durationMs": 0
                 },
@@ -264,7 +264,7 @@
                 "aggregation": 5,
                 "showAnnotations": true,
                 "showAnalytics": true,
-                "title": "GPU Node Count by Node Status",
+                "title": "Liczba węzłów procesora GPU według stanu węzła",
                 "timeContext": {
                     "durationMs": 0
                 },
@@ -334,7 +334,7 @@
                 "aggregation": 5,
                 "showAnnotations": true,
                 "showAnalytics": true,
-                "title": "GPU Pod Count by Pod Status",
+                "title": "Liczba zasobników procesora GPU według stanu zasobnika",
                 "timeContext": {
                     "durationMs": 0
                 },
@@ -377,7 +377,7 @@
                 "aggregation": 5,
                 "showAnnotations": true,
                 "showAnalytics": true,
-                "title": "GPU Pod Count by Kubernetes Namespace",
+                "title": "Liczba zasobników procesora GPU według przestrzeni nazw Kubernetes",
                 "timeContext": {
                     "durationMs": 0
                 },
@@ -473,7 +473,7 @@
                 "aggregation": 5,
                 "showAnnotations": true,
                 "showAnalytics": true,
-                "title": "GPU Count by Make",
+                "title": "Liczba procesorów GPU według marki",
                 "color": "blue",
                 "timeContext": {
                     "durationMs": 0
@@ -518,12 +518,12 @@
                     "labelSettings": [
                         {
                             "columnId": "gpuVendor",
-                            "label": "Make",
+                            "label": "Marka",
                             "comment": ""
                         },
                         {
                             "columnId": "GPU count by make",
-                            "label": "Count"
+                            "label": "Liczba"
                         },
                         {
                             "columnId": "TimeGenerated"
