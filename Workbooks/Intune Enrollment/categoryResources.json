@@ -1,0 +1,8 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "en-us": {
+        "name": "Rejestracja",
+        "description": "Udostępnia szczegółowe informacje dotyczące rejestracji w usłudze Intune",
+        "order": 200
+    }
+}

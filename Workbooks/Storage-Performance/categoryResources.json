@@ -1,0 +1,8 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "en-us": {
+        "name": "Zobacz kluczowe metryki wydajności magazynu",
+        "description": "",
+        "order": 100
+    }
+}

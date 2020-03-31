@@ -1,0 +1,8 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "en-us": {
+        "name": "Zależności sieciowe",
+        "description": "Szukaj zależności sieciowych dla usługi Virtual Machine Scale Sets.",
+        "order": 200
+    }
+}
