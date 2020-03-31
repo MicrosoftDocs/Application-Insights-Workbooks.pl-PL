@@ -1,0 +1,8 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "en-us": {
+        "name": "SAP Monitor",
+        "description": "Udostępnia szczegółowe informacje dotyczące metryk infrastruktury usługi SAP Landscapes",
+        "order": 100
+    }
+}

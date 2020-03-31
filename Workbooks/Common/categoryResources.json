@@ -1,0 +1,8 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "en-us": {
+        "name": "Wspólne",
+        "description": "Wszelkie typowe szablony skoroszytów, które można załadować do innych skoroszytów",
+        "order": 100
+    }
+}
