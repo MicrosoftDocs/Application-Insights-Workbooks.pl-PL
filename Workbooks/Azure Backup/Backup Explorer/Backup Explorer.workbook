@@ -3261,7 +3261,7 @@
                     "labelSettings": [
                         {
                             "columnId": "id",
-                            "label": "Nazwa"
+                            "label": "Name (Nazwa)"
                         },
                         {
                             "columnId": "Name",

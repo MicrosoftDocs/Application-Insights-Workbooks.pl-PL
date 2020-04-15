@@ -81,7 +81,7 @@
                         "id": "03bb225a-19e0-4fb2-b38e-c79ea6c928e2",
                         "version": "KqlParameterItem/1.0",
                         "name": "Users",
-                        "label": "Nazwa użytkownika",
+                        "label": "User Name (Nazwa użytkownika)",
                         "type": 1,
                         "description": "Wprowadź nazwę UPN (xxxx@domain.com), aby odfiltrować informacje o resetowaniu dla określonego użytkownika. Wartość domyślna to „Wszystko”",
                         "isRequired": true,
@@ -252,7 +252,7 @@
                         },
                         {
                             "columnId": "Name",
-                            "label": "Nazwa"
+                            "label": "Name (Nazwa)"
                         },
                         {
                             "columnId": "Type",
@@ -416,7 +416,7 @@
                         },
                         {
                             "columnId": "Name",
-                            "label": "Nazwa"
+                            "label": "Name (Nazwa)"
                         },
                         {
                             "columnId": "Type",
@@ -653,7 +653,7 @@
                         },
                         {
                             "columnId": "Name",
-                            "label": "Nazwa"
+                            "label": "Name (Nazwa)"
                         },
                         {
                             "columnId": "Type",

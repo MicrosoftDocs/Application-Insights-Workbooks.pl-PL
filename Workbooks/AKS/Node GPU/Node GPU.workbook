@@ -523,7 +523,7 @@
                         },
                         {
                             "columnId": "GPU count by make",
-                            "label": "Liczba"
+                            "label": "Licznik"
                         },
                         {
                             "columnId": "TimeGenerated"
