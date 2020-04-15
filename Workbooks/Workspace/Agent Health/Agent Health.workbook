@@ -413,7 +413,7 @@
                         },
                         {
                             "columnId": "Computer",
-                            "label": "Computer (Komputer)"
+                            "label": "Computer"
                         },
                         {
                             "columnId": "State",
