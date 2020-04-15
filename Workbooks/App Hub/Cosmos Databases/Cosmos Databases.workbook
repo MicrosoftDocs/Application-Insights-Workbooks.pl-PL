@@ -527,7 +527,7 @@
                         },
                         {
                             "columnId": "Name",
-                            "label": "Nazwa"
+                            "label": "Name (Nazwa)"
                         },
                         {
                             "columnId": "Segment",
@@ -755,7 +755,7 @@
                         },
                         {
                             "columnId": "Name",
-                            "label": "Nazwa"
+                            "label": "Name (Nazwa)"
                         },
                         {
                             "columnId": "microsoft.documentdb/databaseaccounts-Requests-TotalRequests",
@@ -1207,7 +1207,7 @@
                         },
                         {
                             "columnId": "Name",
-                            "label": "Nazwa"
+                            "label": "Name (Nazwa)"
                         },
                         {
                             "columnId": "microsoft.documentdb/databaseaccounts-Requests-TotalRequests",

@@ -616,7 +616,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"network\"></a>Sieć"
+                "json": "## <a name=\"network\"></a>Network"
             },
             "conditionalVisibility": null,
             "name": "text - 7"

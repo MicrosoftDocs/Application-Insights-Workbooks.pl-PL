@@ -1266,7 +1266,7 @@
                         },
                         {
                             "columnId": "Name",
-                            "label": "Nazwa"
+                            "label": "Name (Nazwa)"
                         },
                         {
                             "columnId": "microsoft.network/applicationgateways--BackendResponseStatus",
@@ -1350,7 +1350,7 @@
                         },
                         {
                             "columnId": "Name",
-                            "label": "Nazwa"
+                            "label": "Name (Nazwa)"
                         },
                         {
                             "columnId": "microsoft.network/applicationgateways--BackendResponseStatus",
@@ -1434,7 +1434,7 @@
                         },
                         {
                             "columnId": "Name",
-                            "label": "Nazwa"
+                            "label": "Name (Nazwa)"
                         },
                         {
                             "columnId": "microsoft.network/applicationgateways--BackendResponseStatus",
@@ -1518,7 +1518,7 @@
                         },
                         {
                             "columnId": "Name",
-                            "label": "Nazwa"
+                            "label": "Name (Nazwa)"
                         },
                         {
                             "columnId": "microsoft.network/applicationgateways--BackendResponseStatus",
@@ -1750,7 +1750,7 @@
                         },
                         {
                             "columnId": "Name",
-                            "label": "Nazwa"
+                            "label": "Name (Nazwa)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachinescalesets--Percentage CPU",
@@ -2011,7 +2011,7 @@
                         },
                         {
                             "columnId": "Name",
-                            "label": "Nazwa"
+                            "label": "Name (Nazwa)"
                         },
                         {
                             "columnId": "microsoft.compute/virtualmachines--Percentage CPU",
