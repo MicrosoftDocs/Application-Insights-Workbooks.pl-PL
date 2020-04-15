@@ -71,7 +71,7 @@
                         "id": "6b6b0bb3-667f-4fb8-9911-3b7f115c89ff",
                         "version": "KqlParameterItem/1.0",
                         "name": "UserName",
-                        "label": "Nazwa użytkownika",
+                        "label": "User Name (Nazwa użytkownika)",
                         "type": 2,
                         "isRequired": true,
                         "multiSelect": true,
