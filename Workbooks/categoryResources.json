@@ -1,0 +1,64 @@
+{
+    "categories": [
+        {
+            "key": "YourUniqueCategoryKey",
+            "settings": {
+                "en-us": {
+                    "name": "Your category name",
+                    "description": "Opis kategorii",
+                    "order": 100
+                }
+            }
+        },
+        {
+            "key": "azureMonitorVirtualMachines",
+            "settings": {
+                "en-us": {
+                    "name": "Virtual Machines",
+                    "description": "Analizowanie danych monitorowania z maszyn wirtualnych",
+                    "order": 100
+                }
+            }
+        },
+        {
+            "key": "azureMonitorVirtualMachinesPerf",
+            "settings": {
+                "en-us": {
+                    "name": "Virtual Machines (Perf)",
+                    "description": "Analizowanie danych monitorowania z maszyn wirtualnych",
+                    "order": 105
+                }
+            }
+        },
+        {
+            "key": "azureMonitorInsights",
+            "settings": {
+                "en-us": {
+                    "name": "Insights",
+                    "description": "Udostępnia szczegółowe informacje dla zasobów platformy Azure",
+                    "order": 2000
+                }
+            }
+        },
+        {
+            "key": "vmInsightsVirtualMachinesInsightsMetrics",
+            "settings": {
+                "en-us": {
+                    "name": "Performance Analysis (Insights Metrics)",
+                    "description": "Szukaj typowych problemów z maszynami wirtualnymi za pośrednictwem metryk",
+                    "order": 205
+                }
+            }
+        },
+        {
+            "key": "vmInsightsVirtualMachinesPerf",
+            "settings": {
+                "en-us": {
+                    "name": "Performance Analysis (Perf)",
+                    "description": "Szukaj typowych problemów z maszynami wirtualnymi za pośrednictwem metryk",
+                    "order": 205
+                }
+            }
+        }
+    ]
+}
