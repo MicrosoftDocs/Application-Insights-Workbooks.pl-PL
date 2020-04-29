@@ -7,11 +7,6 @@
             "type": "workbook",
             "resourceType": "microsoft.network/loadbalancers",
             "order": 100
-        },
-        {
-            "type": "workbook",
-            "resourceType": "Network Insights LoadBalancers Minified",
-            "order": 100
         }
     ]
 }
