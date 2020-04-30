@@ -1,0 +1,8 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "en-us": {
+        "name": "Szczegółowe informacje o zasobie",
+        "description": "Udostępnia szczegółowe informacje na poziomie zasobu",
+        "order": 100
+    }
+}
