@@ -567,6 +567,10 @@
                                 ],
                                 "labelSettings": [
                                     {
+                                        "columnId": "Subscription",
+                                        "label": "Subskrypcja"
+                                    },
+                                    {
                                         "columnId": "Segment",
                                         "label": "CollectionName"
                                     },
@@ -786,6 +790,10 @@
                                     }
                                 ],
                                 "labelSettings": [
+                                    {
+                                        "columnId": "Subscription",
+                                        "label": "Subskrypcja"
+                                    },
                                     {
                                         "columnId": "microsoft.documentdb/databaseaccounts-Requests-TotalRequests",
                                         "label": "Łączna liczba żądań"
@@ -1023,7 +1031,8 @@
                                 ],
                                 "labelSettings": [
                                     {
-                                        "columnId": "Subscription"
+                                        "columnId": "Subscription",
+                                        "label": "Subskrypcja"
                                     },
                                     {
                                         "columnId": "Name"
@@ -1214,6 +1223,10 @@
                                     }
                                 ],
                                 "labelSettings": [
+                                    {
+                                        "columnId": "Subscription",
+                                        "label": "Subskrypcja"
+                                    },
                                     {
                                         "columnId": "microsoft.documentdb/databaseaccounts-Requests-TotalRequests",
                                         "label": "Żądania"
