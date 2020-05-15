@@ -1,7 +1,6 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "Omówienie usługi Redis Cache",
-    "isPreview": true,
+    "name": "Omówienie usługi Azure Cache for Redis",
     "author": "Microsoft",
     "galleries": [
         {
