@@ -6,7 +6,7 @@ Szablon `Resource Picker` ułatwia rozpoczęcie pracy z parametrami subskrypcji,
 
 ## <a name="setting-up-the-resource-type-to-pick"></a>Konfigurowanie typu zasobu do wybrania
 
-1. Wybierz pozycję `Edit` na pasku narzędzi skoroszytu.
+1. Wybierz pozycję `Edit` (Edytuj) na pasku narzędzi skoroszytu.
 2. Teraz powinna być widoczna lista rozwijana `Resource type` przed elementem `Subscriptions`:
 
     ![Image (Obraz)](Parameter.png)
@@ -17,7 +17,7 @@ Szablon `Resource Picker` ułatwia rozpoczęcie pracy z parametrami subskrypcji,
 
 ## <a name="selecting-more-or-less-than-10-resources-by-default"></a>Domyślne wybieranie więcej lub mniej niż 10 zasobów
 
-1. Wybierz pozycję `Edit` na pasku narzędzi skoroszytu.
+1. Wybierz pozycję `Edit` (Edytuj) na pasku narzędzi skoroszytu.
 2. Kliknij przycisk `Edit` w prawym dolnym rogu kontrolki parametrów.
 3. W siatce parametrów wybierz wiersz `Resources`
 4. Kliknij pasek narzędzi kontrolki ikony `Edit` (lub ołówka).
