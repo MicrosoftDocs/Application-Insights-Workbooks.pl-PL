@@ -1,0 +1,568 @@
+{
+    "version": "Notebook/1.0",
+    "items": [
+        {
+            "type": 9,
+            "content": {
+                "version": "KqlParameterItem/1.0",
+                "parameters": [
+                    {
+                        "id": "834e8df6-01eb-4524-a245-7feebd184c1d",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "SqlDatabase",
+                        "type": 5,
+                        "isRequired": true,
+                        "value": "value::1",
+                        "typeSettings": {
+                            "additionalResourceOptions": [
+                                "value::1"
+                            ]
+                        },
+                        "resourceType": "microsoft.insights/components"
+                    },
+                    {
+                        "id": "0d87fd70-3f59-4824-b3ac-9867394090a5",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "SQLServer",
+                        "label": "SQL Server",
+                        "type": 5,
+                        "isRequired": true,
+                        "query": "Resources\n| where id =~ '{SqlDatabase}'\n| project SqlServer = extract('(.+/microsoft.sql/(managedinstances|servers)/.+)/databases/.+', 1, tolower(id))\n| project value = SqlServer, label = SqlServer, selected = true",
+                        "crossComponentResources": [
+                            "value::all"
+                        ],
+                        "typeSettings": {
+                            "resourceTypeFilter": {
+                                "microsoft.sql/managedinstances": true,
+                                "microsoft.sql/servers": true
+                            },
+                            "additionalResourceOptions": [],
+                            "showDefault": false
+                        },
+                        "queryType": 1,
+                        "resourceType": "microsoft.resourcegraph/resources"
+                    }
+                ],
+                "style": "above",
+                "queryType": 0,
+                "resourceType": "microsoft.insights/components"
+            },
+            "conditionalVisibility": {
+                "parameterName": "1",
+                "comparison": "isEqualTo",
+                "value": "2"
+            },
+            "name": "parameters - 0"
+        },
+        {
+            "type": 12,
+            "content": {
+                "version": "NotebookGroup/1.0",
+                "groupType": "editable",
+                "items": [
+                    {
+                        "type": 1,
+                        "content": {
+                            "json": "## <a name=\"azure-monitor-for-microsoft-sql-azure\"></a>Usługa Azure Monitor dla usługi Microsoft SQL Azure\n<br />\n\n![Logo SQL](https://raw.githubusercontent.com/acearun/managedsolutions/master/Templates/Logos/sql-azure-logo.jpg)\n"
+                        },
+                        "name": "text - 2"
+                    },
+                    {
+                        "type": 11,
+                        "content": {
+                            "version": "LinkItem/1.0",
+                            "style": "tabs",
+                            "links": [
+                                {
+                                    "cellValue": "selectedTab",
+                                    "linkTarget": "parameter",
+                                    "linkLabel": "Omówienie",
+                                    "subTarget": "Overview",
+                                    "style": "link"
+                                },
+                                {
+                                    "cellValue": "selectedTab",
+                                    "linkTarget": "parameter",
+                                    "linkLabel": "Wymagania wstępne",
+                                    "subTarget": "Prerequisites",
+                                    "style": "link"
+                                },
+                                {
+                                    "cellValue": "selectedTab",
+                                    "linkTarget": "parameter",
+                                    "linkLabel": "Konfigurowanie monitorowania",
+                                    "subTarget": "Configure",
+                                    "style": "link"
+                                }
+                            ]
+                        },
+                        "name": "links - 5",
+                        "styleSettings": {
+                            "margin": "15px 0 0 0"
+                        }
+                    },
+                    {
+                        "type": 12,
+                        "content": {
+                            "version": "NotebookGroup/1.0",
+                            "groupType": "editable",
+                            "items": [
+                                {
+                                    "type": 1,
+                                    "content": {
+                                        "json": "Środowiska SQL Server są coraz bardziej złożone, a jednocześnie nadal są krytycznym składnikiem architektury aplikacji. Pozostanie na bieżąco z tym ciągłym rozwojem bez odpowiednich narzędzi do monitorowania SQL jest wyzwaniem. A co gdyby można było aktywnie zarządzać środowiskiem SQL Server i diagnozować problemy z wydajnością bazy danych, wyświetlając kondycję wszystkich wystąpień SQL Server na jednym ekranie, w dowolnym miejscu i czasie oraz na dowolnym urządzeniu? Jest to możliwe dzięki odpowiedniemu narzędziu do monitorowania programu SQL Server.\n\nUsługa Azure Monitor dla programu SQL Server umożliwia zarządzanie środowiskiem SQL Server, jednocześnie zapewniając wgląd w system operacyjny — Windows lub Linux — a także monitorowanie infrastruktury wirtualizacji. Ułatw konfigurowanie, korzystając z szablonów, zautomatyzowanych alertów i akcji, które można dostosować. Poświęcaj mniej czasu na gaszenie pożarów dzięki precyzyjnemu diagnozowaniu problemów z wydajnością bazy danych występujących historycznie i w czasie rzeczywistym, a także koncentrowaniu się na bardziej aktywnych środkach, takich jak dostrajanie zapytań.\n\n[Obejrzyj wideo]()<br />\n[Więcej informacji]()<br />\n[Dokumentacja]()<br />"
+                                    },
+                                    "name": "text - 0"
+                                }
+                            ]
+                        },
+                        "conditionalVisibility": {
+                            "parameterName": "selectedTab",
+                            "comparison": "isEqualTo",
+                            "value": "Overview"
+                        },
+                        "name": "Overview group"
+                    },
+                    {
+                        "type": 12,
+                        "content": {
+                            "version": "NotebookGroup/1.0",
+                            "groupType": "editable",
+                            "items": [
+                                {
+                                    "type": 1,
+                                    "content": {
+                                        "json": "#### <a name=\"create-sql-user-accounts\"></a>Tworzenie kont użytkowników SQL\nMusisz utworzyć identyfikator logowania w każdym wystąpieniu, które ma być monitorowane, przy użyciu następującego skryptu:\n\n```\nCREATE USER [telegraf] WITH PASSWORD = N'mystrongpassword';\nGO\nGRANT VIEW DATABASE STATE TO [telegraf];\nGO\n```\n\n#### <a name=\"enable-firewall-rules\"></a>Włączanie reguł zapory\nWłącz reguły zapory, aby zezwolić maszynie wirtualnej zdalnego monitorowania na dostęp do wystąpienia programu SQL Server."
+                                    },
+                                    "name": "text - 0"
+                                }
+                            ]
+                        },
+                        "conditionalVisibility": {
+                            "parameterName": "selectedTab",
+                            "comparison": "isEqualTo",
+                            "value": "Prerequisites"
+                        },
+                        "name": "Prerequisites group"
+                    },
+                    {
+                        "type": 12,
+                        "content": {
+                            "version": "NotebookGroup/1.0",
+                            "groupType": "editable",
+                            "items": [
+                                {
+                                    "type": 11,
+                                    "content": {
+                                        "version": "LinkItem/1.0",
+                                        "style": "paragraph",
+                                        "links": [
+                                            {
+                                                "cellValue": "{SqlDatabase}",
+                                                "linkTarget": "Resource",
+                                                "linkLabel": "{SqlDatabase:name}",
+                                                "preText": "Włącz monitorowanie:",
+                                                "style": "link"
+                                            }
+                                        ]
+                                    },
+                                    "name": "links - 5"
+                                },
+                                {
+                                    "type": 1,
+                                    "content": {
+                                        "json": "**Informacje o użytkowniku SQL**\n\nUsługa Azure Monitor musi mieć dostęp do informacji o kondycji przechowywanych w tabelach dynamicznego widoku zarządzania programu SQL Server. Utwórz użytkownika z uprawnieniami określonymi na karcie `Prerequisite` (Wymagania wstępne) i podaj poniżej poświadczenia użytkownika. Aby chronić wpisy tajne, wymagamy przywoływania hasła SQL z usługi Azure Key Vault."
+                                    },
+                                    "name": "text - 3"
+                                },
+                                {
+                                    "type": 9,
+                                    "content": {
+                                        "version": "KqlParameterItem/1.0",
+                                        "crossComponentResources": [
+                                            "value::all"
+                                        ],
+                                        "parameters": [
+                                            {
+                                                "id": "32c19967-de7d-4271-bb5b-49d442975c84",
+                                                "version": "KqlParameterItem/1.0",
+                                                "name": "User",
+                                                "label": "Użytkownik SQL",
+                                                "type": 1,
+                                                "isRequired": true,
+                                                "value": "telegraf",
+                                                "resourceType": "microsoft.insights/components"
+                                            },
+                                            {
+                                                "id": "0fcd1a59-1ca7-4e29-a0c7-6eb5b032ef6a",
+                                                "version": "KqlParameterItem/1.0",
+                                                "name": "SqlServerName",
+                                                "label": "Nazwa serwera SQL",
+                                                "type": 1,
+                                                "isRequired": true,
+                                                "query": "Resources\n| where id =~ '{SQLServer}'\n| project server = tostring(properties.fullyQualifiedDomainName)",
+                                                "crossComponentResources": [
+                                                    "value::all"
+                                                ],
+                                                "isHiddenWhenLocked": true,
+                                                "queryType": 1,
+                                                "resourceType": "microsoft.resourcegraph/resources"
+                                            },
+                                            {
+                                                "id": "68ebbee9-6f73-45a0-b13c-5bc85ea913ff",
+                                                "version": "KqlParameterItem/1.0",
+                                                "name": "SqlDatabaseName",
+                                                "label": "Nazwa bazy danych SQL",
+                                                "type": 1,
+                                                "isRequired": true,
+                                                "query": "Resources\n| where id =~ '{SQLServer}'\n| project database = extract('.+/microsoft.sql/servers/.+/databases/(.+)', 1, tolower('{SqlDatabase}'))\n",
+                                                "crossComponentResources": [
+                                                    "value::all"
+                                                ],
+                                                "isHiddenWhenLocked": true,
+                                                "queryType": 1,
+                                                "resourceType": "microsoft.resourcegraph/resources"
+                                            }
+                                        ],
+                                        "style": "above",
+                                        "queryType": 1,
+                                        "resourceType": "microsoft.resourcegraph/resources"
+                                    },
+                                    "name": "parameters - 1"
+                                },
+                                {
+                                    "type": 1,
+                                    "content": {
+                                        "json": "**Hasło SQL z usługi Azure Key Vault**\n"
+                                    },
+                                    "name": "text - 7"
+                                },
+                                {
+                                    "type": 9,
+                                    "content": {
+                                        "version": "KqlParameterItem/1.0",
+                                        "parameters": [
+                                            {
+                                                "id": "32c19967-de7d-4271-bb5b-49d442975c84",
+                                                "version": "KqlParameterItem/1.0",
+                                                "name": "KVSubscription",
+                                                "label": "Subskrypcje magazynu kluczy",
+                                                "type": 6,
+                                                "isRequired": true,
+                                                "multiSelect": true,
+                                                "quote": "'",
+                                                "delimiter": ",",
+                                                "query": "Resources\n| summarize by subscriptionId\n| project value = subscriptionId, label = subscriptionId, selected = ('{SQLServer}' startswith strcat('/subscriptions/', subscriptionId))\n",
+                                                "crossComponentResources": [
+                                                    "value::all"
+                                                ],
+                                                "typeSettings": {
+                                                    "additionalResourceOptions": [],
+                                                    "showDefault": false
+                                                },
+                                                "queryType": 1,
+                                                "resourceType": "microsoft.resourcegraph/resources"
+                                            },
+                                            {
+                                                "id": "2201e66d-6d1f-453b-9043-dfee2c8d435e",
+                                                "version": "KqlParameterItem/1.0",
+                                                "name": "KeyVault",
+                                                "label": "Magazyn kluczy",
+                                                "type": 5,
+                                                "isRequired": true,
+                                                "query": "Resources\n| where type =~ 'microsoft.keyvault/vaults'\n| project value = id, label = id, selected = false, group = resourceGroup",
+                                                "crossComponentResources": [
+                                                    "{KVSubscription}"
+                                                ],
+                                                "value": null,
+                                                "typeSettings": {
+                                                    "additionalResourceOptions": [],
+                                                    "showDefault": false
+                                                },
+                                                "queryType": 1,
+                                                "resourceType": "microsoft.resourcegraph/resources"
+                                            },
+                                            {
+                                                "id": "4246980a-539a-4228-ab89-86d5260a00f9",
+                                                "version": "KqlParameterItem/1.0",
+                                                "name": "SecretName",
+                                                "label": "Nazwa wpisu tajnego",
+                                                "type": 1,
+                                                "isRequired": true,
+                                                "resourceType": "microsoft.insights/components"
+                                            },
+                                            {
+                                                "id": "a52b8dc2-80a1-4b9a-b5e6-a0910769f727",
+                                                "version": "KqlParameterItem/1.0",
+                                                "name": "KeyVaultSecretReference",
+                                                "type": 1,
+                                                "isRequired": true,
+                                                "query": "Resources\n| where id == '{KeyVault}'\n| project value = strcat('{ \"keyVault\": { \"id\": \"', id, '\" }, \"secretName\": \"{SecretName}\" }')",
+                                                "crossComponentResources": [
+                                                    "{KVSubscription}"
+                                                ],
+                                                "isHiddenWhenLocked": true,
+                                                "queryType": 1,
+                                                "resourceType": "microsoft.resourcegraph/resources"
+                                            }
+                                        ],
+                                        "style": "above",
+                                        "queryType": 0,
+                                        "resourceType": "microsoft.insights/components"
+                                    },
+                                    "name": "Keyvault parameters"
+                                },
+                                {
+                                    "type": 1,
+                                    "content": {
+                                        "json": "**Maszyna wirtualna zdalnego monitorowania**\n\nWybierz maszynę wirtualną, która będzie zdalnie monitorować wystąpienia usługi SQL Azure przy użyciu podanych powyżej poświadczeń. Na maszynie należy dołączyć agenta pakietu OMS skonfigurowanego do wysyłania danych do obszarów roboczych usługi Log Analytics, do których masz dostęp. Obecnie musi to być również maszyna wirtualna z systemem Ubuntu w regionie Wschodnie stany USA, Zachodnie stany USA lub Środkowe stany USA."
+                                    },
+                                    "name": "text - 4"
+                                },
+                                {
+                                    "type": 9,
+                                    "content": {
+                                        "version": "KqlParameterItem/1.0",
+                                        "crossComponentResources": [
+                                            "{VmSubscription}"
+                                        ],
+                                        "parameters": [
+                                            {
+                                                "id": "32c19967-de7d-4271-bb5b-49d442975c84",
+                                                "version": "KqlParameterItem/1.0",
+                                                "name": "VmSubscription",
+                                                "label": "Subskrypcje maszyn wirtualnych monitorowania",
+                                                "type": 6,
+                                                "isRequired": true,
+                                                "multiSelect": true,
+                                                "quote": "'",
+                                                "delimiter": ",",
+                                                "query": "Resources\n| summarize by subscriptionId\n| project value = subscriptionId, label = subscriptionId, selected = ('{SQLServer}' startswith strcat('/subscriptions/', subscriptionId))\n",
+                                                "crossComponentResources": [
+                                                    "value::all"
+                                                ],
+                                                "typeSettings": {
+                                                    "additionalResourceOptions": [],
+                                                    "showDefault": false
+                                                },
+                                                "queryType": 1,
+                                                "resourceType": "microsoft.resourcegraph/resources"
+                                            },
+                                            {
+                                                "id": "2201e66d-6d1f-453b-9043-dfee2c8d435e",
+                                                "version": "KqlParameterItem/1.0",
+                                                "name": "VirtualMachine",
+                                                "label": "Maszyna wirtualna monitorowania",
+                                                "type": 5,
+                                                "isRequired": true,
+                                                "query": "Resources\n    | where type =~ 'microsoft.compute/virtualmachines'\n    | project Vm = tolower(id), resourceGroup, VmLocation = location\n    | join kind = inner (Resources\n        | where type =~ 'microsoft.compute/virtualmachines/extensions' and name in~ ('omsextension', 'omsagentforlinux')\n        | project Vm = extract(@'(.+)/extensions/.+', 1, tolower(id)), WorkspaceId = tostring(properties.settings.workspaceId), name\n        | where Vm != ''and WorkspaceId != ''\n        ) on $left.Vm == $right.Vm\n    | project-away Vm1\n    | join kind = leftouter (Resources\n        | where type =~ 'microsoft.operationalinsights/workspaces'\n        | project Workspace = id, location, WorkspaceId = tostring(properties.customerId)) on WorkspaceId\n| where Workspace != '' and VmLocation in ('centralus', 'eastus', 'westus')\n| project value = Vm, label = Vm, selected = false, group = resourceGroup",
+                                                "crossComponentResources": [
+                                                    "{VmSubscription}"
+                                                ],
+                                                "typeSettings": {
+                                                    "additionalResourceOptions": [],
+                                                    "showDefault": false
+                                                },
+                                                "queryType": 1,
+                                                "resourceType": "microsoft.resourcegraph/resources",
+                                                "value": null
+                                            },
+                                            {
+                                                "id": "9b02eb23-3e8b-45bd-8ab7-d78b2afe177d",
+                                                "version": "KqlParameterItem/1.0",
+                                                "name": "Workspace",
+                                                "type": 5,
+                                                "isRequired": true,
+                                                "query": "Resources\n| where type =~ 'microsoft.compute/virtualmachines/extensions' and name in~ ('omsextension', 'omsagentforlinux') and id startswith '{VirtualMachine}'\n| project WorkspaceId = tostring(properties.settings.workspaceId)\n| join kind = inner (Resources\n| where type =~ 'microsoft.operationalinsights/workspaces'\n| project id, WorkspaceId = tostring(properties.customerId)) on WorkspaceId\n| project value = id, label = id, selected = true",
+                                                "crossComponentResources": [
+                                                    "value::all"
+                                                ],
+                                                "isHiddenWhenLocked": true,
+                                                "typeSettings": {
+                                                    "additionalResourceOptions": [],
+                                                    "showDefault": false
+                                                },
+                                                "queryType": 1,
+                                                "resourceType": "microsoft.resourcegraph/resources"
+                                            },
+                                            {
+                                                "id": "af9541a0-c777-4135-97b0-0588838105fc",
+                                                "version": "KqlParameterItem/1.0",
+                                                "name": "WorkspaceLocation",
+                                                "type": 8,
+                                                "isRequired": true,
+                                                "query": "Resources\n| where id =~ '{Workspace}'\n| project value = location, label = location, selected = true\n",
+                                                "crossComponentResources": [
+                                                    "value::all"
+                                                ],
+                                                "isHiddenWhenLocked": true,
+                                                "typeSettings": {
+                                                    "additionalResourceOptions": [],
+                                                    "showDefault": false
+                                                },
+                                                "queryType": 1,
+                                                "resourceType": "microsoft.resourcegraph/resources"
+                                            },
+                                            {
+                                                "id": "00b7e08c-215e-47f6-9de4-0e771636e4a9",
+                                                "version": "KqlParameterItem/1.0",
+                                                "name": "VmName",
+                                                "type": 1,
+                                                "isRequired": true,
+                                                "query": "Resources\n| where id =~ '{VirtualMachine}'\n| project name",
+                                                "crossComponentResources": [
+                                                    "{VmSubscription}"
+                                                ],
+                                                "isHiddenWhenLocked": true,
+                                                "queryType": 1,
+                                                "resourceType": "microsoft.resourcegraph/resources"
+                                            },
+                                            {
+                                                "id": "cc59a918-8843-438e-9796-d4cfa5928eb8",
+                                                "version": "KqlParameterItem/1.0",
+                                                "name": "ResourceGroup",
+                                                "type": 1,
+                                                "isRequired": true,
+                                                "query": "Resources\n| where id =~ '{VirtualMachine}'\n| project rg = strcat('/subscriptions/', subscriptionId, '/resourceGroups/', resourceGroup)",
+                                                "crossComponentResources": [
+                                                    "{VmSubscription}"
+                                                ],
+                                                "isHiddenWhenLocked": true,
+                                                "queryType": 1,
+                                                "resourceType": "microsoft.resourcegraph/resources"
+                                            }
+                                        ],
+                                        "style": "above",
+                                        "queryType": 1,
+                                        "resourceType": "microsoft.resourcegraph/resources"
+                                    },
+                                    "name": "parameters - 1 - Copy"
+                                },
+                                {
+                                    "type": 11,
+                                    "content": {
+                                        "version": "LinkItem/1.0",
+                                        "style": "paragraph",
+                                        "links": [
+                                            {
+                                                "cellValue": "",
+                                                "linkTarget": "ArmTemplate",
+                                                "linkLabel": "Włącz monitorowanie bazy danych SQL >",
+                                                "style": "primary",
+                                                "linkIsContextBlade": true,
+                                                "templateRunContext": {
+                                                    "componentIdSource": "parameter",
+                                                    "componentId": "ResourceGroup",
+                                                    "templateUriSource": "static",
+                                                    "templateUri": "https://raw.githubusercontent.com/acearun/managedsolutions/master/Templates/SqlAzure-watcher/keyvaultdeploy.json",
+                                                    "templateParameters": [
+                                                        {
+                                                            "name": "vmName",
+                                                            "source": "parameter",
+                                                            "value": "VmName",
+                                                            "kind": "value"
+                                                        },
+                                                        {
+                                                            "name": "omsWorkspaceId",
+                                                            "source": "parameter",
+                                                            "value": "Workspace",
+                                                            "kind": "value"
+                                                        },
+                                                        {
+                                                            "name": "workspaceRegion",
+                                                            "source": "parameter",
+                                                            "value": "WorkspaceLocation",
+                                                            "kind": "value"
+                                                        },
+                                                        {
+                                                            "name": "sqlAzureResourceId",
+                                                            "source": "parameter",
+                                                            "value": "SqlDatabase",
+                                                            "kind": "value"
+                                                        },
+                                                        {
+                                                            "name": "sqlServer",
+                                                            "source": "parameter",
+                                                            "value": "SqlServerName",
+                                                            "kind": "value"
+                                                        },
+                                                        {
+                                                            "name": "sqlDatabase",
+                                                            "source": "parameter",
+                                                            "value": "SqlDatabaseName",
+                                                            "kind": "value"
+                                                        },
+                                                        {
+                                                            "name": "sqlUserName",
+                                                            "source": "parameter",
+                                                            "value": "User",
+                                                            "kind": "value"
+                                                        },
+                                                        {
+                                                            "name": "sqlPassword",
+                                                            "source": "parameter",
+                                                            "value": "KeyVaultSecretReference",
+                                                            "kind": "reference"
+                                                        }
+                                                    ],
+                                                    "titleSource": "static",
+                                                    "title": "Włącz usługę Azure Monitor dla programu Microsoft SQL Server",
+                                                    "descriptionSource": "static",
+                                                    "description": "![Logo SQL](https://raw.githubusercontent.com/acearun/managedsolutions/master/Templates/Logos/sql-azure-logo.jpg)\n\n<br/>\n<br/>\nJesteśmy gotowi do włączenia usługi Azure Monitor dla programu SQL Server na maszynie wirtualnej. Wybierz pozycję **Włącz monitorowanie**, aby rozpocząć monitorowanie przy użyciu zalecanych ustawień.\n",
+                                                    "runLabelSource": "static",
+                                                    "runLabel": "Enable monitoring"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "conditionalVisibility": {
+                                        "parameterName": "Workspace",
+                                        "comparison": "isNotEqualTo"
+                                    },
+                                    "conditionalVisibilities": [
+                                        {
+                                            "parameterName": "Workspace",
+                                            "comparison": "isNotEqualTo"
+                                        },
+                                        {
+                                            "parameterName": "WorkspaceLocation",
+                                            "comparison": "isNotEqualTo"
+                                        },
+                                        {
+                                            "parameterName": "VmName",
+                                            "comparison": "isNotEqualTo"
+                                        },
+                                        {
+                                            "parameterName": "ResourceGroup",
+                                            "comparison": "isNotEqualTo"
+                                        },
+                                        {
+                                            "parameterName": "User",
+                                            "comparison": "isNotEqualTo"
+                                        },
+                                        {
+                                            "parameterName": "KeyVaultSecretReference",
+                                            "comparison": "isNotEqualTo"
+                                        }
+                                    ],
+                                    "name": "links - 4",
+                                    "styleSettings": {
+                                        "margin": "20px 0 0 0"
+                                    }
+                                }
+                            ]
+                        },
+                        "conditionalVisibility": {
+                            "parameterName": "selectedTab",
+                            "comparison": "isEqualTo",
+                            "value": "Configure"
+                        },
+                        "name": "Configure group"
+                    }
+                ]
+            },
+            "name": "Overview group"
+        }
+    ],
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"
+}

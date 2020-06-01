@@ -1,0 +1,12 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "name": "Dołączanie usługi MySQL Insights",
+    "author": "Microsoft",
+    "galleries": [
+        {
+            "type": "workload-insights",
+            "resourceType": "Azure Monitor",
+            "order": 600
+        }
+    ]
+}
