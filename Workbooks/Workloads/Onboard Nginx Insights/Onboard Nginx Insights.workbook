@@ -1,0 +1,297 @@
+{
+    "version": "Notebook/1.0",
+    "items": [
+        {
+            "type": 9,
+            "content": {
+                "version": "KqlParameterItem/1.0",
+                "parameters": [
+                    {
+                        "id": "0d87fd70-3f59-4824-b3ac-9867394090a5",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "VirtualMachine",
+                        "type": 5,
+                        "isRequired": true,
+                        "value": "value::1",
+                        "typeSettings": {
+                            "resourceTypeFilter": {
+                                "microsoft.compute/virtualmachines": true
+                            },
+                            "additionalResourceOptions": [
+                                "value::1"
+                            ]
+                        },
+                        "resourceType": "microsoft.insights/components"
+                    },
+                    {
+                        "id": "5f0382e3-69e0-40be-ad21-cca781fe81e1",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "Workspace",
+                        "type": 5,
+                        "isRequired": true,
+                        "query": "Resources\r\n| where type =~ 'microsoft.compute/virtualmachines/extensions' and name =~ 'OmsAgentForLinux' and id startswith '{VirtualMachine}'\r\n| project WorkspaceId = tostring(properties.settings.workspaceId)\r\n| join kind = inner (Resources\r\n| where type =~ 'microsoft.operationalinsights/workspaces'\r\n| project id, WorkspaceId = tostring(properties.customerId)) on WorkspaceId\r\n| project value = id, label = id, selected = true",
+                        "crossComponentResources": [
+                            "value::all"
+                        ],
+                        "typeSettings": {
+                            "additionalResourceOptions": [],
+                            "showDefault": false
+                        },
+                        "queryType": 1,
+                        "resourceType": "microsoft.resourcegraph/resources",
+                        "value": null
+                    },
+                    {
+                        "id": "b189ae66-10a0-417b-8e1e-dc3b9b4ae028",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "WorkspaceLocation",
+                        "type": 8,
+                        "isRequired": true,
+                        "query": "Resources\r\n| where id =~ '{Workspace}'\r\n| project value = location, label = location, selected = true\r\n",
+                        "crossComponentResources": [
+                            "value::all"
+                        ],
+                        "typeSettings": {
+                            "additionalResourceOptions": [],
+                            "showDefault": false
+                        },
+                        "queryType": 1,
+                        "resourceType": "microsoft.resourcegraph/resources"
+                    },
+                    {
+                        "id": "7b1d0a3f-4341-47a5-9f2c-990d5b1faaab",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "VmName",
+                        "type": 1,
+                        "isRequired": true,
+                        "query": "Resources\r\n| where id =~ '{VirtualMachine}'\r\n| project name",
+                        "queryType": 1,
+                        "resourceType": "microsoft.resourcegraph/resources"
+                    },
+                    {
+                        "id": "504c4e1f-42e8-4628-adfe-17fa76991377",
+                        "version": "KqlParameterItem/1.0",
+                        "name": "ResourceGroup",
+                        "type": 1,
+                        "isRequired": true,
+                        "query": "Resources\r\n| where id =~ '{VirtualMachine}'\r\n| project rg = strcat('/subscriptions/', subscriptionId, '/resourceGroups/', resourceGroup)",
+                        "queryType": 1,
+                        "resourceType": "microsoft.resourcegraph/resources"
+                    }
+                ],
+                "style": "above",
+                "queryType": 1,
+                "resourceType": "microsoft.resourcegraph/resources"
+            },
+            "conditionalVisibility": {
+                "parameterName": "1",
+                "comparison": "isEqualTo",
+                "value": "2"
+            },
+            "name": "parameters - 0"
+        },
+        {
+            "type": 12,
+            "content": {
+                "version": "NotebookGroup/1.0",
+                "groupType": "editable",
+                "items": [
+                    {
+                        "type": 1,
+                        "content": {
+                            "json": "## <a name=\"azure-monitor-for-nginx\"></a>Usługa Azure Monitor dla serwera NGINX"
+                        },
+                        "name": "text - 2"
+                    },
+                    {
+                        "type": 1,
+                        "content": {
+                            "json": "![Logo Nginx](https://raw.githubusercontent.com/acearun/managedsolutions/master/Templates/Nginx/nginx-logo.jpg)\n"
+                        },
+                        "name": "text - 2 - Copy",
+                        "styleSettings": {
+                            "margin": "20px 0 0 50px"
+                        }
+                    },
+                    {
+                        "type": 11,
+                        "content": {
+                            "version": "LinkItem/1.0",
+                            "style": "tabs",
+                            "links": [
+                                {
+                                    "cellValue": "selectedTab",
+                                    "linkTarget": "parameter",
+                                    "linkLabel": "Omówienie",
+                                    "subTarget": "Overview",
+                                    "style": "link"
+                                },
+                                {
+                                    "cellValue": "selectedTab",
+                                    "linkTarget": "parameter",
+                                    "linkLabel": "Wymagania wstępne",
+                                    "subTarget": "Prerequisites",
+                                    "style": "link"
+                                },
+                                {
+                                    "cellValue": "selectedTab",
+                                    "linkTarget": "parameter",
+                                    "linkLabel": "Konfigurowanie monitorowania",
+                                    "subTarget": "Configure",
+                                    "style": "link"
+                                }
+                            ]
+                        },
+                        "name": "links - 5",
+                        "styleSettings": {
+                            "margin": "15px 0 0 0"
+                        }
+                    },
+                    {
+                        "type": 12,
+                        "content": {
+                            "version": "NotebookGroup/1.0",
+                            "groupType": "editable",
+                            "items": [
+                                {
+                                    "type": 1,
+                                    "content": {
+                                        "json": "NGINX to programowy moduł równoważenia obciążenia, serwer internetowy i pamięć podręczna zawartości oparta na serwerze NGINX typu open source. Serwer NGINX ma wyjątkowe funkcje klasy korporacyjnej, które wykraczają poza to, co jest oferowane w ofercie typu open source, w tym trwałość sesji, konfigurację za pośrednictwem interfejsu API i aktywne kontrole kondycji. Zastosuj serwer NGINX zamiast sprzętowego modułu równoważenia obciążenia i zyskaj swobodę wprowadzania innowacji bez ograniczeń narzucanych przez infrastrukturę.\n\nDzięki usłudze Azure Monitor dla serwera NGINX możesz zarządzać klastrem NGINX, jednocześnie uzyskując wgląd w system operacyjny — Windows lub Linux. Ułatw konfigurowanie, korzystając z szablonów, zautomatyzowanych alertów i akcji, które można dostosować. Poświęcaj mniej czasu na gaszenie pożarów dzięki precyzyjnemu diagnozowaniu problemów z wydajnością modułu równoważenia obciążenia występujących historycznie i w czasie rzeczywistym, a także koncentrowaniu się na bardziej aktywnych środkach, takich jak skalowanie w poziomie.\n<br />\n<br />\n[Obejrzyj wideo]()<br />\n[Więcej informacji]()<br />\n[Dokumentacja]()<br />"
+                                    },
+                                    "name": "text - 0"
+                                }
+                            ]
+                        },
+                        "conditionalVisibility": {
+                            "parameterName": "selectedTab",
+                            "comparison": "isEqualTo",
+                            "value": "Overview"
+                        },
+                        "name": "Overview group"
+                    },
+                    {
+                        "type": 12,
+                        "content": {
+                            "version": "NotebookGroup/1.0",
+                            "groupType": "editable",
+                            "items": [
+                                {
+                                    "type": 1,
+                                    "content": {
+                                        "json": "Na serwerze NGINX należy skonfigurować moduł http_stub_status_module, aby umożliwić zbieranie metryk użycia. W tym celu można włączyć opcję sub_status w lokalnym pliku konfiguracji (np. `/etc/nginx/conf.d/status.conf`)\n```\nserver { \n    \n    listen 127.0.0.1:9090;\n    location /nginx_status {\n        stub_status on;\n\n        access_log off;\n        allow 127.0.0.1;\n        deny all;\n    }\n}\n```\n\n"
+                                    },
+                                    "name": "text - 0"
+                                }
+                            ]
+                        },
+                        "conditionalVisibility": {
+                            "parameterName": "selectedTab",
+                            "comparison": "isEqualTo",
+                            "value": "Prerequisites"
+                        },
+                        "name": "Prerequisites group"
+                    },
+                    {
+                        "type": 12,
+                        "content": {
+                            "version": "NotebookGroup/1.0",
+                            "groupType": "editable",
+                            "items": [
+                                {
+                                    "type": 1,
+                                    "content": {
+                                        "json": "Usługa Azure Monitor wymaga identyfikatora URI punktu końcowego statystyki elementu zastępczego NGINX, aby zbierać metryki użycia i inne metryki. "
+                                    },
+                                    "name": "text - 3"
+                                },
+                                {
+                                    "type": 9,
+                                    "content": {
+                                        "version": "KqlParameterItem/1.0",
+                                        "parameters": [
+                                            {
+                                                "id": "0fcd1a59-1ca7-4e29-a0c7-6eb5b032ef6a",
+                                                "version": "KqlParameterItem/1.0",
+                                                "name": "StubStatusUris",
+                                                "label": "Identyfikator URI stanu elementu zastępczego",
+                                                "type": 1,
+                                                "resourceType": "microsoft.insights/components",
+                                                "value": "http://127.0.0.1:9090/nginx_status"
+                                            }
+                                        ],
+                                        "style": "above",
+                                        "queryType": 0,
+                                        "resourceType": "microsoft.compute/virtualmachines"
+                                    },
+                                    "name": "parameters - 1"
+                                },
+                                {
+                                    "type": 11,
+                                    "content": {
+                                        "version": "LinkItem/1.0",
+                                        "style": "paragraph",
+                                        "links": [
+                                            {
+                                                "cellValue": "f",
+                                                "linkTarget": "ArmTemplate",
+                                                "linkLabel": "Włącz monitorowanie serwera NGINX >",
+                                                "style": "primary",
+                                                "linkIsContextBlade": true,
+                                                "templateRunContext": {
+                                                    "componentIdSource": "parameter",
+                                                    "componentId": "ResourceGroup",
+                                                    "templateUriSource": "static",
+                                                    "templateUri": "https://raw.githubusercontent.com/acearun/managedsolutions/master/Templates/Nginx/azuredeploy.json",
+                                                    "templateParameters": [
+                                                        {
+                                                            "name": "vmName",
+                                                            "source": "parameter",
+                                                            "value": "VmName"
+                                                        },
+                                                        {
+                                                            "name": "omsWorkspaceId",
+                                                            "source": "parameter",
+                                                            "value": "Workspace"
+                                                        },
+                                                        {
+                                                            "name": "workspaceRegion",
+                                                            "source": "parameter",
+                                                            "value": "WorkspaceLocation"
+                                                        },
+                                                        {
+                                                            "name": "nginxStatsUrls",
+                                                            "source": "parameter",
+                                                            "value": "StubStatusUris"
+                                                        }
+                                                    ],
+                                                    "titleSource": "static",
+                                                    "title": "Włącz usługę Azure Monitor dla serwera NGINX",
+                                                    "descriptionSource": "static",
+                                                    "description": "![Logo SQL](https://raw.githubusercontent.com/acearun/managedsolutions/master/Templates/DeployVme/nginx-logo.jpg)\n\n<br/>\n<br/>\nJesteśmy gotowi do włączenia usługi Azure Monitor dla serwera NGINX na maszynie wirtualnej. Wybierz pozycję **Włącz monitorowanie**, aby rozpocząć monitorowanie przy użyciu zalecanych ustawień.\n",
+                                                    "runLabelSource": "static",
+                                                    "runLabel": "Enable monitoring"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "name": "links - 4",
+                                    "styleSettings": {
+                                        "margin": "20px 0 0 0"
+                                    }
+                                }
+                            ]
+                        },
+                        "conditionalVisibility": {
+                            "parameterName": "selectedTab",
+                            "comparison": "isEqualTo",
+                            "value": "Configure"
+                        },
+                        "name": "Configure group"
+                    }
+                ]
+            },
+            "name": "Overview group"
+        }
+    ],
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"
+}
