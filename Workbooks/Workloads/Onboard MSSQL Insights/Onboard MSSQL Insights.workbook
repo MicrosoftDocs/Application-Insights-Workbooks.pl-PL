@@ -32,7 +32,7 @@
                         "name": "Workspace",
                         "type": 5,
                         "isRequired": true,
-                        "query": "Resources\r\n| where type =~ 'microsoft.compute/virtualmachines/extensions' and name in~ ('omsagentforlinux', 'OMSExtension') and id startswith '{VirtualMachine}'\r\n| project WorkspaceId = tostring(properties.settings.workspaceId)\r\n| join kind = inner (Resources\r\n| where type =~ 'microsoft.operationalinsights/workspaces'\r\n| project id, WorkspaceId = tostring(properties.customerId)) on WorkspaceId\r\n| project value = id, label = id, selected = true",
+                        "query": "Resources\r\n| where type =~ 'microsoft.compute/virtualmachines/extensions' and properties.type == 'OmsAgentForLinux' and properties.publisher == 'Microsoft.EnterpriseCloud.Monitoring' and id startswith '{VirtualMachine}'\r\n| project WorkspaceId = tostring(properties.settings.workspaceId)\r\n| join kind = inner (Resources\r\n| where type =~ 'microsoft.operationalinsights/workspaces'\r\n| project id, WorkspaceId = tostring(properties.customerId)) on WorkspaceId\r\n| project value = id, label = id, selected = true",
                         "crossComponentResources": [
                             "value::all"
                         ],
@@ -158,7 +158,7 @@
                                 {
                                     "type": 1,
                                     "content": {
-                                        "json": "Środowiska SQL Server są coraz bardziej złożone, a jednocześnie nadal są krytycznym składnikiem architektury aplikacji. Pozostanie na bieżąco z tym ciągłym rozwojem bez odpowiednich narzędzi do monitorowania SQL jest wyzwaniem. A co gdyby można było aktywnie zarządzać środowiskiem SQL Server i diagnozować problemy z wydajnością bazy danych, wyświetlając kondycję wszystkich wystąpień SQL Server na jednym ekranie, w dowolnym miejscu i czasie oraz na dowolnym urządzeniu? Jest to możliwe dzięki odpowiedniemu narzędziu do monitorowania programu SQL Server.\n\nUsługa Azure Monitor dla programu SQL Server umożliwia zarządzanie środowiskiem SQL Server, jednocześnie zapewniając wgląd w system operacyjny — Windows lub Linux — a także monitorowanie infrastruktury wirtualizacji. Ułatw konfigurowanie, korzystając z szablonów, zautomatyzowanych alertów i akcji, które można dostosować. Poświęcaj mniej czasu na gaszenie pożarów dzięki precyzyjnemu diagnozowaniu problemów z wydajnością bazy danych występujących historycznie i w czasie rzeczywistym, a także koncentrowaniu się na bardziej aktywnych środkach, takich jak dostrajanie zapytań.\n\n[Obejrzyj wideo]()<br />\n[Więcej informacji]()<br />\n[Dokumentacja]()<br />"
+                                        "json": "Środowiska SQL Server są coraz bardziej złożone, a jednocześnie nadal są krytycznym składnikiem architektury aplikacji. Pozostanie na bieżąco z tym ciągłym rozwojem bez odpowiednich narzędzi do monitorowania SQL jest wyzwaniem. A co gdyby można było aktywnie zarządzać środowiskiem SQL Server i diagnozować problemy z wydajnością bazy danych, wyświetlając kondycję wszystkich wystąpień SQL Server na jednym ekranie, w dowolnym miejscu i czasie oraz na dowolnym urządzeniu? Jest to możliwe dzięki odpowiedniemu narzędziu do monitorowania programu SQL Server.\n\nUsługa Azure Monitor dla programu SQL Server umożliwia zarządzanie środowiskiem SQL Server, jednocześnie zapewniając wgląd w system operacyjny — Windows lub Linux — a także monitorowanie infrastruktury wirtualizacji. Ułatw konfigurowanie, korzystając z szablonów, zautomatyzowanych alertów i akcji, które można dostosować. Poświęcaj mniej czasu na gaszenie pożarów dzięki precyzyjnemu diagnozowaniu problemów z wydajnością bazy danych występujących historycznie i w czasie rzeczywistym, a także koncentrowaniu się na bardziej aktywnych środkach, takich jak dostrajanie zapytań.\n\n"
                                     },
                                     "name": "text - 0"
                                 }
@@ -218,11 +218,15 @@
                                                 "label": "Parametry połączenia SQL",
                                                 "type": 1,
                                                 "isRequired": true,
-                                                "resourceType": "microsoft.insights/components",
-                                                "value": ""
+                                                "value": "",
+                                                "typeSettings": {
+                                                    "multiLineText": true,
+                                                    "editorLanguage": "text"
+                                                },
+                                                "resourceType": "microsoft.insights/components"
                                             }
                                         ],
-                                        "style": "above",
+                                        "style": "formVertical",
                                         "queryType": 0,
                                         "resourceType": "microsoft.insights/components"
                                     },
@@ -287,6 +291,10 @@
                                             }
                                         ]
                                     },
+                                    "conditionalVisibility": {
+                                        "parameterName": "SqlConnectionString",
+                                        "comparison": "isNotEqualTo"
+                                    },
                                     "name": "links - 4",
                                     "styleSettings": {
                                         "margin": "20px 0 0 0"
@@ -295,7 +303,7 @@
                                 {
                                     "type": 1,
                                     "content": {
-                                        "json": "<br />\n**Dowiedz się więcej o parametrach połączenia**\n\nPodaj parametry połączenia używane do nawiązywania połączenia z programem SQL Server w poniższym formacie:\n\n```\nServer=mysqlserver.database.windows.net;Port=1433;database=mydb;User Id=<user>;Password=<pw>;app name=telegraf;log=1; \n```\nLub:\n```\nServer=127.0.0.1;Port=1433;database=mydb;User Id=<user>;Password=<pw>;app name=telegraf;log=1;\n```\n\n\nSzczegółowe parametry połączenia można znaleźć pod adresem https://github.com/denisenkom/go-mssqldb."
+                                        "json": "<br />\n**Dowiedz się więcej o parametrach połączenia**\n\nPodaj co najmniej jeden z parametrów połączenia jako oddzieloną przecinkami kolekcję parametrów (w cudzysłowach podwójnych):\n\n```\n\"Server=mysqlserver.database.windows.net;Port=1433;database=mydb;User Id=<user>;Password=<pw>;app name=telegraf;log=1;\",\n\"Server=myothersqlserver.database.windows.net;Port=1433;database=mydb3;User Id=<user>;Password=<pw>;app name=telegraf;log=1;\"\n```\nLub:\n```\n\"Server=127.0.0.1;Port=1433;database=mydb;User Id=<user>;Password=<pw>;app name=telegraf;log=1;\"\n```\n\n\nSzczegółowe parametry połączenia można znaleźć pod adresem https://github.com/denisenkom/go-mssqldb."
                                     },
                                     "name": "text - 3"
                                 }
