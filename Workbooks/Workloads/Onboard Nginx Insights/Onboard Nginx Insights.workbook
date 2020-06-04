@@ -29,7 +29,7 @@
                         "name": "Workspace",
                         "type": 5,
                         "isRequired": true,
-                        "query": "Resources\r\n| where type =~ 'microsoft.compute/virtualmachines/extensions' and name =~ 'OmsAgentForLinux' and id startswith '{VirtualMachine}'\r\n| project WorkspaceId = tostring(properties.settings.workspaceId)\r\n| join kind = inner (Resources\r\n| where type =~ 'microsoft.operationalinsights/workspaces'\r\n| project id, WorkspaceId = tostring(properties.customerId)) on WorkspaceId\r\n| project value = id, label = id, selected = true",
+                        "query": "Resources\r\n| where type =~ 'microsoft.compute/virtualmachines/extensions' and properties.type == 'OmsAgentForLinux' and properties.publisher == 'Microsoft.EnterpriseCloud.Monitoring' and id startswith '{VirtualMachine}'\r\n| project WorkspaceId = tostring(properties.settings.workspaceId)\r\n| join kind = inner (Resources\r\n| where type =~ 'microsoft.operationalinsights/workspaces'\r\n| project id, WorkspaceId = tostring(properties.customerId)) on WorkspaceId\r\n| project value = id, label = id, selected = true",
                         "crossComponentResources": [
                             "value::all"
                         ],
@@ -38,8 +38,7 @@
                             "showDefault": false
                         },
                         "queryType": 1,
-                        "resourceType": "microsoft.resourcegraph/resources",
-                        "value": null
+                        "resourceType": "microsoft.resourcegraph/resources"
                     },
                     {
                         "id": "b189ae66-10a0-417b-8e1e-dc3b9b4ae028",
@@ -61,10 +60,10 @@
                     {
                         "id": "7b1d0a3f-4341-47a5-9f2c-990d5b1faaab",
                         "version": "KqlParameterItem/1.0",
-                        "name": "VmName",
+                        "name": "VmRegion",
                         "type": 1,
                         "isRequired": true,
-                        "query": "Resources\r\n| where id =~ '{VirtualMachine}'\r\n| project name",
+                        "query": "Resources\r\n| where id =~ '{VirtualMachine}'\r\n| project location",
                         "queryType": 1,
                         "resourceType": "microsoft.resourcegraph/resources"
                     },
@@ -88,7 +87,7 @@
                 "comparison": "isEqualTo",
                 "value": "2"
             },
-            "name": "parameters - 0"
+            "name": "armparameters"
         },
         {
             "type": 12,
@@ -101,16 +100,16 @@
                         "content": {
                             "json": "## <a name=\"azure-monitor-for-nginx\"></a>Usługa Azure Monitor dla serwera NGINX"
                         },
-                        "name": "text - 2"
+                        "name": "infoText"
                     },
                     {
                         "type": 1,
                         "content": {
-                            "json": "![Logo Nginx](https://raw.githubusercontent.com/acearun/managedsolutions/master/Templates/Nginx/nginx-logo.jpg)\n"
+                            "json": "![Logo Nginx](https://raw.githubusercontent.com/acearun/managedsolutions/master/Templates/Logos/nginx-logo.jpg)\n"
                         },
-                        "name": "text - 2 - Copy",
+                        "name": "nginxlogo",
                         "styleSettings": {
-                            "margin": "20px 0 0 50px"
+                            "margin": "20px 0 0 20px"
                         }
                     },
                     {
@@ -142,7 +141,7 @@
                                 }
                             ]
                         },
-                        "name": "links - 5",
+                        "name": "tabs",
                         "styleSettings": {
                             "margin": "15px 0 0 0"
                         }
@@ -156,9 +155,9 @@
                                 {
                                     "type": 1,
                                     "content": {
-                                        "json": "NGINX to programowy moduł równoważenia obciążenia, serwer internetowy i pamięć podręczna zawartości oparta na serwerze NGINX typu open source. Serwer NGINX ma wyjątkowe funkcje klasy korporacyjnej, które wykraczają poza to, co jest oferowane w ofercie typu open source, w tym trwałość sesji, konfigurację za pośrednictwem interfejsu API i aktywne kontrole kondycji. Zastosuj serwer NGINX zamiast sprzętowego modułu równoważenia obciążenia i zyskaj swobodę wprowadzania innowacji bez ograniczeń narzucanych przez infrastrukturę.\n\nDzięki usłudze Azure Monitor dla serwera NGINX możesz zarządzać klastrem NGINX, jednocześnie uzyskując wgląd w system operacyjny — Windows lub Linux. Ułatw konfigurowanie, korzystając z szablonów, zautomatyzowanych alertów i akcji, które można dostosować. Poświęcaj mniej czasu na gaszenie pożarów dzięki precyzyjnemu diagnozowaniu problemów z wydajnością modułu równoważenia obciążenia występujących historycznie i w czasie rzeczywistym, a także koncentrowaniu się na bardziej aktywnych środkach, takich jak skalowanie w poziomie.\n<br />\n<br />\n[Obejrzyj wideo]()<br />\n[Więcej informacji]()<br />\n[Dokumentacja]()<br />"
+                                        "json": "Serwer NGINX to oprogramowanie typu open source o wysokiej wydajności, które jest przeznaczone do różnych zastosowań, od obsługi sieci Web po równoważenie obciążenia. NGINX, jako jeden z najszybszych serwerów sieci Web, obsługuje większość najpopularniejszych witryn internetowych. Serwer NGINX może służyć jako zamiennik fizycznych sprzętowych modułów równoważenia obciążenia i zwiększać wydajność serwera, jednocześnie zmniejszając użycie procesora i pamięci RAM.\n\nDzięki usłudze Azure Monitor dla serwera NGINX możesz zarządzać klastrem NGINX, jednocześnie uzyskując wgląd w system operacyjny — Windows lub Linux. Ułatw konfigurowanie, korzystając z szablonów, zautomatyzowanych alertów i akcji, które można dostosować. Poświęcaj mniej czasu na gaszenie pożarów dzięki precyzyjnemu diagnozowaniu problemów z wydajnością modułu równoważenia obciążenia występujących historycznie i w czasie rzeczywistym, a także koncentrowaniu się na bardziej aktywnych środkach, takich jak skalowanie w poziomie.\n\n"
                                     },
-                                    "name": "text - 0"
+                                    "name": "NginxInformation"
                                 }
                             ]
                         },
@@ -180,7 +179,7 @@
                                     "content": {
                                         "json": "Na serwerze NGINX należy skonfigurować moduł http_stub_status_module, aby umożliwić zbieranie metryk użycia. W tym celu można włączyć opcję sub_status w lokalnym pliku konfiguracji (np. `/etc/nginx/conf.d/status.conf`)\n```\nserver { \n    \n    listen 127.0.0.1:9090;\n    location /nginx_status {\n        stub_status on;\n\n        access_log off;\n        allow 127.0.0.1;\n        deny all;\n    }\n}\n```\n\n"
                                     },
-                                    "name": "text - 0"
+                                    "name": "prerequisitesnginx"
                                 }
                             ]
                         },
@@ -200,9 +199,9 @@
                                 {
                                     "type": 1,
                                     "content": {
-                                        "json": "Usługa Azure Monitor wymaga identyfikatora URI punktu końcowego statystyki elementu zastępczego NGINX, aby zbierać metryki użycia i inne metryki. "
+                                        "json": "Określ identyfikator URI stub_status zgodny z tym formatem: \n\n```\n[http://]@address[:port]/nginx_status\n```\nNa przykład\n```\nhttp://127.0.0.1:9090/nginx_status\n```"
                                     },
-                                    "name": "text - 3"
+                                    "name": "StubStatusUriSample"
                                 },
                                 {
                                     "type": 9,
@@ -212,18 +211,23 @@
                                             {
                                                 "id": "0fcd1a59-1ca7-4e29-a0c7-6eb5b032ef6a",
                                                 "version": "KqlParameterItem/1.0",
-                                                "name": "StubStatusUris",
-                                                "label": "Identyfikator URI stanu elementu zastępczego",
+                                                "name": "TelegrafConfig",
+                                                "label": "Nginx Telegraf config",
                                                 "type": 1,
-                                                "resourceType": "microsoft.insights/components",
-                                                "value": "http://127.0.0.1:9090/nginx_status"
+                                                "isRequired": true,
+                                                "value": "[inputs.nginx]\r\n   urls = [\"http://127.0.0.1:9090/nginx_status\"] \r\n   response_timeout = '5s'\r\n\r\n[inputs.nginx.tags]\r\n   insight = 'nginx'\r\n\r\n[inputs.cpu]\r\n   percpu = true\r\n   totalcpu = true\r\n   collect_cpu_time = false\r\n   report_active = false\r\n\r\n[inputs.cpu.tags]\r\n   insight = 'nginx'\r\n\r\n[inputs.mem.tags]\r\n   insight = 'nginx'\r\n\r\n[inputs.netstat.tags]\r\n   insight = 'nginx'\r\n\r\n[inputs.net.tags]\r\n   insight = 'nginx'\r\n\r\n[inputs.procstat]\r\n   pid_file = '/var/run/nginx.pid'\r\n\r\n[inputs.procstat.tags]\r\n   insight = 'nginx'",
+                                                "typeSettings": {
+                                                    "multiLineText": true,
+                                                    "editorLanguage": "text"
+                                                },
+                                                "resourceType": "microsoft.insights/components"
                                             }
                                         ],
-                                        "style": "above",
+                                        "style": "formVertical",
                                         "queryType": 0,
-                                        "resourceType": "microsoft.compute/virtualmachines"
+                                        "resourceType": "microsoft.insights/components"
                                     },
-                                    "name": "parameters - 1"
+                                    "name": "telegrafconfigfield"
                                 },
                                 {
                                     "type": 11,
@@ -234,47 +238,87 @@
                                             {
                                                 "cellValue": "f",
                                                 "linkTarget": "ArmTemplate",
-                                                "linkLabel": "Włącz monitorowanie serwera NGINX >",
+                                                "linkLabel": "Włącz monitorowanie serwera NGINX",
                                                 "style": "primary",
                                                 "linkIsContextBlade": true,
                                                 "templateRunContext": {
                                                     "componentIdSource": "parameter",
                                                     "componentId": "ResourceGroup",
                                                     "templateUriSource": "static",
-                                                    "templateUri": "https://raw.githubusercontent.com/acearun/managedsolutions/master/Templates/Nginx/azuredeploy.json",
+                                                    "templateUri": "https://azmonsolutions.blob.core.windows.net/workloadinsights/NginxWorkload.json",
                                                     "templateParameters": [
                                                         {
-                                                            "name": "vmName",
+                                                            "name": "vmId",
                                                             "source": "parameter",
-                                                            "value": "VmName"
+                                                            "value": "VirtualMachine",
+                                                            "kind": "value"
                                                         },
                                                         {
                                                             "name": "omsWorkspaceId",
                                                             "source": "parameter",
-                                                            "value": "Workspace"
+                                                            "value": "Workspace",
+                                                            "kind": "value"
                                                         },
                                                         {
                                                             "name": "workspaceRegion",
                                                             "source": "parameter",
-                                                            "value": "WorkspaceLocation"
+                                                            "value": "WorkspaceLocation",
+                                                            "kind": "value"
                                                         },
                                                         {
-                                                            "name": "nginxStatsUrls",
+                                                            "name": "serializedTelegrafConfig",
                                                             "source": "parameter",
-                                                            "value": "StubStatusUris"
+                                                            "value": "TelegrafConfig",
+                                                            "kind": "value"
+                                                        },
+                                                        {
+                                                            "name": "vmRegion",
+                                                            "source": "parameter",
+                                                            "value": "VmRegion",
+                                                            "kind": "value"
                                                         }
                                                     ],
                                                     "titleSource": "static",
                                                     "title": "Włącz usługę Azure Monitor dla serwera NGINX",
                                                     "descriptionSource": "static",
-                                                    "description": "![Logo SQL](https://raw.githubusercontent.com/acearun/managedsolutions/master/Templates/DeployVme/nginx-logo.jpg)\n\n<br/>\n<br/>\nJesteśmy gotowi do włączenia usługi Azure Monitor dla serwera NGINX na maszynie wirtualnej. Wybierz pozycję **Włącz monitorowanie**, aby rozpocząć monitorowanie przy użyciu zalecanych ustawień.\n",
+                                                    "description": "![Logo Nginx](https://raw.githubusercontent.com/acearun/managedsolutions/master/Templates/Logos/nginx-logo.jpg)\n\n<br/>\n<br/>\nJesteśmy gotowi do włączenia usługi Azure Monitor dla serwera NGINX na maszynie wirtualnej. Wybierz pozycję **Włącz monitorowanie**, aby rozpocząć monitorowanie przy użyciu zalecanych ustawień.\n",
                                                     "runLabelSource": "static",
                                                     "runLabel": "Enable monitoring"
                                                 }
                                             }
                                         ]
                                     },
-                                    "name": "links - 4",
+                                    "conditionalVisibility": {
+                                        "parameterName": "TelegrafConfig",
+                                        "comparison": "isNotEqualTo"
+                                    },
+                                    "conditionalVisibilities": [
+                                        {
+                                            "parameterName": "TelegrafConfig",
+                                            "comparison": "isNotEqualTo"
+                                        },
+                                        {
+                                            "parameterName": "VirtualMachine",
+                                            "comparison": "isNotEqualTo"
+                                        },
+                                        {
+                                            "parameterName": "Workspace",
+                                            "comparison": "isNotEqualTo"
+                                        },
+                                        {
+                                            "parameterName": "WorkspaceLocation",
+                                            "comparison": "isNotEqualTo"
+                                        },
+                                        {
+                                            "parameterName": "VmRegion",
+                                            "comparison": "isNotEqualTo"
+                                        },
+                                        {
+                                            "parameterName": "ResourceGroup",
+                                            "comparison": "isNotEqualTo"
+                                        }
+                                    ],
+                                    "name": "enablenginxmonitoringlink",
                                     "styleSettings": {
                                         "margin": "20px 0 0 0"
                                     }
