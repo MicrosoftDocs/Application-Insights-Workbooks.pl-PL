@@ -197,13 +197,6 @@
                             "groupType": "editable",
                             "items": [
                                 {
-                                    "type": 1,
-                                    "content": {
-                                        "json": "Określ identyfikator URI stub_status zgodny z tym formatem: \n\n```\n[http://]@address[:port]/nginx_status\n```\nNa przykład\n```\nhttp://127.0.0.1:9090/nginx_status\n```"
-                                    },
-                                    "name": "StubStatusUriSample"
-                                },
-                                {
                                     "type": 9,
                                     "content": {
                                         "version": "KqlParameterItem/1.0",
@@ -322,6 +315,13 @@
                                     "styleSettings": {
                                         "margin": "20px 0 0 0"
                                     }
+                                },
+                                {
+                                    "type": 1,
+                                    "content": {
+                                        "json": "Określ identyfikator URI stub_status zgodny z tym formatem: \n\n```\n[http://]@address[:port]/nginx_status\n```\nNa przykład\n```\nhttp://127.0.0.1:9090/nginx_status\n```"
+                                    },
+                                    "name": "StubStatusUriSample"
                                 }
                             ]
                         },
