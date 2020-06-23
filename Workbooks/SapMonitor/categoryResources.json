@@ -1,8 +1,8 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
     "en-us": {
-        "name": "SAP Monitor",
-        "description": "Udostępnia szczegółowe informacje dotyczące metryk infrastruktury usługi SAP Landscapes",
+        "name": "Usługa Azure Monitor dla rozwiązań SAP",
+        "description": "Udostępnia analizy dotyczące metryk infrastruktury środowisk SAP na platformie Azure",
         "order": 100
     }
 }

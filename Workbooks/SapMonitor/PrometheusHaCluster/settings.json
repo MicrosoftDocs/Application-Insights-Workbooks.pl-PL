@@ -1,0 +1,13 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "name": "Klaster o wysokiej dostępności",
+    "description": "Wyświetla stan klastra Pacemaker",
+    "author": "Microsoft",
+    "galleries": [
+        {
+            "type": "workbook",
+            "resourceType": "Microsoft.HanaOnAzure/sapMonitors",
+            "order": 300
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "name": "SAP HANA (przestarzałe)",
+    "description": "Tylko w przypadku monitorów SAP z jednym wystąpieniem",
+    "author": "Microsoft",
+    "galleries": [
+        {
+            "type": "workbook",
+            "resourceType": "Microsoft.HanaOnAzure/sapMonitors",
+            "order": 50
+        }
+    ]
+}
