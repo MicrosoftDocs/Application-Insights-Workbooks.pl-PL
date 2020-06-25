@@ -1,18 +1,16 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "Omówienie usługi Azure Data Explorer",
-    "isPreview": true,
+    "name": "Przegląd zasobów klastra usługi Azure Data Explorer",
     "author": "Microsoft",
+    "isPreview": true,
     "galleries": [
         {
             "type": "workbook",
-            "resourceType": "Azure Monitor",
-            "categoryKey": "azureMonitorInsights",
-            "order": 100
+            "resourceType": "microsoft.kusto/clusters"
         },
         {
             "type": "adxcluster-insights",
-            "resourceType": "Azure Monitor",
+            "resourceType": "microsoft.kusto/clusters",
             "order": 100
         }
     ]
