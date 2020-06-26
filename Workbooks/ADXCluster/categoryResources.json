@@ -1,0 +1,8 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "en-us": {
+        "name": "Analiza klastra usługi Azure Data Explorer",
+        "description": "Udostępnia analizę dotyczącą klastra usługi Azure Data Explorer",
+        "order": 100
+    }
+}
