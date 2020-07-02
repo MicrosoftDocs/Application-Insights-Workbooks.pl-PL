@@ -1,0 +1,8 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "en-us": {
+        "name": "Analiza centrum usługi Azure Event Hubs",
+        "description": "Udostępnia analizę centrum usługi Azure Event Hubs",
+        "order": 100
+    }
+}
