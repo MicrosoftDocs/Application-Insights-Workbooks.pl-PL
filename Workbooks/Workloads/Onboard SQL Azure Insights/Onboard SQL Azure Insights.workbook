@@ -148,7 +148,7 @@
                                 {
                                     "type": 1,
                                     "content": {
-                                        "json": "#### <a name=\"create-sql-user-accounts\"></a>Tworzenie kont użytkowników SQL\nMusisz utworzyć identyfikator logowania w każdym wystąpieniu, które ma być monitorowane, przy użyciu następującego skryptu:\n\n```\nCREATE USER [telegraf] WITH PASSWORD = N'mystrongpassword';\nGO\nGRANT VIEW DATABASE STATE TO [telegraf];\nGO\n```\n\n#### <a name=\"enable-firewall-rules\"></a>Włączanie reguł zapory\nWłącz reguły zapory, aby zezwolić maszynie wirtualnej zdalnego monitorowania na dostęp do wystąpienia programu SQL Server."
+                                        "json": "#### <a name=\"create-sql-user-accounts\"></a>Tworzenie kont użytkowników SQL\nMusisz utworzyć identyfikator logowania w każdym wystąpieniu, które ma być monitorowane, przy użyciu następującego skryptu:\n\n```\nCREATE USER [telegraf] WITH PASSWORD = N'mystrongpassword';\nGO\nGRANT VIEW DATABASE STATE TO [telegraf];\nGO\n```\n\n#### <a name=\"firewall-rules-for-sql-database\"></a>Reguły zapory dla usługi SQL Database\nZaktualizuj reguły zapory, aby zezwolić maszynie wirtualnej zdalnego monitorowania na dostęp do wystąpienia programu SQL Server.\n\n#### <a name=\"outbound-network-settings-for-the-remote-virtual-machine\"></a>Ustawienia wyjścia sieci dla zdalnej maszyny wirtualnej\nSprawdź, czy maszyna wirtualna ma port wyjściowy określony w konfiguracji programu SQL Telegraf w następnym kroku."
                                     },
                                     "name": "prerequisitessqlazureremote"
                                 }
