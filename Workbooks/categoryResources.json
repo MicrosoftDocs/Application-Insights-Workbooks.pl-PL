@@ -21,16 +21,6 @@
             }
         },
         {
-            "key": "azureMonitorVirtualMachinesPerf",
-            "settings": {
-                "en-us": {
-                    "name": "Virtual Machines (Perf)",
-                    "description": "Analizowanie danych monitorowania z maszyn wirtualnych",
-                    "order": 105
-                }
-            }
-        },
-        {
             "key": "azureMonitorInsights",
             "settings": {
                 "en-us": {
@@ -41,20 +31,10 @@
             }
         },
         {
-            "key": "vmInsightsVirtualMachinesInsightsMetrics",
+            "key": "vmInsightsVirtualMachines",
             "settings": {
                 "en-us": {
-                    "name": "Performance Analysis (Insights Metrics)",
-                    "description": "Szukaj typowych problemów z maszynami wirtualnymi za pośrednictwem metryk",
-                    "order": 205
-                }
-            }
-        },
-        {
-            "key": "vmInsightsVirtualMachinesPerf",
-            "settings": {
-                "en-us": {
-                    "name": "Performance Analysis (Perf)",
+                    "name": "Performance Analysis",
                     "description": "Szukaj typowych problemów z maszynami wirtualnymi za pośrednictwem metryk",
                     "order": 205
                 }
