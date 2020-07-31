@@ -4,7 +4,7 @@
         {
             "type": 1,
             "content": {
-                "json": "## <a name=\"agent-health\"></a>Kondycja agenta\nTen raport zawiera informacje na temat kondycji agentów w obszarze roboczym. \n<br/>\n<br/>"
+                "json": "## <a name=\"agent-health\"></a>Kondycja agenta\nTen raport zawiera informacje na temat kondycji agentów w obszarze roboczym. Ten raport jest przestarzały i został zastąpiony nowym skoroszytem Log Analytics Agent Health.<br/>\n<br/>"
             },
             "name": "text - 0"
         },
@@ -484,7 +484,7 @@
                         },
                         {
                             "columnId": "Computer",
-                            "label": "Computer"
+                            "label": "Computer (Komputer)"
                         },
                         {
                             "columnId": "State",
