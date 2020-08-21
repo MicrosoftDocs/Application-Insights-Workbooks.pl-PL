@@ -1,0 +1,8 @@
+{
+    "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
+    "en-us": {
+        "name": "Skoroszyty usługi Azure Monitor dla IoT",
+        "description": "Dostarcza szczegółowe informacje o metrykach IoT",
+        "order": 100
+    }
+}
