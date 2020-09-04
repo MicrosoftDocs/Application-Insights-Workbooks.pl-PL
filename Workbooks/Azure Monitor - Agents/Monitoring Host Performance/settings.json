@@ -1,6 +1,6 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "Log Analytics Agent Health — host monitorowania",
+    "name": "Monitorowanie wydajności hosta",
     "author": "Microsoft",
     "isPreview": true,
     "galleries": [
