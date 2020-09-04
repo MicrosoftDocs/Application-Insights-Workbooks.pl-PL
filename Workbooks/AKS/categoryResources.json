@@ -1,8 +1,8 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
     "en-us": {
-        "name": "AKS",
-        "description": "Skoroszyty związane z usługą AKS",
+        "name": "Usługi Kubernetes",
+        "description": "Skoroszyty powiązane z usługami Kubernetes",
         "order": 100
     }
 }
