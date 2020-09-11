@@ -183,7 +183,7 @@
                     {
                         "cellValue": "selectedTab",
                         "linkTarget": "parameter",
-                        "linkLabel": " HealthService",
+                        "linkLabel": " Usługa kondycji",
                         "subTarget": "HealthService",
                         "postText": "",
                         "style": "primary",
@@ -200,7 +200,7 @@
                     {
                         "cellValue": "selectedTab",
                         "linkTarget": "parameter",
-                        "linkLabel": " MonitoringHost",
+                        "linkLabel": " Host monitorowania",
                         "subTarget": "MonitoringHost",
                         "style": "primary",
                         "workbookContext": {
@@ -229,7 +229,7 @@
                     {
                         "type": 1,
                         "content": {
-                            "json": "# <a name=\"get-started\"></a>Rozpoczęcie pracy\n\nWitamy w skoroszycie agenta usługi Azure Monitor Log Analytics. Ten skoroszyt został zaprojektowany, aby zapewnić informacje na następujące tematy:\n* Ilu agentów wysyła raporty do obszaru roboczego i jak są połączeni?\n* Jaki jest stan połączenia agenta? Ilu jest aktywnie połączonych i przesyła raporty, a ilu nie?\n* Czy jacyś agenci systemu Windows mają wpływ na wykorzystanie zasobów przez hosta?\n\nMożesz przejść do szczegółów, aby przejrzeć trend pulsu dla wybranej maszyny agenta i jej użycie wydajności (obecnie dostępne tylko w systemie operacyjnym Windows).\n\n## <a name=\"requirements\"></a>Wymagania\n\n* [Obszar roboczy usługi Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment).\n\nAby analizować użycie wydajności agenta systemu Windows usługi Log Analytics, musisz włączyć zbieranie następujących liczników wydajności:\n* Grupy zarządzania usługi kondycji(*)\\Procent wykorzystania kolejki wysyłania \n* Usługa kondycji(*)\\Liczba modułów\n* Usługa kondycji(*)\\Liczba przepływów pracy \n* Proces (HealthService)\\% czasu procesora \n* Proces (HealthService)\\Liczba dojść \n* Proces (HealthService)\\Bajty prywatne \n* Proces (MonitoringHost*)\\% czasu procesora \n* Proces (MonitoringHost*)\\Bajty prywatne \n\nJeśli nie wiesz, jak włączyć liczniki wydajności w obszarze roboczym, zobacz [Konfigurowanie źródła danych wydajności](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#configuring-data-sources)."
+                            "json": "# <a name=\"get-started\"></a>Rozpoczęcie pracy\n\nWitamy w skoroszycie agenta usługi Azure Monitor Log Analytics. Ten skoroszyt został zaprojektowany, aby zapewnić informacje na następujące tematy:\n* Ilu agentów wysyła raporty do obszaru roboczego i jak są połączeni?\n* Jaki jest stan połączenia agenta? Ilu jest aktywnie połączonych i przesyła raporty, a ilu nie?\n* Czy jacyś agenci systemu Windows mają wpływ na wykorzystanie zasobów przez hosta?\n\nMożesz przejść do szczegółów, aby przejrzeć trend pulsu dla wybranej maszyny agenta i jej użycie wydajności (obecnie dostępne tylko w systemie operacyjnym Windows).\n\nNa poniższych kartach znajdują się wykresy wydajności pokazujące wykorzystanie zasobów z procesów związanych z agentem:\n\n1. **Usługa kondycji** — *HealthService* to podstawowy proces agenta odpowiedzialny za utrzymanie komunikacji między agentem a usługą Azure Monitor, pobieranie konfiguracji na podstawie szczegółowych informacji i rozwiązań włączonych w obszarze roboczym, przetwarzanie konfiguracji oraz wysyłanie zebranych danych do obszaru roboczego usługi Log Analytics. \n2. **Host monitorowania** — *MonitoringHost* to podrzędny proces hosta monitorowania odpowiedzialny za wykonywanie czynności monitorowania zdefiniowanych w konfiguracji pobranej z usługi Azure Monitor, na przykład:\n\n    * Monitorowanie i zbieranie danych dziennika zdarzeń systemu Windows\n    * Monitorowanie i zbieranie danych plików opartych na dziennikach.\n    * Monitorowanie i zbieranie danych licznika wydajności.\n\nAby uzyskać dodatkowe informacje na temat agenta usługi Log Analytics, zobacz [omówienie agenta](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#log-analytics-agent).\n\n\n## <a name=\"requirements\"></a>Wymagania\n\n* [Obszar roboczy usługi Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment).\n\nAby analizować użycie wydajności agenta systemu Windows usługi Log Analytics, musisz włączyć zbieranie następujących liczników wydajności:\n* Grupy zarządzania usługi kondycji(*)\\Procent wykorzystania kolejki wysyłania \n* Usługa kondycji(*)\\Liczba modułów\n* Usługa kondycji(*)\\Liczba przepływów pracy \n* Proces (HealthService)\\% czasu procesora \n* Proces (HealthService)\\Liczba dojść \n* Proces (HealthService)\\Bajty prywatne \n* Proces (MonitoringHost*)\\% czasu procesora \n* Proces (MonitoringHost*)\\Bajty prywatne \n\nJeśli nie wiesz, jak włączyć liczniki wydajności w obszarze roboczym, zobacz [Konfigurowanie źródła danych wydajności](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#configuring-data-sources)."
                         },
                         "name": "GetStartedText"
                     }
