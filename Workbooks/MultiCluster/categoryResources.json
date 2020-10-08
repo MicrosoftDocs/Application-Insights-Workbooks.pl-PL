@@ -1,7 +1,7 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
     "en-us": {
-        "name": "Analizy kontenerów",
+        "name": "Containers",
         "description": "Udostępnia analizy platformy Azure i usługi Arc Kubernetes",
         "order": 100
     }
