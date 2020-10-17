@@ -250,7 +250,7 @@
                             ],
                             "timeContextFromParameter": "TimeRange",
                             "timeContext": {
-                                "durationMs": 604800000
+                                "durationMs": 0
                             },
                             "metrics": [
                                 {
@@ -377,7 +377,7 @@
                                     },
                                     {
                                         "columnMatch": "microsoft.kusto/clusters-Cluster health-CPU Timeline",
-                                        "formatter": 9,
+                                        "formatter": 21,
                                         "formatOptions": {
                                             "min": 0,
                                             "max": 100,
@@ -420,7 +420,7 @@
                                     },
                                     {
                                         "columnMatch": "microsoft.kusto/clusters-Cluster health-IngestionUtilization Timeline",
-                                        "formatter": 9,
+                                        "formatter": 21,
                                         "formatOptions": {
                                             "min": 0,
                                             "max": 100,
@@ -462,7 +462,7 @@
                                     },
                                     {
                                         "columnMatch": "microsoft.kusto/clusters-Cluster health-CacheUtilization Timeline",
-                                        "formatter": 9,
+                                        "formatter": 21,
                                         "formatOptions": {
                                             "min": 0,
                                             "max": 100,
@@ -523,16 +523,8 @@
                                 },
                                 "labelSettings": [
                                     {
-                                        "columnId": "Subscription",
-                                        "label": "Subskrypcja"
-                                    },
-                                    {
-                                        "columnId": "Name",
-                                        "label": "Nazwa"
-                                    },
-                                    {
                                         "columnId": "microsoft.kusto/clusters-Cluster health-KeepAlive",
-                                        "label": "Utrzymywanie aktywności (średnia)"
+                                        "label": "Utrzymywanie aktywności (średnio)"
                                     },
                                     {
                                         "columnId": "microsoft.kusto/clusters-Cluster health-KeepAlive Timeline",
@@ -540,7 +532,7 @@
                                     },
                                     {
                                         "columnId": "microsoft.kusto/clusters-Cluster health-CPU",
-                                        "label": "Procesor (średnia)"
+                                        "label": "Procesor CPU (średnio)"
                                     },
                                     {
                                         "columnId": "microsoft.kusto/clusters-Cluster health-CPU Timeline",
@@ -548,15 +540,15 @@
                                     },
                                     {
                                         "columnId": "microsoft.kusto/clusters-Cluster health-IngestionUtilization",
-                                        "label": "Wykorzystanie pozyskiwania (średnia)"
+                                        "label": "Wykorzystanie pozyskiwania (średnio)"
                                     },
                                     {
                                         "columnId": "microsoft.kusto/clusters-Cluster health-IngestionUtilization Timeline",
-                                        "label": "Oś czasu wykorzystania pozyskiwania"
+                                        "label": "Oś czasu wykorzystania pozyskiwania (średnio)"
                                     },
                                     {
                                         "columnId": "microsoft.kusto/clusters-Cluster health-CacheUtilization",
-                                        "label": "Wykorzystanie pamięci podręcznej (średnia)"
+                                        "label": "Wykorzystanie pamięci podręcznej (średnio)"
                                     },
                                     {
                                         "columnId": "microsoft.kusto/clusters-Cluster health-CacheUtilization Timeline",
@@ -564,19 +556,19 @@
                                     },
                                     {
                                         "columnId": "microsoft.kusto/clusters-Cluster health-TotalNumberOfThrottledCommands",
-                                        "label": "Łączna liczba poleceń z ograniczeniami (średnia)"
+                                        "label": "Łączna liczba poleceń z ograniczeniami (średnio)"
                                     },
                                     {
                                         "columnId": "microsoft.kusto/clusters-Cluster health-TotalNumberOfThrottledCommands Timeline",
-                                        "label": "Oś czasu łącznej liczby poleceń z ograniczeniami (średnia)"
+                                        "label": "Oś czasu łącznej liczby poleceń z ograniczeniami (średnio)"
                                     },
                                     {
                                         "columnId": "microsoft.kusto/clusters-Cluster health-InstanceCount",
-                                        "label": "Liczba wystąpień (średnia)"
+                                        "label": "Liczba wystąpień (średnio)"
                                     },
                                     {
                                         "columnId": "microsoft.kusto/clusters-Cluster health-InstanceCount Timeline",
-                                        "label": "Oś czasu liczby wystąpień (średnia)"
+                                        "label": "Oś czasu liczby wystąpień (średnio)"
                                     }
                                 ]
                             },
@@ -606,7 +598,7 @@
                             ],
                             "timeContextFromParameter": "TimeRange",
                             "timeContext": {
-                                "durationMs": 604800000
+                                "durationMs": 0
                             },
                             "metrics": [
                                 {
@@ -711,25 +703,6 @@
                                         "formatter": 5
                                     },
                                     {
-                                        "columnMatch": "microsoft.kusto/clusters-Export health and performance-ContinuousExportResult",
-                                        "formatter": 1,
-                                        "numberFormat": {
-                                            "unit": 17,
-                                            "options": {
-                                                "style": "decimal",
-                                                "maximumFractionDigits": 2
-                                            },
-                                            "emptyValCustomText": "-"
-                                        },
-                                        "tooltipFormat": {
-                                            "tooltip": "Total number of Failure/Success result of each continuous export run."
-                                        }
-                                    },
-                                    {
-                                        "columnMatch": "microsoft.kusto/clusters-Export health and performance-ContinuousExportResult Timeline",
-                                        "formatter": 5
-                                    },
-                                    {
                                         "columnMatch": "microsoft.kusto/clusters-Export health and performance-ExportUtilization",
                                         "formatter": 1,
                                         "numberFormat": {
@@ -746,6 +719,25 @@
                                     },
                                     {
                                         "columnMatch": "microsoft.kusto/clusters-Export health and performance-ExportUtilization Timeline",
+                                        "formatter": 5
+                                    },
+                                    {
+                                        "columnMatch": "microsoft.kusto/clusters-Export health and performance-ContinuousExportResult",
+                                        "formatter": 1,
+                                        "numberFormat": {
+                                            "unit": 17,
+                                            "options": {
+                                                "style": "decimal",
+                                                "maximumFractionDigits": 2
+                                            },
+                                            "emptyValCustomText": "-"
+                                        },
+                                        "tooltipFormat": {
+                                            "tooltip": "Total number of Failure/Success result of each continuous export run."
+                                        }
+                                    },
+                                    {
+                                        "columnMatch": "microsoft.kusto/clusters-Export health and performance-ContinuousExportResult Timeline",
                                         "formatter": 5
                                     },
                                     {
@@ -856,7 +848,7 @@
                             ],
                             "timeContextFromParameter": "TimeRange",
                             "timeContext": {
-                                "durationMs": 604800000
+                                "durationMs": 0
                             },
                             "metrics": [
                                 {
@@ -955,12 +947,25 @@
                                             "emptyValCustomText": "-"
                                         },
                                         "tooltipFormat": {
-                                            "tooltip": "The ingestion latency period depends on the ingestion scenario. As a \"rule of thumb\", an average Ingestion Latency above 15 minutes  (over a long period) may indicate a problem"
+                                            "tooltip": "The ingestion latency period depends on the ingestion scenario. As a general rule, an average Ingestion Latency above 15 minutes  (over a long period) may indicate a problem"
                                         }
                                     },
                                     {
                                         "columnMatch": "microsoft.kusto/clusters-Ingestion health and performance-IngestionLatencyInSeconds Timeline",
-                                        "formatter": 5
+                                        "formatter": 21,
+                                        "formatOptions": {
+                                            "palette": "blue"
+                                        },
+                                        "numberFormat": {
+                                            "unit": 0,
+                                            "options": {
+                                                "style": "decimal",
+                                                "useGrouping": false
+                                            }
+                                        },
+                                        "tooltipFormat": {
+                                            "tooltip": "Ingestion latency Timeline"
+                                        }
                                     },
                                     {
                                         "columnMatch": "Succeeded Ingestion Result",
@@ -1000,7 +1005,13 @@
                                     },
                                     {
                                         "columnMatch": "Succeeded Ingestion Result Timeline",
-                                        "formatter": 5
+                                        "formatter": 21,
+                                        "formatOptions": {
+                                            "palette": "green"
+                                        },
+                                        "tooltipFormat": {
+                                            "tooltip": "Succeeded ingestion timeline"
+                                        }
                                     },
                                     {
                                         "columnMatch": "microsoft.kusto/clusters-Ingestion health and performance-IngestionResult",
@@ -1042,7 +1053,13 @@
                                     },
                                     {
                                         "columnMatch": "microsoft.kusto/clusters-Ingestion health and performance-IngestionResult Timeline",
-                                        "formatter": 5
+                                        "formatter": 21,
+                                        "formatOptions": {
+                                            "palette": "orange"
+                                        },
+                                        "tooltipFormat": {
+                                            "tooltip": "Failed ingestion timeline"
+                                        }
                                     },
                                     {
                                         "columnMatch": "microsoft.kusto/clusters-Ingestion health and performance-IngestionVolumeInMB",
@@ -1065,7 +1082,7 @@
                                     },
                                     {
                                         "columnMatch": "microsoft.kusto/clusters-Ingestion health and performance-IngestionVolumeInMB Timeline",
-                                        "formatter": 9,
+                                        "formatter": 21,
                                         "formatOptions": {
                                             "palette": "blue"
                                         },
@@ -1091,7 +1108,7 @@
                                     },
                                     {
                                         "columnMatch": "microsoft.kusto/clusters-Ingestion health and performance-EventsProcessedForEventHubs Timeline",
-                                        "formatter": 9,
+                                        "formatter": 21,
                                         "formatOptions": {
                                             "palette": "blue"
                                         },
@@ -1100,7 +1117,7 @@
                                         }
                                     },
                                     {
-                                        "columnMatch": "Ingestion Latency (Average) Timeline",
+                                        "columnMatch": "Ingestion Latency (Avg) Timeline",
                                         "formatter": 5
                                     },
                                     {
@@ -1122,30 +1139,32 @@
                                     "expandTopLevel": true,
                                     "finalBy": "Name"
                                 },
+                                "sortBy": [
+                                    {
+                                        "itemKey": "$gen_number_microsoft.kusto/clusters-Ingestion health and performance-EventsProcessedForEventHubs_11",
+                                        "sortOrder": 1
+                                    }
+                                ],
                                 "labelSettings": [
                                     {
-                                        "columnId": "Subscription",
-                                        "label": "Subskrypcja"
-                                    },
-                                    {
-                                        "columnId": "Name",
-                                        "label": "Nazwa"
-                                    },
-                                    {
                                         "columnId": "microsoft.kusto/clusters-Ingestion health and performance-IngestionLatencyInSeconds",
-                                        "label": "Opóźnienie pozyskiwania (średnia)"
+                                        "label": "Opóźnienie pozyskiwania (średnio)"
                                     },
                                     {
                                         "columnId": "microsoft.kusto/clusters-Ingestion health and performance-IngestionLatencyInSeconds Timeline",
-                                        "label": "Oś czasu opóźnienia pozyskiwania (w sekundach)"
+                                        "label": "Oś czasu opóźnienia pozyskiwania (średnio)"
                                     },
                                     {
                                         "columnId": "Succeeded Ingestion Result",
-                                        "label": "Wynik pozyskiwania zakończonego powodzeniem (liczba)"
+                                        "label": "Wynik udanych pozyskiwań (liczba)"
+                                    },
+                                    {
+                                        "columnId": "Succeeded Ingestion Result Timeline",
+                                        "label": "Oś czasu wyniku udanych pozyskiwań"
                                     },
                                     {
                                         "columnId": "microsoft.kusto/clusters-Ingestion health and performance-IngestionResult",
-                                        "label": "Wynik pozyskiwania zakończonego niepowodzeniem (liczba)"
+                                        "label": "Wynik nieudanych pozyskiwań (liczba)"
                                     },
                                     {
                                         "columnId": "microsoft.kusto/clusters-Ingestion health and performance-IngestionResult Timeline",
@@ -1195,7 +1214,7 @@
                             ],
                             "timeContextFromParameter": "TimeRange",
                             "timeContext": {
-                                "durationMs": 604800000
+                                "durationMs": 0
                             },
                             "metrics": [
                                 {
@@ -1206,12 +1225,12 @@
                                 {
                                     "namespace": "microsoft.kusto/clusters",
                                     "metric": "microsoft.kusto/clusters-Query performance-TotalNumberOfConcurrentQueries",
-                                    "aggregation": 1
+                                    "aggregation": 4
                                 },
                                 {
                                     "namespace": "microsoft.kusto/clusters",
                                     "metric": "microsoft.kusto/clusters-Query performance-TotalNumberOfThrottledQueries",
-                                    "aggregation": 1
+                                    "aggregation": 4
                                 }
                             ],
                             "gridSettings": {
@@ -1257,7 +1276,13 @@
                                     },
                                     {
                                         "columnMatch": "microsoft.kusto/clusters-Query performance-QueryDuration Timeline",
-                                        "formatter": 5
+                                        "formatter": 21,
+                                        "formatOptions": {
+                                            "palette": "blue"
+                                        },
+                                        "tooltipFormat": {
+                                            "tooltip": "Query duration Timeline"
+                                        }
                                     },
                                     {
                                         "columnMatch": "microsoft.kusto/clusters-Query performance-TotalNumberOfConcurrentQueries",
@@ -1276,7 +1301,13 @@
                                     },
                                     {
                                         "columnMatch": "microsoft.kusto/clusters-Query performance-TotalNumberOfConcurrentQueries Timeline",
-                                        "formatter": 5
+                                        "formatter": 21,
+                                        "formatOptions": {
+                                            "palette": "blue"
+                                        },
+                                        "tooltipFormat": {
+                                            "tooltip": "Concurrent queries timeline"
+                                        }
                                     },
                                     {
                                         "columnMatch": "microsoft.kusto/clusters-Query performance-TotalNumberOfThrottledQueries",
@@ -1298,7 +1329,13 @@
                                     },
                                     {
                                         "columnMatch": "microsoft.kusto/clusters-Query performance-TotalNumberOfThrottledQueries Timeline",
-                                        "formatter": 5
+                                        "formatter": 21,
+                                        "formatOptions": {
+                                            "palette": "blue"
+                                        },
+                                        "tooltipFormat": {
+                                            "tooltip": "Throttled queries Timeline"
+                                        }
                                     }
                                 ],
                                 "rowLimit": 10000,
@@ -1311,18 +1348,16 @@
                                     "expandTopLevel": true,
                                     "finalBy": "Name"
                                 },
+                                "sortBy": [
+                                    {
+                                        "itemKey": "$gen_bar_microsoft.kusto/clusters-Query performance-TotalNumberOfThrottledQueries_7",
+                                        "sortOrder": 1
+                                    }
+                                ],
                                 "labelSettings": [
                                     {
-                                        "columnId": "Subscription",
-                                        "label": "Subskrypcja"
-                                    },
-                                    {
-                                        "columnId": "Name",
-                                        "label": "Nazwa"
-                                    },
-                                    {
                                         "columnId": "microsoft.kusto/clusters-Query performance-QueryDuration",
-                                        "label": "Czas trwania zapytania (średnia)"
+                                        "label": "Czas trwania zapytania (średnio)"
                                     },
                                     {
                                         "columnId": "microsoft.kusto/clusters-Query performance-QueryDuration Timeline",
@@ -1330,19 +1365,19 @@
                                     },
                                     {
                                         "columnId": "microsoft.kusto/clusters-Query performance-TotalNumberOfConcurrentQueries",
-                                        "label": "Zapytania współbieżne — łączna liczba (suma)"
+                                        "label": "Zapytania współbieżne — łączna liczba (średnio)"
                                     },
                                     {
                                         "columnId": "microsoft.kusto/clusters-Query performance-TotalNumberOfConcurrentQueries Timeline",
-                                        "label": "Oś czasu łącznej liczby zapytań współbieżnych"
+                                        "label": "Oś czasu zapytań współbieżnych"
                                     },
                                     {
                                         "columnId": "microsoft.kusto/clusters-Query performance-TotalNumberOfThrottledQueries",
-                                        "label": "Zapytania z ograniczeniami — łączna liczba (suma)"
+                                        "label": "Zapytania z ograniczeniami — łączna liczba (średnio)"
                                     },
                                     {
                                         "columnId": "microsoft.kusto/clusters-Query performance-TotalNumberOfThrottledQueries Timeline",
-                                        "label": "Oś czasu łącznej liczby zapytań z ograniczeniami"
+                                        "label": "Oś czasu zapytań z ograniczeniami"
                                     }
                                 ]
                             },
@@ -1372,7 +1407,7 @@
                             ],
                             "timeContextFromParameter": "TimeRange",
                             "timeContext": {
-                                "durationMs": 604800000
+                                "durationMs": 0
                             },
                             "metrics": [
                                 {
@@ -1431,7 +1466,13 @@
                                     },
                                     {
                                         "columnMatch": "Data Rate Timeline",
-                                        "formatter": 5
+                                        "formatter": 21,
+                                        "formatOptions": {
+                                            "palette": "blue"
+                                        },
+                                        "tooltipFormat": {
+                                            "tooltip": "Data rate timeline"
+                                        }
                                     },
                                     {
                                         "columnMatch": "Duration",
@@ -1450,7 +1491,13 @@
                                     },
                                     {
                                         "columnMatch": "Duration Timeline",
-                                        "formatter": 5
+                                        "formatter": 21,
+                                        "formatOptions": {
+                                            "palette": "blue"
+                                        },
+                                        "tooltipFormat": {
+                                            "tooltip": "Duration timeline"
+                                        }
                                     },
                                     {
                                         "columnMatch": "Request Rate",
@@ -1537,15 +1584,27 @@
                                 "labelSettings": [
                                     {
                                         "columnId": "Data Rate",
-                                        "label": "Szybkość danych (średnia)"
+                                        "label": "Szybkość danych (średnio) — pozyskiwanie danych za pośrednictwem przesyłania strumieniowego"
+                                    },
+                                    {
+                                        "columnId": "Data Rate Timeline",
+                                        "label": "Oś czasu szybkości danych (średnio) — pozyskiwanie danych za pośrednictwem przesyłania strumieniowego"
                                     },
                                     {
                                         "columnId": "Duration",
-                                        "label": "Czas trwania (średnia)"
+                                        "label": "Czas trwania (średnio) — pozyskiwanie danych za pośrednictwem przesyłania strumieniowego"
+                                    },
+                                    {
+                                        "columnId": "Duration Timeline",
+                                        "label": "Oś czasu trwania (średnio) — pozyskiwanie danych za pośrednictwem przesyłania strumieniowego"
                                     },
                                     {
                                         "columnId": "Request Rate",
-                                        "label": "Liczba żądań (liczba)"
+                                        "label": "Liczba żądań (liczba) — pozyskiwanie danych za pośrednictwem przesyłania strumieniowego"
+                                    },
+                                    {
+                                        "columnId": "Request Rate Timeline",
+                                        "label": "Oś czasu liczby żądań — pozyskiwanie danych za pośrednictwem przesyłania strumieniowego"
                                     }
                                 ]
                             },
