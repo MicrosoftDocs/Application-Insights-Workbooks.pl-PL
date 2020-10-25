@@ -2,11 +2,6 @@
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
     "name": "Kondycja agenta",
     "author": "Microsoft",
-    "galleries": [
-        {
-            "type": "workbook",
-            "resourceType": "Azure Monitor",
-            "order": 200
-        }
-    ]
+    "galleries": [],
+    "description": "Ten skoroszyt jest przestarzały i nie jest wyświetlany w żadnej galerii; użyj usługi Workbooks/Azure Monitor — agenci/przegląd"
 }
