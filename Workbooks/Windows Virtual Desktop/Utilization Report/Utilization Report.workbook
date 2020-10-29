@@ -130,7 +130,8 @@
                         },
                         "value": {
                             "durationMs": 604800000
-                        }
+                        },
+                        "label": "Przedział czasu"
                     },
                     {
                         "id": "ff8c2838-aaf0-40f6-a604-d4bfe72fc92f",
@@ -257,7 +258,8 @@
                                         "durationMs": 86400000
                                     },
                                     "queryType": 0,
-                                    "resourceType": "microsoft.desktopvirtualization/hostpools"
+                                    "resourceType": "microsoft.desktopvirtualization/hostpools",
+                                    "label": "Host"
                                 },
                                 {
                                     "id": "052a4d8c-a4d2-4a63-9a61-9e929fdb31ca",
@@ -289,7 +291,8 @@
                                         "durationMs": 86400000
                                     },
                                     "queryType": 1,
-                                    "resourceType": "microsoft.resourcegraph/resources"
+                                    "resourceType": "microsoft.resourcegraph/resources",
+                                    "label": "Limit sesji"
                                 },
                                 {
                                     "id": "9b1caa0d-384a-4de6-afe6-98b97ea4fae5",
@@ -305,7 +308,8 @@
                                         "durationMs": 86400000
                                     },
                                     "queryType": 0,
-                                    "resourceType": "microsoft.desktopvirtualization/hostpools"
+                                    "resourceType": "microsoft.desktopvirtualization/hostpools",
+                                    "label": "Liczba hostów sesji"
                                 },
                                 {
                                     "id": "03d96602-269f-4b35-8b87-42172909ff5d",
@@ -433,13 +437,15 @@
                                                                 "columnId": "Max"
                                                             },
                                                             {
-                                                                "columnId": "MaxTime"
+                                                                "columnId": "MaxTime",
+                                                                "label": "Maksymalny czas"
                                                             },
                                                             {
                                                                 "columnId": "Min"
                                                             },
                                                             {
-                                                                "columnId": "MinTime"
+                                                                "columnId": "MinTime",
+                                                                "label": "Minimalny czas"
                                                             },
                                                             {
                                                                 "columnId": "Average",
@@ -584,21 +590,24 @@
                                                         ],
                                                         "labelSettings": [
                                                             {
-                                                                "columnId": "Host Pool"
+                                                                "columnId": "Host Pool",
+                                                                "label": ""
                                                             },
                                                             {
                                                                 "columnId": "Max User/Cores",
-                                                                "label": "Maks."
+                                                                "label": "Max"
                                                             },
                                                             {
-                                                                "columnId": "MaxTime"
+                                                                "columnId": "MaxTime",
+                                                                "label": "Maksymalny czas"
                                                             },
                                                             {
                                                                 "columnId": "Min User/Coures",
                                                                 "label": "Min."
                                                             },
                                                             {
-                                                                "columnId": "MinTime"
+                                                                "columnId": "MinTime",
+                                                                "label": "Minimalny czas"
                                                             },
                                                             {
                                                                 "columnId": "Average",
@@ -658,7 +667,7 @@
                                                 "type": 3,
                                                 "content": {
                                                     "version": "KqlItem/1.0",
-                                                    "query": "let WVDHosts = dynamic([{WVDHosts}]);\r\nlet hostPool = \"{HostPool:label}\";\r\nPerf\r\n| extend Computername = strcat(hostPool, '/', Computer)\r\n| where Computername in (WVDHosts)\r\n| where TimeGenerated {TimeRange:query}\r\n| where ObjectName == \"Process\" and CounterName == \"% Processor Time\"\r\n| extend Computer = trim_end(@'\\..*', Computer)\r\n| make-series [\"CPU Usage\"] = avg(CounterValue) on TimeGenerated step {TimeRange:grain} by Computer",
+                                                    "query": "let WVDHosts = dynamic([{WVDHosts}]);\r\nlet hostPool = \"{HostPool:label}\";\r\nPerf\r\n| extend Computername = strcat(hostPool, '/', Computer)\r\n| where Computername in (WVDHosts)\r\n| where TimeGenerated {TimeRange:query}\r\n| where ObjectName == \"Processor Information\" and CounterName == \"% Processor Time\" and InstanceName == \"_Total\"\r\n| extend Computer = trim_end(@'\\..*', Computer)\r\n| make-series [\"CPU Usage\"] = avg(CounterValue) on TimeGenerated step {TimeRange:grain} by Computer",
                                                     "size": 0,
                                                     "aggregation": 3,
                                                     "title": "Użycie procesora",
@@ -733,6 +742,12 @@
                                         ],
                                         "visualization": "linechart",
                                         "chartSettings": {
+                                            "seriesLabelSettings": [
+                                                {
+                                                    "seriesName": "MAU",
+                                                    "label": "Użytkownicy"
+                                                }
+                                            ],
                                             "ySettings": {
                                                 "min": 0
                                             }
