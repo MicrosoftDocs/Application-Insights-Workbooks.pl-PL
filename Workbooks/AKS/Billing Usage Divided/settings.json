@@ -1,17 +1,23 @@
 {
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/settings.json",
-    "name": "We/wy dysku węzła",
+    "name": "Użycie szczegółowych informacji kontenera",
     "author": "Microsoft",
+    "isPreview": true,
     "galleries": [
         {
             "type": "container-insights",
             "resourceType": "Microsoft.ContainerService/managedClusters",
-            "order": 200
+            "order": 1400
         },
         {
             "type": "container-insights",
             "resourceType": "Microsoft.Kubernetes/connectedClusters",
-            "order": 200
+            "order": 1400
+        },
+        {
+            "type": "container-insights",
+            "resourceType": "Microsoft.RedHatOpenShift/OpenShiftClusters",
+            "order": 1400
         }
     ]
 }
