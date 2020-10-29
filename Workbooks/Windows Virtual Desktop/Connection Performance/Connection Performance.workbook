@@ -36,8 +36,7 @@
                             "additionalResourceOptions": []
                         },
                         "queryType": 1,
-                        "resourceType": "microsoft.resourcegraph/resources",
-                        "value": "canaryweu"
+                        "resourceType": "microsoft.resourcegraph/resources"
                     },
                     {
                         "id": "951b5870-e216-45c6-b159-34150868a46e",
@@ -131,7 +130,8 @@
                         },
                         "value": {
                             "durationMs": 604800000
-                        }
+                        },
+                        "label": "Przedział czasu"
                     },
                     {
                         "id": "ff8c2838-aaf0-40f6-a604-d4bfe72fc92f",
@@ -349,12 +349,12 @@
                                                 "type": 3,
                                                 "content": {
                                                     "version": "KqlItem/1.0",
-                                                    "query": "let WVDHosts = dynamic([{WVDHosts}]);\r\nWVDConnections\r\n| extend HostPool = '{HostPool:label}'\r\n| extend HostPool = strcat(HostPool, \"/\")\r\n| extend ComputerName = strcat(HostPool, SessionHostName)\r\n| where ComputerName in (WVDHosts)\r\n| as ConnectionData\r\n| where State == \"Started\"\r\n| join kind = leftsemi\r\n(\r\n    // Only include connections that actually reached the host to prevent short (failed) attempts from skewing the data\r\n    WVDCheckpoints\r\n    | where Source == \"RDStack\" and Name == \"RdpStackConnectionEstablished\"\r\n) on CorrelationId\r\n| join kind = leftsemi\r\n(\r\n    WVDCheckpoints\r\n    | where Name == \"LoadBalancedNewConnection\"\r\n    | evaluate bag_unpack(Parameters)   \r\n    | where LoadBalanceOutcome == \"NewSession\" //Include both Disconnected & Active as reesablishing a session\r\n) on CorrelationId\r\n| join kind = inner\r\n(\r\n    ConnectionData\r\n    | where State == \"Connected\"\r\n    | project ConnectedTime=TimeGenerated, CorrelationId\r\n) on CorrelationId\r\n| extend ConnectionTime = (ConnectedTime - TimeGenerated) / 1s\r\n//| make-series Average=avg(ConnectionTime) default=int(null), Median=percentile(ConnectionTime, 50) default=int(null), p95=percentile(ConnectionTime, 95) default=int(null) on TimeGenerated from {TimeRange:start} to {TimeRange:end} step {TimeRange:grain}\r\n| summarize Median=percentile(ConnectionTime, 50), Average=avg(ConnectionTime), p95=percentile(ConnectionTime, 95)\r\n| evaluate narrow()\r\n| project Title=\"Time to connect E2E\", Metric=Column, Value",
+                                                    "query": "let WVDHosts = dynamic([{WVDHosts}]);\r\nWVDConnections\r\n| extend HostPool = '{HostPool:label}'\r\n| extend HostPool = strcat(HostPool, \"/\")\r\n| extend ComputerName = strcat(HostPool, SessionHostName)\r\n| where ComputerName in (WVDHosts)\r\n| as ConnectionData\r\n| where State == \"Started\"\r\n| join kind = leftsemi\r\n(\r\n    // Only include connections that actually reached the host to prevent short (failed) attempts from skewing the data\r\n    WVDCheckpoints\r\n    | where Source == \"RDStack\" and Name == \"RdpStackConnectionEstablished\"\r\n) on CorrelationId\r\n| join kind = leftsemi\r\n(\r\n    WVDCheckpoints\r\n    | where Name == \"LoadBalancedNewConnection\"\r\n    | evaluate bag_unpack(Parameters)   \r\n    | where LoadBalanceOutcome == \"NewSession\" //Include both Disconnected & Active as reesablishing a session\r\n) on CorrelationId\r\n| join kind = inner\r\n(\r\n    ConnectionData\r\n    | where State == \"Connected\"\r\n    | project ConnectedTime=TimeGenerated, CorrelationId\r\n) on CorrelationId\r\n| extend ConnectionTime = (ConnectedTime - TimeGenerated) / 1s\r\n//| make-series Average=avg(ConnectionTime) default=int(null), Median=percentile(ConnectionTime, 50) default=int(null), p95=percentile(ConnectionTime, 95) default=int(null) on TimeGenerated from {TimeRange:start} to {TimeRange:end} step {TimeRange:grain}\r\n| summarize Median=percentile(ConnectionTime, 50), p95=percentile(ConnectionTime, 95)\r\n| evaluate narrow()\r\n| project Title=\"Time to connect E2E\", Metric=Column, Value",
                                                     "size": 4,
                                                     "aggregation": 3,
                                                     "noDataMessage": "No Connected Sessions detected in the selected time period",
                                                     "timeContext": {
-                                                        "durationMs": 604800000
+                                                        "durationMs": 0
                                                     },
                                                     "timeContextFromParameter": "TimeRange",
                                                     "queryType": 0,
@@ -500,12 +500,12 @@
                                                 "type": 3,
                                                 "content": {
                                                     "version": "KqlItem/1.0",
-                                                    "query": "let WVDHosts = dynamic([{WVDHosts}]);\r\nWVDConnections\r\n| extend HostPool = '{HostPool:label}'\r\n| extend HostPool = strcat(HostPool, \"/\")\r\n| extend ComputerName = strcat(HostPool, SessionHostName)\r\n| where ComputerName in (WVDHosts)\r\n| as ConnectionData\r\n| where State == \"Started\"\r\n| join kind = leftsemi\r\n(\r\n    // Only include connections that actually reached the host to prevent short (failed) attempts from skewing the data\r\n    WVDCheckpoints\r\n    | where Source == \"RDStack\" and Name == \"RdpStackConnectionEstablished\"\r\n) on CorrelationId\r\n| join kind = leftsemi\r\n(\r\n    WVDCheckpoints\r\n    | where Name == \"LoadBalancedNewConnection\"\r\n    | evaluate bag_unpack(Parameters)   \r\n    | where LoadBalanceOutcome in (\"Disconnected\", \"Active\") //Include both Disconnected & Active as reesablishing a session\r\n) on CorrelationId\r\n| join kind = inner\r\n(\r\n    ConnectionData\r\n    | where State == \"Connected\"\r\n    | project ConnectedTime=TimeGenerated, CorrelationId\r\n) on CorrelationId\r\n| extend ConnectionTime = (ConnectedTime - TimeGenerated) / 1s\r\n| summarize Median=percentile(ConnectionTime, 50), Average=avg(ConnectionTime), p95=percentile(ConnectionTime, 95)\r\n| evaluate narrow()\r\n| project Title=\"Time to connect E2E\", Metric=Column, Value",
+                                                    "query": "let WVDHosts = dynamic([{WVDHosts}]);\r\nWVDConnections\r\n| extend HostPool = '{HostPool:label}'\r\n| extend HostPool = strcat(HostPool, \"/\")\r\n| extend ComputerName = strcat(HostPool, SessionHostName)\r\n| where ComputerName in (WVDHosts)\r\n| as ConnectionData\r\n| where State == \"Started\"\r\n| join kind = leftsemi\r\n(\r\n    // Only include connections that actually reached the host to prevent short (failed) attempts from skewing the data\r\n    WVDCheckpoints\r\n    | where Source == \"RDStack\" and Name == \"RdpStackConnectionEstablished\"\r\n) on CorrelationId\r\n| join kind = leftsemi\r\n(\r\n    WVDCheckpoints\r\n    | where Name == \"LoadBalancedNewConnection\"\r\n    | evaluate bag_unpack(Parameters)   \r\n    | where LoadBalanceOutcome in (\"Disconnected\", \"Active\") //Include both Disconnected & Active as reesablishing a session\r\n) on CorrelationId\r\n| join kind = inner\r\n(\r\n    ConnectionData\r\n    | where State == \"Connected\"\r\n    | project ConnectedTime=TimeGenerated, CorrelationId\r\n) on CorrelationId\r\n| extend ConnectionTime = (ConnectedTime - TimeGenerated) / 1s\r\n| summarize Median=percentile(ConnectionTime, 50), p95=percentile(ConnectionTime, 95)\r\n| evaluate narrow()\r\n| project Title=\"Time to connect E2E\", Metric=Column, Value",
                                                     "size": 4,
                                                     "aggregation": 3,
                                                     "noDataMessage": "No Connected Sessions detected in the selected time period",
                                                     "timeContext": {
-                                                        "durationMs": 604800000
+                                                        "durationMs": 0
                                                     },
                                                     "timeContextFromParameter": "TimeRange",
                                                     "queryType": 0,
@@ -664,7 +664,7 @@
                                         "title": "Czas nawiązywania połączenia według hosta",
                                         "noDataMessage": "No Connected Sessions detected in the selected time period",
                                         "timeContext": {
-                                            "durationMs": 604800000
+                                            "durationMs": 0
                                         },
                                         "timeContextFromParameter": "TimeRange",
                                         "queryType": 0,
@@ -693,7 +693,7 @@
                                                     }
                                                 },
                                                 {
-                                                    "columnMatch": "Median|p95|Average",
+                                                    "columnMatch": "Median|p95",
                                                     "formatter": 4,
                                                     "formatOptions": {
                                                         "min": 0,
@@ -704,9 +704,14 @@
                                                         "unit": 24,
                                                         "options": {
                                                             "style": "decimal",
+                                                            "useGrouping": false,
                                                             "maximumSignificantDigits": 2
                                                         }
                                                     }
+                                                },
+                                                {
+                                                    "columnMatch": "Average",
+                                                    "formatter": 5
                                                 }
                                             ]
                                         },
@@ -739,7 +744,7 @@
                                         "title": "10 użytkowników z najwyższą medianą czasu nawiązywania połączenia",
                                         "noDataMessage": "No Connected Sessions detected in the selected time period",
                                         "timeContext": {
-                                            "durationMs": 604800000
+                                            "durationMs": 0
                                         },
                                         "timeContextFromParameter": "TimeRange",
                                         "queryType": 0,
@@ -768,7 +773,7 @@
                                                     }
                                                 },
                                                 {
-                                                    "columnMatch": "Median|p95|Average",
+                                                    "columnMatch": "Median|p95",
                                                     "formatter": 4,
                                                     "formatOptions": {
                                                         "min": 0,
@@ -783,6 +788,10 @@
                                                             "maximumSignificantDigits": 2
                                                         }
                                                     }
+                                                },
+                                                {
+                                                    "columnMatch": "Average",
+                                                    "formatter": 5
                                                 }
                                             ]
                                         },
@@ -828,7 +837,7 @@
                                         "aggregation": 3,
                                         "title": "Czas RTT według hosta",
                                         "timeContext": {
-                                            "durationMs": 604800000
+                                            "durationMs": 0
                                         },
                                         "timeContextFromParameter": "TimeRange",
                                         "exportedParameters": [
@@ -880,7 +889,7 @@
                                                     }
                                                 },
                                                 {
-                                                    "columnMatch": "Median|p95|Average",
+                                                    "columnMatch": "Median|p95",
                                                     "formatter": 4,
                                                     "formatOptions": {
                                                         "min": 0,
@@ -896,6 +905,10 @@
                                                             "maximumFractionDigits": 0
                                                         }
                                                     }
+                                                },
+                                                {
+                                                    "columnMatch": "Average",
+                                                    "formatter": 5
                                                 },
                                                 {
                                                     "columnMatch": "StdDev",
@@ -942,7 +955,38 @@
                                                     }
                                                 }
                                             ],
-                                            "rowLimit": 25
+                                            "rowLimit": 25,
+                                            "labelSettings": [
+                                                {
+                                                    "columnId": "Host"
+                                                },
+                                                {
+                                                    "columnId": "Computer"
+                                                },
+                                                {
+                                                    "columnId": "Samples"
+                                                },
+                                                {
+                                                    "columnId": "Median"
+                                                },
+                                                {
+                                                    "columnId": "Average"
+                                                },
+                                                {
+                                                    "columnId": "p95"
+                                                },
+                                                {
+                                                    "columnId": "StdDev",
+                                                    "label": "Odchylenie standardowe"
+                                                },
+                                                {
+                                                    "columnId": "Peak"
+                                                },
+                                                {
+                                                    "columnId": "PeakTime",
+                                                    "label": "Czas szczytu"
+                                                }
+                                            ]
                                         },
                                         "sortBy": [],
                                         "tileSettings": {
@@ -1012,7 +1056,7 @@
                                         "aggregation": 3,
                                         "title": "Mediana i 95. percentyl czasu RTT dla komputera {RttComputer}",
                                         "timeContext": {
-                                            "durationMs": 604800000
+                                            "durationMs": 0
                                         },
                                         "timeContextFromParameter": "TimeRange",
                                         "queryType": 0,
