@@ -460,7 +460,7 @@
                 "json": "<h3>Łączna liczba {unit:label} odebranych (w interwałach {timeRange:grain})</h3>"
             },
             "customWidth": "50",
-            "name": "text - 5 - Copy"
+            "name": "text - 5 - Copyb"
         },
         {
             "type": 3,
@@ -523,7 +523,7 @@
                 "json": "<h3>Błędy na wejściu/s</h3>"
             },
             "customWidth": "50",
-            "name": "text - 5 - Copy - Copy - Copy - Copy"
+            "name": "text - 5 - Copy - Copy - Copy - Copyb"
         },
         {
             "type": 3,

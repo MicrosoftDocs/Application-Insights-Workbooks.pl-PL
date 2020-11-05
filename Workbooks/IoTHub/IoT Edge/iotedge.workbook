@@ -201,7 +201,7 @@
         {
             "type": 1,
             "content": {
-                "json": "💡*Wybierz urządzenie i kliknij kartę „**Przejdź do szczegółów**”*"
+                "json": "💡*Wybierz urządzenie i kliknij kartę „ **Przejdź do szczegółów** ”*"
             },
             "conditionalVisibilities": [
                 {
@@ -768,7 +768,7 @@
                                 {
                                     "type": 1,
                                     "content": {
-                                        "json": "# <a name=\"span-stylecolorteal-no_loc_phselecteddeviceno_loc_ph-span\"></a><span style=\"color:teal\"> **{SelectedDevice}** </span>"
+                                        "json": "# <a name=\"span-stylecolorteal-no_loc_phselecteddeviceno_loc_ph-span\"></a><span style=\"color:teal\"> **{SelectedDevice}**</span>"
                                     },
                                     "customWidth": "0",
                                     "name": "text - 5",
@@ -853,7 +853,7 @@
                                 {
                                     "type": 1,
                                     "content": {
-                                        "json": "<span style=\"color:teal\"> *Zgłoszone metryki {LastUpdated}* </span>"
+                                        "json": "<span style=\"color:teal\"> *Zgłoszone metryki {LastUpdated}*</span>"
                                     },
                                     "customWidth": "0",
                                     "name": "text - 21",
@@ -2605,7 +2605,7 @@
                                                         "comparison": "isNotEqualTo"
                                                     }
                                                 ],
-                                                "name": "query - 0 - Copy"
+                                                "name": "query - 0 - Copyb"
                                             },
                                             {
                                                 "type": 3,
@@ -2842,7 +2842,7 @@
                                             "value": "<default>"
                                         }
                                     ],
-                                    "name": "text - 5"
+                                    "name": "text - 5b"
                                 }
                             ]
                         },

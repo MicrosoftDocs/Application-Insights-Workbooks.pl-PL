@@ -374,7 +374,7 @@
                                 {
                                     "type": 1,
                                     "content": {
-                                        "json": "**Nie znaleziono połączeń** dla użytkownika **{UserName}** w okresie ostatnich **30 dni** .",
+                                        "json": "**Nie znaleziono połączeń** dla użytkownika **{UserName}** w okresie ostatnich **30 dni**.",
                                         "style": "warning"
                                     },
                                     "conditionalVisibility": {
@@ -761,7 +761,7 @@
                                             }
                                         }
                                     },
-                                    "name": "PopularResourceByUser - Copy"
+                                    "name": "PopularResourceByUser - Copy2"
                                 },
                                 {
                                     "type": 3,

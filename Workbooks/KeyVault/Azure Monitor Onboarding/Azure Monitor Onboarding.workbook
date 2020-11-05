@@ -267,7 +267,7 @@
             "content": {
                 "json": "Aby uzyskać dodatkową pomoc dotyczącą sposobu konfigurowania pełnego pokrycia monitorowania, zapoznaj się z przewodnikiem [włączania rejestrowania w usłudze Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-logging)."
             },
-            "name": "text - 5"
+            "name": "text - 5b"
         }
     ],
     "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"

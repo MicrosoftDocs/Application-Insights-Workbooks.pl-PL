@@ -338,7 +338,7 @@
                 "comparison": "isEqualTo",
                 "value": "v2"
             },
-            "name": "Key metrics"
+            "name": "Key metricsb"
         },
         {
             "type": 10,
@@ -421,7 +421,7 @@
                 "comparison": "isEqualTo",
                 "value": "v1"
             },
-            "name": "Key metrics"
+            "name": "Key metricsc"
         },
         {
             "type": 11,
@@ -498,7 +498,7 @@
         {
             "type": 1,
             "content": {
-                "json": "#### <a name=\"application-gateway-total-time-vs-backend-last-byte-response-time\"></a>Łączny czas bramy aplikacji a czas odebrania z zaplecza ostatniego bajtu odpowiedzi\n\n*Łączny czas bramy aplikacji* to przedział czasu od momentu, gdy brama aplikacji otrzymała pierwszy bajt żądania HTTP do momentu wysłania ostatniego bajtu odpowiedzi do klienta. Jest to suma *czasu odebrania z zaplecza ostatniego bajtu odpowiedzi*, czasu przetwarzania przez usługę Application Gateway oraz *czasu błądzenia klienta* (tylko wtedy, gdy rozmiar okna żądania TCP klienta jest niewielki w porównaniu do odpowiedzi). Porównaj te dwie metryki, aby określić, czy problem dotyczy usługi Application Gateway, czy zaplecza.\nJeśli wartość metryki *Łączny czas bramy aplikacji* nagle wzrosła, ale czas odebrania z zaplecza ostatniego bajtu odpowiedzi jest stabilny, może to oznaczać wąskie gardło wydajności na poziomie bramy aplikacji lub wąskie gardło w sieci pomiędzy klientem a usługą Application Gateway (tylko gdy rozmiar okna żądania TCP klienta jest niewielki w porównaniu do odpowiedzi). "
+                "json": "#### <a name=\"application-gateway-total-time-vs-backend-last-byte-response-time\"></a>Łączny czas bramy aplikacji a czas odebrania z zaplecza ostatniego bajtu odpowiedzi\n\n*Łączny czas bramy aplikacji* to przedział czasu od momentu, gdy brama aplikacji otrzymała pierwszy bajt żądania HTTP do momentu wysłania ostatniego bajtu odpowiedzi do klienta. Jest to suma *czasu odebrania z zaplecza ostatniego bajtu odpowiedzi* , czasu przetwarzania przez usługę Application Gateway oraz *czasu błądzenia klienta* (tylko wtedy, gdy rozmiar okna żądania TCP klienta jest niewielki w porównaniu do odpowiedzi). Porównaj te dwie metryki, aby określić, czy problem dotyczy usługi Application Gateway, czy zaplecza.\nJeśli wartość metryki *Łączny czas bramy aplikacji* nagle wzrosła, ale czas odebrania z zaplecza ostatniego bajtu odpowiedzi jest stabilny, może to oznaczać wąskie gardło wydajności na poziomie bramy aplikacji lub wąskie gardło w sieci pomiędzy klientem a usługą Application Gateway (tylko gdy rozmiar okna żądania TCP klienta jest niewielki w porównaniu do odpowiedzi). "
             },
             "conditionalVisibilities": [
                 {
@@ -653,7 +653,7 @@
         {
             "type": 1,
             "content": {
-                "json": "#### <a name=\"backend-connect-time-vs-backend-first-byte-response-time-vs-backend-last-byte-response-time\"></a>Czas połączenia z zapleczem a czas pierwszego bajtu odpowiedzi zaplecza, czas pierwszego bajtu odpowiedzi zaplecza a czas ostatniego bajtu odpowiedzi zaplecza\n\n**Czas połączenia z zapleczem** to czas nawiązywania połączenia z aplikacją zaplecza. Obejmuje on opóźnienie sieci, a także czas potrzebny na nawiązanie nowych połączeń przez stos TCP serwera zaplecza. W przypadku protokołu TLS obejmuje również czas potrzebny na uzgodnienie.\n\n**Czas odebrania z zaplecza pierwszego bajtu odpowiedzi** to przedział czasu między rozpoczęciem nawiązywania połączenia z serwerem zaplecza a otrzymaniem pierwszego bajtu nagłówka odpowiedzi. Jest to w przybliżeniu suma *czasu połączenia z zapleczem*, czasu przesyłania żądania z usługi Application Gateway do zaplecza, czasu potrzebnego aplikacji zaplecza na odpowiedź (czas generowania zawartości przez serwer, a potencjalnie także pobierania zapytań dotyczących bazy danych) oraz czasu dotarcia pierwszego bajtu odpowiedzi z zaplecza do usługi Application Gateway.\n\n**Czas odebrania z zaplecza ostatniego bajtu odpowiedzi** to przedział czasu między rozpoczęciem nawiązywania połączenia z serwerem zaplecza a odebraniem ostatniego bajtu treści odpowiedzi. Jest to w przybliżeniu suma *czasu odebrania z zaplecza pierwszego bajtu odpowiedzi* oraz czasu transferu danych (ta liczba może się znacząco różnić w zależności od rozmiaru żądanych obiektów oraz opóźnienia w sieci serwera).\n\nJeśli w trendzie czasu odebrania z zaplecza pierwszego bajtu odpowiedzi nastąpił nagły wzrost, ale trend czasu połączenia z zapleczem jest stabilny, można wnioskować, że opóźnienie pomiędzy usługą Application Gateway a zapleczem oraz czas potrzebny na nawiązanie połączenia są stabilne, a nagły wzrost jest spowodowany wydłużeniem czasu odpowiedzi aplikacji zaplecza. Z drugiej strony jeśli nagły wzrost czasu odebrania z zaplecza pierwszego bajtu odpowiedzi jest powiązany z podobnym wzrostem w czasie połączenia z zapleczem, można wnioskować, że wykorzystano przepustowość jednej z sieci pomiędzy usługą Application Gateway a serwerem zaplecza lub stosem TCP serwera zaplecza. Jeśli zauważysz nagły wzrost czasu odebrania z zaplecza ostatniego bajtu odpowiedzi, ale czas odebrania z zaplecza pierwszego bajtu odpowiedzi jest stabilny, można wnioskować, że wzrost wynika z większego rozmiaru żądanego pliku.\n\n"
+                "json": "#### <a name=\"backend-connect-time-vs-backend-first-byte-response-time-vs-backend-last-byte-response-time\"></a>Czas połączenia z zapleczem a czas pierwszego bajtu odpowiedzi zaplecza, czas pierwszego bajtu odpowiedzi zaplecza a czas ostatniego bajtu odpowiedzi zaplecza\n\n**Czas połączenia z zapleczem** to czas nawiązywania połączenia z aplikacją zaplecza. Obejmuje on opóźnienie sieci, a także czas potrzebny na nawiązanie nowych połączeń przez stos TCP serwera zaplecza. W przypadku protokołu TLS obejmuje również czas potrzebny na uzgodnienie.\n\n**Czas odebrania z zaplecza pierwszego bajtu odpowiedzi** to przedział czasu między rozpoczęciem nawiązywania połączenia z serwerem zaplecza a otrzymaniem pierwszego bajtu nagłówka odpowiedzi. Jest to w przybliżeniu suma *czasu połączenia z zapleczem* , czasu przesyłania żądania z usługi Application Gateway do zaplecza, czasu potrzebnego aplikacji zaplecza na odpowiedź (czas generowania zawartości przez serwer, a potencjalnie także pobierania zapytań dotyczących bazy danych) oraz czasu dotarcia pierwszego bajtu odpowiedzi z zaplecza do usługi Application Gateway.\n\n**Czas odebrania z zaplecza ostatniego bajtu odpowiedzi** to przedział czasu między rozpoczęciem nawiązywania połączenia z serwerem zaplecza a odebraniem ostatniego bajtu treści odpowiedzi. Jest to w przybliżeniu suma *czasu odebrania z zaplecza pierwszego bajtu odpowiedzi* oraz czasu transferu danych (ta liczba może się znacząco różnić w zależności od rozmiaru żądanych obiektów oraz opóźnienia w sieci serwera).\n\nJeśli w trendzie czasu odebrania z zaplecza pierwszego bajtu odpowiedzi nastąpił nagły wzrost, ale trend czasu połączenia z zapleczem jest stabilny, można wnioskować, że opóźnienie pomiędzy usługą Application Gateway a zapleczem oraz czas potrzebny na nawiązanie połączenia są stabilne, a nagły wzrost jest spowodowany wydłużeniem czasu odpowiedzi aplikacji zaplecza. Z drugiej strony jeśli nagły wzrost czasu odebrania z zaplecza pierwszego bajtu odpowiedzi jest powiązany z podobnym wzrostem w czasie połączenia z zapleczem, można wnioskować, że wykorzystano przepustowość jednej z sieci pomiędzy usługą Application Gateway a serwerem zaplecza lub stosem TCP serwera zaplecza. Jeśli zauważysz nagły wzrost czasu odebrania z zaplecza ostatniego bajtu odpowiedzi, ale czas odebrania z zaplecza pierwszego bajtu odpowiedzi jest stabilny, można wnioskować, że wzrost wynika z większego rozmiaru żądanego pliku.\n\n"
             },
             "conditionalVisibilities": [
                 {
@@ -807,7 +807,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"capacity-units\"></a>Jednostki wydajności\nJednostki wydajności używane przez usługę Application Gateway są określone w trzech wymiarach: *jednostka obliczeniowa*, *bieżące połączenia* oraz *przepływność*. Każda jednostka wydajności składa się maksymalnie z: 1 *jednostki obliczeniowej* lub 2500 *bieżących połączeń*lub 2,22 MB/s *przepływności*. Sprawdź wartość trzech metryk poniżej, aby wywnioskować, w którym z trzech wymiarów wystąpiły zmiany prowadzące do zmian liczby *jednostek wydajności*"
+                "json": "### <a name=\"capacity-units\"></a>Jednostki wydajności\nJednostki wydajności używane przez usługę Application Gateway są określone w trzech wymiarach: *jednostka obliczeniowa* , *bieżące połączenia* oraz *przepływność*. Każda jednostka wydajności składa się maksymalnie z: 1 *jednostki obliczeniowej* lub 2500 *bieżących połączeń* lub 2,22 MB/s *przepływności*. Sprawdź wartość trzech metryk poniżej, aby wywnioskować, w którym z trzech wymiarów wystąpiły zmiany prowadzące do zmian liczby *jednostek wydajności*"
             },
             "conditionalVisibilities": [
                 {
@@ -1071,7 +1071,7 @@
                 "value": "1"
             },
             "customWidth": "50",
-            "name": "text - 17 - Copy"
+            "name": "text - 17 - Copyb"
         },
         {
             "type": 1,
@@ -1096,7 +1096,7 @@
                 "value": "1"
             },
             "customWidth": "50",
-            "name": "text - 17 - Copy - Copy"
+            "name": "text - 17 - Copy - Copyb"
         },
         {
             "type": 10,
@@ -1307,7 +1307,7 @@
                 "value": "3"
             },
             "customWidth": "25",
-            "name": "text - 1 - Copy - Copy - Copy - Copy - Copy"
+            "name": "text - 1 - Copy - Copy - Copy - Copy - Copyb"
         },
         {
             "type": 1,
@@ -1346,7 +1346,7 @@
                 "value": "3"
             },
             "customWidth": "25",
-            "name": "text - 1 - Copy - Copy - Copy - Copy - Copy - Copy - Copy - Copy"
+            "name": "text - 1 - Copy - Copy - Copy - Copy - Copy - Copy - Copy - Copyc"
         },
         {
             "type": 10,
@@ -1559,7 +1559,7 @@
                 "value": "3"
             },
             "customWidth": "25",
-            "name": "text - 1 - Copy - Copy - Copy - Copy - Copy - Copy"
+            "name": "text - 1 - Copy - Copy - Copy - Copy - Copy - Copyb"
         },
         {
             "type": 1,
@@ -1584,7 +1584,7 @@
                 "value": "3"
             },
             "customWidth": "25",
-            "name": "text - 1 - Copy - Copy - Copy - Copy - Copy - Copy - Copy"
+            "name": "text - 1 - Copy - Copy - Copy - Copy - Copy - Copy - Copyd"
         },
         {
             "type": 1,
@@ -1609,7 +1609,7 @@
                 "value": "3"
             },
             "customWidth": "25",
-            "name": "text - 1 - Copy - Copy - Copy - Copy - Copy - Copy - Copy - Copy"
+            "name": "text - 1 - Copy - Copy - Copy - Copy - Copy - Copy - Copy - Copyb"
         },
         {
             "type": 1,
@@ -1955,7 +1955,7 @@
                 "comparison": "isEqualTo",
                 "value": "3"
             },
-            "name": "text - 1 - Copy - Copy - Copy - Copy"
+            "name": "text - 1 - Copy - Copy - Copy - Copyb"
         },
         {
             "type": 1,
@@ -2026,7 +2026,7 @@
                 "comparison": "isEqualTo",
                 "value": "3"
             },
-            "name": "text - 1 - Copy - Copy - Copy - Copy - Copy - Copy - Copy"
+            "name": "text - 1 - Copy - Copy - Copy - Copy - Copy - Copy - Copyb"
         },
         {
             "type": 1,
@@ -2097,7 +2097,7 @@
                 "comparison": "isEqualTo",
                 "value": "3"
             },
-            "name": "text - 1 - Copy - Copy - Copy - Copy - Copy - Copy"
+            "name": "text - 1 - Copy - Copy - Copy - Copy - Copy - Copyc"
         },
         {
             "type": 1,
@@ -2168,7 +2168,7 @@
                 "comparison": "isEqualTo",
                 "value": "3"
             },
-            "name": "text - 1 - Copy - Copy - Copy - Copy - Copy"
+            "name": "text - 1 - Copy - Copy - Copy - Copy - Copyc"
         },
         {
             "type": 1,
@@ -2240,7 +2240,7 @@
                 "value": "4"
             },
             "customWidth": "50",
-            "name": "text - 1 - Copy - Copy - Copy - Copy - Copy - Copy"
+            "name": "text - 1 - Copy - Copy - Copy - Copy - Copy - Copye"
         },
         {
             "type": 1,
@@ -2253,7 +2253,7 @@
                 "value": "4"
             },
             "customWidth": "50",
-            "name": "text - 1 - Copy - Copy - Copy - Copy - Copy - Copy - Copy"
+            "name": "text - 1 - Copy - Copy - Copy - Copy - Copy - Copy - Copyc"
         },
         {
             "type": 10,
@@ -2352,7 +2352,7 @@
                 "value": "4"
             },
             "customWidth": "25",
-            "name": "text - 1 - Copy - Copy - Copy - Copy - Copy - Copy - Copy"
+            "name": "text - 1 - Copy - Copy - Copy - Copy - Copy - Copy - Copyf"
         },
         {
             "type": 1,
@@ -2905,7 +2905,7 @@
         {
             "type": 1,
             "content": {
-                "json": "### <a name=\"current-capacity-units\"></a>Jednostki bieżącej wydajności\nLiczba jednostek wydajności użytych do równoważenia obciążenia ruchu. Istnieją trzy wyznaczniki jednostki wydajności: *jednostki obliczeniowe*, *bieżące połączenia* oraz *przepływność*. Każda jednostka wydajności składa się maksymalnie z: 1 *jednostki obliczeniowej* lub 2500 *bieżących połączeń*lub 2,22 MB/s *przepływności*.\n"
+                "json": "### <a name=\"current-capacity-units\"></a>Jednostki bieżącej wydajności\nLiczba jednostek wydajności użytych do równoważenia obciążenia ruchu. Istnieją trzy wyznaczniki jednostki wydajności: *jednostki obliczeniowe* , *bieżące połączenia* oraz *przepływność*. Każda jednostka wydajności składa się maksymalnie z: 1 *jednostki obliczeniowej* lub 2500 *bieżących połączeń* lub 2,22 MB/s *przepływności*.\n"
             },
             "conditionalVisibilities": [
                 {
