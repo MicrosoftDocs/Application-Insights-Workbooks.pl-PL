@@ -165,7 +165,7 @@
             "content": {
                 "json": "## <a name=\"impact-summary\"></a>Podsumowanie wpływu\nOto wpływ wybranych zasad na dzierżawę w okresie {TimeRange}. \n\n💡 _Wyświetl podsumowanie według liczby użytkowników lub liczby logowań. Kliknij kafelek, aby wyświetlić szczegóły poniżej._"
             },
-            "name": "text - 5"
+            "name": "text - 5b"
         },
         {
             "type": 3,
@@ -669,7 +669,7 @@
                 "comparison": "isNotEqualTo",
                 "value": "0"
             },
-            "name": "text - 22"
+            "name": "text - 22b"
         },
         {
             "type": 3,

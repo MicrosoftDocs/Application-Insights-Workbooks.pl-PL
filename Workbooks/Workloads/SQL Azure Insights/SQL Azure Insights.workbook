@@ -901,7 +901,7 @@
                         "content": {
                             "json": "Karta **Włączanie monitorowania** służy do konfigurowania maszyn na potrzeby rozpoczęcia monitorowania serwerów SQL Server.\n"
                         },
-                        "name": "text - 0 - Copy"
+                        "name": "text - 0 - Copyb"
                     }
                 ]
             },
