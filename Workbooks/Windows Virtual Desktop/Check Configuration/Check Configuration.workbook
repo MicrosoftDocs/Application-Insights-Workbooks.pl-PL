@@ -134,7 +134,7 @@
                         "resourceType": "microsoft.resourcegraph/resources"
                     },
                     {
-                        "id": "2edb83c2-527f-46fd-9e26-3e72d80da433",
+                        "id": "d3950ba8-36fb-4e6e-9e02-c7c764b655cd",
                         "version": "KqlParameterItem/1.0",
                         "name": "HasMonitorHosts",
                         "type": 1,
@@ -207,6 +207,42 @@
                         "name": "text - 1"
                     },
                     {
+                        "type": 9,
+                        "content": {
+                            "version": "KqlParameterItem/1.0",
+                            "crossComponentResources": [
+                                "value::all"
+                            ],
+                            "parameters": [
+                                {
+                                    "id": "47d10c5f-30e7-49ec-a61d-bc98f80e13b8",
+                                    "version": "KqlParameterItem/1.0",
+                                    "name": "poolWorspace",
+                                    "label": "Obszar roboczy puli",
+                                    "type": 5,
+                                    "isRequired": true,
+                                    "query": "resources\r\n| where type =~ \"Microsoft.OperationalInsights/workspaces\"\r\n| project id, label=name, selected=id=~\"{poolla}\"",
+                                    "crossComponentResources": [
+                                        "value::all"
+                                    ],
+                                    "typeSettings": {
+                                        "additionalResourceOptions": [],
+                                        "showDefault": false
+                                    },
+                                    "timeContext": {
+                                        "durationMs": 86400000
+                                    },
+                                    "queryType": 1,
+                                    "resourceType": "microsoft.resourcegraph/resources"
+                                }
+                            ],
+                            "style": "pills",
+                            "queryType": 1,
+                            "resourceType": "microsoft.resourcegraph/resources"
+                        },
+                        "name": "parameters - 4"
+                    },
+                    {
                         "type": 12,
                         "content": {
                             "version": "NotebookGroup/1.0",
@@ -229,7 +265,7 @@
                                             {
                                                 "type": 1,
                                                 "content": {
-                                                    "json": "Nie skonfigurowano usługi Azure Monitor dla wybranej puli hostów usługi WVD.  \nNależy skonfigurować ustawienia diagnostyczne dla tej puli hostów.\n\n1. Wybierz pozycję **Skonfiguruj pulę hostów**\n2. Wybierz pozycję **Wdróż** Po zakończeniu wdrażania odśwież skoroszyt, klikając przycisk Odśwież w górnej części strony.\n\n[Więcej informacji na temat usługi Azure Monitor dla usługi Windows Virtual Desktop](https://docs.microsoft.com/en-us/azure/virtual-desktop/diagnostics-log-analytics)"
+                                                    "json": "Nie skonfigurowano usługi Azure Monitor dla wybranej puli hostów usługi WVD.  \nNależy skonfigurować ustawienia diagnostyczne dla tej puli hostów.\n\n1. Wybierz obszar roboczy usługi log Analytics w parametrze **obszaru roboczego puli**\n2. Wybierz pozycję **Skonfiguruj pulę hostów**\n3. Wybierz pozycję **Wdróż** Po zakończeniu wdrażania odśwież skoroszyt, klikając przycisk Odśwież w górnej części strony.\n\n[Więcej informacji na temat usługi Azure Monitor dla usługi Windows Virtual Desktop](https://docs.microsoft.com/en-us/azure/virtual-desktop/diagnostics-log-analytics)"
                                                 },
                                                 "name": "text - 0"
                                             },
@@ -265,7 +301,7 @@
                                                                     {
                                                                         "name": "workspaceId",
                                                                         "source": "parameter",
-                                                                        "value": "Workspace",
+                                                                        "value": "poolWorspace",
                                                                         "kind": "stringValue"
                                                                     }
                                                                 ],
@@ -277,7 +313,11 @@
                                                         }
                                                     ]
                                                 },
-                                                "name": "links - 1"
+                                                "conditionalVisibility": {
+                                                    "parameterName": "poolWorspace",
+                                                    "comparison": "isNotEqualTo"
+                                                },
+                                                "name": "confighostpool"
                                             }
                                         ]
                                     },
@@ -699,7 +739,7 @@
                                             {
                                                 "type": 1,
                                                 "content": {
-                                                    "json": "Jeśli brakuje jakichkolwiek liczników wydajności, kliknij pozycję **Skonfiguruj liczniki wydajności** .  \nPo zakończeniu wdrażania odśwież skoroszyt."
+                                                    "json": "Jeśli brakuje jakichkolwiek liczników wydajności, kliknij pozycję **Skonfiguruj liczniki wydajności**.  \nPo zakończeniu wdrażania odśwież skoroszyt."
                                                 },
                                                 "name": "text - 4"
                                             },
@@ -844,7 +884,7 @@
                                             {
                                                 "type": 1,
                                                 "content": {
-                                                    "json": "Jeśli brakuje jakichkolwiek zdarzeń, kliknij pozycję **Otwórz konfigurację obszaru roboczego** .  \nNastępnie kliknij pozycje **Dane** i **Dzienniki zdarzeń systemu Windows** . Dodaj brakujące zdarzenia."
+                                                    "json": "Jeśli brakuje jakichkolwiek zdarzeń, kliknij pozycję **Otwórz konfigurację obszaru roboczego**.  \nNastępnie kliknij pozycje **Dane** i **Dzienniki zdarzeń systemu Windows**. Dodaj brakujące zdarzenia."
                                                 },
                                                 "name": "text - 5"
                                             },
@@ -864,7 +904,7 @@
                                                         }
                                                     ]
                                                 },
-                                                "name": "links - 3 - Copy"
+                                                "name": "configEvents"
                                             }
                                         ]
                                     },
