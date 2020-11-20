@@ -240,7 +240,7 @@
                             "queryType": 1,
                             "resourceType": "microsoft.resourcegraph/resources"
                         },
-                        "name": "parameters - 4"
+                        "name": "parameters2"
                     },
                     {
                         "type": 12,
@@ -265,7 +265,7 @@
                                             {
                                                 "type": 1,
                                                 "content": {
-                                                    "json": "Nie skonfigurowano usługi Azure Monitor dla wybranej puli hostów usługi WVD.  \nNależy skonfigurować ustawienia diagnostyczne dla tej puli hostów.\n\n1. Wybierz obszar roboczy usługi log Analytics w parametrze **obszaru roboczego puli**\n2. Wybierz pozycję **Skonfiguruj pulę hostów**\n3. Wybierz pozycję **Wdróż** Po zakończeniu wdrażania odśwież skoroszyt, klikając przycisk Odśwież w górnej części strony.\n\n[Więcej informacji na temat usługi Azure Monitor dla usługi Windows Virtual Desktop](https://docs.microsoft.com/en-us/azure/virtual-desktop/diagnostics-log-analytics)"
+                                                    "json": "Nie skonfigurowano usługi Azure Monitor dla wybranej puli hostów usługi WVD.  \nNależy skonfigurować ustawienia diagnostyczne dla tej puli hostów.\n\n1. Wybierz obszar roboczy usługi log Analytics w parametrze **obszaru roboczego puli**\n2. Wybierz pozycję **Skonfiguruj pulę hostów**\n3. Wybierz pozycję **Wdróż**.\nPo zakończeniu wdrażania odśwież skoroszyt, wybierając przycisk Odśwież w górnej części strony.\n\n[Więcej informacji na temat usługi Azure Monitor dla usługi Windows Virtual Desktop](https://docs.microsoft.com/en-us/azure/virtual-desktop/diagnostics-log-analytics)"
                                                 },
                                                 "name": "text - 0"
                                             },
@@ -284,7 +284,7 @@
                                                                 "componentIdSource": "parameter",
                                                                 "componentId": "HostPool",
                                                                 "templateUriSource": "static",
-                                                                "templateUri": "https://raw.githubusercontent.com/Azure/RDS-Templates/mbastos/nativemonitoring/wvd-templates/NativeMonitoring/config/hostpooldiag.json",
+                                                                "templateUri": "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/NativeMonitoring/config/hostpooldiag.json",
                                                                 "templateParameters": [
                                                                     {
                                                                         "name": "hostpoolName",
@@ -362,7 +362,7 @@
                         "type": 3,
                         "content": {
                             "version": "KqlItem/1.0",
-                            "query": "datatable(config:string) ['{PoolDiagSettings}']\r\n| project config = parse_json(config).value[0]\r\n| project Name=config.name, Workspace=config.properties.workspaceId, tables=config.properties.logs\r\n| mv-expand tables\r\n| project Name, Workspace, Table=tables.category, Enables=tables.enabled\r\n",
+                            "query": "datatable(config:string) ['{PoolDiagSettings}']\r\n| project config = parse_json(config).value[0]\r\n| project Name=config.name, Workspace=config.properties.workspaceId, tables=config.properties.logs\r\n| mv-expand tables\r\n| project Name, Workspace, Table=tables.category, Enabled=tables.enabled\r\n",
                             "size": 1,
                             "title": "Ustawienia diagnostyczne puli hostów: {HostPool}",
                             "timeContext": {
@@ -492,14 +492,14 @@
                                         "comparison": "isEqualTo",
                                         "value": "no"
                                     },
-                                    "name": "text - 1"
+                                    "name": "text2"
                                 },
                                 {
                                     "type": 1,
                                     "content": {
                                         "json": "Wybierz obszar roboczy usługi Log Analytics, do którego mają być wysyłane dane hostów sesji.  \n[Więcej informacji](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/log-analytics-agent)"
                                     },
-                                    "name": "text - 2"
+                                    "name": "text3"
                                 }
                             ]
                         },
@@ -739,7 +739,7 @@
                                             {
                                                 "type": 1,
                                                 "content": {
-                                                    "json": "Jeśli brakuje jakichkolwiek liczników wydajności, kliknij pozycję **Skonfiguruj liczniki wydajności**.  \nPo zakończeniu wdrażania odśwież skoroszyt."
+                                                    "json": "Jeśli brakuje jakichkolwiek liczników wydajności, wybierz pozycję **Skonfiguruj liczniki wydajności**.  \nPo zakończeniu wdrażania odśwież skoroszyt."
                                                 },
                                                 "name": "text - 4"
                                             },
@@ -760,7 +760,7 @@
                                                                 "componentIdSource": "parameter",
                                                                 "componentId": "ConfigWorkspace",
                                                                 "templateUriSource": "static",
-                                                                "templateUri": "https://raw.githubusercontent.com/Azure/RDS-Templates/mbastos/nativemoniotiring/wvd-templates/NativeMonitoring/config/workspaceconfig.json",
+                                                                "templateUri": "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/NativeMonitoring/config/workspaceconfig.json",
                                                                 "templateParameters": [
                                                                     {
                                                                         "name": "workspaceName",
@@ -821,7 +821,7 @@
                                                     "style": "pills",
                                                     "queryType": 12
                                                 },
-                                                "name": "parameters - 9"
+                                                "name": "parameters9"
                                             },
                                             {
                                                 "type": 3,
@@ -884,7 +884,7 @@
                                             {
                                                 "type": 1,
                                                 "content": {
-                                                    "json": "Jeśli brakuje jakichkolwiek zdarzeń, kliknij pozycję **Otwórz konfigurację obszaru roboczego**.  \nNastępnie kliknij pozycje **Dane** i **Dzienniki zdarzeń systemu Windows**. Dodaj brakujące zdarzenia."
+                                                    "json": "Jeśli brakuje jakichkolwiek zdarzeń, wybierz pozycję **Otwórz konfigurację obszaru roboczego**.  \nNastępnie wybierz pozycję **Dane** i pozycję **Dzienniki zdarzeń systemu Windows**. Dodaj brakujące zdarzenia."
                                                 },
                                                 "name": "text - 5"
                                             },
@@ -922,9 +922,9 @@
                                             {
                                                 "type": 1,
                                                 "content": {
-                                                    "json": "Niektóre hosty w puli hostów nie wysyłają danych do wybranego obszaru roboczego usługi Log Analytics.  \nKliknij pozycję **Dodaj hosty do obszaru roboczego** , aby dodać te hosty do obszaru roboczego.\n\nPo zakończeniu wdrażania odśwież skoroszyt, klikając przycisk Odśwież w górnej części strony."
+                                                    "json": "Niektóre hosty w puli hostów nie wysyłają danych do wybranego obszaru roboczego usługi Log Analytics.  \nWybierz pozycję **Dodaj hosty do obszaru roboczego**, aby dodać te hosty do obszaru roboczego.\n\nPo zakończeniu wdrażania odśwież skoroszyt, wybierając przycisk Odśwież w górnej części strony."
                                                 },
-                                                "name": "text - 2"
+                                                "name": "text4"
                                             },
                                             {
                                                 "type": 3,
@@ -955,7 +955,7 @@
                                                                 "componentIdSource": "parameter",
                                                                 "componentId": "NoWorkspaceVms",
                                                                 "templateUriSource": "static",
-                                                                "templateUri": "https://raw.githubusercontent.com/Azure/RDS-Templates/mbastos/nativemoniotiring/wvd-templates/NativeMonitoring/config/workspaceadd.json",
+                                                                "templateUri": "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/NativeMonitoring/config/workspaceadd.json",
                                                                 "templateParameters": [
                                                                     {
                                                                         "name": "workspaceId",
