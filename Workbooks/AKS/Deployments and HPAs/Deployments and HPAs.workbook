@@ -107,7 +107,6 @@
                         "type": 1,
                         "description": "Filtruj zapytania według identyfikatora klastra",
                         "isRequired": true,
-                        "value": "| where \"a\" == \"a\"",
                         "isHiddenWhenLocked": true,
                         "criteriaData": [
                             {

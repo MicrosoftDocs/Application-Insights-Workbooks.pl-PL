@@ -201,7 +201,7 @@
         {
             "type": 1,
             "content": {
-                "json": "💡*Wybierz urządzenie i kliknij kartę „ **Przejdź do szczegółów** ”*"
+                "json": "💡*Wybierz urządzenie i kliknij kartę „**Przejdź do szczegółów**”*"
             },
             "conditionalVisibilities": [
                 {
